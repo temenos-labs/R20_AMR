@@ -1,0 +1,1269 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "standing order",
+    "version" : "v1.0.0",
+    "title" : "standing order"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/api/v1.0.0",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/order/standingOrder/accounts/{debitorId}" : {
+      "post" : {
+        "operationId" : "createStandingOrder",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "debitorId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/createStandingOrder"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "createStandingOrderResponse",
+            "schema" : {
+              "$ref" : "#/definitions/createStandingOrderResponse"
+            }
+          },
+          "default" : {
+            "description" : "createStandingOrderErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/createStandingOrderErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/standingOrder/{standingOrderId}" : {
+      "get" : {
+        "operationId" : "getStandingOrder",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "standingOrderId",
+          "in" : "path",
+          "description" : "The unique standing order identifier",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getStandingOrderResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getStandingOrderResponse"
+            }
+          },
+          "default" : {
+            "description" : "getStandingOrderErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getStandingOrderErrorResponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateStandingOrder",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "standingOrderId",
+          "in" : "path",
+          "description" : "The unique standing order identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/updateStandingOrder"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "updateStandingOrderResponse",
+            "schema" : {
+              "$ref" : "#/definitions/updateStandingOrderResponse"
+            }
+          },
+          "default" : {
+            "description" : "updateStandingOrderErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/updateStandingOrderErrorResponse"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteStandingOrder",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "standingOrderId",
+          "in" : "path",
+          "description" : "The unique standing order identifier",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "deleteStandingOrderResponse",
+            "schema" : {
+              "$ref" : "#/definitions/deleteStandingOrderResponse"
+            }
+          },
+          "default" : {
+            "description" : "deleteStandingOrderErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/deleteStandingOrderErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "Contains the description of purpose of the payment."
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "createStandingOrder" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/createStandingOrderBody"
+        }
+      },
+      "description" : "createStandingOrder"
+    },
+    "createStandingOrderBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "ScreenHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "createStandingOrderResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/createStandingOrderResponseBody"
+        }
+      },
+      "description" : "createStandingOrderResponse"
+    },
+    "createStandingOrderResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "The status of the record"
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "createStandingOrderErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/createStandingOrderErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "createStandingOrderErrorResponse"
+    },
+    "createStandingOrderErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "updateStandingOrder" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/updateStandingOrderBody"
+        }
+      },
+      "description" : "updateStandingOrder"
+    },
+    "updateStandingOrderBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "updateStandingOrderResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/updateStandingOrderResponseBody"
+        }
+      },
+      "description" : "updateStandingOrderResponse"
+    },
+    "updateStandingOrderResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "updateStandingOrderErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/updateStandingOrderErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "updateStandingOrderErrorResponse"
+    },
+    "updateStandingOrderErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "deleteStandingOrderResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/deleteStandingOrderResponseBody"
+        }
+      },
+      "description" : "deleteStandingOrderResponse"
+    },
+    "deleteStandingOrderResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "deleteStandingOrderErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/deleteStandingOrderErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "deleteStandingOrderErrorResponse"
+    },
+    "deleteStandingOrderErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getStandingOrderResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getStandingOrderResponseBody"
+        }
+      },
+      "description" : "getStandingOrderResponse"
+    },
+    "getStandingOrderResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Method chosen to make the payment"
+        },
+        "currentFrequency" : {
+          "type" : "string",
+          "description" : "Indicates the current frequency of the standing order"
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+        },
+        "futureNotice" : {
+          "type" : "string",
+          "description" : "Flag to indicate that the standing order should execute until future notice, i.e. until an end date is provided."
+        },
+        "counterPartyAccountId" : {
+          "type" : "string",
+          "description" : "The identifier of the counter party's account"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date on which the transaction or payment gets initiated."
+        },
+        "frequency" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number."
+        },
+        "beneficiary" : {
+          "type" : "string",
+          "description" : "Identifies the Beneficiary name and address of the Standing Order"
+        },
+        "beneficiaryReference" : {
+          "type" : "string",
+          "description" : "The reference which is provided to the beneficiary by the originator of payment"
+        },
+        "accountWithBank" : {
+          "type" : "string",
+          "description" : "Identifies the bank where the beneficiary maintains his account"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        },
+        "currentAmountBalance" : {
+          "type" : "number",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+        },
+        "bankSortCode" : {
+          "type" : "string",
+          "description" : "The sort code or the national clearing code of the beneficiary bank. "
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+        },
+        "beneficiaryBIC" : {
+          "type" : "string",
+          "description" : "BIC (Bank Identifier Code) of the beneficiary customer "
+        },
+        "beneficiaryBICName" : {
+          "type" : "string",
+          "description" : "The name of the beneficiary bank"
+        },
+        "beneficiaryBICCity" : {
+          "type" : "string",
+          "description" : "The city associated with beneficiary bank BIC (Bank Identifier Code)"
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Indicates the date based on current frequency"
+        },
+        "override" : {
+          "type" : "string",
+          "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+        },
+        "paymentOrderProductName" : {
+          "type" : "string",
+          "description" : "Indicates the name of payment order product "
+        },
+        "beneficiaryCharge" : {
+          "type" : "number",
+          "description" : ""
+        },
+        "accountWithBankIBAN" : {
+          "type" : "string",
+          "description" : "This is the IBAN of the institution where beneficiary holds an account"
+        },
+        "paymentCategory" : {
+          "type" : "string",
+          "description" : "The purpose code for the payment. Should be one of the pre-defined purpose codes in the application and information will be used for payment processing"
+        },
+        "supressFundsTransfer" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "customerSpread" : {
+          "type" : "string",
+          "description" : "The spread that is applied to the published internal exchange rates to derive the final exchange rate or the customer rate for the transaction"
+        },
+        "customerRate" : {
+          "type" : "number",
+          "description" : "The exchange rate that is actually applied for currency conversion in case of transactions involving FX conversion. "
+        },
+        "paymentOrderVersion" : {
+          "type" : "string",
+          "description" : "Specifies the payment order screen which will be used when executing standing instruction"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        }
+      }
+    },
+    "getStandingOrderErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getStandingOrderErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "getStandingOrderErrorResponse"
+    },
+    "getStandingOrderErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    }
+  }
+}

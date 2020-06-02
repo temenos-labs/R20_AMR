@@ -1,0 +1,1223 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Retrieves the Bill Details of an account",
+    "version" : "v1.0.0",
+    "title" : "Retrieves the Bill Details of an account"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/accounts/{arrangementId}/outstandingBills" : {
+      "get" : {
+        "summary" : "Retrieves the Outstanding amount to be paid for an account",
+        "description" : "Retrieves the Outstanding amount to be paid for an account",
+        "operationId" : "getOutstandingBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA19077ZCR4G"
+        }, {
+          "name" : "fileVersion",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "simulationReference",
+          "in" : "query",
+          "description" : "Indicates the Reference ID for simulation activity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentDate",
+          "in" : "query",
+          "description" : "The date on which a payment is due",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deferDate",
+          "in" : "query",
+          "description" : "Date that the payment has been deferred to",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billedAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "outstandingAmount",
+          "in" : "query",
+          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "delinquentAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "property",
+          "in" : "query",
+          "description" : "The corresponding property",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billStatus",
+          "in" : "query",
+          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "settlementStatus",
+          "in" : "query",
+          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "agingStatus",
+          "in" : "query",
+          "description" : "Indicates the ageing status of a bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "settled",
+          "in" : "query",
+          "description" : "Flag to indicate whether a bill is settled or not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentType",
+          "in" : "query",
+          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billDate",
+          "in" : "query",
+          "description" : "Indicates a date on which a bill has been raised",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billType",
+          "in" : "query",
+          "description" : "The type of payment obligation generated",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentMethod",
+          "in" : "query",
+          "description" : "Method chosen to make the payment",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "infoPayType",
+          "in" : "query",
+          "description" : "Indicates a bill which is raised when a loan is paid off",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "advancePayment",
+          "in" : "query",
+          "description" : "Indicates whether advance payment made is set on an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentIndicator",
+          "in" : "query",
+          "description" : "Indicates whether its a credit/debit type of bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OutstandingBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/OutstandingBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/deferredBills" : {
+      "get" : {
+        "summary" : "Retrieves the details of the deferred bills",
+        "description" : "Retrieves the details of the deferred bills",
+        "operationId" : "getDeferredBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA1907957KC1"
+        }, {
+          "name" : "fileVersion",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "simulationReference",
+          "in" : "query",
+          "description" : "Indicates the Reference ID for simulation activity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentDate",
+          "in" : "query",
+          "description" : "The date on which a payment is due",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deferDate",
+          "in" : "query",
+          "description" : "Date that the payment has been deferred to",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billedAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "outstandingAmount",
+          "in" : "query",
+          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "delinquentAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "property",
+          "in" : "query",
+          "description" : "The corresponding property",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billStatus",
+          "in" : "query",
+          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "settlementStatus",
+          "in" : "query",
+          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "agingStatus",
+          "in" : "query",
+          "description" : "Indicates the ageing status of a bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentType",
+          "in" : "query",
+          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billDate",
+          "in" : "query",
+          "description" : "Indicates a date on which a bill has been raised",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billType",
+          "in" : "query",
+          "description" : "The type of payment obligation generated",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentMethod",
+          "in" : "query",
+          "description" : "Method chosen to make the payment",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "infoPayType",
+          "in" : "query",
+          "description" : "Indicates a bill which is raised when a loan is paid off",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "advancePayment",
+          "in" : "query",
+          "description" : "Indicates whether advance payment made is set on an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentIndicator",
+          "in" : "query",
+          "description" : "Indicates whether its a credit/debit type of bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DeferredBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/DeferredBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/externalBills" : {
+      "get" : {
+        "summary" : "Retrieves the details of the external type of bills",
+        "description" : "Retrieves the details of the external type of bills",
+        "operationId" : "getExternalBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA19079RZ823"
+        }, {
+          "name" : "simulationReference",
+          "in" : "query",
+          "description" : "Indicates the Reference ID for simulation activity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ExternalBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ExternalBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/billDetails" : {
+      "get" : {
+        "summary" : "Retrieves the details of all the types of bills",
+        "description" : "Retrieves the details of all the types of bills",
+        "operationId" : "getAllBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA19079RZ823"
+        }, {
+          "name" : "fileVersion",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "simulationReference",
+          "in" : "query",
+          "description" : "Indicates the Reference ID for simulation activity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentDate",
+          "in" : "query",
+          "description" : "The date on which a payment is due",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deferDate",
+          "in" : "query",
+          "description" : "Date that the payment has been deferred to",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billedAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "outstandingAmount",
+          "in" : "query",
+          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "delinquentAmount",
+          "in" : "query",
+          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "property",
+          "in" : "query",
+          "description" : "The corresponding property",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billStatus",
+          "in" : "query",
+          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "settlementStatus",
+          "in" : "query",
+          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "agingStatus",
+          "in" : "query",
+          "description" : "Indicates the ageing status of a bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "settled",
+          "in" : "query",
+          "description" : "Flag to indicate whether a bill is settled or not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentType",
+          "in" : "query",
+          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billDate",
+          "in" : "query",
+          "description" : "Indicates a date on which a bill has been raised",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "billType",
+          "in" : "query",
+          "description" : "The type of payment obligation generated",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentMethod",
+          "in" : "query",
+          "description" : "Method chosen to make the payment",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "infoPayType",
+          "in" : "query",
+          "description" : "Indicates a bill which is raised when a loan is paid off",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "advancePayment",
+          "in" : "query",
+          "description" : "Indicates whether advance payment made is set on an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "paymentIndicator",
+          "in" : "query",
+          "description" : "Indicates whether its a credit/debit type of bill",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AllBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AllBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/advanceBills" : {
+      "get" : {
+        "summary" : "Retrieves the details of the Advance bills",
+        "description" : "Retrieves the details of the Advance bills",
+        "operationId" : "getAdvanceBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA1907957KC1"
+        }, {
+          "name" : "billStatus",
+          "in" : "query",
+          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AdvanceBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AdvanceBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/writeOffBills" : {
+      "get" : {
+        "summary" : "Retrieves the details of the write off bills",
+        "description" : "Retrieves the details of the write off bills",
+        "operationId" : "getWriteoffBills",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "AA19079RZ823"
+        }, {
+          "name" : "billStatus",
+          "in" : "query",
+          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "WriteoffBillsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/WriteoffBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "OutstandingBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/OutstandingBillsResponseBody"
+        }
+      },
+      "description" : "OutstandingBillsResponse"
+    },
+    "OutstandingBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "billDate" : {
+            "type" : "string",
+            "description" : "Indicates a date on which a bill has been raised"
+          },
+          "billType" : {
+            "type" : "string",
+            "description" : "The type of payment obligation generated"
+          },
+          "billed" : {
+            "type" : "string",
+            "description" : "Indicates the total billed amount of a bill",
+            "maxLength" : 19
+          },
+          "outstanding" : {
+            "type" : "string",
+            "description" : "The remaining monetary amount on a loan",
+            "maxLength" : 19
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          },
+          "billStatus" : {
+            "type" : "string",
+            "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
+            "maxLength" : 15
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "DeferredBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DeferredBillsResponseBody"
+        }
+      },
+      "description" : "DeferredBillsResponse"
+    },
+    "DeferredBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "billdate" : {
+            "type" : "string",
+            "description" : "Indicates a date on which a bill has been raised"
+          },
+          "billType" : {
+            "type" : "string",
+            "description" : "The type of payment obligation generated"
+          },
+          "originalAmount" : {
+            "type" : "string",
+            "description" : "Indicates the original amount of the bill",
+            "maxLength" : 19
+          },
+          "currentOutstanding" : {
+            "type" : "string",
+            "description" : "Indicates the current outstanding amount of the bill",
+            "maxLength" : 19
+          },
+          "deferredTill" : {
+            "type" : "string",
+            "description" : "Indicates the date until the bill was deferred.",
+            "maxLength" : 11
+          }
+        }
+      }
+    },
+    "ExternalBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ExternalBillsResponseBody"
+        }
+      },
+      "description" : "ExternalBillsResponse"
+    },
+    "ExternalBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "dueDate" : {
+            "type" : "string",
+            "description" : "Identifies the date on which the activity is due.",
+            "maxLength" : 30
+          },
+          "infoCharge" : {
+            "type" : "string",
+            "description" : "Indicates the kind of charge which was billed."
+          },
+          "billedAmount" : {
+            "type" : "string",
+            "description" : "Indicates the bill amount",
+            "maxLength" : 19
+          }
+        }
+      }
+    },
+    "AllBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AllBillsResponseBody"
+        }
+      },
+      "description" : "AllBillsResponse"
+    },
+    "AllBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "billDate" : {
+            "type" : "string",
+            "description" : "Indicates a date on which a bill has been raised"
+          },
+          "billType" : {
+            "type" : "string",
+            "description" : "The type of payment obligation generated"
+          },
+          "billedAmount" : {
+            "type" : "string",
+            "description" : "Indicates the bill amount",
+            "maxLength" : 19
+          },
+          "outstandingAmount" : {
+            "type" : "string",
+            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+            "maxLength" : 19
+          },
+          "billStatus" : {
+            "type" : "string",
+            "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)"
+          }
+        }
+      }
+    },
+    "AdvanceBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AdvanceBillsResponseBody"
+        }
+      },
+      "description" : "AdvanceBillsResponse"
+    },
+    "AdvanceBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "billDate" : {
+            "type" : "string",
+            "description" : "Indicates a date on which a bill has been raised"
+          },
+          "billType" : {
+            "type" : "string",
+            "description" : "The type of payment obligation generated"
+          },
+          "originalAmount" : {
+            "type" : "string",
+            "description" : "Indicates the original amount of the bill",
+            "maxLength" : 19
+          },
+          "repaidAmount" : {
+            "type" : "string",
+            "description" : "Indicates the amount which was repaid from the customer",
+            "maxLength" : 19
+          },
+          "remainingAmount" : {
+            "type" : "string",
+            "description" : "Indicates the remaining amount which need to be paid by the customer",
+            "maxLength" : 19
+          },
+          "settledOn" : {
+            "type" : "string",
+            "description" : "IIndiactes the date on which the bill was settled.",
+            "maxLength" : 11
+          }
+        }
+      }
+    },
+    "WriteoffBillsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/WriteoffBillsResponseBody"
+        }
+      },
+      "description" : "WriteoffBillsResponse"
+    },
+    "WriteoffBillsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "paymentDate" : {
+            "type" : "string",
+            "description" : "The date on which a payment is due"
+          },
+          "billType" : {
+            "type" : "string",
+            "description" : "The type of payment obligation generated"
+          },
+          "totAdjustAmount" : {
+            "type" : "string",
+            "description" : "Indicates the adjusted amount which is writtenoff from the bill",
+            "maxLength" : 19
+          },
+          "writtenOffOn" : {
+            "type" : "string",
+            "description" : "Indicates the date on which the bill is writtenoff",
+            "maxLength" : 11
+          }
+        }
+      }
+    }
+  }
+}

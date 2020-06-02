@@ -1,0 +1,252 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Customer Personal Consent",
+    "version" : "v1.0.0",
+    "title" : "Party Personal Consents"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/party/customers/{customerId}/personalConsents" : {
+      "get" : {
+        "operationId" : "getCustomerPersonalConsents",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "CustomerPersonalConsentsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/partyCustomerPersonalConsentsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "partyCustomerPersonalConsentsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/partyCustomerPersonalConsentsResponseBody"
+        }
+      },
+      "description" : "partyCustomerPersonalConsentsResponse"
+    },
+    "partyCustomerPersonalConsentsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "personalDetails" : {
+            "type" : "array",
+            "description" : "Personal details about the customers.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "customerId" : {
+                  "type" : "number",
+                  "description" : "Identifier of the customer"
+                },
+                "customerName" : {
+                  "type" : "string",
+                  "description" : "Name of the customer",
+                  "maxLength" : 10
+                }
+              }
+            }
+          },
+          "consentTypes" : {
+            "type" : "array",
+            "description" : "Consent types may have sub-types under it which may require explicit consent from the customer.These sub-types are set at Product level and will default on to the arrangement.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "consentType" : {
+                  "type" : "string",
+                  "description" : "Consent Type for which the consent is given",
+                  "maxLength" : 17
+                },
+                "isConsentGiven" : {
+                  "type" : "boolean",
+                  "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                },
+                "consentSubTypes" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "consentSubType" : {
+                        "type" : "string",
+                        "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                        "maxLength" : 17
+                      },
+                      "isSubTypeConsentGiven" : {
+                        "type" : "boolean",
+                        "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account",
+            "maxLength" : 17
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    }
+  }
+}

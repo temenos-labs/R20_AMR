@@ -1,0 +1,1383 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Creates a Wakala Deposit",
+    "version" : "v1.0.0",
+    "title" : "createWakalaDeposit"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/deposits/wakalaDeposits" : {
+      "post" : {
+        "description" : "Create a wakala deposit",
+        "operationId" : "createWakalaDeposit",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/holdingsWakalaDeposit"
+          }
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "createWakalaDepositResponse",
+            "schema" : {
+              "$ref" : "#/definitions/holdingsWakalaDepositResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "Contains the description of purpose of the payment."
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            }
+          }
+        }
+      }
+    },
+    "holdingsWakalaDeposit" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/holdingsWakalaDepositBody"
+        }
+      },
+      "description" : "holdingsWakalaDeposit"
+    },
+    "holdingsWakalaDepositBody" : {
+      "type" : "object",
+      "properties" : {
+        "parties" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "partyId" : {
+                "type" : "string",
+                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field."
+              },
+              "partyRole" : {
+                "type" : "string",
+                "description" : "Indicates the role of a customer or party, Eg: Benefial Owner, Nominee etc"
+              }
+            }
+          }
+        },
+        "activityId" : {
+          "type" : "string",
+          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
+        },
+        "effectiveDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "The date on which the principal movement is effected"
+        },
+        "productId" : {
+          "type" : "string",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+        },
+        "currencyId" : {
+          "type" : "string",
+          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+        },
+        "simulationId" : {
+          "type" : "string",
+          "description" : "Indicates the Id generated during the simulation of an activity"
+        },
+        "settlement" : {
+          "type" : "object",
+          "properties" : {
+            "settlement" : {
+              "type" : "array",
+              "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "payinSettlement" : {
+                    "type" : "string",
+                    "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                  },
+                  "payoutSettlement" : {
+                    "type" : "string",
+                    "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                  },
+                  "reference" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "ddMandateReference" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : ""
+                        },
+                        "payinAccount" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payinBeneficiary" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payinPercentage" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payinAmount" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payoutAccount" : {
+                          "type" : "string",
+                          "description" : "The account to which a settlement amount is transferred."
+                        },
+                        "payoutBeneficiary" : {
+                          "type" : "string",
+                          "description" : "The beneficiary that payment should be made to ."
+                        },
+                        "payoutPercentage" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payoutAmount" : {
+                          "type" : "number",
+                          "description" : ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "assocSettlement" : {
+              "type" : "array",
+              "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "payinSettlement" : {
+                    "type" : "string",
+                    "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                  },
+                  "payinRule" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "payinSettlementActivity" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "payinRCType" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "payinRCCondition" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "reference" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "payinAccount" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payinBeneficiary" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payinPOProduct" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payinPercentage" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payinAmount" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payinActivity" : {
+                          "type" : "string",
+                          "description" : ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "asscoSettlement" : {
+              "type" : "array",
+              "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "reference" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "ddMandateReference" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "payout" : {
+              "type" : "array",
+              "description" : "Id of the product property",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "payoutSettlement" : {
+                    "type" : "string",
+                    "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                  },
+                  "payoutSettlementActivity" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "property" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "payoutPropertyClass" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payoutProperty" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payoutAccount" : {
+                          "type" : "string",
+                          "description" : "The account to which a settlement amount is transferred."
+                        },
+                        "payoutBeneficiary" : {
+                          "type" : "string",
+                          "description" : "The beneficiary that payment should be made to ."
+                        },
+                        "payoutPOProduct" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "payoutPercentage" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payoutAmount" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "payoutActivity" : {
+                          "type" : "string",
+                          "description" : ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "paymentType" : {
+              "type" : "string",
+              "description" : "Indicates if the payment is Customer (C) type or Bank (B) type"
+            },
+            "defaultSettlementAccount" : {
+              "type" : "string",
+              "description" : "Default settlement account to be used for all incoming payments and outgoing settlements when a specific settlement account is not provided for each payment type."
+            }
+          }
+        },
+        "commitment" : {
+          "type" : "object",
+          "properties" : {
+            "amount" : {
+              "type" : "number",
+              "description" : "This is the payment amount"
+            },
+            "changeAmount" : {
+              "type" : "number",
+              "description" : "Indicates the amount by which the original commitment amount increased or decreased."
+            },
+            "term" : {
+              "type" : "string",
+              "description" : "Indicates the term for which the contract is booked"
+            },
+            "revolving" : {
+              "type" : "string",
+              "description" : "Indicates if commitment is revolving or non revolving in nature",
+              "enum" : [ "NO", "PAYMENT", "PREPAYMENT" ]
+            },
+            "updateLimit" : {
+              "type" : "string",
+              "description" : "Flag to define if the limits are to be booked or not at the time of issuing the pre-advice LC. Allowed values: - YES - NO (same as null) - null (default).",
+              "enum" : [ "YES", "NO" ]
+            }
+          }
+        }
+      }
+    },
+    "ArrangementHeader" : {
+      "properties" : {
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        },
+        "aaaId" : {
+          "type" : "string",
+          "description" : "The Identifier of the aa record created"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "holdingsWakalaDepositResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/holdingsWakalaDepositResponseBody"
+        }
+      },
+      "description" : "holdingsWakalaDepositResponse"
+    },
+    "holdingsWakalaDepositResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "arrangementActivity" : {
+          "type" : "object",
+          "properties" : {
+            "parties" : {
+              "type" : "array",
+              "description" : "",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "partyId" : {
+                    "type" : "string",
+                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field."
+                  },
+                  "partyRole" : {
+                    "type" : "string",
+                    "description" : "Indicates the role of a customer or party, Eg: Benefial Owner, Nominee etc"
+                  }
+                }
+              }
+            },
+            "arrangementId" : {
+              "type" : "string",
+              "description" : "Indicates an unique identifier of an account"
+            },
+            "activityId" : {
+              "type" : "string",
+              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
+            },
+            "effectiveDate" : {
+              "type" : "string",
+              "format" : "date",
+              "description" : "The date on which the principal movement is effected"
+            },
+            "productId" : {
+              "type" : "string",
+              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+            },
+            "currencyId" : {
+              "type" : "string",
+              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+            },
+            "simulationId" : {
+              "type" : "string",
+              "description" : "Indicates the Id generated during the simulation of an activity"
+            }
+          }
+        },
+        "activities" : {
+          "type" : "object",
+          "properties" : {
+            "{activityName}" : {
+              "type" : "object",
+              "properties" : {
+                "activity" : {
+                  "type" : "string",
+                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                },
+                "transactionStatus" : {
+                  "type" : "string",
+                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                },
+                "id" : {
+                  "type" : "string",
+                  "description" : "The Identifier of the record created"
+                }
+              }
+            }
+          }
+        },
+        "properties" : {
+          "type" : "object",
+          "properties" : {
+            "account" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "activityCharges" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "messaging" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "arrangementRules" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "redemptionfee" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "depositcharge" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "crredemptionfee" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "closure" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "customer" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "depositpft" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "officers" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "prDeposit" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "prCurrentBalances" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "schedule" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "poEarlyWithdrawal" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "poWithdrawal" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "idProfitPay" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "idperiodicchrg" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "deppricing" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "renewal" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "reporting" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "settlement" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "audit" : {
+                      "type" : "object",
+                      "properties" : {
+                        "parseTime" : {
+                          "type" : "integer",
+                          "format" : "int32",
+                          "description" : "Time taken to parse the response by IRIS"
+                        }
+                      }
+                    },
+                    "id" : {
+                      "type" : "string",
+                      "description" : "The Identifier of the record created"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                },
+                "body" : {
+                  "type" : "object",
+                  "properties" : {
+                    "settlement" : {
+                      "type" : "array",
+                      "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "payinSettlement" : {
+                            "type" : "string",
+                            "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                          },
+                          "payoutSettlement" : {
+                            "type" : "string",
+                            "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                          },
+                          "reference" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "ddMandateReference" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : ""
+                                },
+                                "payinAccount" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payinBeneficiary" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payinPercentage" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payinAmount" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payoutAccount" : {
+                                  "type" : "string",
+                                  "description" : "The account to which a settlement amount is transferred."
+                                },
+                                "payoutBeneficiary" : {
+                                  "type" : "string",
+                                  "description" : "The beneficiary that payment should be made to ."
+                                },
+                                "payoutPercentage" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payoutAmount" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "assocSettlement" : {
+                      "type" : "array",
+                      "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "payinSettlement" : {
+                            "type" : "string",
+                            "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                          },
+                          "payinRule" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "payinSettlementActivity" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "payinRCType" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "payinRCCondition" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "reference" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "payinAccount" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payinBeneficiary" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payinPOProduct" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payinPercentage" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payinAmount" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payinActivity" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "asscoSettlement" : {
+                      "type" : "array",
+                      "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. ",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "reference" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "ddMandateReference" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : ""
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "payout" : {
+                      "type" : "array",
+                      "description" : "Id of the product property",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "payoutSettlement" : {
+                            "type" : "string",
+                            "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                          },
+                          "payoutSettlementActivity" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "property" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "payoutPropertyClass" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payoutProperty" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payoutAccount" : {
+                                  "type" : "string",
+                                  "description" : "The account to which a settlement amount is transferred."
+                                },
+                                "payoutBeneficiary" : {
+                                  "type" : "string",
+                                  "description" : "The beneficiary that payment should be made to ."
+                                },
+                                "payoutPOProduct" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                },
+                                "payoutPercentage" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payoutAmount" : {
+                                  "type" : "number",
+                                  "description" : ""
+                                },
+                                "payoutActivity" : {
+                                  "type" : "string",
+                                  "description" : ""
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "paymentType" : {
+                      "type" : "string",
+                      "description" : "Indicates if the payment is Customer (C) type or Bank (B) type"
+                    },
+                    "defaultSettlementAccount" : {
+                      "type" : "string",
+                      "description" : "Default settlement account to be used for all incoming payments and outgoing settlements when a specific settlement account is not provided for each payment type."
+                    }
+                  }
+                }
+              }
+            },
+            "tax" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            },
+            "commitment" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "audit" : {
+                      "type" : "object",
+                      "properties" : {
+                        "parseTime" : {
+                          "type" : "integer",
+                          "format" : "int32",
+                          "description" : "Time taken to parse the response by IRIS"
+                        }
+                      }
+                    },
+                    "id" : {
+                      "type" : "string",
+                      "description" : "The Identifier of the record created"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                },
+                "body" : {
+                  "type" : "object",
+                  "properties" : {
+                    "amount" : {
+                      "type" : "number",
+                      "description" : "This is the payment amount"
+                    },
+                    "changeAmount" : {
+                      "type" : "number",
+                      "description" : "Indicates the amount by which the original commitment amount increased or decreased."
+                    },
+                    "term" : {
+                      "type" : "string",
+                      "description" : "Indicates the term for which the contract is booked"
+                    },
+                    "revolving" : {
+                      "type" : "string",
+                      "description" : "Indicates if commitment is revolving or non revolving in nature",
+                      "enum" : [ "NO", "PAYMENT", "PREPAYMENT" ]
+                    },
+                    "updateLimit" : {
+                      "type" : "string",
+                      "description" : "Flag to define if the limits are to be booked or not at the time of issuing the pre-advice LC. Allowed values: - YES - NO (same as null) - null (default).",
+                      "enum" : [ "YES", "NO" ]
+                    }
+                  }
+                }
+              }
+            },
+            "dormancy" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ArrangementErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/ArrangementErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "ArrangementErrorResponse"
+    },
+    "ArrangementErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              },
+              "property" : {
+                "type" : "string",
+                "description" : "The corresponding property"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    }
+  }
+}

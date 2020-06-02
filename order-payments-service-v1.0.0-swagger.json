@@ -1,0 +1,1279 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Allows the creation, viewing and management of payments and transfers",
+    "version" : "v1.0.0",
+    "title" : "Order Payments APIs"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/holdings/accounts/{accountId}" : {
+      "get" : {
+        "operationId" : "getAccount",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getAccountResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountResponse"
+            }
+          },
+          "default" : {
+            "description" : "getAccountErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{accountId}/transactions" : {
+      "get" : {
+        "operationId" : "getAccountTransactions",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "Indicates the business date from when the balance reservation event is active.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "processingDate",
+          "in" : "query",
+          "description" : "The date when payment instruction is processed in system.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getAccountTransactionsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountTransactionsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getAccountTransactionsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountTransactionsErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{accountId}/alertEvents" : {
+      "get" : {
+        "operationId" : "getEligibleEvents",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getEligibleEventsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getEligibleEventsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getEligibleEventsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getEligibleEventsErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{accountId}/cards" : {
+      "get" : {
+        "operationId" : "getAccountCards",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getAccountCardsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountCardsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getAccountCardsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountCardsErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{accountId}/reservedFunds" : {
+      "get" : {
+        "operationId" : "getReservedFunds",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getReservedFundsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getReservedFundsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getReservedFundsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getReservedFundsErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/fees" : {
+      "get" : {
+        "operationId" : "getPaymentFeesAndCharges",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPaymentFeesAndChargesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentFeesAndChargesResponse"
+            }
+          },
+          "default" : {
+            "description" : "getPaymentFeesAndChargesErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentFeesAndChargesErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/paymentStatus" : {
+      "get" : {
+        "operationId" : "getPaymentsAuditTrail",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPaymentsAuditTrailResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentsAuditTrailResponse"
+            }
+          },
+          "default" : {
+            "description" : "getPaymentsAuditTrailErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentsAuditTrailErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/{paymentId}/paymentStatus" : {
+      "get" : {
+        "operationId" : "getPaymentAuditTrail",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "paymentId",
+          "in" : "path",
+          "description" : "Indicates the unique reference number of the payment",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPaymentAuditTrailResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentAuditTrailResponse"
+            }
+          },
+          "default" : {
+            "description" : "getPaymentAuditTrailErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentAuditTrailErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/pendingOrders" : {
+      "get" : {
+        "operationId" : "getPendingPayments",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingPaymentsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingPaymentsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getPendingPaymentsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingPaymentsErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/pendingRepairOrders" : {
+      "get" : {
+        "operationId" : "getPendingRepairPayments",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingRepairPaymentsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingRepairPaymentsResponse"
+            }
+          },
+          "default" : {
+            "description" : "getPendingRepairPaymentsErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingRepairPaymentsErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
+        }
+      }
+    },
+    "getAccountResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getAccountResponseBody"
+        }
+      },
+      "description" : "getAccountResponse"
+    },
+    "getAccountResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "productName" : {
+            "type" : "string",
+            "description" : "Product name of the bank for this account, proprietary definition."
+          },
+          "accountId" : {
+            "type" : "string",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "maxLength" : 16
+          },
+          "displayName" : {
+            "type" : "string",
+            "description" : "Contains the name used for display or enrichment purposes",
+            "maxLength" : 35
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "maxLength" : 3
+          },
+          "lockedAmount" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Shows reserved amount for the underlying account for a given balance reservation event."
+          },
+          "workingBalance" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
+          },
+          "onlineActualBalance" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+          },
+          "availableBalance" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+          },
+          "sortCode" : {
+            "type" : "string",
+            "description" : "Contains bank sort code or iban branch identifier for the account"
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "Identifier of the customer",
+            "maxLength" : 10
+          },
+          "availableLimit" : {
+            "type" : "string",
+            "description" : "The portion of an allocated credit limit that is available for the nominated customer",
+            "maxLength" : 19
+          },
+          "IBAN" : {
+            "type" : "string",
+            "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19",
+            "maxLength" : 19
+          },
+          "portfolioId" : {
+            "type" : "string",
+            "description" : "Id of the portfolio or security account",
+            "maxLength" : 18
+          },
+          "openingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date the account is opened."
+          },
+          "limitReference" : {
+            "type" : "string",
+            "description" : "Identifies the credit limit reference for the underlying account.",
+            "maxLength" : 10
+          },
+          "clearedBalance" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Balance taking into consideration all cleared funds booked against the account, including credit and reversed debit entries with a future exposure date."
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "getAccountErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getAccountErrorResponseBody"
+        }
+      },
+      "description" : "getAccountErrorResponse"
+    },
+    "getAccountErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getAccountTransactionsResponseQueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
+        },
+        "data" : {
+          "type" : "object",
+          "properties" : {
+            "accountId" : {
+              "type" : "string",
+              "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+            },
+            "customerId" : {
+              "type" : "string",
+              "description" : "Identifier of the customer"
+            },
+            "accountCurrency" : {
+              "type" : "string",
+              "description" : "Currency of the account. For example: USD, GBP."
+            },
+            "openingBalance" : {
+              "type" : "string",
+              "description" : "Balance brought forward from the previous date/period.",
+              "maxLength" : 19
+            }
+          }
+        }
+      }
+    },
+    "getAccountTransactionsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/getAccountTransactionsResponseQueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getAccountTransactionsResponseBody"
+        }
+      },
+      "description" : "getAccountTransactionsResponse"
+    },
+    "getAccountTransactionsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "bookingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Business date on which the accounting entry was generated."
+          },
+          "transactionId" : {
+            "type" : "string",
+            "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+            "maxLength" : 150
+          },
+          "transactionName" : {
+            "type" : "string",
+            "description" : "The transaction description"
+          },
+          "valueDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+          },
+          "transactionAmount" : {
+            "type" : "number",
+            "format" : "int64",
+            "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+          },
+          "debitCreditIndicator" : {
+            "type" : "string",
+            "description" : "Indicator flag which is set whenever a debit or a credit transaction happens in the account"
+          },
+          "transactionTotal" : {
+            "type" : "string",
+            "description" : "The total amount of the transaction",
+            "maxLength" : 25
+          }
+        }
+      }
+    },
+    "getAccountTransactionsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getAccountTransactionsErrorResponseBody"
+        }
+      },
+      "description" : "getAccountTransactionsErrorResponse"
+    },
+    "getAccountTransactionsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getEligibleEventsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getEligibleEventsResponseBody"
+        }
+      },
+      "description" : "getEligibleEventsResponse"
+    },
+    "getEligibleEventsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getEligibleEventsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getEligibleEventsErrorResponseBody"
+        }
+      },
+      "description" : "getEligibleEventsErrorResponse"
+    },
+    "getEligibleEventsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getAccountCardsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getAccountCardsResponseBody"
+        }
+      },
+      "description" : "getAccountCardsResponse"
+    },
+    "getAccountCardsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "cardIssueId" : {
+            "type" : "string",
+            "description" : "The identifier of the issued card formatted as cardType '.' cardNumber. E.g. VISA.1234567887654321 GC.1111222233334444 AB21.1111111122222222",
+            "maxLength" : 24
+          },
+          "cardNumber" : {
+            "type" : "string",
+            "description" : "Cards issued are defined with an identifier consisting of three elements. The card type, a full stop and the card number. The card number may be any alphanumeric construction, commonly a 16 numeric number is used. VISA.5332870296579001. The id must be in the form of:  CCCC.AAAAAAAAAAAAAAAA  Where CCCC is the card type and AAAAAAAAAAAAAAAA is a unique identifier.  Examples:   VISA.1234567887654321   GC.1111222233334444   AB21.1111111122222222"
+          },
+          "accountId" : {
+            "type" : "string",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "maxLength" : 16
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer",
+            "maxLength" : 35
+          },
+          "cardType" : {
+            "type" : "string",
+            "description" : "The type of the card, e.g. Visa, Mastercard, etc."
+          },
+          "displayName" : {
+            "type" : "string",
+            "description" : "Contains the name used for display or enrichment purposes"
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "maxLength" : 3
+          },
+          "issueDate" : {
+            "type" : "string",
+            "description" : "The date the item was issued.",
+            "maxLength" : 11
+          },
+          "expiryDate" : {
+            "type" : "string",
+            "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
+            "maxLength" : 11
+          },
+          "cancellationDate" : {
+            "type" : "string",
+            "description" : "The date of cancellation",
+            "maxLength" : 11
+          },
+          "cancellationReason" : {
+            "type" : "string",
+            "description" : "The reason for the cancellation",
+            "maxLength" : 2
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+            "maxLength" : 3
+          },
+          "fullCardNumber" : {
+            "type" : "string",
+            "description" : "The complete card number including the combination of bank codes, account number and other card convention"
+          }
+        }
+      }
+    },
+    "getAccountCardsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getAccountCardsErrorResponseBody"
+        }
+      },
+      "description" : "getAccountCardsErrorResponse"
+    },
+    "getAccountCardsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getReservedFundsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getReservedFundsResponseBody"
+        }
+      },
+      "description" : "getReservedFundsResponse"
+    },
+    "getReservedFundsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "transactionReference" : {
+            "type" : "string",
+            "description" : "",
+            "maxLength" : 17
+          },
+          "lockReason" : {
+            "type" : "string",
+            "description" : "Indicates the simple description for the balance reservation event.",
+            "maxLength" : 35
+          },
+          "fromDate" : {
+            "type" : "string",
+            "description" : "Indicates the business date from when the balance reservation event is active.",
+            "maxLength" : 11
+          },
+          "toDate" : {
+            "type" : "string",
+            "description" : "Indicates the business date until when the balance reservation event is active.",
+            "maxLength" : 11
+          },
+          "lockedAmount" : {
+            "type" : "string",
+            "description" : "Shows reserved amount for the underlying account for a given balance reservation event.",
+            "maxLength" : 20
+          }
+        }
+      }
+    },
+    "getReservedFundsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getReservedFundsErrorResponseBody"
+        }
+      },
+      "description" : "getReservedFundsErrorResponse"
+    },
+    "getReservedFundsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getPaymentFeesAndChargesResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getPaymentFeesAndChargesResponseBody"
+        }
+      },
+      "description" : "getPaymentFeesAndChargesResponse"
+    },
+    "getPaymentFeesAndChargesResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getPaymentFeesAndChargesErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getPaymentFeesAndChargesErrorResponseBody"
+        }
+      },
+      "description" : "getPaymentFeesAndChargesErrorResponse"
+    },
+    "getPaymentFeesAndChargesErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getPaymentsAuditTrailResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getPaymentsAuditTrailResponseBody"
+        }
+      },
+      "description" : "getPaymentsAuditTrailResponse"
+    },
+    "getPaymentsAuditTrailResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getPaymentsAuditTrailErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getPaymentsAuditTrailErrorResponseBody"
+        }
+      },
+      "description" : "getPaymentsAuditTrailErrorResponse"
+    },
+    "getPaymentsAuditTrailErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getPaymentAuditTrailResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getPaymentAuditTrailResponseBody"
+        }
+      },
+      "description" : "getPaymentAuditTrailResponse"
+    },
+    "getPaymentAuditTrailResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getPaymentAuditTrailErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getPaymentAuditTrailErrorResponseBody"
+        }
+      },
+      "description" : "getPaymentAuditTrailErrorResponse"
+    },
+    "getPaymentAuditTrailErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getPendingPaymentsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getPendingPaymentsResponseBody"
+        }
+      },
+      "description" : "getPendingPaymentsResponse"
+    },
+    "getPendingPaymentsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getPendingPaymentsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getPendingPaymentsErrorResponseBody"
+        }
+      },
+      "description" : "getPendingPaymentsErrorResponse"
+    },
+    "getPendingPaymentsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "getPendingRepairPaymentsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getPendingRepairPaymentsResponseBody"
+        }
+      },
+      "description" : "getPendingRepairPaymentsResponse"
+    },
+    "getPendingRepairPaymentsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "placeholder" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "getPendingRepairPaymentsErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getPendingRepairPaymentsErrorResponseBody"
+        }
+      },
+      "description" : "getPendingRepairPaymentsErrorResponse"
+    },
+    "getPendingRepairPaymentsErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    }
+  }
+}

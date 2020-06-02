@@ -1,0 +1,332 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Retrieves the IBAN structure details",
+    "version" : "v1.0.0",
+    "title" : "Reference IBANs APIs"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/reference/ibanStructure/{countryCode}" : {
+      "get" : {
+        "summary" : "Retrieves the IBAN structure details",
+        "description" : "Retrieves the IBAN structure details",
+        "operationId" : "getIBANStructure",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "countryCode",
+          "in" : "path",
+          "description" : "Specifies the country code of the beneficiary's address ",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "IBANStructureResponse",
+            "schema" : {
+              "$ref" : "#/definitions/IBANStructureResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "IBANStructureResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IBANStructureResponseBody"
+        }
+      },
+      "description" : "IBANStructureResponse"
+    },
+    "IBANStructureResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "countryCodePosition" : {
+            "type" : "string",
+            "description" : "Start position of the country code in the IBAN"
+          },
+          "countryCodeLength" : {
+            "type" : "string",
+            "description" : "Number of characters of the country code in the IBAN"
+          },
+          "checkDigitsPosition" : {
+            "type" : "string",
+            "description" : "Start position of check digits in the IBAN"
+          },
+          "checkDigitsLength" : {
+            "type" : "string",
+            "description" : "Number of check digits in the IBAN"
+          },
+          "bankIdentifierPosition" : {
+            "type" : "string",
+            "description" : "Start position of bank identifier in the IBAN"
+          },
+          "bankIdentifierLength" : {
+            "type" : "string",
+            "description" : "Number of characters of bank identifier in the IBAN"
+          },
+          "branchIdentifierPosition" : {
+            "type" : "string",
+            "description" : "Start position of the branch identifier in the IBAN (value is empty if the branch identifier is not applied in the country's IBAN format)."
+          },
+          "branchIdentifierLength" : {
+            "type" : "string",
+            "description" : "Number of characters of the branch identifier in the IBAN (value is 0 if the branch identifier is not applied in the country's IBAN format)"
+          },
+          "nationalIdLength" : {
+            "type" : "string",
+            "description" : "Number of significant characters of the National ID value that are used by SWIFT to populate the IBAN NATIONAL ID and that are sufficient to derive the IBAN BIC correctly."
+          },
+          "accountNumberPosition" : {
+            "type" : "string",
+            "description" : "Start position of the account number in the IBAN"
+          },
+          "accountNumberLength" : {
+            "type" : "string",
+            "description" : "Number of characters of the account number in the IBAN"
+          },
+          "totalLength" : {
+            "type" : "string",
+            "description" : "Indicates the total number of characters in the IBAN"
+          },
+          "sepa" : {
+            "type" : "string",
+            "description" : "Indicates whether the IBAN is used in one of the SEPA schemes, Y - if it does; N - if it does not"
+          },
+          "optionalCommenceDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date from which the IBAN can start being used in customer credit payments, in the format YYYYMMDD"
+          },
+          "mandatoryCommenceDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date from which the IBAN must be used in customer credit payments, in the format YYYYMMDD"
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    }
+  }
+}

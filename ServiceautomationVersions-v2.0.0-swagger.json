@@ -1,0 +1,992 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Allows the creation and updation of Close Of Business Process, Services and Workload Profiles",
+    "version" : "v2.0.0",
+    "title" : "Serviceautomation"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v2.0.0/v2.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/system/services/processes/{processId}" : {
+      "post" : {
+        "operationId" : "createCloseOfBusinessProcess",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "processId",
+          "in" : "path",
+          "description" : "Contains the process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemCloseOfBusinessProcess"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "CloseOfBusinessProcessResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemCloseOfBusinessProcessResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateCloseOfBusinessProcess",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "processId",
+          "in" : "path",
+          "description" : "Contains the process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemCloseOfBusinessProcess"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "CloseOfBusinessProcessResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemCloseOfBusinessProcessResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/system/services/{serviceId}" : {
+      "post" : {
+        "operationId" : "createService",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "serviceId",
+          "in" : "path",
+          "description" : "Contains the identifier name of the service that has to be executed.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemService"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ServiceResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemServiceResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateService",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "serviceId",
+          "in" : "path",
+          "description" : "Contains the identifier name of the service that has to be executed.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemService"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ServiceResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemServiceResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/system/services/workProfiles/{workProfileId}" : {
+      "post" : {
+        "operationId" : "createWorkloadProfile",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workProfileId",
+          "in" : "path",
+          "description" : "Contains the reference to the record in service workload profiles for services.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemWorkloadProfile"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "WorkloadProfileResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemWorkloadProfileResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateWorkloadProfile",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workProfileId",
+          "in" : "path",
+          "description" : "Contains the reference to the record in service workload profiles for services.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/systemWorkloadProfile"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "WorkloadProfileResponse",
+            "schema" : {
+              "$ref" : "#/definitions/systemWorkloadProfileResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "Contains the description of purpose of the payment."
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            }
+          }
+        }
+      }
+    },
+    "systemCloseOfBusinessProcess" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemCloseOfBusinessProcessBody"
+        }
+      },
+      "description" : "systemCloseOfBusinessProcess"
+    },
+    "systemCloseOfBusinessProcessBody" : {
+      "type" : "object",
+      "properties" : {
+        "batchStage" : {
+          "type" : "string",
+          "description" : "Environment where the process will run. Typically this should be set to F"
+        },
+        "batchEnvironment" : {
+          "type" : "string",
+          "description" : "Environment where the process run.  Allowed values: F: Foreground - Run directly on the user's terminal. B: Background - Run as a background task.",
+          "enum" : [ "B", "F" ]
+        },
+        "jobId" : {
+          "type" : "string",
+          "description" : "Contains the job identifier."
+        },
+        "verificationJobId" : {
+          "type" : "string",
+          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed."
+        },
+        "jobFrequency" : {
+          "type" : "string",
+          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered."
+        },
+        "nextRunDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains bank date on which the job is to be next run"
+        },
+        "data" : {
+          "type" : "string",
+          "description" : "Contains any input parameters/data required for the job"
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        },
+        "currNo" : {
+          "type" : "string",
+          "description" : "Current Number which indicates how many times the record is modified."
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction."
+        },
+        "dateTime" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "companyId" : {
+          "type" : "string",
+          "description" : "The identifier of the underlying Entity/Company/Branch."
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized."
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code."
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    },
+    "ScreenHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "systemCloseOfBusinessProcessResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemCloseOfBusinessProcessResponseBody"
+        }
+      },
+      "description" : "systemCloseOfBusinessProcessResponse"
+    },
+    "systemCloseOfBusinessProcessResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "batchStage" : {
+          "type" : "string",
+          "description" : "Environment where the process will run. Typically this should be set to F"
+        },
+        "batchEnvironment" : {
+          "type" : "string",
+          "description" : "Environment where the process run.  Allowed values: F: Foreground - Run directly on the user's terminal. B: Background - Run as a background task.",
+          "enum" : [ "B", "F" ]
+        },
+        "jobId" : {
+          "type" : "string",
+          "description" : "Contains the job identifier."
+        },
+        "verificationJobId" : {
+          "type" : "string",
+          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed."
+        },
+        "jobFrequency" : {
+          "type" : "string",
+          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered."
+        },
+        "nextRunDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains bank date on which the job is to be next run"
+        },
+        "data" : {
+          "type" : "string",
+          "description" : "Contains any input parameters/data required for the job"
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        },
+        "currNo" : {
+          "type" : "string",
+          "description" : "Current Number which indicates how many times the record is modified."
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction."
+        },
+        "dateTime" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "companyId" : {
+          "type" : "string",
+          "description" : "The identifier of the underlying Entity/Company/Branch."
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized."
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code."
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "The status of the record"
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/ScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "ScreenErrorResponse"
+    },
+    "ScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "systemService" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemServiceBody"
+        }
+      },
+      "description" : "systemService"
+    },
+    "systemServiceBody" : {
+      "type" : "object",
+      "properties" : {
+        "jobServerProfiles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "jobProfileId" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "serverName" : {
+                "type" : "string",
+                "description" : "Contains the name of the Server on which the service will run."
+              },
+              "jobServerStatus" : {
+                "type" : "string",
+                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive"
+              }
+            }
+          }
+        },
+        "serviceDescription" : {
+          "type" : "string",
+          "description" : "Contains the description of the Service"
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+        },
+        "jobOperation" : {
+          "type" : "string",
+          "description" : "The control which user be exercise upon the current service.   Allowed values: - START: to start the current service.  - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
+          "enum" : [ "START", "STOP", "AUTO" ]
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "enum" : [ "Status of record -authorised/on hold/unauth etc" ]
+        },
+        "currNo" : {
+          "type" : "string",
+          "description" : "Current Number which indicates how many times the record is modified.",
+          "enum" : [ "No of times record has been changed" ]
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction",
+          "enum" : [ "User who has input or changed the record" ]
+        },
+        "dateTime" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction.",
+          "enum" : [ "User who has authorised the input or change" ]
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized.",
+          "enum" : [ "Department handling the record" ]
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code.",
+          "enum" : [ "Code of Auditor who has audited the record" ]
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    },
+    "systemServiceResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemServiceResponseBody"
+        }
+      },
+      "description" : "systemServiceResponse"
+    },
+    "systemServiceResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "jobServerProfiles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "jobProfileId" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "serverName" : {
+                "type" : "string",
+                "description" : "Contains the name of the Server on which the service will run."
+              },
+              "jobServerStatus" : {
+                "type" : "string",
+                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive"
+              }
+            }
+          }
+        },
+        "serviceDescription" : {
+          "type" : "string",
+          "description" : "Contains the description of the Service"
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+        },
+        "jobOperation" : {
+          "type" : "string",
+          "description" : "The control which user be exercise upon the current service.   Allowed values: - START: to start the current service.  - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
+          "enum" : [ "START", "STOP", "AUTO" ]
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "enum" : [ "Status of record -authorised/on hold/unauth etc" ]
+        },
+        "currNo" : {
+          "type" : "string",
+          "description" : "Current Number which indicates how many times the record is modified.",
+          "enum" : [ "No of times record has been changed" ]
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction",
+          "enum" : [ "User who has input or changed the record" ]
+        },
+        "dateTime" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction.",
+          "enum" : [ "User who has authorised the input or change" ]
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized.",
+          "enum" : [ "Department handling the record" ]
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code.",
+          "enum" : [ "Code of Auditor who has audited the record" ]
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    },
+    "systemWorkloadProfile" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemWorkloadProfileBody"
+        }
+      },
+      "description" : "systemWorkloadProfile"
+    },
+    "systemWorkloadProfileBody" : {
+      "type" : "object",
+      "properties" : {
+        "displayName" : {
+          "type" : "string",
+          "description" : "Contains the name used for display or enrichment purposes"
+        },
+        "startTime" : {
+          "type" : "string",
+          "description" : "Contains the time job was started"
+        },
+        "agentsRequired" : {
+          "type" : "string",
+          "description" : "Contains the number of agents required"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        },
+        "CurrNo" : {
+          "type" : "number",
+          "description" : "Current Number which indicates how many times the record is modified."
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction."
+        },
+        "datetime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "coCode" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized."
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code."
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    },
+    "systemWorkloadProfileResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/systemWorkloadProfileResponseBody"
+        }
+      },
+      "description" : "systemWorkloadProfileResponse"
+    },
+    "systemWorkloadProfileResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "displayName" : {
+          "type" : "string",
+          "description" : "Contains the name used for display or enrichment purposes"
+        },
+        "startTime" : {
+          "type" : "string",
+          "description" : "Contains the time job was started"
+        },
+        "agentsRequired" : {
+          "type" : "string",
+          "description" : "Contains the number of agents required"
+        },
+        "recordStatus" : {
+          "type" : "string",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+        },
+        "CurrNo" : {
+          "type" : "number",
+          "description" : "Current Number which indicates how many times the record is modified."
+        },
+        "inputter" : {
+          "type" : "string",
+          "description" : "The user identifier who input the transaction"
+        },
+        "authoriser" : {
+          "type" : "string",
+          "description" : "This indicates the user who authorized the transaction."
+        },
+        "datetime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Contains the date and time separated by '-'"
+        },
+        "coCode" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "deptCode" : {
+          "type" : "string",
+          "description" : "The department code where the transaction was authorized."
+        },
+        "auditorCode" : {
+          "type" : "string",
+          "description" : "Reference to the auditor code."
+        },
+        "auditTimeDate" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Reference to the audit date and time."
+        }
+      }
+    }
+  }
+}

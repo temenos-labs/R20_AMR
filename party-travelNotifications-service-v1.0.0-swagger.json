@@ -1,0 +1,570 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Management of Travel Notifications",
+    "version" : "v1.0.0",
+    "title" : "Party Travel Notifications APIs"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/party/travelNotifications/{travelNotificationId}" : {
+      "put" : {
+        "operationId" : "updateTravelNotification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "travelNotificationId",
+          "in" : "path",
+          "description" : "Denotes the identifier associated with the travel for notifications",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "CTN19107HYTSBKY"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/TravelNotification"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "TravelNotificationResponse",
+            "schema" : {
+              "$ref" : "#/definitions/TravelNotificationResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteTravelNotification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "travelNotificationId",
+          "in" : "path",
+          "description" : "Denotes the identifier associated with the travel for notifications",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "CTN19107HYTSBKY"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "TravelNotificationResponse",
+            "schema" : {
+              "$ref" : "#/definitions/TravelNotificationResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/party/travelNotifications" : {
+      "post" : {
+        "operationId" : "createTravelNotification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/TravelNotification"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "TravelNotificationResponse",
+            "schema" : {
+              "$ref" : "#/definitions/TravelNotificationResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "Contains the description of purpose of the payment."
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            }
+          }
+        }
+      }
+    },
+    "TravelNotification" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TravelNotificationBody"
+        }
+      },
+      "description" : "TravelNotification",
+      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"travelNotifications\": [{\n      \"additionalInformation\": \"\",\n      \"travelStatus\": \"\",\n      \"scheduleType\": \"\",\n      \"endDate\": \"2019 04 18\",\n      \"accountIds\": [{\"accountId\": \"\"}],\n      \"visitPurpose\": \"\",\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\",\n      \"contactDetails\": [{\"contactDetail\": \"\"}],\n      \"countryId\": \"IN\",\n      \"startDate\": \"2019 04 18\"\n    }],\n    \"customerId\": \"100336\",\n    \"cancelRequest\": \"NO\",\n    \"overrides\": [{\"override\": \"\"}],\n    \"overallStatus\": \"ACTIVE\"\n  }\n}"
+    },
+    "TravelNotificationBody" : {
+      "type" : "object",
+      "properties" : {
+        "travelNotifications" : {
+          "type" : "array",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "countryId" : {
+                "type" : "string",
+                "description" : "ISO country code of the financial institution. "
+              },
+              "startDate" : {
+                "type" : "string",
+                "format" : "date",
+                "description" : "Contains the date on which the transaction or payment gets initiated."
+              },
+              "startTime" : {
+                "type" : "string",
+                "description" : "Contains the time job was started"
+              },
+              "endTime" : {
+                "type" : "string",
+                "description" : "Contains the time the job  ended."
+              },
+              "endDate" : {
+                "type" : "string",
+                "format" : "date",
+                "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
+              },
+              "visitPurpose" : {
+                "type" : "string",
+                "description" : "Specifies the purpose of the travel"
+              },
+              "scheduleType" : {
+                "type" : "string",
+                "description" : "The type of event schedule. The main ones are interest payment (IP) , principal increase (PI), rate reset (RR)."
+              },
+              "travelStatus" : {
+                "type" : "string",
+                "description" : "Indicates the status of travel."
+              },
+              "additionalInformation" : {
+                "type" : "string",
+                "description" : "Additional Information provided to add context"
+              },
+              "contactDetails" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "contactDetail" : {
+                      "type" : "string",
+                      "description" : "Contains the contact details of the traveller"
+                    }
+                  }
+                }
+              },
+              "accountIds" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "accountId" : {
+                      "type" : "string",
+                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "overrides" : {
+          "type" : "array",
+          "description" : "Records the override messages generated during processing of an activity. ",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "override" : {
+                "type" : "string",
+                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+              }
+            }
+          }
+        },
+        "customerId" : {
+          "type" : "string",
+          "description" : "Identifier of the customer"
+        },
+        "overallStatus" : {
+          "type" : "string",
+          "description" : "Contains the overall status"
+        },
+        "cancelRequest" : {
+          "type" : "string",
+          "description" : "Flag to cancel the request which is under process"
+        }
+      }
+    },
+    "ScreenHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "TravelNotificationResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TravelNotificationResponseBody"
+        }
+      },
+      "description" : "TravelNotificationResponse"
+    },
+    "TravelNotificationResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "travelNotifications" : {
+          "type" : "array",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "countryId" : {
+                "type" : "string",
+                "description" : "ISO country code of the financial institution. "
+              },
+              "startDate" : {
+                "type" : "string",
+                "format" : "date",
+                "description" : "Contains the date on which the transaction or payment gets initiated."
+              },
+              "startTime" : {
+                "type" : "string",
+                "description" : "Contains the time job was started"
+              },
+              "endTime" : {
+                "type" : "string",
+                "description" : "Contains the time the job  ended."
+              },
+              "endDate" : {
+                "type" : "string",
+                "format" : "date",
+                "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
+              },
+              "visitPurpose" : {
+                "type" : "string",
+                "description" : "Specifies the purpose of the travel"
+              },
+              "scheduleType" : {
+                "type" : "string",
+                "description" : "The type of event schedule. The main ones are interest payment (IP) , principal increase (PI), rate reset (RR)."
+              },
+              "travelStatus" : {
+                "type" : "string",
+                "description" : "Indicates the status of travel."
+              },
+              "additionalInformation" : {
+                "type" : "string",
+                "description" : "Additional Information provided to add context"
+              },
+              "contactDetails" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "contactDetail" : {
+                      "type" : "string",
+                      "description" : "Contains the contact details of the traveller"
+                    }
+                  }
+                }
+              },
+              "accountIds" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "accountId" : {
+                      "type" : "string",
+                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "overrides" : {
+          "type" : "array",
+          "description" : "Records the override messages generated during processing of an activity. ",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "override" : {
+                "type" : "string",
+                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database."
+              }
+            }
+          }
+        },
+        "customerId" : {
+          "type" : "string",
+          "description" : "Identifier of the customer"
+        },
+        "overallStatus" : {
+          "type" : "string",
+          "description" : "Contains the overall status"
+        },
+        "cancelRequest" : {
+          "type" : "string",
+          "description" : "Flag to cancel the request which is under process"
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "The status of the record"
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/ScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "ScreenErrorResponse"
+    },
+    "ScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "updateTravelNotification" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TravelNotificationBody"
+        }
+      },
+      "description" : "TravelNotification",
+      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"travelNotifications\": [{\n      \"additionalInformation\": \"\",\n      \"travelStatus\": \"\",\n      \"scheduleType\": \"\",\n      \"endDate\": \"2019 04 18\",\n      \"accountIds\": [{\"accountId\": \"\"}],\n      \"visitPurpose\": \"\",\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\",\n      \"contactDetails\": [{\"contactDetail\": \"\"}],\n      \"countryId\": \"IN\",\n      \"startDate\": \"2019 04 18\"\n    }],\n    \"customerId\": \"100336\",\n    \"cancelRequest\": \"NO\",\n    \"overrides\": [{\"override\": \"\"}],\n    \"overallStatus\": \"ACTIVE\"\n  }\n}"
+    }
+  }
+}

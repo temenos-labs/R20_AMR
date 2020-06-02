@@ -1,0 +1,618 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Read transaction list of an account",
+    "version" : "v1.2.0",
+    "title" : "BG PSD2 ACCOUNT TRANSACTION LIST API"
+  },
+  "basePath" : "/api/v1",
+  "paths" : {
+    "/accounts/{account-id}/transactions/" : {
+      "get" : {
+        "description" : "Read transaction reports or transaction lists of a given account ddressed by \"account-id\", depending on the steering parameter \n\"bookingStatus\" together with balances.\n\nFor a given account, additional parameters are e.g. the attributes \"dateFrom\" and \"dateTo\". \nThe ASPSP might add balance information, if transaction lists without balances are not supported.\n",
+        "operationId" : "getTransactionListPublished",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "account-id",
+          "in" : "path",
+          "description" : "This identification is denoting the addressed account. \nThe account-id is retrieved by using a \"Read Account List\" call. \nThe account-id is the \"id\" attribute of the account structure. \nIts value is constant at least throughout the lifecycle of a given consent.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bookingStatus",
+          "in" : "query",
+          "description" : "Field requesting the booking status of the transaction. Status describes the transaction accounting type. ",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "booked", "pending", "both" ]
+        }, {
+          "name" : "X-Request-ID",
+          "in" : "header",
+          "description" : "ID of the request, unique to the call, as determined by the initiating party.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "Consent-ID",
+          "in" : "header",
+          "description" : "This then contains the consentId of the related AIS consent, which was performed prior to this payment initiation.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "dateFrom",
+          "in" : "query",
+          "description" : "Start date of the loan",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "dateTo",
+          "in" : "query",
+          "description" : "End date of the loan",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "entryReferenceFrom",
+          "in" : "query",
+          "description" : "Indicates the entry from which the transaction history needs to be retrieved. If an end date is not specified, transactions from delta list till 'today' are retrieved.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deltaList",
+          "in" : "query",
+          "description" : "Indicates the entry from which the transaction history needs to be retrieved. If an end date is not specified, transactions from delta list till 'today' are retrieved. ",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "withBalance",
+          "in" : "query",
+          "description" : "Identifies whether balance information needs to be retrieved. Possible values YES or NO. Default is NO.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "Digest",
+          "in" : "header",
+          "description" : "Is contained if and only if the \"Signature\" element is contained in the header of the request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "Signature",
+          "in" : "header",
+          "description" : "A signature of the request by the TPP on application level. This might be mandated by ASPSP.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "TPP-Signature-Certificate",
+          "in" : "header",
+          "description" : "The certificate used for signing the request, in base64 encoding. \nMust be contained if a signature is contained.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-IP-Address",
+          "in" : "header",
+          "description" : "The forwarded IP Address header field consists of the corresponding HTTP request \nIP Address field between PSU and TPP. \nIt shall be contained if and only if this request was actively initiated by the PSU.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-IP-Port",
+          "in" : "header",
+          "description" : "The forwarded IP Port header field consists of the corresponding HTTP request IP Port field between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Accept",
+          "in" : "header",
+          "description" : "The forwarded IP Accept header fields consist of the corresponding HTTP request Accept header fields between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Accept-Charset",
+          "in" : "header",
+          "description" : "The forwarded IP Accept header fields consist of the corresponding HTTP request Accept header fields between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Accept-Encoding",
+          "in" : "header",
+          "description" : "The forwarded IP Accept header fields consist of the corresponding HTTP request Accept header fields between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Accept-Language",
+          "in" : "header",
+          "description" : "The forwarded IP Accept header fields consist of the corresponding HTTP request Accept header fields between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-User-Agent",
+          "in" : "header",
+          "description" : "The forwarded Agent header field of the HTTP request between PSU and TPP, if available.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Http-Method",
+          "in" : "header",
+          "description" : "HTTP method used at the PSU ? TPP interface, if available.\nValid values are:\n* GET\n* POST\n* PUT\n* PATCH\n* DELETE",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "PUT", "PATCH", "DELETE" ]
+        }, {
+          "name" : "PSU-Device-ID",
+          "in" : "header",
+          "description" : "UUID (Universally Unique Identifier) for a device, which is used by the PSU, if available.\nUUID identifies either a device or a device dependant application installation.\nIn case of an installation identification this ID need to be unaltered until removal from device.",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "PSU-Geo-Location",
+          "in" : "header",
+          "description" : "The forwarded Geo Location of the corresponding http request between PSU and TPP if available.",
+          "required" : false,
+          "type" : "string",
+          "pattern" : "(GEO:)[0-9]{1,3}\\.[-][0-9]{6}\\,[-][0-9]{1,3}\\.[0-9]{6}"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Is contained only, if an OAuth2 based authentication was performed in a pre-step or an OAuth2 based SCA was performed in the related consent authorisation",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "Accept",
+          "in" : "header",
+          "description" : "The TPP can indicate the formats of account reports supported together with a priorisation following the HTTP header definition.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getTransactionListPublishedResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getTransactionListPublishedResponse"
+            }
+          },
+          "default" : {
+            "description" : "getTransactionListPublishedErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getTransactionListPublishedErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "getTransactionListPublishedResponse" : {
+      "type" : "object",
+      "properties" : {
+        "balances" : {
+          "type" : "object",
+          "properties" : {
+            "balanceType" : {
+              "type" : "string",
+              "description" : "Type of balance (e.g. current balance, credit interest accrued, deferred commission, etc.) as defined in the institution's accounting schemas."
+            },
+            "creditLimitIncluded" : {
+              "type" : "string",
+              "description" : "Identifies whether the credit limit amount has been included in the balance amount. Set to 'true' if the associated balance amount includes value of credit limits"
+            },
+            "lastChangeDateTime" : {
+              "type" : "string",
+              "description" : "Indicates the ISO date time zone in which the latest statement record fetched or the transaction committed."
+            },
+            "lastCommittedTransaction" : {
+              "type" : "string",
+              "description" : "Contains the record of the last committed transaction"
+            },
+            "balanceAmount" : {
+              "type" : "object",
+              "properties" : {
+                "amount" : {
+                  "type" : "string",
+                  "description" : "This is the payment amount"
+                },
+                "currency" : {
+                  "type" : "string",
+                  "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                }
+              }
+            },
+            "referenceDate" : {
+              "type" : "string",
+              "description" : "Booking date on which the transaction is committed "
+            }
+          }
+        },
+        "transactions" : {
+          "type" : "object",
+          "properties" : {
+            "booked" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "debtorAccount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "bban" : {
+                        "type" : "string",
+                        "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+                      },
+                      "maskedPan" : {
+                        "type" : "string"
+                      },
+                      "iban" : {
+                        "type" : "string",
+                        "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      },
+                      "pan" : {
+                        "type" : "string"
+                      },
+                      "msisdn" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "creditorName" : {
+                    "type" : "string",
+                    "description" : "Name or short title of the credit account"
+                  },
+                  "remittanceInformationStructured" : {
+                    "type" : "string"
+                  },
+                  "ultimateCreditor" : {
+                    "type" : "string",
+                    "description" : "Contains the actual creditor account number"
+                  },
+                  "bankTransactionCode" : {
+                    "type" : "string",
+                    "description" : "Identifies the type of transaction.  The code is used to determine what references and narratives will be printed on statements."
+                  },
+                  "debtorName" : {
+                    "type" : "string"
+                  },
+                  "valueDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+                  },
+                  "endToEndId" : {
+                    "type" : "string",
+                    "description" : "Unique end to end identity.",
+                    "maxLength" : 35
+                  },
+                  "transactionId" : {
+                    "type" : "string",
+                    "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc."
+                  },
+                  "ultimateDebtor" : {
+                    "type" : "string",
+                    "description" : "Contains the actual debitor account number"
+                  },
+                  "exchangeRate" : {
+                    "type" : "array",
+                    "description" : "The exchange rate of the transaction if the transaction is a cross currency transaction",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "currencyTo" : {
+                          "type" : "string",
+                          "example" : "EUR",
+                          "description" : "ISO 4217 Alpha 3 currency code",
+                          "pattern" : "[A-Z]{3}"
+                        },
+                        "rate" : {
+                          "type" : "string",
+                          "description" : "The rate applied"
+                        },
+                        "currencyFrom" : {
+                          "type" : "string",
+                          "example" : "EUR",
+                          "description" : "ISO 4217 Alpha 3 currency code",
+                          "pattern" : "[A-Z]{3}"
+                        },
+                        "rateDate" : {
+                          "type" : "string",
+                          "format" : "date"
+                        },
+                        "rateContract" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  },
+                  "mandateId" : {
+                    "type" : "string",
+                    "description" : "Contains the mandatory SEPA(Single Euro Payment Area) payment identifier from the transaction",
+                    "maxLength" : 35
+                  },
+                  "transactionAmount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "amount" : {
+                        "type" : "string",
+                        "description" : "This is the payment amount"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      }
+                    }
+                  },
+                  "creditorAccount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "bban" : {
+                        "type" : "string",
+                        "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+                      },
+                      "maskedPan" : {
+                        "type" : "string"
+                      },
+                      "iban" : {
+                        "type" : "string",
+                        "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      },
+                      "pan" : {
+                        "type" : "string"
+                      },
+                      "msisdn" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "purposeCode" : {
+                    "type" : "string",
+                    "description" : "Specifies the purpose of account, deposit or loan"
+                  },
+                  "proprietaryBankTransactionCode" : {
+                    "type" : "string"
+                  },
+                  "bookingDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Business date on which the accounting entry was generated."
+                  },
+                  "remittanceInformationUnstructured" : {
+                    "type" : "string"
+                  },
+                  "checkId" : {
+                    "type" : "string",
+                    "description" : "Identification of a Cheque.",
+                    "maxLength" : 35
+                  },
+                  "entryReference" : {
+                    "type" : "string",
+                    "description" : "It is the transaction reference. This is the identifier of the transaction on Temenos Core Banking system.",
+                    "maxLength" : 35
+                  },
+                  "creditorId" : {
+                    "type" : "string",
+                    "description" : "Identification of Creditors, e.g. a SEPA Creditor ID.",
+                    "maxLength" : 35
+                  }
+                }
+              }
+            },
+            "pending" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "debtorAccount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "bban" : {
+                        "type" : "string",
+                        "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+                      },
+                      "maskedPan" : {
+                        "type" : "string"
+                      },
+                      "iban" : {
+                        "type" : "string",
+                        "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      },
+                      "pan" : {
+                        "type" : "string"
+                      },
+                      "msisdn" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "creditorName" : {
+                    "type" : "string",
+                    "description" : "Name or short title of the credit account"
+                  },
+                  "remittanceInformationStructured" : {
+                    "type" : "string"
+                  },
+                  "ultimateCreditor" : {
+                    "type" : "string",
+                    "description" : "Contains the actual creditor account number"
+                  },
+                  "bankTransactionCode" : {
+                    "type" : "string",
+                    "description" : "Identifies the type of transaction.  The code is used to determine what references and narratives will be printed on statements."
+                  },
+                  "debtorName" : {
+                    "type" : "string"
+                  },
+                  "valueDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+                  },
+                  "endToEndId" : {
+                    "type" : "string",
+                    "description" : "Unique end to end identity.",
+                    "maxLength" : 35
+                  },
+                  "transactionId" : {
+                    "type" : "string",
+                    "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc."
+                  },
+                  "ultimateDebtor" : {
+                    "type" : "string",
+                    "description" : "Contains the actual debitor account number"
+                  },
+                  "exchangeRate" : {
+                    "type" : "array",
+                    "description" : "The exchange rate of the transaction if the transaction is a cross currency transaction",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "targetCurrency" : {
+                          "type" : "string",
+                          "example" : "EUR",
+                          "description" : "ISO 4217 Alpha 3 currency code",
+                          "pattern" : "[A-Z]{3}"
+                        },
+                        "rate" : {
+                          "type" : "string",
+                          "description" : "The rate applied"
+                        },
+                        "sourceCurrency" : {
+                          "type" : "string",
+                          "example" : "EUR",
+                          "description" : "ISO 4217 Alpha 3 currency code",
+                          "pattern" : "[A-Z]{3}"
+                        },
+                        "rateDate" : {
+                          "type" : "string",
+                          "format" : "date"
+                        },
+                        "rateContract" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  },
+                  "mandateId" : {
+                    "type" : "string",
+                    "description" : "Contains the mandatory SEPA(Single Euro Payment Area) payment identifier from the transaction",
+                    "maxLength" : 35
+                  },
+                  "transactionAmount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "amount" : {
+                        "type" : "string",
+                        "description" : "This is the payment amount"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      }
+                    }
+                  },
+                  "creditorAccount" : {
+                    "type" : "object",
+                    "properties" : {
+                      "bban" : {
+                        "type" : "string",
+                        "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+                      },
+                      "maskedPan" : {
+                        "type" : "string"
+                      },
+                      "iban" : {
+                        "type" : "string",
+                        "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+                      },
+                      "currency" : {
+                        "type" : "string",
+                        "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      },
+                      "pan" : {
+                        "type" : "string"
+                      },
+                      "msisdn" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "purposeCode" : {
+                    "type" : "string",
+                    "description" : "Specifies the purpose of account, deposit or loan"
+                  },
+                  "proprietaryBankTransactionCode" : {
+                    "type" : "string"
+                  },
+                  "bookingDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Business date on which the accounting entry was generated."
+                  },
+                  "remittanceInformationUnstructured" : {
+                    "type" : "string"
+                  },
+                  "checkId" : {
+                    "type" : "string",
+                    "description" : "Identification of a Cheque.",
+                    "maxLength" : 35
+                  },
+                  "entryReference" : {
+                    "type" : "string",
+                    "description" : "It is the transaction reference. This is the identifier of the transaction on Temenos Core Banking system.",
+                    "maxLength" : 35
+                  },
+                  "creditorId" : {
+                    "type" : "string",
+                    "description" : "Identification of Creditors, e.g. a SEPA Creditor ID.",
+                    "maxLength" : 35
+                  }
+                }
+              }
+            }
+          }
+        },
+        "account" : {
+          "type" : "object",
+          "properties" : {
+            "iban" : {
+              "type" : "string",
+              "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+            }
+          }
+        }
+      }
+    },
+    "getTransactionListPublishedErrorResponse" : {
+      "type" : "object",
+      "properties" : {
+        "tppMessages" : {
+          "type" : "array",
+          "description" : "Messages to the TPP on operational issues.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "code" : {
+                "type" : "string"
+              },
+              "text" : {
+                "type" : "string"
+              },
+              "category" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

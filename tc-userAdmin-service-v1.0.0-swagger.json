@@ -1,0 +1,881 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "UserAdministration",
+    "version" : "v1.0.0",
+    "title" : "UserAdministration"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/userAdministration/onlineServices/masterApprovals" : {
+      "get" : {
+        "operationId" : "getOnlineServiceMasterApprovals",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "roleOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "subArrangementName",
+          "in" : "query",
+          "description" : "The name of the sub arrangement that is displayed.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "inputter",
+          "in" : "query",
+          "description" : "The user identifier who input the transaction",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OnlineServiceApprovalsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/holdingsOnlineServiceApprovalsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/userAdministration/onlineServices/roleApprovals" : {
+      "get" : {
+        "operationId" : "getOnlineServiceRoleApprovals",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "roleOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "subArrangementName",
+          "in" : "query",
+          "description" : "The name of the sub arrangement that is displayed.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "inputter",
+          "in" : "query",
+          "description" : "The user identifier who input the transaction",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OnlineServiceApprovalsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/holdingsOnlineServiceApprovalsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/userAdministration/onlineServices/masters" : {
+      "get" : {
+        "operationId" : "getOnlineServiceMasters",
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "roleOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "subArrangementName",
+          "in" : "query",
+          "description" : "The name of the sub arrangement that is displayed.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OnlineServicesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/holdingsOnlineServicesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/userAdministration/onlineServices/roles" : {
+      "get" : {
+        "operationId" : "getOnlineServiceRoles",
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "roleOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "subArrangementName",
+          "in" : "query",
+          "description" : "The name of the sub arrangement that is displayed.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OnlineServicesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/holdingsOnlineServicesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "holdingsOnlineServiceApprovalsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/holdingsOnlineServiceApprovalsResponseBody"
+        }
+      },
+      "description" : "holdingsOnlineServiceApprovalsResponse"
+    },
+    "holdingsOnlineServiceApprovalsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "linkedSubArrangements" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "linkedSubArrangementId" : {
+                  "type" : "string",
+                  "description" : "Unique identification number for the Sub-arrangement (Role)"
+                },
+                "linkedSubArrangementName" : {
+                  "type" : "string",
+                  "description" : "Name of the sub Arrangement or Role"
+                }
+              }
+            }
+          },
+          "audit" : {
+            "type" : "array",
+            "description" : "The user identifier who input the transaction",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "recordStatus" : {
+                  "type" : "string",
+                  "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+                },
+                "inputterName" : {
+                  "type" : "string",
+                  "description" : "The user identifier name who input the transaction"
+                },
+                "externalInputterName" : {
+                  "type" : "string",
+                  "description" : "Name of the external user"
+                },
+                "inputters" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "inputter" : {
+                        "type" : "string",
+                        "description" : "The user identifier who input the transaction"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account"
+          },
+          "arrangementStatus" : {
+            "type" : "string",
+            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+          },
+          "subArrangementName" : {
+            "type" : "string",
+            "description" : "The name of the sub arrangement that is displayed."
+          },
+          "productGroupId" : {
+            "type" : "string",
+            "description" : "The group, as defined by the institution, that the product belongs to."
+          },
+          "productGroupName" : {
+            "type" : "string",
+            "description" : "Description of the product group"
+          },
+          "productId" : {
+            "type" : "string",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+          },
+          "productName" : {
+            "type" : "string",
+            "description" : "Product name of the bank for this account, proprietary definition."
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "Identifier of the customer"
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Contains the date on which the transaction or payment gets initiated."
+          },
+          "masterArrangementId" : {
+            "type" : "string",
+            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+          },
+          "activityId" : {
+            "type" : "string",
+            "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
+          },
+          "pendingActivityId" : {
+            "type" : "string",
+            "description" : "ID of the arrangement activity which is pending to be authorised"
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "ArrangementHeader" : {
+      "properties" : {
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "aaaId" : {
+          "type" : "string",
+          "description" : "The Identifier of the aa record created"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "The status of the record"
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "The actual override message"
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "holdingsOnlineServicesResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/holdingsOnlineServicesResponseBody"
+        }
+      },
+      "description" : "holdingsOnlineServicesResponse"
+    },
+    "holdingsOnlineServicesResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "linkedSubArrangements" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "linkedSubArrangementId" : {
+                  "type" : "string",
+                  "description" : "Unique identification number for the Sub-arrangement (Role)",
+                  "maxLength" : 20
+                },
+                "linkedSubArrangementName" : {
+                  "type" : "string",
+                  "description" : "Name of the sub Arrangement or Role",
+                  "maxLength" : 35
+                }
+              }
+            }
+          },
+          "audit" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "pendingActivityId" : {
+                  "type" : "string",
+                  "description" : "ID of the arrangement activity which is pending to be authorised"
+                },
+                "recordStatus" : {
+                  "type" : "string",
+                  "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+                },
+                "inputter" : {
+                  "type" : "string",
+                  "description" : "The user identifier who input the transaction"
+                },
+                "inputterName" : {
+                  "type" : "string",
+                  "description" : "The user identifier name who input the transaction"
+                },
+                "externalInputterName" : {
+                  "type" : "string",
+                  "description" : "Name of the external user"
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account",
+            "maxLength" : 17
+          },
+          "arrangementStatus" : {
+            "type" : "string",
+            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+            "maxLength" : 15
+          },
+          "subArrangementName" : {
+            "type" : "string",
+            "description" : "The name of the sub arrangement that is displayed.",
+            "maxLength" : 35
+          },
+          "productGroupId" : {
+            "type" : "string",
+            "description" : "The group, as defined by the institution, that the product belongs to.",
+            "maxLength" : 30
+          },
+          "productGroupName" : {
+            "type" : "string",
+            "description" : "Description of the product group",
+            "maxLength" : 30
+          },
+          "productId" : {
+            "type" : "string",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "maxLength" : 30
+          },
+          "productName" : {
+            "type" : "string",
+            "description" : "Product name of the bank for this account, proprietary definition.",
+            "maxLength" : 30
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "Identifier of the customer",
+            "maxLength" : 10
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer",
+            "maxLength" : 35
+          },
+          "masterArrangementId" : {
+            "type" : "string",
+            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
+            "maxLength" : 20
+          },
+          "activityId" : {
+            "type" : "string",
+            "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
+          }
+        }
+      }
+    }
+  }
+}

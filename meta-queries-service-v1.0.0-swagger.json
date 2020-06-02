@@ -1,0 +1,803 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Allows the creation, viewing and management of query definitions",
+    "version" : "v1.0.0",
+    "title" : "Meta APIs about Queries"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/meta/queries" : {
+      "get" : {
+        "operationId" : "getQueries",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getQueriesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getQueriesResponse"
+            }
+          },
+          "default" : {
+            "description" : "getQueriesErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getQueriesErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/meta/queries/{queryId}" : {
+      "get" : {
+        "operationId" : "getQuery",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "queryId",
+          "in" : "path",
+          "description" : "The query identifier",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getQueryResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getQueryResponse"
+            }
+          },
+          "default" : {
+            "description" : "getQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getQueryErrorResponse"
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createQuery",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "queryId",
+          "in" : "path",
+          "description" : "The query identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/createQuery"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "createQueryResponse",
+            "schema" : {
+              "$ref" : "#/definitions/createQueryResponse"
+            }
+          },
+          "default" : {
+            "description" : "createQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/createQueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request."
+        }
+      }
+    },
+    "getQueriesResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getQueriesResponseBody"
+        }
+      },
+      "description" : "getQueriesResponse"
+    },
+    "getQueriesResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "queryId" : {
+            "type" : "string",
+            "description" : "The query identifier",
+            "maxLength" : 50
+          },
+          "displayName" : {
+            "type" : "string",
+            "description" : "Contains the name used for display or enrichment purposes",
+            "maxLength" : 50
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "getQueriesErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getQueriesErrorResponseBody"
+        }
+      },
+      "description" : "getQueriesErrorResponse"
+    },
+    "getQueriesErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "ScreenHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "getQueryResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getQueryResponseBody"
+        }
+      },
+      "description" : "getQueryResponse"
+    },
+    "getQueryResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "columns" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "columnNumber" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "lengthMask" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "dataType" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "singleMulti" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "label" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "comments" : {
+                "type" : "string",
+                "description" : "Comments added by the User"
+              },
+              "displayBreak" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "section" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "format" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "operations" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "operation" : {
+                      "type" : "string",
+                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                    }
+                  }
+                }
+              },
+              "conversions" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "conversion" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "selectionLabel" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionField" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionOperand" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "required" : {
+                "type" : "string",
+                "description" : "Flag to set the channel to communicate"
+              }
+            }
+          }
+        },
+        "fixedSelections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSelection" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "fixedSorts" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSort" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "pageSize" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "table" : {
+          "type" : "string",
+          "description" : "Application in the feeder queue for which the restructuring done."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Contains the description of purpose of the payment."
+        }
+      }
+    },
+    "getQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getQueryErrorResponseBody"
+        }
+      },
+      "description" : "getQueryErrorResponse"
+    },
+    "getQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "PayloadHeader" : {
+      "type" : "object",
+      "properties" : {
+        "override_acceptId" : {
+          "type" : "string",
+          "description" : "pass the record Id to accept all its overrides"
+        }
+      }
+    },
+    "createQuery" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/createQueryBody"
+        }
+      },
+      "description" : "createQuery"
+    },
+    "createQueryBody" : {
+      "type" : "object",
+      "properties" : {
+        "columns" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "columnNumber" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "lengthMask" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "dataType" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "singleMulti" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "label" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "comments" : {
+                "type" : "string",
+                "description" : "Comments added by the User"
+              },
+              "displayBreak" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "section" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "format" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "operations" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "operation" : {
+                      "type" : "string",
+                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                    }
+                  }
+                }
+              },
+              "conversions" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "conversion" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "selectionLabel" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionField" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionOperand" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "required" : {
+                "type" : "string",
+                "description" : "Flag to set the channel to communicate"
+              }
+            }
+          }
+        },
+        "fixedSelections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSelection" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "fixedSorts" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSort" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "pageSize" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "table" : {
+          "type" : "string",
+          "description" : "Application in the feeder queue for which the restructuring done."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Contains the description of purpose of the payment."
+        }
+      }
+    },
+    "createQueryResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/createQueryResponseBody"
+        }
+      },
+      "description" : "createQueryResponse"
+    },
+    "createQueryResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "columns" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "columnNumber" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "lengthMask" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "dataType" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "singleMulti" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "label" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "comments" : {
+                "type" : "string",
+                "description" : "Comments added by the User"
+              },
+              "displayBreak" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "section" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "format" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "operations" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "operation" : {
+                      "type" : "string",
+                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                    }
+                  }
+                }
+              },
+              "conversions" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "conversion" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "selectionLabel" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionField" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "selectionOperand" : {
+                "type" : "string",
+                "description" : ""
+              },
+              "required" : {
+                "type" : "string",
+                "description" : "Flag to set the channel to communicate"
+              }
+            }
+          }
+        },
+        "fixedSelections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSelection" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "fixedSorts" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fixedSort" : {
+                "type" : "string",
+                "description" : ""
+              }
+            }
+          }
+        },
+        "pageSize" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "table" : {
+          "type" : "string",
+          "description" : "Application in the feeder queue for which the restructuring done."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Contains the description of purpose of the payment."
+        }
+      }
+    },
+    "createQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/createQueryErrorResponseBody"
+        }
+      },
+      "description" : "createQueryErrorResponse"
+    },
+    "createQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    }
+  }
+}

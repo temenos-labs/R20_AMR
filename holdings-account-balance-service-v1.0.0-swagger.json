@@ -1,0 +1,197 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Wealth Suite API",
+    "version" : "v1.0.0",
+    "title" : "Wealth Suite API"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/holdings/balance" : {
+      "get" : {
+        "operationId" : "getAccountBalance",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Random and unique string for each page. Used for security purpose",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getAccountBalanceResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountBalanceResponse"
+            }
+          },
+          "default" : {
+            "description" : "getAccountBalanceErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountBalanceErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "page_token" : {
+          "type" : "string"
+        }
+      }
+    },
+    "getAccountBalanceResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/getAccountBalanceResponseBody"
+        }
+      },
+      "description" : "getAccountBalanceResponse"
+    },
+    "getAccountBalanceResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "accountId" : {
+            "type" : "string",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "maxLength" : 16
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "maxLength" : 3
+          },
+          "mnemonic" : {
+            "type" : "string",
+            "description" : "Shortcut code for referring an Entity/Company/Branch.",
+            "maxLength" : 10
+          },
+          "displayName" : {
+            "type" : "string",
+            "description" : "Contains the name used for display or enrichment purposes",
+            "maxLength" : 35
+          },
+          "categoryId" : {
+            "type" : "string",
+            "description" : "Unique identifier associated with the product name of the account or contract. For example: For customer/counterparty accounts, the identifier would be in the range 1000 to 9999. For ledger accounts, in the range 10000 to 19999.",
+            "maxLength" : 15
+          },
+          "workingBalance" : {
+            "type" : "number",
+            "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
+          },
+          "onlineActualBalance" : {
+            "type" : "number",
+            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+          },
+          "availableBalance" : {
+            "type" : "number",
+            "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+          },
+          "clearedBalance" : {
+            "type" : "number",
+            "description" : "Balance taking into consideration all cleared funds booked against the account, including credit and reversed debit entries with a future exposure date."
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          }
+        }
+      }
+    },
+    "getAccountBalanceErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/getAccountBalanceErrorResponseBody"
+        }
+      },
+      "description" : "getAccountBalanceErrorResponse"
+    },
+    "getAccountBalanceErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

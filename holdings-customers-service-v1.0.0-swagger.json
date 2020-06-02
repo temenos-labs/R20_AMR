@@ -1,0 +1,1476 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Retrieves all Holdings of the Customer",
+    "version" : "v1.0.0",
+    "title" : "Holdings Customers APIs"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/customers/{customerId}/holdings" : {
+      "get" : {
+        "operationId" : "getCustomerHoldings",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "100285"
+        }, {
+          "name" : "holdingsType",
+          "in" : "query",
+          "description" : "Contains the types of customer holdings",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "holdingsId",
+          "in" : "query",
+          "description" : "Contains the identifier specific to the holding details of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "getPreferredHoldings",
+          "in" : "query",
+          "description" : "Flag to fetch the preferred holding details (JWT required)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "CustomerHoldingsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/CustomerHoldingsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/arrangements" : {
+      "get" : {
+        "operationId" : "getArrangementsForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productLineId",
+          "in" : "query",
+          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ArrangementsForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementsForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/accounts/{accountId}" : {
+      "get" : {
+        "operationId" : "getAccountForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "currencyId",
+          "in" : "query",
+          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "limitReference",
+          "in" : "query",
+          "description" : "Identifies the credit limit reference for the underlying account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AccountForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AccountForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/overdueSettlements" : {
+      "get" : {
+        "operationId" : "getOverdueSettlementsByCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "transactionId",
+          "in" : "query",
+          "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "portfolioId",
+          "in" : "query",
+          "description" : "Id of the portfolio or security account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "brokerId",
+          "in" : "query",
+          "description" : "The identifier of the broker",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "tradeDate",
+          "in" : "query",
+          "description" : "Standard date field which records trade date of the account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "valueDate",
+          "in" : "query",
+          "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "depository",
+          "in" : "query",
+          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "currency",
+          "in" : "query",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "instrumentId",
+          "in" : "query",
+          "description" : "The identifier of the instrument",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deliveryInstruction",
+          "in" : "query",
+          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "transactionType",
+          "in" : "query",
+          "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "quantity",
+          "in" : "query",
+          "description" : "The nominal quantity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "stockExchange",
+          "in" : "query",
+          "description" : "The stock exchange identifier",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OverdueSettlementsByCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/OverdueSettlementsByCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/accounts/{accountId}/transactions" : {
+      "get" : {
+        "operationId" : "getAccountTransactionsForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bookingDate",
+          "in" : "query",
+          "description" : "Business date on which the accounting entry was generated.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "processingDate",
+          "in" : "query",
+          "description" : "The date when payment instruction is processed in system.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "valueDate",
+          "in" : "query",
+          "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "Contains the description of purpose of the payment.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "reversalMarker",
+          "in" : "query",
+          "description" : "Denotes the flag which is set whenever any credit or reversal debit entries with future exposure dates are processed",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "includeSubAcct",
+          "in" : "query",
+          "description" : "Denotes the flag which needs to be set in order to allow the automatic creation of sub-accounts and the automatic distribution of transactions over sub-accounts",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AccountTransactionsForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AccountTransactionsForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/portfolios/{portfolioId}/outstandingSettlements" : {
+      "get" : {
+        "operationId" : "getOutstandingSettlements",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "portfolioId",
+          "in" : "path",
+          "description" : "Id of the portfolio or security account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "transactionId",
+          "in" : "query",
+          "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "brokerId",
+          "in" : "query",
+          "description" : "The identifier of the broker",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "tradeDate",
+          "in" : "query",
+          "description" : "Standard date field which records trade date of the account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "valueDate",
+          "in" : "query",
+          "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "depository",
+          "in" : "query",
+          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "currency",
+          "in" : "query",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "instrumentId",
+          "in" : "query",
+          "description" : "The identifier of the instrument",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deliveryInstruction",
+          "in" : "query",
+          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "transactionType",
+          "in" : "query",
+          "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "quantity",
+          "in" : "query",
+          "description" : "The nominal quantity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "stockExchange",
+          "in" : "query",
+          "description" : "The stock exchange identifier",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OutstandingSettlementsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/OutstandingSettlementsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/accounts" : {
+      "get" : {
+        "operationId" : "getAccountsForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "accountId",
+          "in" : "query",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "currencyId",
+          "in" : "query",
+          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "limitReference",
+          "in" : "query",
+          "description" : "Identifies the credit limit reference for the underlying account.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "query",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AccountsForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AccountForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "CustomerHoldingsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/CustomerHoldingsResponseBody"
+        }
+      },
+      "description" : "CustomerHoldingsResponse"
+    },
+    "CustomerHoldingsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "products" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "productLineName" : {
+                  "type" : "string",
+                  "description" : "Description of the product line, e.g. Client Consent for product line CONSENT."
+                },
+                "arrangementId" : {
+                  "type" : "string",
+                  "description" : "Indicates an unique identifier of an account"
+                },
+                "productGroupId" : {
+                  "type" : "string",
+                  "description" : "The group, as defined by the institution, that the product belongs to."
+                },
+                "productGroupName" : {
+                  "type" : "string",
+                  "description" : "Description of the product group"
+                },
+                "productId" : {
+                  "type" : "string",
+                  "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                },
+                "productDescription" : {
+                  "type" : "string",
+                  "description" : "Indicates the description of the Product"
+                },
+                "accountId" : {
+                  "type" : "string",
+                  "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                },
+                "shortTitle" : {
+                  "type" : "string",
+                  "description" : "Short title given to the name of the arrangement"
+                },
+                "categoryId" : {
+                  "type" : "string",
+                  "description" : "Unique identifier associated with the product name of the account or contract. For example: For customer/counterparty accounts, the identifier would be in the range 1000 to 9999. For ledger accounts, in the range 10000 to 19999."
+                },
+                "companyCode" : {
+                  "type" : "string",
+                  "description" : "The identifier of the underlying Entity/Company/Branch."
+                },
+                "currencyId" : {
+                  "type" : "string",
+                  "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+                },
+                "sortCode" : {
+                  "type" : "string",
+                  "description" : "Contains bank sort code or iban branch identifier for the account"
+                },
+                "accountIBAN" : {
+                  "type" : "string",
+                  "description" : "Represents the International Bank Account Number (IBAN) of the account.  E.g. GB29 NWBK 6016 1331 9268 19"
+                },
+                "workingBalance" : {
+                  "type" : "number",
+                  "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
+                },
+                "openingDate" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "The date the account is opened."
+                },
+                "companyName" : {
+                  "type" : "string",
+                  "description" : "The company in which payment is processed"
+                },
+                "preferredProduct" : {
+                  "type" : "string",
+                  "description" : "Indicates the preferred product of the arrangement contract. This is required for only new arrangements and product change is not permitted"
+                },
+                "preferredProductPosition" : {
+                  "type" : "string",
+                  "description" : "Indicates to position of the preferred product of the arrangement contract. This is required for only new arrangements and product change is not permitted"
+                },
+                "preferredProductLabel" : {
+                  "type" : "string",
+                  "description" : "Indicates the label of the Preferred Product of the Arrangement contract. This is required for only new arrangements and product change is not permitted"
+                },
+                "permission" : {
+                  "type" : "string",
+                  "description" : "The act of permitting, especially in giving formal consent to access a particular file or repository."
+                },
+                "onlineActualBalance" : {
+                  "type" : "number",
+                  "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+                },
+                "availableBalance" : {
+                  "type" : "number",
+                  "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+                },
+                "availableBalanceWithLimit" : {
+                  "type" : "number",
+                  "description" : "Contains the maximum amount available to be drawn"
+                },
+                "outstandingAmount" : {
+                  "type" : "number",
+                  "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+                },
+                "paidOutAmount" : {
+                  "type" : "number",
+                  "description" : "The amount paid out."
+                },
+                "arrangementStatus" : {
+                  "type" : "string",
+                  "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+                },
+                "totalPrincipal" : {
+                  "type" : "number",
+                  "description" : "Contains the amount borrowed or the part of the amount borrowed which remains unpaid"
+                }
+              }
+            }
+          },
+          "productLineId" : {
+            "type" : "string",
+            "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
+          },
+          "totalAccountBalances" : {
+            "type" : "number",
+            "description" : "Contains the final balances of all accounts after all transactions have taken place"
+          },
+          "totalDepositBalances" : {
+            "type" : "number",
+            "description" : "Contains the final balances of all deposit accounts after all transactions have taken place"
+          },
+          "totalLoanBalances" : {
+            "type" : "number",
+            "description" : "Contains the final balances of all loans after all payments have taken place"
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type"
+        }
+      }
+    },
+    "ArrangementsForCustomerResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ArrangementsForCustomerResponseBody"
+        }
+      },
+      "description" : "ArrangementsForCustomerResponse"
+    },
+    "ArrangementsForCustomerResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account",
+            "maxLength" : 17
+          },
+          "accountId" : {
+            "type" : "string",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "maxLength" : 35
+          },
+          "accountName" : {
+            "type" : "string",
+            "description" : "Display name or short name of the account specified.",
+            "maxLength" : 35
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "maxLength" : 3
+          },
+          "termAmount" : {
+            "type" : "number",
+            "description" : "The monetary amount applied to the account"
+          },
+          "productId" : {
+            "type" : "string",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "maxLength" : 30
+          },
+          "productGroupId" : {
+            "type" : "string",
+            "description" : "The group, as defined by the institution, that the product belongs to.",
+            "maxLength" : 30
+          },
+          "productLineId" : {
+            "type" : "string",
+            "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+            "maxLength" : 10
+          },
+          "category" : {
+            "type" : "string",
+            "description" : "Indicates the account or contract product name. For example for an account this maybe current, savings etc.",
+            "maxLength" : 35
+          },
+          "openingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date the account is opened."
+          }
+        }
+      }
+    },
+    "AccountForCustomerResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AccountForCustomerResponseBody"
+        }
+      },
+      "description" : "AccountForCustomerResponse"
+    },
+    "AccountForCustomerResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "productName" : {
+            "type" : "string",
+            "description" : "Product name of the bank for this account, proprietary definition."
+          },
+          "accountId" : {
+            "type" : "string",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "maxLength" : 16
+          },
+          "displayName" : {
+            "type" : "string",
+            "description" : "Contains the name used for display or enrichment purposes",
+            "maxLength" : 35
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "maxLength" : 3
+          },
+          "lockedAmount" : {
+            "type" : "number",
+            "description" : "Shows reserved amount for the underlying account for a given balance reservation event."
+          },
+          "workingBalance" : {
+            "type" : "number",
+            "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
+          },
+          "onlineActualBalance" : {
+            "type" : "number",
+            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+          },
+          "availableBalance" : {
+            "type" : "number",
+            "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+          },
+          "sortCode" : {
+            "type" : "string",
+            "description" : "Contains bank sort code or iban branch identifier for the account"
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "Identifier of the customer",
+            "maxLength" : 10
+          },
+          "availableLimit" : {
+            "type" : "string",
+            "description" : "The portion of an allocated credit limit that is available for the nominated customer",
+            "maxLength" : 19
+          },
+          "IBAN" : {
+            "type" : "string",
+            "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19",
+            "maxLength" : 19
+          },
+          "portfolioId" : {
+            "type" : "string",
+            "description" : "Id of the portfolio or security account",
+            "maxLength" : 18
+          },
+          "openingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date the account is opened."
+          },
+          "limitReference" : {
+            "type" : "string",
+            "description" : "Identifies the credit limit reference for the underlying account.",
+            "maxLength" : 10
+          },
+          "clearedBalance" : {
+            "type" : "number",
+            "description" : "Balance taking into consideration all cleared funds booked against the account, including credit and reversed debit entries with a future exposure date."
+          }
+        }
+      }
+    },
+    "OverdueSettlementsByCustomerResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/OverdueSettlementsByCustomerResponseBody"
+        }
+      },
+      "description" : "OverdueSettlementsByCustomerResponse"
+    },
+    "OverdueSettlementsByCustomerResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "broker" : {
+            "type" : "array",
+            "description" : "Specifies the counterparty with whom the trade is to be effected.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "brokerId" : {
+                  "type" : "string",
+                  "description" : "The identifier of the broker",
+                  "maxLength" : 10
+                },
+                "brokerName" : {
+                  "type" : "string",
+                  "description" : "The name that is displayed for the broker",
+                  "maxLength" : 10
+                },
+                "nostro" : {
+                  "type" : "string",
+                  "description" : "Nostro account id"
+                },
+                "nostroCurrency" : {
+                  "type" : "string",
+                  "description" : "Currency of the nostro account"
+                },
+                "brokerOutstandingAmount" : {
+                  "type" : "number",
+                  "description" : "The amount outstanding for the broker"
+                },
+                "brokerOutstandingQuantity" : {
+                  "type" : "string",
+                  "description" : "The quantity of the instrument outstanding for the broker",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "transactionId" : {
+            "type" : "string",
+            "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+            "maxLength" : 97
+          },
+          "instrumentId" : {
+            "type" : "string",
+            "description" : "The identifier of the instrument",
+            "maxLength" : 12
+          },
+          "instrumentName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the instrument, taken from the Security Master"
+          },
+          "depository" : {
+            "type" : "string",
+            "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+            "maxLength" : 10
+          },
+          "depositoryName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the depository"
+          },
+          "tradeDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Standard date field which records trade date of the account"
+          },
+          "valueDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+          },
+          "tradeCurrency" : {
+            "type" : "string",
+            "description" : "The trade currency is the settlement currency for the trade",
+            "maxLength" : 3
+          },
+          "quantity" : {
+            "type" : "string",
+            "description" : "The nominal quantity",
+            "maxLength" : 19
+          },
+          "portfolioId" : {
+            "type" : "string",
+            "description" : "Id of the portfolio or security account",
+            "maxLength" : 18
+          },
+          "portfolioName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the portfolio",
+            "maxLength" : 10
+          },
+          "accountCurrency" : {
+            "type" : "string",
+            "description" : "Currency of the account. For example: USD, GBP.",
+            "maxLength" : 3
+          },
+          "customerOutstandingAmount" : {
+            "type" : "number",
+            "description" : "The amount outstanding from/to the customer"
+          },
+          "customerOutstandingQuantity" : {
+            "type" : "string",
+            "description" : "The quantity outstanding from/to the customer",
+            "maxLength" : 19
+          }
+        }
+      }
+    },
+    "AccountTransactionsForCustomerResponseQueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "parse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        },
+        "data" : {
+          "type" : "object",
+          "properties" : {
+            "accountId" : {
+              "type" : "string",
+              "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+            },
+            "customerId" : {
+              "type" : "string",
+              "description" : "Identifier of the customer"
+            },
+            "accountCurrency" : {
+              "type" : "string",
+              "description" : "Currency of the account. For example: USD, GBP."
+            },
+            "openingBalance" : {
+              "type" : "string",
+              "description" : "Balance brought forward from the previous date/period.",
+              "maxLength" : 19
+            }
+          }
+        }
+      }
+    },
+    "AccountTransactionsForCustomerResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/AccountTransactionsForCustomerResponseQueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AccountTransactionsForCustomerResponseBody"
+        }
+      },
+      "description" : "AccountTransactionsForCustomerResponse"
+    },
+    "AccountTransactionsForCustomerResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "bookingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Business date on which the accounting entry was generated."
+          },
+          "transactionId" : {
+            "type" : "string",
+            "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+            "maxLength" : 150
+          },
+          "transactionName" : {
+            "type" : "string",
+            "description" : "The transaction description"
+          },
+          "valueDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+          },
+          "transactionAmount" : {
+            "type" : "number",
+            "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+          },
+          "debitCreditIndicator" : {
+            "type" : "string",
+            "description" : "Indicator flag which is set whenever a debit or a credit transaction happens in the account"
+          },
+          "transactionTotal" : {
+            "type" : "string",
+            "description" : "The total amount of the transaction"
+          }
+        }
+      }
+    },
+    "OutstandingSettlementsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/OutstandingSettlementsResponseBody"
+        }
+      },
+      "description" : "OutstandingSettlementsResponse"
+    },
+    "OutstandingSettlementsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "broker" : {
+            "type" : "array",
+            "description" : "Specifies the counterparty with whom the trade is to be effected.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "brokerId" : {
+                  "type" : "string",
+                  "description" : "The identifier of the broker",
+                  "maxLength" : 10
+                },
+                "brokerName" : {
+                  "type" : "string",
+                  "description" : "The name that is displayed for the broker",
+                  "maxLength" : 10
+                },
+                "nostro" : {
+                  "type" : "string",
+                  "description" : "Nostro account id"
+                },
+                "nostroCurrency" : {
+                  "type" : "string",
+                  "description" : "Currency of the nostro account"
+                },
+                "brokerOutstandingAmount" : {
+                  "type" : "number",
+                  "description" : "The amount outstanding for the broker"
+                },
+                "brokerOutstandingQuantity" : {
+                  "type" : "string",
+                  "description" : "The quantity of the instrument outstanding for the broker",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "transactionId" : {
+            "type" : "string",
+            "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
+            "maxLength" : 97
+          },
+          "instrumentId" : {
+            "type" : "string",
+            "description" : "The identifier of the instrument",
+            "maxLength" : 12
+          },
+          "instrumentName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the instrument, taken from the Security Master"
+          },
+          "depository" : {
+            "type" : "string",
+            "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+            "maxLength" : 10
+          },
+          "depositoryName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the depository"
+          },
+          "tradeDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Standard date field which records trade date of the account"
+          },
+          "valueDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+          },
+          "tradeCurrency" : {
+            "type" : "string",
+            "description" : "The trade currency is the settlement currency for the trade",
+            "maxLength" : 3
+          },
+          "quantity" : {
+            "type" : "string",
+            "description" : "The nominal quantity",
+            "maxLength" : 19
+          },
+          "portfolioId" : {
+            "type" : "string",
+            "description" : "Id of the portfolio or security account",
+            "maxLength" : 18
+          },
+          "portfolioName" : {
+            "type" : "string",
+            "description" : "The name that is displayed for the portfolio",
+            "maxLength" : 10
+          },
+          "accountCurrency" : {
+            "type" : "string",
+            "description" : "Currency of the account. For example: USD, GBP.",
+            "maxLength" : 3
+          },
+          "customerOutstandingAmount" : {
+            "type" : "number",
+            "description" : "The amount outstanding from/to the customer"
+          },
+          "customerOutstandingQuantity" : {
+            "type" : "string",
+            "description" : "The quantity outstanding from/to the customer",
+            "maxLength" : 19
+          }
+        }
+      }
+    }
+  }
+}

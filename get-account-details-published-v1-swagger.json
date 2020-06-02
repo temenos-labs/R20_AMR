@@ -1,0 +1,185 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Get the details of the account",
+    "version" : "v1.2.0",
+    "title" : "BG PSD2 ACCOUNT DETAILS API"
+  },
+  "basePath" : "/api/v1",
+  "paths" : {
+    "/accounts/{accountId}" : {
+      "get" : {
+        "description" : "Get the details of the account",
+        "operationId" : "getAccountDetailsPublished",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Request-ID",
+          "in" : "header",
+          "description" : "ID of the request, unique to the call, as determined by the initiating party.",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "withBalance",
+          "in" : "query",
+          "description" : "Identifies whether balance information needs to be retrieved. Possible values YES or NO. Default is NO.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "Consent-ID",
+          "in" : "header",
+          "description" : "Shall be contained since Establish Consent Transaction was performed via this API before.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Shall be contained since Establish Consent Transaction was performed via this API before.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-ID",
+          "in" : "header",
+          "description" : "Client ID of the payment service user (PSU) in the ASPSP interface; T24 customer number",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-ID-Type",
+          "in" : "header",
+          "description" : "Type of PSU-ID where different types of ID are used.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Corporate-ID",
+          "in" : "header",
+          "description" : " Identification of a corporate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-Corporate-ID-Type",
+          "in" : "header",
+          "description" : " Type of identification required by an ASPSP to identify a corporate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "PSU-IP-Address",
+          "in" : "header",
+          "description" : "HTTP request IP Address field between PSU and TPP",
+          "required" : false,
+          "type" : "string",
+          "format" : "ipv4"
+        }, {
+          "name" : "TPP-Redirect-Preferred",
+          "in" : "header",
+          "description" : "Equals âtrueâ if TPP prefers a redirect over an embedded SCA",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "TPP-Redirect-URI",
+          "in" : "header",
+          "description" : "URl of the TPP where the transaction flow shall be redirected to after a Redirect.",
+          "required" : false,
+          "type" : "string",
+          "format" : "uri"
+        }, {
+          "name" : "TPP-Nok-Redirect-URI",
+          "in" : "header",
+          "description" : "The URl to be used after the redirect if the SCA is not okay. This field is optional and can be ignored by the ASPSP.",
+          "required" : false,
+          "type" : "string",
+          "format" : "uri"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getAccountDetailsPublishedResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountDetailsPublishedResponse"
+            }
+          },
+          "default" : {
+            "description" : "getAccountDetailsPublishedErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getAccountDetailsPublishedErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "getAccountDetailsPublishedResponse" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+            "maxLength" : 25
+          },
+          "bban" : {
+            "type" : "string",
+            "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Short title for the Account to be created"
+          },
+          "bookedBalance" : {
+            "type" : "string",
+            "description" : "Balances of the account as per the Booking dated."
+          },
+          "iban" : {
+            "type" : "string",
+            "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+          },
+          "currency" : {
+            "type" : "string",
+            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+          },
+          "bic" : {
+            "type" : "string",
+            "description" : "The BIC code of the Beneficiary bank"
+          },
+          "product" : {
+            "type" : "string",
+            "description" : "Indicates an id or name of a product"
+          },
+          "availableBalance" : {
+            "type" : "string",
+            "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+          }
+        }
+      }
+    },
+    "getAccountDetailsPublishedErrorResponse" : {
+      "type" : "object",
+      "properties" : {
+        "tppMessages" : {
+          "type" : "array",
+          "description" : "Messages to the TPP on operational issues.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "code" : {
+                "type" : "string"
+              },
+              "text" : {
+                "type" : "string"
+              },
+              "category" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

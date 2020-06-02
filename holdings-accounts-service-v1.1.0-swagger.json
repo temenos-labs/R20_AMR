@@ -1,0 +1,1077 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Retrieves balances, cards and transaction information on accounts ",
+    "version" : "v1.1.0",
+    "title" : "Holdings Accounts APIs"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.1.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/accounts/{accountId}" : {
+      "get" : {
+        "summary" : "Retrieves the details of account",
+        "description" : "Retrieves the overall details of account for a specific customer",
+        "operationId" : "getAccountDetails",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "accountId",
+          "in" : "path",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "AccountDetailsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/AccountDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/deposits/{depositId}" : {
+      "get" : {
+        "summary" : "Retrieves the details of deposit account",
+        "description" : "Retrieves the overall details of deposit account for a specific customer",
+        "operationId" : "getDepositDetails",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "depositId",
+          "in" : "path",
+          "description" : "Indicates the Id of the deposit account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DepositDetailsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/DepositDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/loans/{loanId}" : {
+      "get" : {
+        "summary" : "Retrieves the details of loan account",
+        "description" : "Retrieves the overall details of loan account for a specific customer",
+        "operationId" : "getLoanDetails",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "loanId",
+          "in" : "path",
+          "description" : "Denotes the arrangement id of the loan",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "LoanDetailsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/LoanDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "Current number of the record"
+            },
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "AccountDetailsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AccountDetailsResponseBody"
+        }
+      },
+      "description" : "AccountDetailsResponse"
+    },
+    "AccountDetailsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "sharedLimitAccounts" : {
+            "type" : "array",
+            "description" : "",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "sharedLimitAccount" : {
+                  "type" : "string",
+                  "description" : "Denotes the account in which the credit card limit is assigned to the customer across all the credit cards"
+                },
+                "sharedLimitAccountType" : {
+                  "type" : "string",
+                  "description" : "Indicates the type of shared limit account"
+                }
+              }
+            }
+          },
+          "taxRates" : {
+            "type" : "array",
+            "description" : "Indicates tax charged to an account",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "taxRate" : {
+                  "type" : "string",
+                  "description" : "Indicates tax charged to an account"
+                }
+              }
+            }
+          },
+          "interests" : {
+            "type" : "array",
+            "description" : "Interest amount",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "interestPropertyName" : {
+                  "type" : "string",
+                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
+                },
+                "interestCompoundType" : {
+                  "type" : "string",
+                  "description" : "Indicates the interest compound type of an account"
+                },
+                "interestCompoundTypeValue" : {
+                  "type" : "string",
+                  "description" : "Indicates the interest compound type value of an account"
+                },
+                "dividentPaidYtd" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "lastPaidDivident" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "periodEnding" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : ""
+                },
+                "consolidateInterests" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "consolidateInterest" : {
+                        "type" : "string",
+                        "description" : "Contains the sum of the cash interest expense and net of cash interest income of the borrower and the restricted subsidiaries determined on a consolidated basis"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "sharedInterestAccounts" : {
+            "type" : "array",
+            "description" : "",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "sharedInterestAccount" : {
+                  "type" : "string",
+                  "description" : "Contains the account details which shares the interest among the eligible or joint customers."
+                },
+                "sharedInterestAccountType" : {
+                  "type" : "string",
+                  "description" : "Indicates the type of shared interest account"
+                }
+              }
+            }
+          },
+          "charges" : {
+            "type" : "array",
+            "description" : "The charges or fees for this transaction",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "paymentFrequency" : {
+                  "type" : "string",
+                  "description" : "The frequency at which a payment is required to be generated"
+                },
+                "paymentTypeName" : {
+                  "type" : "string",
+                  "description" : "Indicates Payment type set to an account"
+                },
+                "propertyName" : {
+                  "type" : "string",
+                  "description" : "Indicates the Id of the product property"
+                },
+                "paymentMethod" : {
+                  "type" : "string",
+                  "description" : "Method chosen to make the payment"
+                },
+                "chargeSchedulePaymentValue" : {
+                  "type" : "string",
+                  "description" : "Indicates the payment frequency associated with the charge"
+                }
+              }
+            }
+          },
+          "openActualBalance" : {
+            "type" : "number",
+            "description" : "Contains the opening actual balance of an account"
+          },
+          "availableOverdraftLimit" : {
+            "type" : "number",
+            "description" : "Contains the overdraft limit still available to be utilized"
+          },
+          "openingDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date the account is opened."
+          },
+          "approvedOverdraftLimit" : {
+            "type" : "number",
+            "description" : "Contains the approved overdraft limit"
+          },
+          "limitExpiryDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "This field specifies the validity of the Limit, i.e. how long is it to remain in force"
+          },
+          "availableFunds" : {
+            "type" : "number",
+            "description" : "Total funds available in the account after all the ongoing transactions have been completed"
+          },
+          "outstandingOverdraftLimit" : {
+            "type" : "number",
+            "description" : "Indicates the outstanding overdraft limit of an account"
+          },
+          "onlineClearedBalance" : {
+            "type" : "number",
+            "description" : "Indicates the available balance allowed to use"
+          },
+          "openClearedBalance" : {
+            "type" : "number",
+            "description" : "Indicates the opening balance after clearing"
+          },
+          "accountWithBankBIC" : {
+            "type" : "string",
+            "description" : "This is the BIC code of the institution where beneficiary holds an account"
+          },
+          "pendingDeposit" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer"
+          },
+          "totalCredits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "totalDebits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "jointCustomerName" : {
+            "type" : "string",
+            "description" : "Name of Joint Customer"
+          },
+          "commitmentBalance" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidAmount" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : ""
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "DepositDetailsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DepositDetailsResponseBody"
+        }
+      },
+      "description" : "DepositDetailsResponse"
+    },
+    "DepositDetailsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "chargeTypes" : {
+            "type" : "array",
+            "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "chargeType" : {
+                  "type" : "string",
+                  "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG"
+                }
+              }
+            }
+          },
+          "taxRates" : {
+            "type" : "array",
+            "description" : "Indicates tax charged to an account",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "taxRate" : {
+                  "type" : "string",
+                  "description" : "Indicates tax charged to an account"
+                }
+              }
+            }
+          },
+          "charges" : {
+            "type" : "array",
+            "description" : "The charges or fees for this transaction",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "paymentFrequency" : {
+                  "type" : "string",
+                  "description" : "The frequency at which a payment is required to be generated"
+                },
+                "paymentTypeName" : {
+                  "type" : "string",
+                  "description" : "Indicates Payment type set to an account"
+                },
+                "propertyName" : {
+                  "type" : "string",
+                  "description" : "Indicates the Id of the product property"
+                },
+                "paymentMethod" : {
+                  "type" : "string",
+                  "description" : "Method chosen to make the payment"
+                },
+                "chargeSchedulePaymentValue" : {
+                  "type" : "string",
+                  "description" : "Indicates the payment frequency associated with the charge"
+                },
+                "dividentPaidYtd" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "lastPaidDivident" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "periodEnding" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : ""
+                }
+              }
+            }
+          },
+          "settlements" : {
+            "type" : "array",
+            "description" : "Indicates settlement conditions associated with the account",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "payinSettlement" : {
+                  "type" : "string",
+                  "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                },
+                "payinAccountId" : {
+                  "type" : "string",
+                  "description" : "Indicates the Payin Settlement Account. The account from which funds are to be debited against the payment type."
+                },
+                "payoutSettlement" : {
+                  "type" : "string",
+                  "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes."
+                },
+                "payoutAccountId" : {
+                  "type" : "string",
+                  "description" : "Indicates the Payout Settlement Account. The account into which funds are to be credited against the payment type."
+                },
+                "propertyId" : {
+                  "type" : "string",
+                  "description" : "The identifier of the product condition"
+                },
+                "propertyClassId" : {
+                  "type" : "string",
+                  "description" : "The identifier of a condition that is used to build a product"
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account"
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Contains the date on which the transaction or payment gets initiated."
+          },
+          "maturityDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates maturity date of the contract"
+          },
+          "maturesIn" : {
+            "type" : "string",
+            "description" : "Indicates a date or period within which an account gets matured"
+          },
+          "coolingOffDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates cooling off period for an account until which pre-closure can be triggered without incurring any fees or charges."
+          },
+          "term" : {
+            "type" : "string",
+            "description" : "Indicates the term for which the contract is booked"
+          },
+          "termAmount" : {
+            "type" : "number",
+            "description" : "The monetary amount applied to the account"
+          },
+          "cancellationPeriod" : {
+            "type" : "string",
+            "description" : "Indicates the Period beyond which a contract is cancelled if it not fully funded in case of deposit or fully disbursed in case of the loan"
+          },
+          "earlyRedemptionFee" : {
+            "type" : "number",
+            "description" : "Indicates the early redemption fee that is associated during closure before account maturity"
+          },
+          "withdrawalFee" : {
+            "type" : "string",
+            "description" : "Indicates fee charged for the withdrawals"
+          },
+          "interestRate" : {
+            "type" : "string",
+            "description" : "Identifies the bid rate of the related currency for the defined time period"
+          },
+          "accrualAmount" : {
+            "type" : "number",
+            "description" : "Indicates interest accumulated for an account for the defined time period"
+          },
+          "accruedInterest" : {
+            "type" : "number",
+            "description" : "The amount of interest that has been accrued"
+          },
+          "paymentType" : {
+            "type" : "string",
+            "description" : "Indicates if the payment is Customer (C) type or Bank (B) type"
+          },
+          "maturityInDays" : {
+            "type" : "string",
+            "description" : "Indicates the number of days within which an contract gets matured"
+          },
+          "remainingMaturityInDays" : {
+            "type" : "string",
+            "description" : "Indicates number of days remaining for maturity"
+          },
+          "commitmentAmount" : {
+            "type" : "number",
+            "description" : "Indicates the total amount which will be lent or deposited for the term"
+          },
+          "expectedBalance" : {
+            "type" : "number",
+            "description" : "Indicates the amount expected to be deposited by the customer"
+          },
+          "allowWithdrawal" : {
+            "type" : "string",
+            "description" : "Flag to indicate whether withdrawals are applicable for the account"
+          },
+          "unspecifiedCredit" : {
+            "type" : "number",
+            "description" : "Indicates an unallocated credit amount to an account"
+          },
+          "allowDeposit" : {
+            "type" : "string",
+            "description" : "Flag to indicate whether deposit is allowed to an account"
+          },
+          "allowWithdrawalUnclearedCredit" : {
+            "type" : "string",
+            "description" : "Flag to indicate whether withdrawals are allowed to an unallocated fund available in the account"
+          },
+          "accountWithBankBIC" : {
+            "type" : "string",
+            "description" : "This is the BIC code of the institution where beneficiary holds an account"
+          },
+          "pendingDeposit" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer"
+          },
+          "totalCredits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "totalDebits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "jointCustomerName" : {
+            "type" : "string",
+            "description" : "Name of Joint Customer"
+          },
+          "commitmentBalance" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidAmount" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : ""
+          }
+        }
+      }
+    },
+    "LoanDetailsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/LoanDetailsResponseBody"
+        }
+      },
+      "description" : "LoanDetailsResponse"
+    },
+    "LoanDetailsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "interests" : {
+            "type" : "array",
+            "description" : "Interest amount",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "interestRate" : {
+                  "type" : "string",
+                  "description" : "Identifies the bid rate of the related currency for the defined time period"
+                },
+                "interestProperty" : {
+                  "type" : "string",
+                  "description" : "Indicates the interest property name"
+                },
+                "interestPropertyName" : {
+                  "type" : "string",
+                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
+                },
+                "compoundType" : {
+                  "type" : "string",
+                  "description" : "Contains the frequency type of compound in loan. For example, annually or monthly."
+                },
+                "rateType" : {
+                  "type" : "string",
+                  "description" : "Fixed or floating rate."
+                },
+                "effectiveRate" : {
+                  "type" : "string",
+                  "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value"
+                },
+                "tierType" : {
+                  "type" : "string",
+                  "description" : "Type of the tier rate. Allowed values: - BAND: rates apply within each band - LEVEL: a common rate applies, determined by the highest level"
+                },
+                "balanceTypes" : {
+                  "type" : "string",
+                  "description" : "Type of balance (e.g. current balance, credit interest accrued, deferred commission, etc.) as defined in the institution's accounting schemas."
+                },
+                "balanceAmount" : {
+                  "type" : "number",
+                  "description" : "Amount of the balance"
+                },
+                "dividentPaidYtd" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "lastPaidDivident" : {
+                  "type" : "number",
+                  "description" : ""
+                },
+                "periodEnding" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : ""
+                }
+              }
+            }
+          },
+          "schedules" : {
+            "type" : "array",
+            "description" : "Indicates where this pool may be run either online or End of the day.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "paidScheduleCount" : {
+                  "type" : "string",
+                  "description" : "Count of the paid dates for repayment."
+                },
+                "dueScheduleCount" : {
+                  "type" : "string",
+                  "description" : "Count of the due dates for repayment."
+                },
+                "futureScheduleCount" : {
+                  "type" : "string",
+                  "description" : "Count of the future scheduled payments involving the principal and interest for a given loan"
+                },
+                "schedulePaymentType" : {
+                  "type" : "string",
+                  "description" : "Indicates payment schedule type"
+                },
+                "schedulePaymentMethod" : {
+                  "type" : "string",
+                  "description" : "Denotes the payment schedule method of the loan such as capitalise, pay, due and maintain."
+                },
+                "scheduleProperty" : {
+                  "type" : "string",
+                  "description" : "Denotes the property of the loans schedule"
+                },
+                "schedulePaymentAmount" : {
+                  "type" : "number",
+                  "description" : "Contains the amount payable in the schedule"
+                },
+                "schedulePaymentFrequency" : {
+                  "type" : "string",
+                  "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account"
+          },
+          "currencyId" : {
+            "type" : "string",
+            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Contains the date on which the transaction or payment gets initiated."
+          },
+          "maturityDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates maturity date of the contract"
+          },
+          "maturesIn" : {
+            "type" : "string",
+            "description" : "Indicates a date or period within which an account gets matured"
+          },
+          "coolingOffDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates cooling off period for an account until which pre-closure can be triggered without incurring any fees or charges."
+          },
+          "nextPaymentAmount" : {
+            "type" : "number",
+            "description" : "Indicates the payment amount to be settled in the next schedule"
+          },
+          "nextPaymentDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Indicates next payment date for the contract"
+          },
+          "virtualBalance" : {
+            "type" : "string",
+            "description" : "Contains the virtual balance of the collateral"
+          },
+          "lastPayment" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Last committed transaction"
+          },
+          "term" : {
+            "type" : "string",
+            "description" : "Indicates the term for which the contract is booked"
+          },
+          "payoffRequest" : {
+            "type" : "string",
+            "description" : "Request for loans settlement"
+          },
+          "accountWithBankBIC" : {
+            "type" : "string",
+            "description" : "This is the BIC code of the institution where beneficiary holds an account"
+          },
+          "pendingDeposit" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer"
+          },
+          "totalCredits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "totalDebits" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "jointCustomerName" : {
+            "type" : "string",
+            "description" : "Name of Joint Customer"
+          },
+          "commitmentBalance" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidAmount" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "lastPaidDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : ""
+          }
+        }
+      }
+    }
+  }
+}
