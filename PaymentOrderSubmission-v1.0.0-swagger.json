@@ -132,7 +132,21 @@
         }
       },
       "description" : "PaymentOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"2\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {}\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "2"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : { }
+      }
     },
     "PaymentOrderBody" : {
       "type" : "object"
@@ -401,7 +415,21 @@
         }
       },
       "description" : "PaymentOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"2\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {}\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "2"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : { }
+      }
     }
   }
 }

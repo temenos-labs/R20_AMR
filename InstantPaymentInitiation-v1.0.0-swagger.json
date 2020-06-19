@@ -128,7 +128,87 @@
         }
       },
       "description" : "InstantPaymentOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP\",\n      \"id\": \"PI-UNAUTH.OVERDRAFT\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"chargeBearer\": \"\",\n    \"chargeInfo\": [{\"chargeName\": \"\"}],\n    \"creditorName\": \"TEST\",\n    \"purpose\": \"\",\n    \"ultimateCreditor\": \"\",\n    \"executionDate\": \"\",\n    \"creditValueDate\": \"\",\n    \"totalDebitAmount\": \"\",\n    \"chargeDetails\": [{\"chargeType\": \"\"}],\n    \"orderingPaymentFxCustomerRate\": \"\",\n    \"benPostAddressLine\": [{\"beneficiaryAddressLine1\": \"\"}],\n    \"benPostSwiftAddr\": [{\"beneficiarySWIFTAddress\": \"\"}],\n    \"debitAccountIBAN\": \"\",\n    \"accountWithBankIBAN\": \"\",\n    \"transactionAmount\": \"110\",\n    \"contextFieldValue\": [{\"contextValue\": \"\"}],\n    \"beneficiaryAddressArea\": \"\",\n    \"accountWithBankClearingCode\": \"\",\n    \"chargeAmt\": [{\"chargeAmount\": \"\"}],\n    \"contextField\": [{\"contextName\": \"\"}],\n    \"endToEndReference\": \"\",\n    \"beneficiaryIBAN\": \"GB91DEMO60161300014044\",\n    \"structuredCreditorReference\": \"\",\n    \"debitAccountId\": \"14095\",\n    \"accountWithBankBIC\": \"\",\n    \"cutOffTime\": \"\",\n    \"ultimateDebtor\": \"\",\n    \"simulatedAt\": \"\",\n    \"creditorAddress\": \"\",\n    \"creditorAgentCountryId\": \"\",\n    \"chargeAccCurr\": [{\"chargeAccountCurrencyId\": \"\"}],\n    \"chargeCurr\": [{\"chargeCurrency\": \"\"}],\n    \"PSDCompliant\": \"\",\n    \"creditAccountId\": \"14044\",\n    \"creditorAgentBIC\": \"\",\n    \"instructionIdReference\": \"\",\n    \"remittanceInfo\": [{\"remittanceInformation\": \"\"}],\n    \"paymentCurrency\": \"GBP\",\n    \"chargeAcc\": [{\"chargeAccountId\": \"\"}],\n    \"chargeAccountAmt\": [{\"chargeAcctAmount\": \"\"}],\n    \"indicativeRate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP",
+              "id" : "PI-UNAUTH.OVERDRAFT",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "chargeBearer" : "",
+          "chargeInfo" : [ {
+            "chargeName" : ""
+          } ],
+          "creditorName" : "TEST",
+          "purpose" : "",
+          "ultimateCreditor" : "",
+          "executionDate" : "",
+          "creditValueDate" : "",
+          "totalDebitAmount" : "",
+          "chargeDetails" : [ {
+            "chargeType" : ""
+          } ],
+          "orderingPaymentFxCustomerRate" : "",
+          "benPostAddressLine" : [ {
+            "beneficiaryAddressLine1" : ""
+          } ],
+          "benPostSwiftAddr" : [ {
+            "beneficiarySWIFTAddress" : ""
+          } ],
+          "debitAccountIBAN" : "",
+          "accountWithBankIBAN" : "",
+          "transactionAmount" : "110",
+          "contextFieldValue" : [ {
+            "contextValue" : ""
+          } ],
+          "beneficiaryAddressArea" : "",
+          "accountWithBankClearingCode" : "",
+          "chargeAmt" : [ {
+            "chargeAmount" : ""
+          } ],
+          "contextField" : [ {
+            "contextName" : ""
+          } ],
+          "endToEndReference" : "",
+          "beneficiaryIBAN" : "GB91DEMO60161300014044",
+          "structuredCreditorReference" : "",
+          "debitAccountId" : "14095",
+          "accountWithBankBIC" : "",
+          "cutOffTime" : "",
+          "ultimateDebtor" : "",
+          "simulatedAt" : "",
+          "creditorAddress" : "",
+          "creditorAgentCountryId" : "",
+          "chargeAccCurr" : [ {
+            "chargeAccountCurrencyId" : ""
+          } ],
+          "chargeCurr" : [ {
+            "chargeCurrency" : ""
+          } ],
+          "PSDCompliant" : "",
+          "creditAccountId" : "14044",
+          "creditorAgentBIC" : "",
+          "instructionIdReference" : "",
+          "remittanceInfo" : [ {
+            "remittanceInformation" : ""
+          } ],
+          "paymentCurrency" : "GBP",
+          "chargeAcc" : [ {
+            "chargeAccountId" : ""
+          } ],
+          "chargeAccountAmt" : [ {
+            "chargeAcctAmount" : ""
+          } ],
+          "indicativeRate" : ""
+        }
+      }
     },
     "InstantPaymentOrderBody" : {
       "type" : "object",
@@ -1013,7 +1093,87 @@
         }
       },
       "description" : "InstantPaymentOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP\",\n      \"id\": \"PI-UNAUTH.OVERDRAFT\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"chargeBearer\": \"\",\n    \"chargeInfo\": [{\"chargeName\": \"\"}],\n    \"creditorName\": \"TEST\",\n    \"purpose\": \"\",\n    \"ultimateCreditor\": \"\",\n    \"executionDate\": \"\",\n    \"creditValueDate\": \"\",\n    \"totalDebitAmount\": \"\",\n    \"chargeDetails\": [{\"chargeType\": \"\"}],\n    \"orderingPaymentFxCustomerRate\": \"\",\n    \"benPostAddressLine\": [{\"beneficiaryAddressLine1\": \"\"}],\n    \"benPostSwiftAddr\": [{\"beneficiarySWIFTAddress\": \"\"}],\n    \"debitAccountIBAN\": \"\",\n    \"accountWithBankIBAN\": \"\",\n    \"transactionAmount\": \"110\",\n    \"contextFieldValue\": [{\"contextValue\": \"\"}],\n    \"beneficiaryAddressArea\": \"\",\n    \"accountWithBankClearingCode\": \"\",\n    \"chargeAmt\": [{\"chargeAmount\": \"\"}],\n    \"contextField\": [{\"contextName\": \"\"}],\n    \"endToEndReference\": \"\",\n    \"beneficiaryIBAN\": \"GB91DEMO60161300014044\",\n    \"structuredCreditorReference\": \"\",\n    \"debitAccountId\": \"14095\",\n    \"accountWithBankBIC\": \"\",\n    \"cutOffTime\": \"\",\n    \"ultimateDebtor\": \"\",\n    \"simulatedAt\": \"\",\n    \"creditorAddress\": \"\",\n    \"creditorAgentCountryId\": \"\",\n    \"chargeAccCurr\": [{\"chargeAccountCurrencyId\": \"\"}],\n    \"chargeCurr\": [{\"chargeCurrency\": \"\"}],\n    \"PSDCompliant\": \"\",\n    \"creditAccountId\": \"14044\",\n    \"creditorAgentBIC\": \"\",\n    \"instructionIdReference\": \"\",\n    \"remittanceInfo\": [{\"remittanceInformation\": \"\"}],\n    \"paymentCurrency\": \"GBP\",\n    \"chargeAcc\": [{\"chargeAccountId\": \"\"}],\n    \"chargeAccountAmt\": [{\"chargeAcctAmount\": \"\"}],\n    \"indicativeRate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP",
+              "id" : "PI-UNAUTH.OVERDRAFT",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "chargeBearer" : "",
+          "chargeInfo" : [ {
+            "chargeName" : ""
+          } ],
+          "creditorName" : "TEST",
+          "purpose" : "",
+          "ultimateCreditor" : "",
+          "executionDate" : "",
+          "creditValueDate" : "",
+          "totalDebitAmount" : "",
+          "chargeDetails" : [ {
+            "chargeType" : ""
+          } ],
+          "orderingPaymentFxCustomerRate" : "",
+          "benPostAddressLine" : [ {
+            "beneficiaryAddressLine1" : ""
+          } ],
+          "benPostSwiftAddr" : [ {
+            "beneficiarySWIFTAddress" : ""
+          } ],
+          "debitAccountIBAN" : "",
+          "accountWithBankIBAN" : "",
+          "transactionAmount" : "110",
+          "contextFieldValue" : [ {
+            "contextValue" : ""
+          } ],
+          "beneficiaryAddressArea" : "",
+          "accountWithBankClearingCode" : "",
+          "chargeAmt" : [ {
+            "chargeAmount" : ""
+          } ],
+          "contextField" : [ {
+            "contextName" : ""
+          } ],
+          "endToEndReference" : "",
+          "beneficiaryIBAN" : "GB91DEMO60161300014044",
+          "structuredCreditorReference" : "",
+          "debitAccountId" : "14095",
+          "accountWithBankBIC" : "",
+          "cutOffTime" : "",
+          "ultimateDebtor" : "",
+          "simulatedAt" : "",
+          "creditorAddress" : "",
+          "creditorAgentCountryId" : "",
+          "chargeAccCurr" : [ {
+            "chargeAccountCurrencyId" : ""
+          } ],
+          "chargeCurr" : [ {
+            "chargeCurrency" : ""
+          } ],
+          "PSDCompliant" : "",
+          "creditAccountId" : "14044",
+          "creditorAgentBIC" : "",
+          "instructionIdReference" : "",
+          "remittanceInfo" : [ {
+            "remittanceInformation" : ""
+          } ],
+          "paymentCurrency" : "GBP",
+          "chargeAcc" : [ {
+            "chargeAccountId" : ""
+          } ],
+          "chargeAccountAmt" : [ {
+            "chargeAcctAmount" : ""
+          } ],
+          "indicativeRate" : ""
+        }
+      }
     }
   }
 }

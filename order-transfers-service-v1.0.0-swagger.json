@@ -202,7 +202,18 @@
         }
       },
       "description" : "FundsTransfer",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"transactionType\": \"OC\",\n    \"beneficiaryCustomerId\": \"100738\",\n    \"debitCurrency\": \"USD\",\n    \"creditCurrencyId\": \"USD\",\n    \"debitAccountId\": \"86053\",\n    \"debitAmount\": \"2000\",\n    \"creditAccountId\": \"USD1000110000001\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "transactionType" : "OC",
+          "beneficiaryCustomerId" : "100738",
+          "debitCurrency" : "USD",
+          "creditCurrencyId" : "USD",
+          "debitAccountId" : "86053",
+          "debitAmount" : "2000",
+          "creditAccountId" : "USD1000110000001"
+        }
+      }
     },
     "FundsTransferBody" : {
       "type" : "object",
@@ -602,7 +613,18 @@
         }
       },
       "description" : "FundsTransfer",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"transactionType\": \"OC\",\n    \"beneficiaryCustomerId\": \"100738\",\n    \"debitCurrency\": \"USD\",\n    \"creditCurrencyId\": \"USD\",\n    \"debitAccountId\": \"86053\",\n    \"debitAmount\": \"2000\",\n    \"creditAccountId\": \"USD1000110000001\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "transactionType" : "OC",
+          "beneficiaryCustomerId" : "100738",
+          "debitCurrency" : "USD",
+          "creditCurrencyId" : "USD",
+          "debitAccountId" : "86053",
+          "debitAmount" : "2000",
+          "creditAccountId" : "USD1000110000001"
+        }
+      }
     }
   }
 }

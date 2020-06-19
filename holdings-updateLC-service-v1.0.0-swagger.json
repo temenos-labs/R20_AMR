@@ -120,7 +120,15 @@
           "$ref" : "#/definitions/updateLCBody"
         }
       },
-      "description" : "updateLC"
+      "description" : "updateLC",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "newLCExpiryDate" : "20190425",
+          "advisingBankReference" : "REFER",
+          "newLCExpiryPlace" : "INDIA"
+        }
+      }
     },
     "updateLCBody" : {
       "type" : "object",
@@ -140,7 +148,6 @@
         },
         "beneficiaries" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -179,7 +186,6 @@
         },
         "charges" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -480,7 +486,6 @@
         },
         "beneficiaries" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -519,7 +524,6 @@
         },
         "charges" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {

@@ -131,7 +131,41 @@
         }
       },
       "description" : "CurrentAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST DRINTEREST\",\n        \"id\": \"AA.PS.DUPLICATE.STATEMENT.GENERATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Account Opening Agreement/AAA*212 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"ACCOUNTS-NEW-ARRANGEMENT\",\n    \"schedule\": {},\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST DRINTEREST",
+              "id" : "AA.PS.DUPLICATE.STATEMENT.GENERATE",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Account Opening Agreement/AAA*212 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "ACCOUNTS-NEW-ARRANGEMENT",
+          "schedule" : { },
+          "arrangmentId" : "NEW",
+          "productId" : "CURRENT.ACCOUNT",
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "CurrentAccountsBody" : {
       "type" : "object",
@@ -2339,7 +2373,41 @@
         }
       },
       "description" : "CurrentAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST DRINTEREST\",\n        \"id\": \"AA.PS.DUPLICATE.STATEMENT.GENERATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Account Opening Agreement/AAA*212 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"ACCOUNTS-NEW-ARRANGEMENT\",\n    \"schedule\": {},\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST DRINTEREST",
+              "id" : "AA.PS.DUPLICATE.STATEMENT.GENERATE",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Account Opening Agreement/AAA*212 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "ACCOUNTS-NEW-ARRANGEMENT",
+          "schedule" : { },
+          "arrangmentId" : "NEW",
+          "productId" : "CURRENT.ACCOUNT",
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     }
   }
 }

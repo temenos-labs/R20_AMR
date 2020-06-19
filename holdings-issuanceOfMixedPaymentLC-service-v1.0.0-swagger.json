@@ -114,7 +114,41 @@
         }
       },
       "description" : "createIssuanceOfMixedPaymentLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"applicantCustomer\": \"100100\",\n    \"confirmationInstruction\": \"CONFIRM\",\n    \"requestedConfirmBank\": \"129031\",\n    \"applicableRuleCodes\": \"URR LATEST VERSION\",\n    \"lcAmount\": 100000,\n    \"chargeDefaultAccount\": \"75132\",\n    \"lcCurrency\": \"USD\",\n    \"expiryDate\": \"20200220\",\n    \"charges\": [{\n      \"partyCharged\": \"O\",\n      \"amortiseCharges\": \"NO\",\n      \"chargeDebitAccount\": \"75132\",\n      \"chargeCode\": \"LCOPENAMRT\"\n    }],\n    \"beneficiaryCustomerId\": \"100160\",\n    \"waiveCharge\": \"NO\",\n    \"availableWithBanks\": [{\"availableWithBank\": \"ANY\"}],\n    \"drawings\": [{\n      \"paymentPercent\": \"100\",\n      \"drawingType\": \"SP\"\n    }],\n    \"advisingBankId\": \"100460\",\n    \"expiryPlace\": \"US\",\n    \"importMixedPmtLCType\": \"IMC\",\n    \"reimbursingBanks.1\": [{\"reimbursingbank1\": \"ANY\"}],\n    \"chargeFrom\": \"O\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "applicantCustomer" : "100100",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "applicableRuleCodes" : "URR LATEST VERSION",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "lcCurrency" : "USD",
+          "expiryDate" : "20200220",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "chargeDebitAccount" : "75132",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "drawings" : [ {
+            "paymentPercent" : "100",
+            "drawingType" : "SP"
+          } ],
+          "advisingBankId" : "100460",
+          "expiryPlace" : "US",
+          "importMixedPmtLCType" : "IMC",
+          "reimbursingBanks.1" : [ {
+            "reimbursingbank1" : "ANY"
+          } ],
+          "chargeFrom" : "O"
+        }
+      }
     },
     "createIssuanceOfMixedPaymentLCBody" : {
       "type" : "object",

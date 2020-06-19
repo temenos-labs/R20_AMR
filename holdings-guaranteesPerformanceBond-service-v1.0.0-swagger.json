@@ -114,7 +114,24 @@
         }
       },
       "description" : "createGuaranteePerformanceBond",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"expiryDate\": \"20191228\",\n    \"amount\": \"10000\",\n    \"charges\": [\n      {\n        \"chargeCurrency\": \"USD\",\n        \"chargeDate\": \"20190417\",\n        \"debitChargeAccount\": \"77399\"\n      },\n      {\n        \"chargeCurrency\": \"USD\",\n        \"chargeDate\": \"20190417\",\n        \"debitChargeAccount\": \"65773\"\n      }\n    ],\n    \"customerId\": \"100160\",\n    \"currency\": \"USD\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "expiryDate" : "20191228",
+          "amount" : "10000",
+          "charges" : [ {
+            "chargeCurrency" : "USD",
+            "chargeDate" : "20190417",
+            "debitChargeAccount" : "77399"
+          }, {
+            "chargeCurrency" : "USD",
+            "chargeDate" : "20190417",
+            "debitChargeAccount" : "65773"
+          } ],
+          "customerId" : "100160",
+          "currency" : "USD"
+        }
+      }
     },
     "createGuaranteePerformanceBondBody" : {
       "type" : "object",

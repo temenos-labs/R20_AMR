@@ -538,7 +538,13 @@
         }
       },
       "description" : "ServiceElasticCleanup",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"cleanupTime\": \"10:30\",\n    \"displayName\": \"TEST UPDATE\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "cleanupTime" : "10:30",
+          "displayName" : "TEST UPDATE"
+        }
+      }
     },
     "ServiceElasticCleanupBody" : {
       "type" : "object",
@@ -831,7 +837,13 @@
         }
       },
       "description" : "ServiceElasticParameter",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"queueJobs\": \"bnk/ofs.message.service\",\n    \"dynamicProvisioning\": \"YES\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "queueJobs" : "bnk/ofs.message.service",
+          "dynamicProvisioning" : "YES"
+        }
+      }
     },
     "ServiceElasticParameterBody" : {
       "type" : "object",
@@ -888,7 +900,22 @@
         }
       },
       "description" : "ServiceElasticProfile",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"agentsRequired\": \"\",\n    \"elasticity\": [{\n      \"elasticMax\": \"15\",\n      \"elasticDateTime\": \"ALL\",\n      \"elasticMin\": \"10\",\n      \"elasticTotal\": \" 25\",\n      \"elasticJob\": \"AA.ACCOUNT.DETAILS\",\n      \"elasticQueueDepth\": \"5\"\n    }],\n    \"displayName\": \"printing delivery advice\",\n    \"startTime\": \"\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "agentsRequired" : "",
+          "elasticity" : [ {
+            "elasticMax" : "15",
+            "elasticDateTime" : "ALL",
+            "elasticMin" : "10",
+            "elasticTotal" : " 25",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : ""
+        }
+      }
     },
     "ServiceElasticProfileBody" : {
       "type" : "object",
@@ -1045,7 +1072,12 @@
         }
       },
       "description" : "SystemParameterElastic",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\"deploymentMode\": \"CLOUD\"}\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "deploymentMode" : "CLOUD"
+        }
+      }
     },
     "SystemParameterElasticBody" : {
       "type" : "object",
@@ -1297,7 +1329,22 @@
         }
       },
       "description" : "ServiceElasticProfile",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"agentsRequired\": \"\",\n    \"elasticity\": [{\n      \"elasticMax\": \"15\",\n      \"elasticDateTime\": \"ALL\",\n      \"elasticMin\": \"10\",\n      \"elasticTotal\": \" 25\",\n      \"elasticJob\": \"AA.ACCOUNT.DETAILS\",\n      \"elasticQueueDepth\": \"5\"\n    }],\n    \"displayName\": \"printing delivery advice\",\n    \"startTime\": \"\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "agentsRequired" : "",
+          "elasticity" : [ {
+            "elasticMax" : "15",
+            "elasticDateTime" : "ALL",
+            "elasticMin" : "10",
+            "elasticTotal" : " 25",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : ""
+        }
+      }
     },
     "createServiceElasticProfile" : {
       "properties" : {
@@ -1309,7 +1356,22 @@
         }
       },
       "description" : "ServiceElasticProfile",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"agentsRequired\": \"\",\n    \"elasticity\": [{\n      \"elasticMax\": \"15\",\n      \"elasticDateTime\": \"ALL\",\n      \"elasticMin\": \"10\",\n      \"elasticTotal\": \" 25\",\n      \"elasticJob\": \"AA.ACCOUNT.DETAILS\",\n      \"elasticQueueDepth\": \"5\"\n    }],\n    \"displayName\": \"printing delivery advice\",\n    \"startTime\": \"\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "agentsRequired" : "",
+          "elasticity" : [ {
+            "elasticMax" : "15",
+            "elasticDateTime" : "ALL",
+            "elasticMin" : "10",
+            "elasticTotal" : " 25",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : ""
+        }
+      }
     },
     "amendServiceElasticParameter" : {
       "properties" : {
@@ -1321,7 +1383,13 @@
         }
       },
       "description" : "ServiceElasticParameter",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"queueJobs\": \"bnk/ofs.message.service\",\n    \"dynamicProvisioning\": \"YES\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "queueJobs" : "bnk/ofs.message.service",
+          "dynamicProvisioning" : "YES"
+        }
+      }
     },
     "createServiceElasticCleanup" : {
       "properties" : {
@@ -1333,7 +1401,13 @@
         }
       },
       "description" : "ServiceElasticCleanup",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"cleanupTime\": \"10:30\",\n    \"displayName\": \"TEST UPDATE\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "cleanupTime" : "10:30",
+          "displayName" : "TEST UPDATE"
+        }
+      }
     },
     "amendSystemParameterElastic" : {
       "properties" : {
@@ -1345,7 +1419,12 @@
         }
       },
       "description" : "SystemParameterElastic",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\"deploymentMode\": \"CLOUD\"}\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "deploymentMode" : "CLOUD"
+        }
+      }
     }
   }
 }

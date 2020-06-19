@@ -201,7 +201,38 @@
         }
       },
       "description" : "PartyRelationship",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Relation code 400 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Relation code 403 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyRelationships\": [{\n      \"owningPercent\": \"20\",\n      \"relatedPartyType\": \"CUSTOMER\",\n      \"relatedAs\": \"CHILD ENTITY\",\n      \"relationPartyId\": \"190202\",\n      \"relationshipCode\": \"400\",\n      \"partyType\": \"CUSTOMER\",\n      \"partyId\": \"190215\"\n    }],\n    \"partyDisplayNames\": [{\"partyDisplayName\": \"Group\"}]\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Relation code 400 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            }, {
+              "description" : "Relation code 403 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "partyRelationships" : [ {
+            "owningPercent" : "20",
+            "relatedPartyType" : "CUSTOMER",
+            "relatedAs" : "CHILD ENTITY",
+            "relationPartyId" : "190202",
+            "relationshipCode" : "400",
+            "partyType" : "CUSTOMER",
+            "partyId" : "190215"
+          } ],
+          "partyDisplayNames" : [ {
+            "partyDisplayName" : "Group"
+          } ]
+        }
+      }
     },
     "PartyRelationshipBody" : {
       "type" : "object",
@@ -562,7 +593,38 @@
         }
       },
       "description" : "PartyRelationship",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Relation code 400 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Relation code 403 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyRelationships\": [{\n      \"owningPercent\": \"20\",\n      \"relatedPartyType\": \"CUSTOMER\",\n      \"relatedAs\": \"CHILD ENTITY\",\n      \"relationPartyId\": \"190202\",\n      \"relationshipCode\": \"400\",\n      \"partyType\": \"CUSTOMER\",\n      \"partyId\": \"190215\"\n    }],\n    \"partyDisplayNames\": [{\"partyDisplayName\": \"Group\"}]\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Relation code 400 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            }, {
+              "description" : "Relation code 403 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "partyRelationships" : [ {
+            "owningPercent" : "20",
+            "relatedPartyType" : "CUSTOMER",
+            "relatedAs" : "CHILD ENTITY",
+            "relationPartyId" : "190202",
+            "relationshipCode" : "400",
+            "partyType" : "CUSTOMER",
+            "partyId" : "190215"
+          } ],
+          "partyDisplayNames" : [ {
+            "partyDisplayName" : "Group"
+          } ]
+        }
+      }
     },
     "updatePartyRelationship" : {
       "properties" : {
@@ -574,7 +636,38 @@
         }
       },
       "description" : "PartyRelationship",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Relation code 400 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Relation code 403 is not set as child allowed\",\n        \"id\": \"ST-PARTY.RELATED.AS.CHILD\",\n        \"type\": \"Override\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyRelationships\": [{\n      \"owningPercent\": \"20\",\n      \"relatedPartyType\": \"CUSTOMER\",\n      \"relatedAs\": \"CHILD ENTITY\",\n      \"relationPartyId\": \"190202\",\n      \"relationshipCode\": \"400\",\n      \"partyType\": \"CUSTOMER\",\n      \"partyId\": \"190215\"\n    }],\n    \"partyDisplayNames\": [{\"partyDisplayName\": \"Group\"}]\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Relation code 400 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            }, {
+              "description" : "Relation code 403 is not set as child allowed",
+              "id" : "ST-PARTY.RELATED.AS.CHILD",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "partyRelationships" : [ {
+            "owningPercent" : "20",
+            "relatedPartyType" : "CUSTOMER",
+            "relatedAs" : "CHILD ENTITY",
+            "relationPartyId" : "190202",
+            "relationshipCode" : "400",
+            "partyType" : "CUSTOMER",
+            "partyId" : "190215"
+          } ],
+          "partyDisplayNames" : [ {
+            "partyDisplayName" : "Group"
+          } ]
+        }
+      }
     }
   }
 }

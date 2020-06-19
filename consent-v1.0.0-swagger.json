@@ -614,7 +614,59 @@
         }
       },
       "description" : "Consent",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"arrangement\": \"NEW\",\n    \"reason\": \"\",\n    \"product\": \"PSD2.CONSENT\",\n    \"activity\": \"\",\n    \"accountConsent\": {\n      \"accountIBANs\": [{\n        \"accountBlock\": \"\",\n        \"blockTill\": \"\",\n        \"consentSubTypes\": [{\"consentSubType\": \"\"}],\n        \"isConsentGiven\": \"\",\n        \"accountIBAN\": \"\",\n        \"blockNotes\": \"\",\n        \"blockFrom\": \"\"\n      }],\n      \"scaStatus\": \"\",\n      \"consentStatuses\": [{\n        \"consentStatus\": \"\",\n        \"lastActionDate\": \"\"\n      }],\n      \"consentTypes\": [{\"consentType\": \"allPsd2\"}],\n      \"link\": \"\",\n      \"recurringIndicator\": \"\",\n      \"onlineArrangement\": \"\",\n      \"externalUserId\": \"\",\n      \"thirdpartyprovider\": \"\",\n      \"combinedServiceIndicator\": \"\",\n      \"signUpService\": \"AISP\",\n      \"validUntil\": \"\",\n      \"frequencyPerDay\": \"\",\n      \"thirdpartyproviderId\": \"GB-FST-1033\"\n    },\n    \"arrangementEffectiveDate\": \"\",\n    \"customer\": \"100394\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "arrangement" : "NEW",
+          "reason" : "",
+          "product" : "PSD2.CONSENT",
+          "activity" : "",
+          "accountConsent" : {
+            "accountIBANs" : [ {
+              "accountBlock" : "",
+              "blockTill" : "",
+              "consentSubTypes" : [ {
+                "consentSubType" : ""
+              } ],
+              "isConsentGiven" : "",
+              "accountIBAN" : "",
+              "blockNotes" : "",
+              "blockFrom" : ""
+            } ],
+            "scaStatus" : "",
+            "consentStatuses" : [ {
+              "consentStatus" : "",
+              "lastActionDate" : ""
+            } ],
+            "consentTypes" : [ {
+              "consentType" : "allPsd2"
+            } ],
+            "link" : "",
+            "recurringIndicator" : "",
+            "onlineArrangement" : "",
+            "externalUserId" : "",
+            "thirdpartyprovider" : "",
+            "combinedServiceIndicator" : "",
+            "signUpService" : "AISP",
+            "validUntil" : "",
+            "frequencyPerDay" : "",
+            "thirdpartyproviderId" : "GB-FST-1033"
+          },
+          "arrangementEffectiveDate" : "",
+          "customer" : "100394"
+        }
+      }
     },
     "ConsentBody" : {
       "type" : "object",
@@ -2079,7 +2131,59 @@
         }
       },
       "description" : "Consent",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"arrangement\": \"NEW\",\n    \"reason\": \"\",\n    \"product\": \"PSD2.CONSENT\",\n    \"activity\": \"\",\n    \"accountConsent\": {\n      \"accountIBANs\": [{\n        \"accountBlock\": \"\",\n        \"blockTill\": \"\",\n        \"consentSubTypes\": [{\"consentSubType\": \"\"}],\n        \"isConsentGiven\": \"\",\n        \"accountIBAN\": \"\",\n        \"blockNotes\": \"\",\n        \"blockFrom\": \"\"\n      }],\n      \"scaStatus\": \"\",\n      \"consentStatuses\": [{\n        \"consentStatus\": \"\",\n        \"lastActionDate\": \"\"\n      }],\n      \"consentTypes\": [{\"consentType\": \"allPsd2\"}],\n      \"link\": \"\",\n      \"recurringIndicator\": \"\",\n      \"onlineArrangement\": \"\",\n      \"externalUserId\": \"\",\n      \"thirdpartyprovider\": \"\",\n      \"combinedServiceIndicator\": \"\",\n      \"signUpService\": \"AISP\",\n      \"validUntil\": \"\",\n      \"frequencyPerDay\": \"\",\n      \"thirdpartyproviderId\": \"GB-FST-1033\"\n    },\n    \"arrangementEffectiveDate\": \"\",\n    \"customer\": \"100394\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "arrangement" : "NEW",
+          "reason" : "",
+          "product" : "PSD2.CONSENT",
+          "activity" : "",
+          "accountConsent" : {
+            "accountIBANs" : [ {
+              "accountBlock" : "",
+              "blockTill" : "",
+              "consentSubTypes" : [ {
+                "consentSubType" : ""
+              } ],
+              "isConsentGiven" : "",
+              "accountIBAN" : "",
+              "blockNotes" : "",
+              "blockFrom" : ""
+            } ],
+            "scaStatus" : "",
+            "consentStatuses" : [ {
+              "consentStatus" : "",
+              "lastActionDate" : ""
+            } ],
+            "consentTypes" : [ {
+              "consentType" : "allPsd2"
+            } ],
+            "link" : "",
+            "recurringIndicator" : "",
+            "onlineArrangement" : "",
+            "externalUserId" : "",
+            "thirdpartyprovider" : "",
+            "combinedServiceIndicator" : "",
+            "signUpService" : "AISP",
+            "validUntil" : "",
+            "frequencyPerDay" : "",
+            "thirdpartyproviderId" : "GB-FST-1033"
+          },
+          "arrangementEffectiveDate" : "",
+          "customer" : "100394"
+        }
+      }
     }
   }
 }

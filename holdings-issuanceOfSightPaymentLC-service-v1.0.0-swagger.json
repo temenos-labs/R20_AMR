@@ -115,7 +115,37 @@
         }
       },
       "description" : "createIssuanceOfSightPaymentLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"confirmationInstruction\": \"CONFIRM\",\n    \"requestedConfirmBank\": \"129031\",\n    \"applicableRuleCodes\": \"URR LATEST VERSION\",\n    \"importSightPmtLcType\": \"ISC\",\n    \"lcAmount\": 100000,\n    \"chargeDefaultAccount\": \"75132\",\n    \"applicant\": \"100100\",\n    \"lcCurrency\": \"USD\",\n    \"expiryDate\": \"20200220\",\n    \"charges\": [{\n      \"partyCharged\": \"O\",\n      \"amortiseCharges\": \"NO\",\n      \"chargeDebitAccount\": \"75132\",\n      \"chargeCode\": \"LCOPENAMRT\"\n    }],\n    \"beneficiaryCustomerId\": \"100160\",\n    \"waiveCharge\": \"NO\",\n    \"availableWithBanks\": [{\"availableWithBank\": \"ANY\"}],\n    \"advisingBankId\": \"100460\",\n    \"expiryPlace\": \"US\",\n    \"reimbursingBanks.1\": [{\"reimbursingbank1\": \"ANY\"}],\n    \"chargeFrom\": \"O\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "applicableRuleCodes" : "URR LATEST VERSION",
+          "importSightPmtLcType" : "ISC",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "applicant" : "100100",
+          "lcCurrency" : "USD",
+          "expiryDate" : "20200220",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "chargeDebitAccount" : "75132",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "advisingBankId" : "100460",
+          "expiryPlace" : "US",
+          "reimbursingBanks.1" : [ {
+            "reimbursingbank1" : "ANY"
+          } ],
+          "chargeFrom" : "O"
+        }
+      }
     },
     "createIssuanceOfSightPaymentLCBody" : {
       "type" : "object",

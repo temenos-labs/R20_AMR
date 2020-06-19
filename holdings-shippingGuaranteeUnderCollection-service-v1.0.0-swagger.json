@@ -114,7 +114,15 @@
         }
       },
       "description" : "createShippingGuaranteeUnderCollection",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"amount\": \"10000\",\n    \"maturityDate\": \"20201222\",\n    \"customerId\": \"100160\",\n    \"currency\": \"GBP\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "amount" : "10000",
+          "maturityDate" : "20201222",
+          "customerId" : "100160",
+          "currency" : "GBP"
+        }
+      }
     },
     "createShippingGuaranteeUnderCollectionBody" : {
       "type" : "object",

@@ -701,7 +701,80 @@
         }
       },
       "description" : "ShortTermDeposit",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1\",\n        \"id\": \"AA.ECT.MAX.EXCEED\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Deposit Agreement/AAA*207 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"DEPOSITS-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"DEPOSIT.SHORT\",\n    \"commitment\": {\n      \"amount\": \"150000\",\n      \"updateLimit\": \"\",\n      \"term\": \"1Y\",\n      \"changeAmount\": \"\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\",\n    \"settlement\": {\n      \"payout\": [{\n        \"payoutSettlementActivity\": \"\",\n        \"property\": [{\n          \"payoutAmount\": \"\",\n          \"payoutPropertyClass\": \"\",\n          \"payoutProperty\": \"\",\n          \"payoutActivity\": \"\",\n          \"payoutPOProduct\": \"\",\n          \"payoutAccount\": \"\",\n          \"payoutPercentage\": \"\",\n          \"payoutBeneficiary\": \"\"\n        }],\n        \"payoutSettlement\": \"\"\n      }],\n      \"defaultSettlementAccount\": \"\",\n      \"settlement\": [{\n        \"reference\": [{\n          \"payinPercentage\": \"\",\n          \"payoutAmount\": \"\",\n          \"payinAccount\": \"\",\n          \"payinAmount\": \"\",\n          \"payoutAccount\": \"\",\n          \"payoutPercentage\": \"\",\n          \"payinBeneficiary\": \"\",\n          \"payoutBeneficiary\": \"\",\n          \"ddMandateReference\": \"\"\n        }],\n        \"payinSettlement\": \"\",\n        \"payoutSettlement\": \"\"\n      }],\n      \"paymentType\": \"\"\n    }\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Deposit Agreement/AAA*207 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "DEPOSITS-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "DEPOSIT.SHORT",
+          "commitment" : {
+            "amount" : "150000",
+            "updateLimit" : "",
+            "term" : "1Y",
+            "changeAmount" : "",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417",
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "",
+              "property" : [ {
+                "payoutAmount" : "",
+                "payoutPropertyClass" : "",
+                "payoutProperty" : "",
+                "payoutActivity" : "",
+                "payoutPOProduct" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payoutBeneficiary" : ""
+              } ],
+              "payoutSettlement" : ""
+            } ],
+            "defaultSettlementAccount" : "",
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "",
+                "payoutAmount" : "",
+                "payinAccount" : "",
+                "payinAmount" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payinBeneficiary" : "",
+                "payoutBeneficiary" : "",
+                "ddMandateReference" : ""
+              } ],
+              "payinSettlement" : "",
+              "payoutSettlement" : ""
+            } ],
+            "paymentType" : ""
+          }
+        }
+      }
     },
     "ShortTermDepositBody" : {
       "type" : "object",
@@ -6677,7 +6750,80 @@
         }
       },
       "description" : "ShortTermDeposit",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1\",\n        \"id\": \"AA.ECT.MAX.EXCEED\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Deposit Agreement/AAA*207 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"DEPOSITS-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"DEPOSIT.SHORT\",\n    \"commitment\": {\n      \"amount\": \"150000\",\n      \"updateLimit\": \"\",\n      \"term\": \"1Y\",\n      \"changeAmount\": \"\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\",\n    \"settlement\": {\n      \"payout\": [{\n        \"payoutSettlementActivity\": \"\",\n        \"property\": [{\n          \"payoutAmount\": \"\",\n          \"payoutPropertyClass\": \"\",\n          \"payoutProperty\": \"\",\n          \"payoutActivity\": \"\",\n          \"payoutPOProduct\": \"\",\n          \"payoutAccount\": \"\",\n          \"payoutPercentage\": \"\",\n          \"payoutBeneficiary\": \"\"\n        }],\n        \"payoutSettlement\": \"\"\n      }],\n      \"defaultSettlementAccount\": \"\",\n      \"settlement\": [{\n        \"reference\": [{\n          \"payinPercentage\": \"\",\n          \"payoutAmount\": \"\",\n          \"payinAccount\": \"\",\n          \"payinAmount\": \"\",\n          \"payoutAccount\": \"\",\n          \"payoutPercentage\": \"\",\n          \"payinBeneficiary\": \"\",\n          \"payoutBeneficiary\": \"\",\n          \"ddMandateReference\": \"\"\n        }],\n        \"payinSettlement\": \"\",\n        \"payoutSettlement\": \"\"\n      }],\n      \"paymentType\": \"\"\n    }\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Deposit Agreement/AAA*207 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "DEPOSITS-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "DEPOSIT.SHORT",
+          "commitment" : {
+            "amount" : "150000",
+            "updateLimit" : "",
+            "term" : "1Y",
+            "changeAmount" : "",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417",
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "",
+              "property" : [ {
+                "payoutAmount" : "",
+                "payoutPropertyClass" : "",
+                "payoutProperty" : "",
+                "payoutActivity" : "",
+                "payoutPOProduct" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payoutBeneficiary" : ""
+              } ],
+              "payoutSettlement" : ""
+            } ],
+            "defaultSettlementAccount" : "",
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "",
+                "payoutAmount" : "",
+                "payinAccount" : "",
+                "payinAmount" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payinBeneficiary" : "",
+                "payoutBeneficiary" : "",
+                "ddMandateReference" : ""
+              } ],
+              "payinSettlement" : "",
+              "payoutSettlement" : ""
+            } ],
+            "paymentType" : ""
+          }
+        }
+      }
     }
   }
 }

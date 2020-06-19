@@ -19,11 +19,13 @@
         "parameters" : [ {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -36,28 +38,33 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to response by T24"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the response by IRIS"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the request by IRIS"
                       }
                     }
                   }
@@ -76,7 +83,7 @@
                         },
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Application id."
+                          "description" : "Contains the application id of the service that has crashed due to error."
                         }
                       }
                     }
@@ -94,7 +101,7 @@
                   },
                   "customerId" : {
                     "type" : "string",
-                    "description" : "The identifier of the customer"
+                    "description" : "Identifier of the customer"
                   },
                   "signatureDate" : {
                     "type" : "string",
@@ -105,11 +112,12 @@
                     "properties" : {
                       "bankName" : {
                         "type" : "string",
-                        "description" : "\"The name of the bank being referred to.\r \"",
+                        "description" : "The name of the bank being referred to.",
                         "maxLength" : 30
                       },
                       "bankAddress" : {
                         "type" : "string",
+                        "description" : "Hold the name and address of the RECEIVING.BANK.",
                         "maxLength" : 50
                       },
                       "periodFrom" : {
@@ -122,7 +130,7 @@
                       },
                       "accountNumber" : {
                         "type" : "string",
-                        "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+                        "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
                         "maxLength" : 15
                       },
                       "customerName" : {
@@ -296,11 +304,13 @@
         "parameters" : [ {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -313,28 +323,33 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to response by T24"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the response by IRIS"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the request by IRIS"
                       }
                     }
                   }
@@ -353,7 +368,7 @@
                         },
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Application id."
+                          "description" : "Contains the application id of the service that has crashed due to error."
                         }
                       }
                     }
@@ -371,7 +386,7 @@
                   },
                   "customerId" : {
                     "type" : "string",
-                    "description" : "The identifier of the customer"
+                    "description" : "Identifier of the customer"
                   },
                   "signatureDate" : {
                     "type" : "string",
@@ -382,6 +397,7 @@
                     "properties" : {
                       "givenName" : {
                         "type" : "string",
+                        "description" : "Customer's given name",
                         "maxLength" : 30
                       },
                       "surname" : {
@@ -422,11 +438,12 @@
                       },
                       "city" : {
                         "type" : "string",
+                        "description" : "City address stated on driver licence or utlility bill. For example London, New York etc.",
                         "maxLength" : 30
                       },
                       "postcode" : {
                         "type" : "string",
-                        "description" : "The postal code of the customer or prospect",
+                        "description" : "Identifies the address postal code for the customer.",
                         "maxLength" : 12
                       }
                     }
@@ -583,11 +600,13 @@
         "parameters" : [ {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -600,28 +619,33 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to response by T24"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the response by IRIS"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the request by IRIS"
                       }
                     }
                   }
@@ -640,7 +664,7 @@
                         },
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Application id."
+                          "description" : "Contains the application id of the service that has crashed due to error."
                         }
                       }
                     }
@@ -658,7 +682,7 @@
                   },
                   "customerId" : {
                     "type" : "string",
-                    "description" : "The identifier of the customer"
+                    "description" : "Identifier of the customer"
                   },
                   "signatureDate" : {
                     "type" : "string",
@@ -677,6 +701,7 @@
                       },
                       "givenNames" : {
                         "type" : "string",
+                        "description" : "Customer's given name",
                         "maxLength" : 30
                       },
                       "nationality" : {
@@ -859,11 +884,13 @@
         "parameters" : [ {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -876,28 +903,33 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to response by T24"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the response by IRIS"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the request by IRIS"
                       }
                     }
                   }
@@ -916,7 +948,7 @@
                         },
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Application id."
+                          "description" : "Contains the application id of the service that has crashed due to error."
                         }
                       }
                     }
@@ -934,7 +966,7 @@
                   },
                   "customerId" : {
                     "type" : "string",
-                    "description" : "The identifier of the customer"
+                    "description" : "Identifier of the customer"
                   },
                   "signatureDate" : {
                     "type" : "string",
@@ -954,7 +986,7 @@
                       "date" : {
                         "type" : "string",
                         "format" : "date",
-                        "description" : "Date"
+                        "description" : "Indicates the date on which activity was performed"
                       },
                       "nationalInsuranceNo" : {
                         "type" : "string",
@@ -1148,11 +1180,13 @@
         "parameters" : [ {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1165,28 +1199,33 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to response by T24"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the response by IRIS"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32"
+                        "format" : "int32",
+                        "description" : "Time taken to parse the request by IRIS"
                       }
                     }
                   }
@@ -1205,7 +1244,7 @@
                         },
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Application id."
+                          "description" : "Contains the application id of the service that has crashed due to error."
                         }
                       }
                     }
@@ -1223,7 +1262,7 @@
                   },
                   "customerId" : {
                     "type" : "string",
-                    "description" : "The identifier of the customer"
+                    "description" : "Identifier of the customer"
                   },
                   "signatureDate" : {
                     "type" : "string",
@@ -1238,7 +1277,8 @@
                         "maxLength" : 30
                       },
                       "name" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "description" : "Short title for the Account to be created"
                       },
                       "address" : {
                         "type" : "string",

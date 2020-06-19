@@ -382,7 +382,54 @@
         }
       },
       "description" : "Beneficiary",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Beneficiary BIC is missing. Only name provided\",\n      \"id\": \"FT-BIC.BEN.CODE.MISSING.NAME.GIVEN\",\n      \"type\": \"Override\"\n    }]}\n  },\n  \"body\": {\n    \"beneficiaryIBAN\": \"DE89370400440532013000\",\n    \"beneficiaryAccountId\": \"\",\n    \"beneficiaryNickNames\": [{\"beneficiaryNickName\": \"Ozil\"}],\n    \"overrides\": [{\"override\": \"\"}],\n    \"preferredPaymentProduct\": \"\",\n    \"beneficiaryOurCharges\": \"\",\n    \"paymentCountry\": \"\",\n    \"beneficiaryBICIBAN\": \"\",\n    \"transactionType\": \"\",\n    \"beneficiaryBICIBANNames\": [{\"beneficiaryBICIBANName\": \"DRESDNER BANK AG\"}],\n    \"paymentCurrencyId\": \"USD\",\n    \"beneficiaryCustomerId\": \"Ozil\",\n    \"beneficiaryBIC\": \"\",\n    \"recordStatus\": \"\",\n    \"preferredPaymentAmount\": 0,\n    \"bankSortCode\": \"\",\n    \"customerReference\": \"\",\n    \"customerId\": \"100336\",\n    \"linkToBeneficiaryId\": \"\",\n    \"beneficiaryBICIBANCity\": \"\",\n    \"defaultNarrative\": \"\",\n    \"paymentDetails\": [{\"paymentDetail\": \"\"}],\n    \"accountWithBankSortCode\": \"\",\n    \"accountWithBank\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "preferredPaymentProduct" : "",
+          "beneficiaryOurCharges" : "",
+          "paymentCountry" : "",
+          "beneficiaryBICIBAN" : "",
+          "transactionType" : "",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "beneficiaryBIC" : "",
+          "recordStatus" : "",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "",
+          "customerReference" : "",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "",
+          "beneficiaryBICIBANCity" : "",
+          "defaultNarrative" : "",
+          "paymentDetails" : [ {
+            "paymentDetail" : ""
+          } ],
+          "accountWithBankSortCode" : "",
+          "accountWithBank" : ""
+        }
+      }
     },
     "BeneficiaryBody" : {
       "type" : "object",
@@ -971,7 +1018,54 @@
         }
       },
       "description" : "Beneficiary",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Beneficiary BIC is missing. Only name provided\",\n      \"id\": \"FT-BIC.BEN.CODE.MISSING.NAME.GIVEN\",\n      \"type\": \"Override\"\n    }]}\n  },\n  \"body\": {\n    \"beneficiaryIBAN\": \"DE89370400440532013000\",\n    \"beneficiaryAccountId\": \"\",\n    \"beneficiaryNickNames\": [{\"beneficiaryNickName\": \"Ozil\"}],\n    \"overrides\": [{\"override\": \"\"}],\n    \"preferredPaymentProduct\": \"\",\n    \"beneficiaryOurCharges\": \"\",\n    \"paymentCountry\": \"\",\n    \"beneficiaryBICIBAN\": \"\",\n    \"transactionType\": \"\",\n    \"beneficiaryBICIBANNames\": [{\"beneficiaryBICIBANName\": \"DRESDNER BANK AG\"}],\n    \"paymentCurrencyId\": \"USD\",\n    \"beneficiaryCustomerId\": \"Ozil\",\n    \"beneficiaryBIC\": \"\",\n    \"recordStatus\": \"\",\n    \"preferredPaymentAmount\": 0,\n    \"bankSortCode\": \"\",\n    \"customerReference\": \"\",\n    \"customerId\": \"100336\",\n    \"linkToBeneficiaryId\": \"\",\n    \"beneficiaryBICIBANCity\": \"\",\n    \"defaultNarrative\": \"\",\n    \"paymentDetails\": [{\"paymentDetail\": \"\"}],\n    \"accountWithBankSortCode\": \"\",\n    \"accountWithBank\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "preferredPaymentProduct" : "",
+          "beneficiaryOurCharges" : "",
+          "paymentCountry" : "",
+          "beneficiaryBICIBAN" : "",
+          "transactionType" : "",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "beneficiaryBIC" : "",
+          "recordStatus" : "",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "",
+          "customerReference" : "",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "",
+          "beneficiaryBICIBANCity" : "",
+          "defaultNarrative" : "",
+          "paymentDetails" : [ {
+            "paymentDetail" : ""
+          } ],
+          "accountWithBankSortCode" : "",
+          "accountWithBank" : ""
+        }
+      }
     },
     "updateBeneficiary" : {
       "properties" : {
@@ -983,7 +1077,54 @@
         }
       },
       "description" : "Beneficiary",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Beneficiary BIC is missing. Only name provided\",\n      \"id\": \"FT-BIC.BEN.CODE.MISSING.NAME.GIVEN\",\n      \"type\": \"Override\"\n    }]}\n  },\n  \"body\": {\n    \"beneficiaryIBAN\": \"DE89370400440532013000\",\n    \"beneficiaryAccountId\": \"\",\n    \"beneficiaryNickNames\": [{\"beneficiaryNickName\": \"Ozil\"}],\n    \"overrides\": [{\"override\": \"\"}],\n    \"preferredPaymentProduct\": \"\",\n    \"beneficiaryOurCharges\": \"\",\n    \"paymentCountry\": \"\",\n    \"beneficiaryBICIBAN\": \"\",\n    \"transactionType\": \"\",\n    \"beneficiaryBICIBANNames\": [{\"beneficiaryBICIBANName\": \"DRESDNER BANK AG\"}],\n    \"paymentCurrencyId\": \"USD\",\n    \"beneficiaryCustomerId\": \"Ozil\",\n    \"beneficiaryBIC\": \"\",\n    \"recordStatus\": \"\",\n    \"preferredPaymentAmount\": 0,\n    \"bankSortCode\": \"\",\n    \"customerReference\": \"\",\n    \"customerId\": \"100336\",\n    \"linkToBeneficiaryId\": \"\",\n    \"beneficiaryBICIBANCity\": \"\",\n    \"defaultNarrative\": \"\",\n    \"paymentDetails\": [{\"paymentDetail\": \"\"}],\n    \"accountWithBankSortCode\": \"\",\n    \"accountWithBank\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "preferredPaymentProduct" : "",
+          "beneficiaryOurCharges" : "",
+          "paymentCountry" : "",
+          "beneficiaryBICIBAN" : "",
+          "transactionType" : "",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "beneficiaryBIC" : "",
+          "recordStatus" : "",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "",
+          "customerReference" : "",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "",
+          "beneficiaryBICIBANCity" : "",
+          "defaultNarrative" : "",
+          "paymentDetails" : [ {
+            "paymentDetail" : ""
+          } ],
+          "accountWithBankSortCode" : "",
+          "accountWithBank" : ""
+        }
+      }
     }
   }
 }

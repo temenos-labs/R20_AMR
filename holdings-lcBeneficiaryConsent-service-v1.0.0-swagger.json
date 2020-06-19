@@ -121,7 +121,13 @@
         }
       },
       "description" : "updateLCBeneficiaryConsent",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"advisingBankReference\": \"REFER2\",\n    \"newExpiryPlace\": \"CHENN\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "advisingBankReference" : "REFER2",
+          "newExpiryPlace" : "CHENN"
+        }
+      }
     },
     "updateLCBeneficiaryConsentBody" : {
       "type" : "object",

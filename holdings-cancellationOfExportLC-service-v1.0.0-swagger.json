@@ -120,7 +120,14 @@
         }
       },
       "description" : "updateExportLCCancellation",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"sendAmendmentAdvice\": \"NO\",\n    \"issuingBankReference\": \"REEFERE\",\n    \"cancellationRequest\": \"CANCEL\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "sendAmendmentAdvice" : "NO",
+          "issuingBankReference" : "REEFERE",
+          "cancellationRequest" : "CANCEL"
+        }
+      }
     },
     "updateExportLCCancellationBody" : {
       "type" : "object",

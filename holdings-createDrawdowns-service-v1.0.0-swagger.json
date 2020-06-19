@@ -127,7 +127,29 @@
         }
       },
       "description" : "Drawdowns",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"facilityId\": \"AA19108G1JTP\",\n    \"productId\": \"MORTGAGE\",\n    \"commitment\": {\n      \"amount\": 30000,\n      \"term\": \"1Y\"\n    },\n    \"currency\": \"USD\",\n    \"customers\": [{\"customer\": \"190273\"}],\n    \"settlement\": {\n      \"payInAccounts\": [{\"payInAccount\": 76527}],\n      \"payOutAccounts\": [{\"payoutAccount\": 85707}]\n    }\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "facilityId" : "AA19108G1JTP",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customer" : "190273"
+          } ],
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
+          }
+        }
+      }
     },
     "DrawdownsBody" : {
       "type" : "object",
@@ -1464,7 +1486,29 @@
         }
       },
       "description" : "Drawdowns",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"facilityId\": \"AA19108G1JTP\",\n    \"productId\": \"MORTGAGE\",\n    \"commitment\": {\n      \"amount\": 30000,\n      \"term\": \"1Y\"\n    },\n    \"currency\": \"USD\",\n    \"customers\": [{\"customer\": \"190273\"}],\n    \"settlement\": {\n      \"payInAccounts\": [{\"payInAccount\": 76527}],\n      \"payOutAccounts\": [{\"payoutAccount\": 85707}]\n    }\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "facilityId" : "AA19108G1JTP",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customer" : "190273"
+          } ],
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
+          }
+        }
+      }
     }
   }
 }

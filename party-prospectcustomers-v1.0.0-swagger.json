@@ -3,7 +3,7 @@
   "info" : {
     "description" : "Create or Update Person Entity",
     "version" : "v1.0.0",
-    "title" : "Party Prospect Customer"
+    "title" : "Party Prospect Customers"
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",

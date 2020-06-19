@@ -114,7 +114,15 @@
         }
       },
       "description" : "createGuarnteeBidBond",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"expiryDate\": \"20191228\",\n    \"amount\": \"10000\",\n    \"customerId\": \"100160\",\n    \"currency\": \"USD\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "expiryDate" : "20191228",
+          "amount" : "10000",
+          "customerId" : "100160",
+          "currency" : "USD"
+        }
+      }
     },
     "createGuarnteeBidBondBody" : {
       "type" : "object",

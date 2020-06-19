@@ -489,7 +489,15 @@
         }
       },
       "description" : "CardIssue",
-      "example" : "{\n  \"cardNames\": [{\"cardName\": \"ROLF GEEEdsNG\"}],\n  \"header\": {},\n  \"body\": {\"expiryDate\": \"2020-03-29\"}\n}"
+      "example" : {
+        "cardNames" : [ {
+          "cardName" : "ROLF GEEEdsNG"
+        } ],
+        "header" : { },
+        "body" : {
+          "expiryDate" : "2020-03-29"
+        }
+      }
     },
     "CardIssueBody" : {
       "type" : "object",
@@ -760,7 +768,15 @@
         }
       },
       "description" : "CardIssue",
-      "example" : "{\n  \"cardNames\": [{\"cardName\": \"ROLF GEEEdsNG\"}],\n  \"header\": {},\n  \"body\": {\"expiryDate\": \"2020-03-29\"}\n}"
+      "example" : {
+        "cardNames" : [ {
+          "cardName" : "ROLF GEEEdsNG"
+        } ],
+        "header" : { },
+        "body" : {
+          "expiryDate" : "2020-03-29"
+        }
+      }
     },
     "createCardIssue" : {
       "properties" : {
@@ -772,7 +788,15 @@
         }
       },
       "description" : "CardIssue",
-      "example" : "{\n  \"cardNames\": [{\"cardName\": \"ROLF GEEEdsNG\"}],\n  \"header\": {},\n  \"body\": {\"expiryDate\": \"2020-03-29\"}\n}"
+      "example" : {
+        "cardNames" : [ {
+          "cardName" : "ROLF GEEEdsNG"
+        } ],
+        "header" : { },
+        "body" : {
+          "expiryDate" : "2020-03-29"
+        }
+      }
     }
   }
 }

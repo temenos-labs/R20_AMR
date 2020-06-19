@@ -201,7 +201,71 @@
         }
       },
       "description" : "FatcaCustomer",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"NO MATCHING STATUS CONDITION FOUND\",\n      \"id\": \"FA-NO.MATCH\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"tinDetails\": [{\n      \"tinId\": \"\",\n      \"tinCountry\": \"\"\n    }],\n    \"Owner\": [{\n      \"formOwner\": \"\",\n      \"formDetails\": [{\n        \"formId\": \"\",\n        \"expiryDate\": \"\",\n        \"formType\": \"\",\n        \"cutOffDate\": \"\",\n        \"requestDate\": \"\",\n        \"receivedDate\": \"\"\n      }]\n    }],\n    \"currentStatusExpiry\": \"2020-02-27\",\n    \"changeReason\": \"\",\n    \"isPoa\": \"\",\n    \"isPlaceOfBirthUs\": \"NO\",\n    \"socialSecurityNumber\": \"\",\n    \"fatcaClientType\": \"INDIVIDUAL\",\n    \"residenceId\": \"\",\n    \"statusChangeDate\": \"2019-04-17\",\n    \"fatcaStatus\": \"\",\n    \"standingInstructionOnUsAccount\": \"\",\n    \"phoneNumber\": \"\",\n    \"entityStatus\": \"\",\n    \"citizenships\": [{\"citizenship\": \"\"}],\n    \"giin\": \"\",\n    \"domicile\": \"\",\n    \"accountInstructionfromUs\": \"\",\n    \"JointOwner\": [{\n      \"firstName\": \"\",\n      \"holderName\": \"\",\n      \"role\": \"\",\n      \"ownershipParticipation\": \"\",\n      \"surname\": \"\",\n      \"holderTinCountry\": \"\",\n      \"legalEntityType\": \"\",\n      \"customerId\": \"\",\n      \"holderCountry\": \"\",\n      \"holderReference\": \"\"\n    }],\n    \"greencardDetails\": \"\",\n    \"isKycChecked\": \"\",\n    \"isDormantAccount\": \"\",\n    \"statusNarrative\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "",
+            "tinCountry" : ""
+          } ],
+          "Owner" : [ {
+            "formOwner" : "",
+            "formDetails" : [ {
+              "formId" : "",
+              "expiryDate" : "",
+              "formType" : "",
+              "cutOffDate" : "",
+              "requestDate" : "",
+              "receivedDate" : ""
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "",
+          "isPoa" : "",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "",
+          "standingInstructionOnUsAccount" : "",
+          "phoneNumber" : "",
+          "entityStatus" : "",
+          "citizenships" : [ {
+            "citizenship" : ""
+          } ],
+          "giin" : "",
+          "domicile" : "",
+          "accountInstructionfromUs" : "",
+          "JointOwner" : [ {
+            "firstName" : "",
+            "holderName" : "",
+            "role" : "",
+            "ownershipParticipation" : "",
+            "surname" : "",
+            "holderTinCountry" : "",
+            "legalEntityType" : "",
+            "customerId" : "",
+            "holderCountry" : "",
+            "holderReference" : ""
+          } ],
+          "greencardDetails" : "",
+          "isKycChecked" : "",
+          "isDormantAccount" : "",
+          "statusNarrative" : ""
+        }
+      }
     },
     "FatcaCustomerBody" : {
       "type" : "object",
@@ -861,7 +925,71 @@
         }
       },
       "description" : "FatcaCustomer",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"NO MATCHING STATUS CONDITION FOUND\",\n      \"id\": \"FA-NO.MATCH\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"tinDetails\": [{\n      \"tinId\": \"\",\n      \"tinCountry\": \"\"\n    }],\n    \"Owner\": [{\n      \"formOwner\": \"\",\n      \"formDetails\": [{\n        \"formId\": \"\",\n        \"expiryDate\": \"\",\n        \"formType\": \"\",\n        \"cutOffDate\": \"\",\n        \"requestDate\": \"\",\n        \"receivedDate\": \"\"\n      }]\n    }],\n    \"currentStatusExpiry\": \"2020-02-27\",\n    \"changeReason\": \"\",\n    \"isPoa\": \"\",\n    \"isPlaceOfBirthUs\": \"NO\",\n    \"socialSecurityNumber\": \"\",\n    \"fatcaClientType\": \"INDIVIDUAL\",\n    \"residenceId\": \"\",\n    \"statusChangeDate\": \"2019-04-17\",\n    \"fatcaStatus\": \"\",\n    \"standingInstructionOnUsAccount\": \"\",\n    \"phoneNumber\": \"\",\n    \"entityStatus\": \"\",\n    \"citizenships\": [{\"citizenship\": \"\"}],\n    \"giin\": \"\",\n    \"domicile\": \"\",\n    \"accountInstructionfromUs\": \"\",\n    \"JointOwner\": [{\n      \"firstName\": \"\",\n      \"holderName\": \"\",\n      \"role\": \"\",\n      \"ownershipParticipation\": \"\",\n      \"surname\": \"\",\n      \"holderTinCountry\": \"\",\n      \"legalEntityType\": \"\",\n      \"customerId\": \"\",\n      \"holderCountry\": \"\",\n      \"holderReference\": \"\"\n    }],\n    \"greencardDetails\": \"\",\n    \"isKycChecked\": \"\",\n    \"isDormantAccount\": \"\",\n    \"statusNarrative\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "",
+            "tinCountry" : ""
+          } ],
+          "Owner" : [ {
+            "formOwner" : "",
+            "formDetails" : [ {
+              "formId" : "",
+              "expiryDate" : "",
+              "formType" : "",
+              "cutOffDate" : "",
+              "requestDate" : "",
+              "receivedDate" : ""
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "",
+          "isPoa" : "",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "",
+          "standingInstructionOnUsAccount" : "",
+          "phoneNumber" : "",
+          "entityStatus" : "",
+          "citizenships" : [ {
+            "citizenship" : ""
+          } ],
+          "giin" : "",
+          "domicile" : "",
+          "accountInstructionfromUs" : "",
+          "JointOwner" : [ {
+            "firstName" : "",
+            "holderName" : "",
+            "role" : "",
+            "ownershipParticipation" : "",
+            "surname" : "",
+            "holderTinCountry" : "",
+            "legalEntityType" : "",
+            "customerId" : "",
+            "holderCountry" : "",
+            "holderReference" : ""
+          } ],
+          "greencardDetails" : "",
+          "isKycChecked" : "",
+          "isDormantAccount" : "",
+          "statusNarrative" : ""
+        }
+      }
     },
     "updateFatcaCustomer" : {
       "properties" : {
@@ -873,7 +1001,71 @@
         }
       },
       "description" : "FatcaCustomer",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"NO MATCHING STATUS CONDITION FOUND\",\n      \"id\": \"FA-NO.MATCH\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"tinDetails\": [{\n      \"tinId\": \"\",\n      \"tinCountry\": \"\"\n    }],\n    \"Owner\": [{\n      \"formOwner\": \"\",\n      \"formDetails\": [{\n        \"formId\": \"\",\n        \"expiryDate\": \"\",\n        \"formType\": \"\",\n        \"cutOffDate\": \"\",\n        \"requestDate\": \"\",\n        \"receivedDate\": \"\"\n      }]\n    }],\n    \"currentStatusExpiry\": \"2020-02-27\",\n    \"changeReason\": \"\",\n    \"isPoa\": \"\",\n    \"isPlaceOfBirthUs\": \"NO\",\n    \"socialSecurityNumber\": \"\",\n    \"fatcaClientType\": \"INDIVIDUAL\",\n    \"residenceId\": \"\",\n    \"statusChangeDate\": \"2019-04-17\",\n    \"fatcaStatus\": \"\",\n    \"standingInstructionOnUsAccount\": \"\",\n    \"phoneNumber\": \"\",\n    \"entityStatus\": \"\",\n    \"citizenships\": [{\"citizenship\": \"\"}],\n    \"giin\": \"\",\n    \"domicile\": \"\",\n    \"accountInstructionfromUs\": \"\",\n    \"JointOwner\": [{\n      \"firstName\": \"\",\n      \"holderName\": \"\",\n      \"role\": \"\",\n      \"ownershipParticipation\": \"\",\n      \"surname\": \"\",\n      \"holderTinCountry\": \"\",\n      \"legalEntityType\": \"\",\n      \"customerId\": \"\",\n      \"holderCountry\": \"\",\n      \"holderReference\": \"\"\n    }],\n    \"greencardDetails\": \"\",\n    \"isKycChecked\": \"\",\n    \"isDormantAccount\": \"\",\n    \"statusNarrative\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "",
+            "tinCountry" : ""
+          } ],
+          "Owner" : [ {
+            "formOwner" : "",
+            "formDetails" : [ {
+              "formId" : "",
+              "expiryDate" : "",
+              "formType" : "",
+              "cutOffDate" : "",
+              "requestDate" : "",
+              "receivedDate" : ""
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "",
+          "isPoa" : "",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "",
+          "standingInstructionOnUsAccount" : "",
+          "phoneNumber" : "",
+          "entityStatus" : "",
+          "citizenships" : [ {
+            "citizenship" : ""
+          } ],
+          "giin" : "",
+          "domicile" : "",
+          "accountInstructionfromUs" : "",
+          "JointOwner" : [ {
+            "firstName" : "",
+            "holderName" : "",
+            "role" : "",
+            "ownershipParticipation" : "",
+            "surname" : "",
+            "holderTinCountry" : "",
+            "legalEntityType" : "",
+            "customerId" : "",
+            "holderCountry" : "",
+            "holderReference" : ""
+          } ],
+          "greencardDetails" : "",
+          "isKycChecked" : "",
+          "isDormantAccount" : "",
+          "statusNarrative" : ""
+        }
+      }
     }
   }
 }

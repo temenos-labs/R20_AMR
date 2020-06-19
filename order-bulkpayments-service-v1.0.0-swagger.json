@@ -1042,7 +1042,21 @@
         }
       },
       "description" : "File",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": []}\n  },\n  \"body\": {\n    \"companyId\": \"GB0010001\",\n    \"fileName\": \"CLERK1TC17122019043607.csv||246||integrated.csv\",\n    \"displayName\": \"TEST\",\n    \"uploadTypeId\": \"TCIBUPLOAD\",\n    \"overrides\": []\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ ]
+          }
+        },
+        "body" : {
+          "companyId" : "GB0010001",
+          "fileName" : "CLERK1TC17122019043607.csv||246||integrated.csv",
+          "displayName" : "TEST",
+          "uploadTypeId" : "TCIBUPLOAD",
+          "overrides" : [ ]
+        }
+      }
     },
     "FileBody" : {
       "type" : "object",
@@ -1368,7 +1382,18 @@
         }
       },
       "description" : "BulkItem",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"reference\": \"DFDDG\",\n    \"accountId\": \"77356\",\n    \"amount\": 200,\n    \"transactionTypeId\": \"BCIB\",\n    \"customerId\": \"MUDFGdsdsHKJ\",\n    \"currencyId\": \"USD\",\n    \"sortCode\": \"12345\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "reference" : "DFDDG",
+          "accountId" : "77356",
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "customerId" : "MUDFGdsdsHKJ",
+          "currencyId" : "USD",
+          "sortCode" : "12345"
+        }
+      }
     },
     "BulkItemBody" : {
       "type" : "object",
@@ -2188,7 +2213,18 @@
         }
       },
       "description" : "BulkItem",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"reference\": \"DFDDG\",\n    \"accountId\": \"77356\",\n    \"amount\": 200,\n    \"transactionTypeId\": \"BCIB\",\n    \"customerId\": \"MUDFGdsdsHKJ\",\n    \"currencyId\": \"USD\",\n    \"sortCode\": \"12345\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "reference" : "DFDDG",
+          "accountId" : "77356",
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "customerId" : "MUDFGdsdsHKJ",
+          "currencyId" : "USD",
+          "sortCode" : "12345"
+        }
+      }
     },
     "uploadFile" : {
       "properties" : {
@@ -2200,7 +2236,21 @@
         }
       },
       "description" : "File",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": []}\n  },\n  \"body\": {\n    \"companyId\": \"GB0010001\",\n    \"fileName\": \"CLERK1TC17122019043607.csv||246||integrated.csv\",\n    \"displayName\": \"TEST\",\n    \"uploadTypeId\": \"TCIBUPLOAD\",\n    \"overrides\": []\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ ]
+          }
+        },
+        "body" : {
+          "companyId" : "GB0010001",
+          "fileName" : "CLERK1TC17122019043607.csv||246||integrated.csv",
+          "displayName" : "TEST",
+          "uploadTypeId" : "TCIBUPLOAD",
+          "overrides" : [ ]
+        }
+      }
     }
   }
 }

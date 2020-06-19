@@ -154,7 +154,16 @@
         }
       },
       "description" : "Product",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"activityId\": \"ACCOUNTS-UPDATE-BALANCE\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"account\": {\"accountName\": \"UPPDATE\"}\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "productId" : "CURRENT.ACCOUNT",
+          "account" : {
+            "accountName" : "UPPDATE"
+          }
+        }
+      }
     },
     "ProductBody" : {
       "type" : "object",
@@ -2845,7 +2854,16 @@
         }
       },
       "description" : "Product",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"activityId\": \"ACCOUNTS-UPDATE-BALANCE\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"account\": {\"accountName\": \"UPPDATE\"}\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "productId" : "CURRENT.ACCOUNT",
+          "account" : {
+            "accountName" : "UPPDATE"
+          }
+        }
+      }
     }
   }
 }

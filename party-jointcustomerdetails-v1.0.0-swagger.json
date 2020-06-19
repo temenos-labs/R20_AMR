@@ -22,7 +22,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190217"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -153,8 +154,7 @@
                   "maxLength" : 3
                 },
                 "jointCustomer" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "jointCustomerName" : {
                   "type" : "string",

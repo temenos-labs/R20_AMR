@@ -545,7 +545,20 @@
         }
       },
       "description" : "DirectDebits",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"terminationDate\": \"2018-05-01\",\n    \"creditAccountName\": \"Chris SRolland\",\n    \"customerId\": \"100336\",\n    \"creditAccounId\": \"8314520\",\n    \"sortCode\": \"DDCLG\",\n    \"directDebitStatus\": \"CANCELLED\",\n    \"standaloneAmount\": 60,\n    \"direction\": \"OUTWARD\",\n    \"frequency\": \"20180501 e0Y e1M e0W o1D e0F\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "terminationDate" : "2018-05-01",
+          "creditAccountName" : "Chris SRolland",
+          "customerId" : "100336",
+          "creditAccounId" : "8314520",
+          "sortCode" : "DDCLG",
+          "directDebitStatus" : "CANCELLED",
+          "standaloneAmount" : 60,
+          "direction" : "OUTWARD",
+          "frequency" : "20180501 e0Y e1M e0W o1D e0F"
+        }
+      }
     },
     "DirectDebitsBody" : {
       "type" : "object",
@@ -921,7 +934,20 @@
         }
       },
       "description" : "DirectDebits",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"terminationDate\": \"2018-05-01\",\n    \"creditAccountName\": \"Chris SRolland\",\n    \"customerId\": \"100336\",\n    \"creditAccounId\": \"8314520\",\n    \"sortCode\": \"DDCLG\",\n    \"directDebitStatus\": \"CANCELLED\",\n    \"standaloneAmount\": 60,\n    \"direction\": \"OUTWARD\",\n    \"frequency\": \"20180501 e0Y e1M e0W o1D e0F\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "terminationDate" : "2018-05-01",
+          "creditAccountName" : "Chris SRolland",
+          "customerId" : "100336",
+          "creditAccounId" : "8314520",
+          "sortCode" : "DDCLG",
+          "directDebitStatus" : "CANCELLED",
+          "standaloneAmount" : 60,
+          "direction" : "OUTWARD",
+          "frequency" : "20180501 e0Y e1M e0W o1D e0F"
+        }
+      }
     }
   }
 }

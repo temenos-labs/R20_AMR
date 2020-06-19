@@ -240,7 +240,19 @@
         }
       },
       "description" : "Service",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"jobOperation\": \"START\",\n    \"jobServerProfiles\": [{\n      \"serverName\": \"\",\n      \"jobProfileId\": \"\",\n      \"jobServerStatus\": \"\"\n    }],\n    \"correlationId\": \"\",\n    \"userId\": \"INPUTTER\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "jobOperation" : "START",
+          "jobServerProfiles" : [ {
+            "serverName" : "",
+            "jobProfileId" : "",
+            "jobServerStatus" : ""
+          } ],
+          "correlationId" : "",
+          "userId" : "INPUTTER"
+        }
+      }
     },
     "ServiceBody" : {
       "type" : "object",
@@ -683,7 +695,19 @@
         }
       },
       "description" : "Service",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"jobOperation\": \"START\",\n    \"jobServerProfiles\": [{\n      \"serverName\": \"\",\n      \"jobProfileId\": \"\",\n      \"jobServerStatus\": \"\"\n    }],\n    \"correlationId\": \"\",\n    \"userId\": \"INPUTTER\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "jobOperation" : "START",
+          "jobServerProfiles" : [ {
+            "serverName" : "",
+            "jobProfileId" : "",
+            "jobServerStatus" : ""
+          } ],
+          "correlationId" : "",
+          "userId" : "INPUTTER"
+        }
+      }
     }
   }
 }

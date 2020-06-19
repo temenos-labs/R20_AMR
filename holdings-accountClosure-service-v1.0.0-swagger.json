@@ -393,7 +393,43 @@
         }
       },
       "description" : "updateAccountClosure",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"string\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"closeMode\": \"\",\n    \"postingRestriction\": \"90\",\n    \"creditAccount\": \"87076\",\n    \"chargeType\": \"\",\n    \"totalDebitInterest\": \"\",\n    \"accountCurrency\": \"\",\n    \"closureNotes\": \"\",\n    \"totalTaxPending\": 0,\n    \"closureReason\": \"\",\n    \"capitaliseInterest\": \"Y\",\n    \"totalTax\": 0,\n    \"onlineClearedBalance\": 0,\n    \"totalChargesPending\": 0,\n    \"balancePayable\": 0,\n    \"totalCreditInterest\": \"\",\n    \"closureDate\": \"20190417\",\n    \"ftId\": \"\",\n    \"totalDrInterestPending\": \"\",\n    \"totalCharges\": 0,\n    \"chargeAmount\": 0,\n    \"onlineLedgerBalance\": 0\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "string",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "closeMode" : "",
+          "postingRestriction" : "90",
+          "creditAccount" : "87076",
+          "chargeType" : "",
+          "totalDebitInterest" : "",
+          "accountCurrency" : "",
+          "closureNotes" : "",
+          "totalTaxPending" : 0,
+          "closureReason" : "",
+          "capitaliseInterest" : "Y",
+          "totalTax" : 0,
+          "onlineClearedBalance" : 0,
+          "totalChargesPending" : 0,
+          "balancePayable" : 0,
+          "totalCreditInterest" : "",
+          "closureDate" : "20190417",
+          "ftId" : "",
+          "totalDrInterestPending" : "",
+          "totalCharges" : 0,
+          "chargeAmount" : 0,
+          "onlineLedgerBalance" : 0
+        }
+      }
     },
     "updateAccountClosureBody" : {
       "type" : "object",

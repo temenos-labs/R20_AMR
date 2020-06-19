@@ -104,9 +104,9 @@
         "parameters" : [ {
           "name" : "definitionId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNT.OPENING-1"
         }, {
           "name" : "roleId",
           "in" : "query",
@@ -159,7 +159,8 @@
           "in" : "path",
           "description" : "entityTypeId",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "EVIDENCE"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -351,7 +352,6 @@
           },
           "definitionId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "displayName" : {
@@ -498,7 +498,6 @@
           },
           "definitionId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "displayName" : {

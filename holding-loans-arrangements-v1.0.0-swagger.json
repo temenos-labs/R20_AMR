@@ -371,7 +371,46 @@
         }
       },
       "description" : "PersonalLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maturity Date is not a Working Day\",\n        \"id\": \"AA.MATURITY.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"PERSONAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"25000\",\n      \"updateLimit\": \"\",\n      \"term\": \"2Y\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maturity Date is not a Working Day",
+              "id" : "AA.MATURITY.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "PERSONAL.LOAN",
+          "commitment" : {
+            "amount" : "25000",
+            "updateLimit" : "",
+            "term" : "2Y",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "PersonalLoanBody" : {
       "type" : "object",
@@ -1809,7 +1848,104 @@
         }
       },
       "description" : "LinkedRateLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maturity Date is not a Working Day\",\n        \"id\": \"AA.MATURITY.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of .1 by 0.1 in field MARGIN.RATE.1.1\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"agentRoles\": [{\"agentRole\": \"\"}],\n    \"arrangmentId\": \"NEW\",\n    \"principalint\": {\n      \"tiers\": \"\",\n      \"minIntAmount\": \"\",\n      \"minIntWaive\": \"\",\n      \"suppressAccrual\": \"\",\n      \"calcThreshold\": \"\",\n      \"accrualRule\": \"\",\n      \"compounding\": \"\",\n      \"referLimit\": \"\",\n      \"interest\": [{\n        \"upTo\": \"\",\n        \"orPercent\": \"\",\n        \"margins\": [{\n          \"margin\": \"\",\n          \"marginRate\": \"\",\n          \"marginOperation\": \"\"\n        }],\n        \"effectiveRate\": \"\",\n        \"negativeRate\": \"\",\n        \"fixed\": \"\",\n        \"maxRate\": \"\",\n        \"minMaxRate\": \"\",\n        \"spread\": \"\"\n      }],\n      \"periodicInterest\": [{\n        \"margins\": [{\n          \"marginRate\": \"\",\n          \"marginType\": \"\",\n          \"marginOperation\": \"\"\n        }],\n        \"initialResetDate\": \"\",\n        \"periodicReset\": \"\",\n        \"effectiveRate\": \"\",\n        \"negativeRate\": \"\",\n        \"periodicMethod\": \"\",\n        \"periodicRate\": \"\",\n        \"periodicPeriodType\": \"\",\n        \"periodicPeriod\": \"\",\n        \"periodicIndex\": \"\"\n      }],\n      \"compoundYieldMethod\": \"\",\n      \"linkedProperty\": \"\",\n      \"attributes\": [{\n        \"linkedArrangement\": \"\",\n        \"attributes\": \"\",\n        \"attribute\": \"\",\n        \"value\": \"\"\n      }],\n      \"dayBasis\": \"\"\n    },\n    \"productId\": \"PERSONAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"10000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"2Y\",\n      \"changeAmount\": \"\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maturity Date is not a Working Day",
+              "id" : "AA.MATURITY.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Entered value is lesser than minimum negotiation value of .1 by 0.1 in field MARGIN.RATE.1.1",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "agentRoles" : [ {
+            "agentRole" : ""
+          } ],
+          "arrangmentId" : "NEW",
+          "principalint" : {
+            "tiers" : "",
+            "minIntAmount" : "",
+            "minIntWaive" : "",
+            "suppressAccrual" : "",
+            "calcThreshold" : "",
+            "accrualRule" : "",
+            "compounding" : "",
+            "referLimit" : "",
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "margins" : [ {
+                "margin" : "",
+                "marginRate" : "",
+                "marginOperation" : ""
+              } ],
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ],
+            "periodicInterest" : [ {
+              "margins" : [ {
+                "marginRate" : "",
+                "marginType" : "",
+                "marginOperation" : ""
+              } ],
+              "initialResetDate" : "",
+              "periodicReset" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "periodicMethod" : "",
+              "periodicRate" : "",
+              "periodicPeriodType" : "",
+              "periodicPeriod" : "",
+              "periodicIndex" : ""
+            } ],
+            "compoundYieldMethod" : "",
+            "linkedProperty" : "",
+            "attributes" : [ {
+              "linkedArrangement" : "",
+              "attributes" : "",
+              "attribute" : "",
+              "value" : ""
+            } ],
+            "dayBasis" : ""
+          },
+          "productId" : "PERSONAL.LOAN",
+          "commitment" : {
+            "amount" : "10000",
+            "updateLimit" : "NO",
+            "term" : "2Y",
+            "changeAmount" : "",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "LinkedRateLoanBody" : {
       "type" : "object",
@@ -3613,7 +3749,54 @@
         }
       },
       "description" : "CommercialLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Schedule falls before Cooling Date 20190424\",\n        \"id\": \"AA.SCHEDS.FAL.BEF.COOLING.DATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Activity would attract a charge(NEWARRFEE) of 100.00\",\n        \"id\": \"AA.CHG.FOR.CURR.ACT\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Unauthorised overdraft of USD 100 on account 87262.\",\n        \"id\": \"ACCT.UNAUTH.OD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100100}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100100\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"COMMERCIAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"15000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"1Y\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Schedule falls before Cooling Date 20190424",
+              "id" : "AA.SCHEDS.FAL.BEF.COOLING.DATE",
+              "type" : "Override"
+            }, {
+              "description" : "Activity would attract a charge(NEWARRFEE) of 100.00",
+              "id" : "AA.CHG.FOR.CURR.ACT",
+              "type" : "Override"
+            }, {
+              "description" : "Unauthorised overdraft of USD 100 on account 87262.",
+              "id" : "ACCT.UNAUTH.OD",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100100}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100100"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "COMMERCIAL.LOAN",
+          "commitment" : {
+            "amount" : "15000",
+            "updateLimit" : "NO",
+            "term" : "1Y",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "CommercialLoanBody" : {
       "type" : "object",
@@ -4698,7 +4881,67 @@
         }
       },
       "description" : "Mortgage",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of 10Y by 3287D in field TERM.1.1\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of 5 by 3.9345 in field PRINCIPALINT\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Maximum negotiation value of SCHEDULE has been exceeded by PAYMENT.LIMIT.REVOLVING in field\",\n        \"id\": \"AA.ECT.MAX.EXCEED\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Activity would attract a charge(NEWARRFEE) of 500.00\",\n        \"id\": \"AA.CHG.FOR.CURR.ACT\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Amortisation of NEWARRFEE fee is not applicable for call contract\",\n        \"id\": \"AA.AMORTISATION.NOT.APPLICABLE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Unauthorised overdraft of USD 500 on account 87467.\",\n        \"id\": \"ACCT.UNAUTH.OD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"reason\": \"\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"MORTGAGE\",\n    \"commitment\": {\n      \"amount\": \"100000\",\n      \"updateLimit\": \"\",\n      \"term\": \"1Y\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Entered value is lesser than minimum negotiation value of 10Y by 3287D in field TERM.1.1",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "description" : "Entered value is lesser than minimum negotiation value of 5 by 3.9345 in field PRINCIPALINT",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "description" : "Maximum negotiation value of SCHEDULE has been exceeded by PAYMENT.LIMIT.REVOLVING in field",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "type" : "Override"
+            }, {
+              "description" : "Activity would attract a charge(NEWARRFEE) of 500.00",
+              "id" : "AA.CHG.FOR.CURR.ACT",
+              "type" : "Override"
+            }, {
+              "description" : "Amortisation of NEWARRFEE fee is not applicable for call contract",
+              "id" : "AA.AMORTISATION.NOT.APPLICABLE",
+              "type" : "Override"
+            }, {
+              "description" : "Unauthorised overdraft of USD 500 on account 87467.",
+              "id" : "ACCT.UNAUTH.OD",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "reason" : "",
+          "arrangmentId" : "NEW",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : "100000",
+            "updateLimit" : "",
+            "term" : "1Y",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "MortgageBody" : {
       "type" : "object",
@@ -5972,7 +6215,58 @@
         }
       },
       "description" : "CreditLine",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Amortisation of MAINTENANCEFEE fee is not applicable for call contract\",\n        \"id\": \"AA.AMORTISATION.NOT.APPLICABLE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"LIMIT 100336.000ADCA.01 EXPIRES BEFORE TXN MATURITY\",\n        \"id\": \"LIMIT.EXPS.BEF.TXN\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"You have an Excess of GBP -77442.3 on Limit 100336.000ADCA.01\",\n        \"id\": \"EXCESS.ID\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"reason\": \"\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \" LOC.INTEREST.ONLY\",\n    \"limit\": {\"limitReference\": \"\"},\n    \"commitment\": {\n      \"amount\": \"100000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"1Y\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Amortisation of MAINTENANCEFEE fee is not applicable for call contract",
+              "id" : "AA.AMORTISATION.NOT.APPLICABLE",
+              "type" : "Override"
+            }, {
+              "description" : "LIMIT 100336.000ADCA.01 EXPIRES BEFORE TXN MATURITY",
+              "id" : "LIMIT.EXPS.BEF.TXN",
+              "type" : "Override"
+            }, {
+              "description" : "You have an Excess of GBP -77442.3 on Limit 100336.000ADCA.01",
+              "id" : "EXCESS.ID",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "reason" : "",
+          "arrangmentId" : "NEW",
+          "productId" : " LOC.INTEREST.ONLY",
+          "limit" : {
+            "limitReference" : ""
+          },
+          "commitment" : {
+            "amount" : "100000",
+            "updateLimit" : "NO",
+            "term" : "1Y",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "CreditLineBody" : {
       "type" : "object",
@@ -7083,7 +7377,104 @@
         }
       },
       "description" : "LinkedRateLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maturity Date is not a Working Day\",\n        \"id\": \"AA.MATURITY.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of .1 by 0.1 in field MARGIN.RATE.1.1\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"agentRoles\": [{\"agentRole\": \"\"}],\n    \"arrangmentId\": \"NEW\",\n    \"principalint\": {\n      \"tiers\": \"\",\n      \"minIntAmount\": \"\",\n      \"minIntWaive\": \"\",\n      \"suppressAccrual\": \"\",\n      \"calcThreshold\": \"\",\n      \"accrualRule\": \"\",\n      \"compounding\": \"\",\n      \"referLimit\": \"\",\n      \"interest\": [{\n        \"upTo\": \"\",\n        \"orPercent\": \"\",\n        \"margins\": [{\n          \"margin\": \"\",\n          \"marginRate\": \"\",\n          \"marginOperation\": \"\"\n        }],\n        \"effectiveRate\": \"\",\n        \"negativeRate\": \"\",\n        \"fixed\": \"\",\n        \"maxRate\": \"\",\n        \"minMaxRate\": \"\",\n        \"spread\": \"\"\n      }],\n      \"periodicInterest\": [{\n        \"margins\": [{\n          \"marginRate\": \"\",\n          \"marginType\": \"\",\n          \"marginOperation\": \"\"\n        }],\n        \"initialResetDate\": \"\",\n        \"periodicReset\": \"\",\n        \"effectiveRate\": \"\",\n        \"negativeRate\": \"\",\n        \"periodicMethod\": \"\",\n        \"periodicRate\": \"\",\n        \"periodicPeriodType\": \"\",\n        \"periodicPeriod\": \"\",\n        \"periodicIndex\": \"\"\n      }],\n      \"compoundYieldMethod\": \"\",\n      \"linkedProperty\": \"\",\n      \"attributes\": [{\n        \"linkedArrangement\": \"\",\n        \"attributes\": \"\",\n        \"attribute\": \"\",\n        \"value\": \"\"\n      }],\n      \"dayBasis\": \"\"\n    },\n    \"productId\": \"PERSONAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"10000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"2Y\",\n      \"changeAmount\": \"\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maturity Date is not a Working Day",
+              "id" : "AA.MATURITY.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Entered value is lesser than minimum negotiation value of .1 by 0.1 in field MARGIN.RATE.1.1",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "agentRoles" : [ {
+            "agentRole" : ""
+          } ],
+          "arrangmentId" : "NEW",
+          "principalint" : {
+            "tiers" : "",
+            "minIntAmount" : "",
+            "minIntWaive" : "",
+            "suppressAccrual" : "",
+            "calcThreshold" : "",
+            "accrualRule" : "",
+            "compounding" : "",
+            "referLimit" : "",
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "margins" : [ {
+                "margin" : "",
+                "marginRate" : "",
+                "marginOperation" : ""
+              } ],
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ],
+            "periodicInterest" : [ {
+              "margins" : [ {
+                "marginRate" : "",
+                "marginType" : "",
+                "marginOperation" : ""
+              } ],
+              "initialResetDate" : "",
+              "periodicReset" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "periodicMethod" : "",
+              "periodicRate" : "",
+              "periodicPeriodType" : "",
+              "periodicPeriod" : "",
+              "periodicIndex" : ""
+            } ],
+            "compoundYieldMethod" : "",
+            "linkedProperty" : "",
+            "attributes" : [ {
+              "linkedArrangement" : "",
+              "attributes" : "",
+              "attribute" : "",
+              "value" : ""
+            } ],
+            "dayBasis" : ""
+          },
+          "productId" : "PERSONAL.LOAN",
+          "commitment" : {
+            "amount" : "10000",
+            "updateLimit" : "NO",
+            "term" : "2Y",
+            "changeAmount" : "",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "createCommercialLoan" : {
       "properties" : {
@@ -7095,7 +7486,54 @@
         }
       },
       "description" : "CommercialLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Schedule falls before Cooling Date 20190424\",\n        \"id\": \"AA.SCHEDS.FAL.BEF.COOLING.DATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Activity would attract a charge(NEWARRFEE) of 100.00\",\n        \"id\": \"AA.CHG.FOR.CURR.ACT\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Unauthorised overdraft of USD 100 on account 87262.\",\n        \"id\": \"ACCT.UNAUTH.OD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100100}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100100\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"COMMERCIAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"15000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"1Y\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Schedule falls before Cooling Date 20190424",
+              "id" : "AA.SCHEDS.FAL.BEF.COOLING.DATE",
+              "type" : "Override"
+            }, {
+              "description" : "Activity would attract a charge(NEWARRFEE) of 100.00",
+              "id" : "AA.CHG.FOR.CURR.ACT",
+              "type" : "Override"
+            }, {
+              "description" : "Unauthorised overdraft of USD 100 on account 87262.",
+              "id" : "ACCT.UNAUTH.OD",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100100}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100100"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "COMMERCIAL.LOAN",
+          "commitment" : {
+            "amount" : "15000",
+            "updateLimit" : "NO",
+            "term" : "1Y",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "createPersonalLoan" : {
       "properties" : {
@@ -7107,7 +7545,46 @@
         }
       },
       "description" : "PersonalLoan",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Maturity Date is not a Working Day\",\n        \"id\": \"AA.MATURITY.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"PERSONAL.LOAN\",\n    \"commitment\": {\n      \"amount\": \"25000\",\n      \"updateLimit\": \"\",\n      \"term\": \"2Y\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Maturity Date is not a Working Day",
+              "id" : "AA.MATURITY.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "PERSONAL.LOAN",
+          "commitment" : {
+            "amount" : "25000",
+            "updateLimit" : "",
+            "term" : "2Y",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "createMortgage" : {
       "properties" : {
@@ -7119,7 +7596,67 @@
         }
       },
       "description" : "Mortgage",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of 10Y by 3287D in field TERM.1.1\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Entered value is lesser than minimum negotiation value of 5 by 3.9345 in field PRINCIPALINT\",\n        \"id\": \"AA.ECT.MIN.BELOW\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Maximum negotiation value of SCHEDULE has been exceeded by PAYMENT.LIMIT.REVOLVING in field\",\n        \"id\": \"AA.ECT.MAX.EXCEED\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Activity would attract a charge(NEWARRFEE) of 500.00\",\n        \"id\": \"AA.CHG.FOR.CURR.ACT\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Amortisation of NEWARRFEE fee is not applicable for call contract\",\n        \"id\": \"AA.AMORTISATION.NOT.APPLICABLE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Unauthorised overdraft of USD 500 on account 87467.\",\n        \"id\": \"ACCT.UNAUTH.OD\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"reason\": \"\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"MORTGAGE\",\n    \"commitment\": {\n      \"amount\": \"100000\",\n      \"updateLimit\": \"\",\n      \"term\": \"1Y\",\n      \"revolving\": \"\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Entered value is lesser than minimum negotiation value of 10Y by 3287D in field TERM.1.1",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "description" : "Entered value is lesser than minimum negotiation value of 5 by 3.9345 in field PRINCIPALINT",
+              "id" : "AA.ECT.MIN.BELOW",
+              "type" : "Override"
+            }, {
+              "description" : "Maximum negotiation value of SCHEDULE has been exceeded by PAYMENT.LIMIT.REVOLVING in field",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "type" : "Override"
+            }, {
+              "description" : "Activity would attract a charge(NEWARRFEE) of 500.00",
+              "id" : "AA.CHG.FOR.CURR.ACT",
+              "type" : "Override"
+            }, {
+              "description" : "Amortisation of NEWARRFEE fee is not applicable for call contract",
+              "id" : "AA.AMORTISATION.NOT.APPLICABLE",
+              "type" : "Override"
+            }, {
+              "description" : "Unauthorised overdraft of USD 500 on account 87467.",
+              "id" : "ACCT.UNAUTH.OD",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "reason" : "",
+          "arrangmentId" : "NEW",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : "100000",
+            "updateLimit" : "",
+            "term" : "1Y",
+            "revolving" : ""
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "createCreditLine" : {
       "properties" : {
@@ -7131,7 +7668,58 @@
         }
       },
       "description" : "CreditLine",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Amortisation of MAINTENANCEFEE fee is not applicable for call contract\",\n        \"id\": \"AA.AMORTISATION.NOT.APPLICABLE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"LIMIT 100336.000ADCA.01 EXPIRES BEFORE TXN MATURITY\",\n        \"id\": \"LIMIT.EXPS.BEF.TXN\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"You have an Excess of GBP -77442.3 on Limit 100336.000ADCA.01\",\n        \"id\": \"EXCESS.ID\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"LENDING-NEW-ARRANGEMENT\",\n    \"reason\": \"\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \" LOC.INTEREST.ONLY\",\n    \"limit\": {\"limitReference\": \"\"},\n    \"commitment\": {\n      \"amount\": \"100000\",\n      \"updateLimit\": \"NO\",\n      \"term\": \"1Y\",\n      \"revolving\": \"NO\"\n    },\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Amortisation of MAINTENANCEFEE fee is not applicable for call contract",
+              "id" : "AA.AMORTISATION.NOT.APPLICABLE",
+              "type" : "Override"
+            }, {
+              "description" : "LIMIT 100336.000ADCA.01 EXPIRES BEFORE TXN MATURITY",
+              "id" : "LIMIT.EXPS.BEF.TXN",
+              "type" : "Override"
+            }, {
+              "description" : "You have an Excess of GBP -77442.3 on Limit 100336.000ADCA.01",
+              "id" : "EXCESS.ID",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Loan Agreement/AAA*203 from 100336}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "LENDING-NEW-ARRANGEMENT",
+          "reason" : "",
+          "arrangmentId" : "NEW",
+          "productId" : " LOC.INTEREST.ONLY",
+          "limit" : {
+            "limitReference" : ""
+          },
+          "commitment" : {
+            "amount" : "100000",
+            "updateLimit" : "NO",
+            "term" : "1Y",
+            "revolving" : "NO"
+          },
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     }
   }
 }

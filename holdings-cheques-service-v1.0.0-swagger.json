@@ -341,7 +341,32 @@
         }
       },
       "description" : "ChequeIssue",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"charges\": \"\",\n    \"notes\": [{\"note\": \"\"}],\n    \"stockRegister\": \"\",\n    \"chequeNumberStart\": \"\",\n    \"chequeStatus\": \"61\",\n    \"issueDate\": \"\",\n    \"seriesId\": \"\",\n    \"numberIssued\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "",
+          "notes" : [ {
+            "note" : ""
+          } ],
+          "stockRegister" : "",
+          "chequeNumberStart" : "",
+          "chequeStatus" : "61",
+          "issueDate" : "",
+          "seriesId" : "",
+          "numberIssued" : ""
+        }
+      }
     },
     "ChequeIssueBody" : {
       "type" : "object",
@@ -750,7 +775,32 @@
         }
       },
       "description" : "ChequeIssue",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"charges\": \"\",\n    \"notes\": [{\"note\": \"\"}],\n    \"stockRegister\": \"\",\n    \"chequeNumberStart\": \"\",\n    \"chequeStatus\": \"61\",\n    \"issueDate\": \"\",\n    \"seriesId\": \"\",\n    \"numberIssued\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "",
+          "notes" : [ {
+            "note" : ""
+          } ],
+          "stockRegister" : "",
+          "chequeNumberStart" : "",
+          "chequeStatus" : "61",
+          "issueDate" : "",
+          "seriesId" : "",
+          "numberIssued" : ""
+        }
+      }
     },
     "updateChequeIssue" : {
       "properties" : {
@@ -762,7 +812,32 @@
         }
       },
       "description" : "ChequeIssue",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"charges\": \"\",\n    \"notes\": [{\"note\": \"\"}],\n    \"stockRegister\": \"\",\n    \"chequeNumberStart\": \"\",\n    \"chequeStatus\": \"61\",\n    \"issueDate\": \"\",\n    \"seriesId\": \"\",\n    \"numberIssued\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "",
+          "notes" : [ {
+            "note" : ""
+          } ],
+          "stockRegister" : "",
+          "chequeNumberStart" : "",
+          "chequeStatus" : "61",
+          "issueDate" : "",
+          "seriesId" : "",
+          "numberIssued" : ""
+        }
+      }
     }
   }
 }

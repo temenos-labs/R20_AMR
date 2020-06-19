@@ -608,7 +608,14 @@
         }
       },
       "description" : "AlertSubscription",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"subscribe\": \"NO\",\n    \"customerId\": \"100100\",\n    \"contractReference\": \"AA190799KY4Q\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "subscribe" : "NO",
+          "customerId" : "100100",
+          "contractReference" : "AA190799KY4Q"
+        }
+      }
     },
     "AlertSubscriptionBody" : {
       "type" : "object",
@@ -1009,7 +1016,14 @@
         }
       },
       "description" : "AlertSubscription",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"subscribe\": \"NO\",\n    \"customerId\": \"100100\",\n    \"contractReference\": \"AA190799KY4Q\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "subscribe" : "NO",
+          "customerId" : "100100",
+          "contractReference" : "AA190799KY4Q"
+        }
+      }
     }
   }
 }

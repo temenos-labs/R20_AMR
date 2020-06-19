@@ -1013,7 +1013,16 @@
         }
       },
       "description" : "ExternalUserStatus",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"Infinity\": [{\n      \"termsAccepted\": \"YES\",\n      \"externalUserStatus\": \"ACTIVE\"\n    }],\n    \"languageId\": \"2\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "Infinity" : [ {
+            "termsAccepted" : "YES",
+            "externalUserStatus" : "ACTIVE"
+          } ],
+          "languageId" : "2"
+        }
+      }
     },
     "ExternalUserStatusBody" : {
       "type" : "object",
@@ -1570,7 +1579,16 @@
         }
       },
       "description" : "ExternalUserStatus",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"Infinity\": [{\n      \"termsAccepted\": \"YES\",\n      \"externalUserStatus\": \"ACTIVE\"\n    }],\n    \"languageId\": \"2\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "Infinity" : [ {
+            "termsAccepted" : "YES",
+            "externalUserStatus" : "ACTIVE"
+          } ],
+          "languageId" : "2"
+        }
+      }
     }
   }
 }

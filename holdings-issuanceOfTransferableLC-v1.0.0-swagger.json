@@ -115,7 +115,26 @@
         }
       },
       "description" : "createIssuanceOfTransferableLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"lcCurrency\": \"USD\",\n    \"expiryDate\": \"30 APR 2019\",\n    \"lcType\": \"ESU\",\n    \"applicableRule\": \"UCPURR LATEST VERSION\",\n    \"parentLCReference\": \"TF1907990956\",\n    \"lcAmount\": \"1000\",\n    \"availableWithBank\": \"ANY BANK\",\n    \"expiryPlace\": \"US\",\n    \"issuingBankId\": \"100460\",\n    \"firstBeneficiaries\": [{\"firstBeneficiaryID\": \"100282\"}],\n    \"secondBeneficiaries\": [{\"secondBeneficiary\": \"100100\"}]\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "lcCurrency" : "USD",
+          "expiryDate" : "30 APR 2019",
+          "lcType" : "ESU",
+          "applicableRule" : "UCPURR LATEST VERSION",
+          "parentLCReference" : "TF1907990956",
+          "lcAmount" : "1000",
+          "availableWithBank" : "ANY BANK",
+          "expiryPlace" : "US",
+          "issuingBankId" : "100460",
+          "firstBeneficiaries" : [ {
+            "firstBeneficiaryID" : "100282"
+          } ],
+          "secondBeneficiaries" : [ {
+            "secondBeneficiary" : "100100"
+          } ]
+        }
+      }
     },
     "createIssuanceOfTransferableLCBody" : {
       "type" : "object",

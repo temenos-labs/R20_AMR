@@ -21,7 +21,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100384"
         }, {
           "name" : "page_size",
           "in" : "query",

@@ -114,7 +114,16 @@
         }
       },
       "description" : "createGuaranteeStandByLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"expiryDate\": \"20200205\",\n    \"amount\": \"10000\",\n    \"customerId\": \"100100\",\n    \"currency\": \"USD\",\n    \"invocationStatus\": \"C\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "expiryDate" : "20200205",
+          "amount" : "10000",
+          "customerId" : "100100",
+          "currency" : "USD",
+          "invocationStatus" : "C"
+        }
+      }
     },
     "createGuaranteeStandByLCBody" : {
       "type" : "object",

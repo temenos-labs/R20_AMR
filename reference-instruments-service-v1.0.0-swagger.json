@@ -1914,7 +1914,26 @@
         }
       },
       "description" : "SecurityShare",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"stockExchange\": \"NYSE\",\n    \"interestRate\": \"5.0\",\n    \"subAssetType\": \"200\",\n    \"parValue\": \"10\",\n    \"initialPaymentDate\": \"20180317\",\n    \"couponTaxCodeId\": \"US\",\n    \"displayName\": \"New Bond\",\n    \"priceType\": \"0\",\n    \"priceUpdateCode\": \"MANU\",\n    \"companyDomicile\": \"US\",\n    \"industryId\": \"10\",\n    \"maturityDate\": \"20180417\",\n    \"mnemonic\": \"M991002009\",\n    \"currencyId\": \"USD\",\n    \"lastPrice\": \"100\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "interestRate" : "5.0",
+          "subAssetType" : "200",
+          "parValue" : "10",
+          "initialPaymentDate" : "20180317",
+          "couponTaxCodeId" : "US",
+          "displayName" : "New Bond",
+          "priceType" : "0",
+          "priceUpdateCode" : "MANU",
+          "companyDomicile" : "US",
+          "industryId" : "10",
+          "maturityDate" : "20180417",
+          "mnemonic" : "M991002009",
+          "currencyId" : "USD",
+          "lastPrice" : "100"
+        }
+      }
     },
     "SecurityShareBody" : {
       "type" : "object",
@@ -2229,7 +2248,27 @@
         }
       },
       "description" : "StructuredNotes",
-      "example" : "{\n  \"header\": {\"override\": {\"overrideDetails\": [{\n    \"description\": \"NEW ISSUE\",\n    \"id\": \"NEW ISSUE\",\n    \"type\": \"Override\"\n  }]}},\n  \"body\": {\n    \"stockExchange\": \"NYSE\",\n    \"instrumentName\": \"JP Morgan\",\n    \"interestRates\": [{\"interestRate\": 5}],\n    \"maturityDate\": \"20180417\",\n    \"currencyId\": \"USD\",\n    \"lastPrice\": 100\n  }\n}"
+      "example" : {
+        "header" : {
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NEW ISSUE",
+              "id" : "NEW ISSUE",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "instrumentName" : "JP Morgan",
+          "interestRates" : [ {
+            "interestRate" : 5.0
+          } ],
+          "maturityDate" : "20180417",
+          "currencyId" : "USD",
+          "lastPrice" : 100
+        }
+      }
     },
     "StructuredNotesBody" : {
       "type" : "object",
@@ -2848,7 +2887,27 @@
         }
       },
       "description" : "StructuredNotes",
-      "example" : "{\n  \"header\": {\"override\": {\"overrideDetails\": [{\n    \"description\": \"NEW ISSUE\",\n    \"id\": \"NEW ISSUE\",\n    \"type\": \"Override\"\n  }]}},\n  \"body\": {\n    \"stockExchange\": \"NYSE\",\n    \"instrumentName\": \"JP Morgan\",\n    \"interestRates\": [{\"interestRate\": 5}],\n    \"maturityDate\": \"20180417\",\n    \"currencyId\": \"USD\",\n    \"lastPrice\": 100\n  }\n}"
+      "example" : {
+        "header" : {
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NEW ISSUE",
+              "id" : "NEW ISSUE",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "instrumentName" : "JP Morgan",
+          "interestRates" : [ {
+            "interestRate" : 5.0
+          } ],
+          "maturityDate" : "20180417",
+          "currencyId" : "USD",
+          "lastPrice" : 100
+        }
+      }
     },
     "createSecurityShare" : {
       "properties" : {
@@ -2860,7 +2919,26 @@
         }
       },
       "description" : "SecurityShare",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"stockExchange\": \"NYSE\",\n    \"interestRate\": \"5.0\",\n    \"subAssetType\": \"200\",\n    \"parValue\": \"10\",\n    \"initialPaymentDate\": \"20180317\",\n    \"couponTaxCodeId\": \"US\",\n    \"displayName\": \"New Bond\",\n    \"priceType\": \"0\",\n    \"priceUpdateCode\": \"MANU\",\n    \"companyDomicile\": \"US\",\n    \"industryId\": \"10\",\n    \"maturityDate\": \"20180417\",\n    \"mnemonic\": \"M991002009\",\n    \"currencyId\": \"USD\",\n    \"lastPrice\": \"100\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "interestRate" : "5.0",
+          "subAssetType" : "200",
+          "parValue" : "10",
+          "initialPaymentDate" : "20180317",
+          "couponTaxCodeId" : "US",
+          "displayName" : "New Bond",
+          "priceType" : "0",
+          "priceUpdateCode" : "MANU",
+          "companyDomicile" : "US",
+          "industryId" : "10",
+          "maturityDate" : "20180417",
+          "mnemonic" : "M991002009",
+          "currencyId" : "USD",
+          "lastPrice" : "100"
+        }
+      }
     }
   }
 }

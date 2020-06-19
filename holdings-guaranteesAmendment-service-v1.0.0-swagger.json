@@ -120,7 +120,22 @@
         }
       },
       "description" : "updateGuarantees",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"expiryDate\": \"20201222\",\n    \"charges\": [\n      {\n        \"chargeCurrency\": \"USD\",\n        \"chargeDate\": \"20190417\",\n        \"debitChargeAccount\": \"77399\"\n      },\n      {\n        \"chargeCurrency\": \"USD\",\n        \"chargeDate\": \"20190417\",\n        \"debitChargeAccount\": \"65773\"\n      }\n    ],\n    \"customerReference\": \"REFERENCE\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "expiryDate" : "20201222",
+          "charges" : [ {
+            "chargeCurrency" : "USD",
+            "chargeDate" : "20190417",
+            "debitChargeAccount" : "77399"
+          }, {
+            "chargeCurrency" : "USD",
+            "chargeDate" : "20190417",
+            "debitChargeAccount" : "65773"
+          } ],
+          "customerReference" : "REFERENCE"
+        }
+      }
     },
     "updateGuaranteesBody" : {
       "type" : "object",

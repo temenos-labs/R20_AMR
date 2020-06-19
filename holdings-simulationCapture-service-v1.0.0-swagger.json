@@ -114,7 +114,30 @@
         }
       },
       "description" : "SimulationCapture",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"activityId\": \"ACCOUNTS-UPDATE-TAX\",\n    \"simulationRunReference\": \"AASIMR191078S5S813\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"transactionAmount\": 0,\n    \"currencyId\": \"USD\",\n    \"automaticRun\": \"SIMULATE\",\n    \"effectiveDate\": \"\",\n    \"closureReason\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-TAX",
+          "simulationRunReference" : "AASIMR191078S5S813",
+          "productId" : "CURRENT.ACCOUNT",
+          "transactionAmount" : 0,
+          "currencyId" : "USD",
+          "automaticRun" : "SIMULATE",
+          "effectiveDate" : "",
+          "closureReason" : ""
+        }
+      }
     },
     "SimulationCaptureBody" : {
       "type" : "object",
@@ -829,7 +852,30 @@
         }
       },
       "description" : "SimulationCapture",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"activityId\": \"ACCOUNTS-UPDATE-TAX\",\n    \"simulationRunReference\": \"AASIMR191078S5S813\",\n    \"productId\": \"CURRENT.ACCOUNT\",\n    \"transactionAmount\": 0,\n    \"currencyId\": \"USD\",\n    \"automaticRun\": \"SIMULATE\",\n    \"effectiveDate\": \"\",\n    \"closureReason\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-TAX",
+          "simulationRunReference" : "AASIMR191078S5S813",
+          "productId" : "CURRENT.ACCOUNT",
+          "transactionAmount" : 0,
+          "currencyId" : "USD",
+          "automaticRun" : "SIMULATE",
+          "effectiveDate" : "",
+          "closureReason" : ""
+        }
+      }
     }
   }
 }

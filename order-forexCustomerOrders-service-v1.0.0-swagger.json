@@ -868,7 +868,37 @@
         }
       },
       "description" : "ForexLimitOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": []}\n  },\n  \"body\": {\n    \"ourAccountPay\": \"15377\",\n    \"contraCurrency\": \"CHF\",\n    \"orderType\": \"SINGLE\",\n    \"limitReference\": \"11050.01\",\n    \"orderCurrency\": \"GBP\",\n    \"buySellDetails\": [{\n      \"buySell\": \"BUY\",\n      \"orderAmount\": \"1000000.00\",\n      \"orderItemStatus\": \"OPEN\",\n      \"orderItemType\": \"SL\",\n      \"requiredHighRate\": \"2.1\"\n    }],\n    \"orderStatus\": \"ACTIVE\",\n    \"valueDate\": \"20190419\",\n    \"dealType\": \"SP\",\n    \"baseCurrency\": \"GBP\",\n    \"dealerDesk\": \"00\",\n    \"ourAccountReceive\": \"23701\",\n    \"counterparty\": \"100492\",\n    \"dealDate\": \"20190417\",\n    \"goodTillCancellation\": \"YES\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ ]
+          }
+        },
+        "body" : {
+          "ourAccountPay" : "15377",
+          "contraCurrency" : "CHF",
+          "orderType" : "SINGLE",
+          "limitReference" : "11050.01",
+          "orderCurrency" : "GBP",
+          "buySellDetails" : [ {
+            "buySell" : "BUY",
+            "orderAmount" : "1000000.00",
+            "orderItemStatus" : "OPEN",
+            "orderItemType" : "SL",
+            "requiredHighRate" : "2.1"
+          } ],
+          "orderStatus" : "ACTIVE",
+          "valueDate" : "20190419",
+          "dealType" : "SP",
+          "baseCurrency" : "GBP",
+          "dealerDesk" : "00",
+          "ourAccountReceive" : "23701",
+          "counterparty" : "100492",
+          "dealDate" : "20190417",
+          "goodTillCancellation" : "YES"
+        }
+      }
     },
     "ForexLimitOrderBody" : {
       "type" : "object",
@@ -1449,7 +1479,77 @@
         }
       },
       "description" : "ForexOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Record in OC.CUSTOMER missing . Continue ?\",\n        \"id\": \"FX-OC.CUSTOMER.RECORD.MISSING\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"OC Customer record for MiFID processing is missing for the Customer 100492\",\n        \"id\": \"LE-OC.CUSTOMER.MISSING\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Intraday limit is breached for C.JPY ccy by amount 351132737\",\n        \"id\": \"TY-INTRADAY.LIMIT.BREACH\",\n        \"type\": \"Override\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"valueDateSell\": \"20190520\",\n    \"taxDetails\": [],\n    \"equivalent2Details\": [],\n    \"consolIndDetails\": [],\n    \"currencyBought\": \"EUR\",\n    \"additionalReportingInformationDetails\": [],\n    \"forwardRate\": \"0.9\",\n    \"optionRateDetails\": [],\n    \"chargeDetails\": [],\n    \"baseCurrency\": \"EUR\",\n    \"interestFieldDetails\": [],\n    \"dateTimeDetails\": [],\n    \"termsAndConditions\": [],\n    \"overrideDetails\": [],\n    \"spotRate\": \"0.88720\",\n    \"startOfDayMaturity\": \"YES\",\n    \"dealDate\": \"20190417\",\n    \"amountSold\": \"1800.00\",\n    \"Notes\": [],\n    \"valueDateBuy\": \"20190520\",\n    \"inputterDetails\": [],\n    \"equivalentDetails\": [],\n    \"dealType\": \"FW\",\n    \"currencySold\": \"GBP\",\n    \"tyCounterpartyType\": \"IB\",\n    \"dealerNotes\": [],\n    \"fxBulkOrderIds\": [],\n    \"additionalInformationMetalDetails\": [],\n    \"amountBought\": \"2000.00\",\n    \"accountDetails\": [{\n      \"ourAccountPay\": \"23701\",\n      \"deliveryDateBuy\": \"20190520\",\n      \"counterpartyAddDetails\": [],\n      \"confirmationNarrativeDetails\": [],\n      \"activitycodeDetails\": [],\n      \"beneficiaryAddDetails\": [],\n      \"deliveryDateSell\": \"20190420\",\n      \"deliveryAmountBuy\": \"2000.00\",\n      \"receiveAdvanceNarrativeDetails\": [],\n      \"paymtNarrativeDetails\": [],\n      \"deliveryChargeDetails\": [],\n      \"intermediateAddDetails\": [],\n      \"deliveryAmountSell\": \"1800.00\",\n      \"ourAccountReceive\": \"36668\",\n      \"bankToBankInformationDetails\": []\n    }],\n    \"swapReferenceNumbers\": [],\n    \"counterparty\": \"100492\",\n    \"orginalValueDetails\": []\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Record in OC.CUSTOMER missing . Continue ?",
+              "id" : "FX-OC.CUSTOMER.RECORD.MISSING",
+              "type" : "Override"
+            }, {
+              "description" : "OC Customer record for MiFID processing is missing for the Customer 100492",
+              "id" : "LE-OC.CUSTOMER.MISSING",
+              "type" : "Override"
+            }, {
+              "description" : "Intraday limit is breached for C.JPY ccy by amount 351132737",
+              "id" : "TY-INTRADAY.LIMIT.BREACH",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "valueDateSell" : "20190520",
+          "taxDetails" : [ ],
+          "equivalent2Details" : [ ],
+          "consolIndDetails" : [ ],
+          "currencyBought" : "EUR",
+          "additionalReportingInformationDetails" : [ ],
+          "forwardRate" : "0.9",
+          "optionRateDetails" : [ ],
+          "chargeDetails" : [ ],
+          "baseCurrency" : "EUR",
+          "interestFieldDetails" : [ ],
+          "dateTimeDetails" : [ ],
+          "termsAndConditions" : [ ],
+          "overrideDetails" : [ ],
+          "spotRate" : "0.88720",
+          "startOfDayMaturity" : "YES",
+          "dealDate" : "20190417",
+          "amountSold" : "1800.00",
+          "Notes" : [ ],
+          "valueDateBuy" : "20190520",
+          "inputterDetails" : [ ],
+          "equivalentDetails" : [ ],
+          "dealType" : "FW",
+          "currencySold" : "GBP",
+          "tyCounterpartyType" : "IB",
+          "dealerNotes" : [ ],
+          "fxBulkOrderIds" : [ ],
+          "additionalInformationMetalDetails" : [ ],
+          "amountBought" : "2000.00",
+          "accountDetails" : [ {
+            "ourAccountPay" : "23701",
+            "deliveryDateBuy" : "20190520",
+            "counterpartyAddDetails" : [ ],
+            "confirmationNarrativeDetails" : [ ],
+            "activitycodeDetails" : [ ],
+            "beneficiaryAddDetails" : [ ],
+            "deliveryDateSell" : "20190420",
+            "deliveryAmountBuy" : "2000.00",
+            "receiveAdvanceNarrativeDetails" : [ ],
+            "paymtNarrativeDetails" : [ ],
+            "deliveryChargeDetails" : [ ],
+            "intermediateAddDetails" : [ ],
+            "deliveryAmountSell" : "1800.00",
+            "ourAccountReceive" : "36668",
+            "bankToBankInformationDetails" : [ ]
+          } ],
+          "swapReferenceNumbers" : [ ],
+          "counterparty" : "100492",
+          "orginalValueDetails" : [ ]
+        }
+      }
     },
     "ForexOrderBody" : {
       "type" : "object",
@@ -1800,7 +1900,77 @@
         }
       },
       "description" : "ForexOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Record in OC.CUSTOMER missing . Continue ?\",\n        \"id\": \"FX-OC.CUSTOMER.RECORD.MISSING\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"OC Customer record for MiFID processing is missing for the Customer 100492\",\n        \"id\": \"LE-OC.CUSTOMER.MISSING\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Intraday limit is breached for C.JPY ccy by amount 351132737\",\n        \"id\": \"TY-INTRADAY.LIMIT.BREACH\",\n        \"type\": \"Override\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"valueDateSell\": \"20190520\",\n    \"taxDetails\": [],\n    \"equivalent2Details\": [],\n    \"consolIndDetails\": [],\n    \"currencyBought\": \"EUR\",\n    \"additionalReportingInformationDetails\": [],\n    \"forwardRate\": \"0.9\",\n    \"optionRateDetails\": [],\n    \"chargeDetails\": [],\n    \"baseCurrency\": \"EUR\",\n    \"interestFieldDetails\": [],\n    \"dateTimeDetails\": [],\n    \"termsAndConditions\": [],\n    \"overrideDetails\": [],\n    \"spotRate\": \"0.88720\",\n    \"startOfDayMaturity\": \"YES\",\n    \"dealDate\": \"20190417\",\n    \"amountSold\": \"1800.00\",\n    \"Notes\": [],\n    \"valueDateBuy\": \"20190520\",\n    \"inputterDetails\": [],\n    \"equivalentDetails\": [],\n    \"dealType\": \"FW\",\n    \"currencySold\": \"GBP\",\n    \"tyCounterpartyType\": \"IB\",\n    \"dealerNotes\": [],\n    \"fxBulkOrderIds\": [],\n    \"additionalInformationMetalDetails\": [],\n    \"amountBought\": \"2000.00\",\n    \"accountDetails\": [{\n      \"ourAccountPay\": \"23701\",\n      \"deliveryDateBuy\": \"20190520\",\n      \"counterpartyAddDetails\": [],\n      \"confirmationNarrativeDetails\": [],\n      \"activitycodeDetails\": [],\n      \"beneficiaryAddDetails\": [],\n      \"deliveryDateSell\": \"20190420\",\n      \"deliveryAmountBuy\": \"2000.00\",\n      \"receiveAdvanceNarrativeDetails\": [],\n      \"paymtNarrativeDetails\": [],\n      \"deliveryChargeDetails\": [],\n      \"intermediateAddDetails\": [],\n      \"deliveryAmountSell\": \"1800.00\",\n      \"ourAccountReceive\": \"36668\",\n      \"bankToBankInformationDetails\": []\n    }],\n    \"swapReferenceNumbers\": [],\n    \"counterparty\": \"100492\",\n    \"orginalValueDetails\": []\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Record in OC.CUSTOMER missing . Continue ?",
+              "id" : "FX-OC.CUSTOMER.RECORD.MISSING",
+              "type" : "Override"
+            }, {
+              "description" : "OC Customer record for MiFID processing is missing for the Customer 100492",
+              "id" : "LE-OC.CUSTOMER.MISSING",
+              "type" : "Override"
+            }, {
+              "description" : "Intraday limit is breached for C.JPY ccy by amount 351132737",
+              "id" : "TY-INTRADAY.LIMIT.BREACH",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "valueDateSell" : "20190520",
+          "taxDetails" : [ ],
+          "equivalent2Details" : [ ],
+          "consolIndDetails" : [ ],
+          "currencyBought" : "EUR",
+          "additionalReportingInformationDetails" : [ ],
+          "forwardRate" : "0.9",
+          "optionRateDetails" : [ ],
+          "chargeDetails" : [ ],
+          "baseCurrency" : "EUR",
+          "interestFieldDetails" : [ ],
+          "dateTimeDetails" : [ ],
+          "termsAndConditions" : [ ],
+          "overrideDetails" : [ ],
+          "spotRate" : "0.88720",
+          "startOfDayMaturity" : "YES",
+          "dealDate" : "20190417",
+          "amountSold" : "1800.00",
+          "Notes" : [ ],
+          "valueDateBuy" : "20190520",
+          "inputterDetails" : [ ],
+          "equivalentDetails" : [ ],
+          "dealType" : "FW",
+          "currencySold" : "GBP",
+          "tyCounterpartyType" : "IB",
+          "dealerNotes" : [ ],
+          "fxBulkOrderIds" : [ ],
+          "additionalInformationMetalDetails" : [ ],
+          "amountBought" : "2000.00",
+          "accountDetails" : [ {
+            "ourAccountPay" : "23701",
+            "deliveryDateBuy" : "20190520",
+            "counterpartyAddDetails" : [ ],
+            "confirmationNarrativeDetails" : [ ],
+            "activitycodeDetails" : [ ],
+            "beneficiaryAddDetails" : [ ],
+            "deliveryDateSell" : "20190420",
+            "deliveryAmountBuy" : "2000.00",
+            "receiveAdvanceNarrativeDetails" : [ ],
+            "paymtNarrativeDetails" : [ ],
+            "deliveryChargeDetails" : [ ],
+            "intermediateAddDetails" : [ ],
+            "deliveryAmountSell" : "1800.00",
+            "ourAccountReceive" : "36668",
+            "bankToBankInformationDetails" : [ ]
+          } ],
+          "swapReferenceNumbers" : [ ],
+          "counterparty" : "100492",
+          "orginalValueDetails" : [ ]
+        }
+      }
     },
     "createForexLimitOrder" : {
       "properties" : {
@@ -1812,7 +1982,37 @@
         }
       },
       "description" : "ForexLimitOrder",
-      "example" : "{\n  \"header\": {\n    \"audit\": {},\n    \"override\": {\"overrideDetails\": []}\n  },\n  \"body\": {\n    \"ourAccountPay\": \"15377\",\n    \"contraCurrency\": \"CHF\",\n    \"orderType\": \"SINGLE\",\n    \"limitReference\": \"11050.01\",\n    \"orderCurrency\": \"GBP\",\n    \"buySellDetails\": [{\n      \"buySell\": \"BUY\",\n      \"orderAmount\": \"1000000.00\",\n      \"orderItemStatus\": \"OPEN\",\n      \"orderItemType\": \"SL\",\n      \"requiredHighRate\": \"2.1\"\n    }],\n    \"orderStatus\": \"ACTIVE\",\n    \"valueDate\": \"20190419\",\n    \"dealType\": \"SP\",\n    \"baseCurrency\": \"GBP\",\n    \"dealerDesk\": \"00\",\n    \"ourAccountReceive\": \"23701\",\n    \"counterparty\": \"100492\",\n    \"dealDate\": \"20190417\",\n    \"goodTillCancellation\": \"YES\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : { },
+          "override" : {
+            "overrideDetails" : [ ]
+          }
+        },
+        "body" : {
+          "ourAccountPay" : "15377",
+          "contraCurrency" : "CHF",
+          "orderType" : "SINGLE",
+          "limitReference" : "11050.01",
+          "orderCurrency" : "GBP",
+          "buySellDetails" : [ {
+            "buySell" : "BUY",
+            "orderAmount" : "1000000.00",
+            "orderItemStatus" : "OPEN",
+            "orderItemType" : "SL",
+            "requiredHighRate" : "2.1"
+          } ],
+          "orderStatus" : "ACTIVE",
+          "valueDate" : "20190419",
+          "dealType" : "SP",
+          "baseCurrency" : "GBP",
+          "dealerDesk" : "00",
+          "ourAccountReceive" : "23701",
+          "counterparty" : "100492",
+          "dealDate" : "20190417",
+          "goodTillCancellation" : "YES"
+        }
+      }
     }
   }
 }

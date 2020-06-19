@@ -3144,7 +3144,18 @@
         }
       },
       "description" : "Advert",
-      "example" : "{\n  \"header\": {\"\\u201caudit\\u201d\": {\"\\u201cversionNumber\\u201d\": \"\\u201c3\\u201d\"}},\n  \"body\": {\n    \"opportunityDirection\": \"INBOUND\",\n    \"startDate\": \"2018-04-20\",\n    \"opportunityStatus\": \"ACCEPTED\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "“audit”" : {
+            "“versionNumber”" : "“3”"
+          }
+        },
+        "body" : {
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED"
+        }
+      }
     },
     "AdvertBody" : {
       "type" : "object",
@@ -3341,7 +3352,20 @@
         }
       },
       "description" : "DocumentandImage",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"imageApplication\": \"CUSTOMER\",\n    \"notes\": \"NEW IMAGE\",\n    \"displayName\": \"Petero\",\n    \"imageReference\": \"190167\",\n    \"multiMediaType\": \"IMAGE\",\n    \"descriptions\": [{\"description\": \"Petero\"}],\n    \"imageType\": \"PHOTOS\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "imageApplication" : "CUSTOMER",
+          "notes" : "NEW IMAGE",
+          "displayName" : "Petero",
+          "imageReference" : "190167",
+          "multiMediaType" : "IMAGE",
+          "descriptions" : [ {
+            "description" : "Petero"
+          } ],
+          "imageType" : "PHOTOS"
+        }
+      }
     },
     "DocumentandImageBody" : {
       "type" : "object",
@@ -3462,7 +3486,13 @@
         }
       },
       "description" : "ProfilePictureUpload",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"uploadId\": \"IM1907902062\",\n    \"fileUpload\": \"UploadCheck\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
     },
     "ProfilePictureUploadBody" : {
       "type" : "object",
@@ -3724,7 +3754,17 @@
         }
       },
       "description" : "SecureMessage",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"messageStatus\": \"READ\",\n    \"subject\": \"Request a cheque book\",\n    \"messages\": [{\"message\": \"YYYYYYYYYYYY\"}],\n    \"toDepartmentId\": \"26\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "messageStatus" : "READ",
+          "subject" : "Request a cheque book",
+          "messages" : [ {
+            "message" : "YYYYYYYYYYYY"
+          } ],
+          "toDepartmentId" : "26"
+        }
+      }
     },
     "SecureMessageBody" : {
       "type" : "object",
@@ -5775,7 +5815,13 @@
         }
       },
       "description" : "ProfilePictureUpload",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"uploadId\": \"IM1907902062\",\n    \"fileUpload\": \"UploadCheck\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
     },
     "createDocumentandImage" : {
       "properties" : {
@@ -5787,7 +5833,20 @@
         }
       },
       "description" : "DocumentandImage",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"imageApplication\": \"CUSTOMER\",\n    \"notes\": \"NEW IMAGE\",\n    \"displayName\": \"Petero\",\n    \"imageReference\": \"190167\",\n    \"multiMediaType\": \"IMAGE\",\n    \"descriptions\": [{\"description\": \"Petero\"}],\n    \"imageType\": \"PHOTOS\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "imageApplication" : "CUSTOMER",
+          "notes" : "NEW IMAGE",
+          "displayName" : "Petero",
+          "imageReference" : "190167",
+          "multiMediaType" : "IMAGE",
+          "descriptions" : [ {
+            "description" : "Petero"
+          } ],
+          "imageType" : "PHOTOS"
+        }
+      }
     },
     "updateAdvert" : {
       "properties" : {
@@ -5799,7 +5858,18 @@
         }
       },
       "description" : "Advert",
-      "example" : "{\n  \"header\": {\"\\u201caudit\\u201d\": {\"\\u201cversionNumber\\u201d\": \"\\u201c3\\u201d\"}},\n  \"body\": {\n    \"opportunityDirection\": \"INBOUND\",\n    \"startDate\": \"2018-04-20\",\n    \"opportunityStatus\": \"ACCEPTED\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "“audit”" : {
+            "“versionNumber”" : "“3”"
+          }
+        },
+        "body" : {
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED"
+        }
+      }
     },
     "createProfilePictureUpload" : {
       "properties" : {
@@ -5811,7 +5881,13 @@
         }
       },
       "description" : "ProfilePictureUpload",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"uploadId\": \"IM1907902062\",\n    \"fileUpload\": \"UploadCheck\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
     },
     "createSecureMessage" : {
       "properties" : {
@@ -5823,7 +5899,17 @@
         }
       },
       "description" : "SecureMessage",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"messageStatus\": \"READ\",\n    \"subject\": \"Request a cheque book\",\n    \"messages\": [{\"message\": \"YYYYYYYYYYYY\"}],\n    \"toDepartmentId\": \"26\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "messageStatus" : "READ",
+          "subject" : "Request a cheque book",
+          "messages" : [ {
+            "message" : "YYYYYYYYYYYY"
+          } ],
+          "toDepartmentId" : "26"
+        }
+      }
     }
   }
 }

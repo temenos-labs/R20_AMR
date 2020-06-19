@@ -1282,7 +1282,41 @@
         }
       },
       "description" : "SummaryAccountDebitInterestConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"190098\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-DRINTEREST\",\n    \"drinterest\": {\"interest\": [{\n      \"upTo\": \"\",\n      \"orPercent\": \"\",\n      \"effectiveRate\": \"\",\n      \"negativeRate\": \"\",\n      \"fixed\": \"7.5\",\n      \"maxRate\": \"\",\n      \"minMaxRate\": \"\",\n      \"spread\": \"\"\n    }]},\n    \"arrangmentId\": \"AA190797P0JT\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "190098"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "7.5",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ]
+          },
+          "arrangmentId" : "AA190797P0JT",
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "SummaryAccountDebitInterestConditionsBody" : {
       "type" : "object",
@@ -2046,7 +2080,41 @@
         }
       },
       "description" : "TransactionAccountDebitInterestConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"190098\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-DRINTEREST\",\n    \"drinterest\": {\"interest\": [{\n      \"upTo\": \"\",\n      \"orPercent\": \"\",\n      \"effectiveRate\": \"\",\n      \"negativeRate\": \"\",\n      \"fixed\": \"9.5\",\n      \"maxRate\": \"\",\n      \"minMaxRate\": \"\",\n      \"spread\": \"\"\n    }]},\n    \"arrangmentId\": \"AA19079044VJ\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "190098"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "9.5",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ]
+          },
+          "arrangmentId" : "AA19079044VJ",
+          "productId" : "TR.ACCOUNT",
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "TransactionAccountDebitInterestConditionsBody" : {
       "type" : "object",
@@ -2688,7 +2756,43 @@
         }
       },
       "description" : "AccountOperationalDate",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA190857YS4D\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\n      \"aliases\": [{\"alias\": \"\"}],\n      \"linkTypes\": [{\"linkType\": \"SET.LIVE.DATE\"}],\n      \"accounts\": [{\"account\": \"84816\"}],\n      \"goLiveDates\": [{\"goLiveDate\": \"20190520\"}]\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA190857YS4D",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "aliases" : [ {
+              "alias" : ""
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "SET.LIVE.DATE"
+            } ],
+            "accounts" : [ {
+              "account" : "84816"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "20190520"
+            } ]
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "AccountOperationalDateBody" : {
       "type" : "object",
@@ -3488,7 +3592,47 @@
         }
       },
       "description" : "BundleMasterArrangements",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Account has negative balance while linking the pool.\",\n      \"id\": \"AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT\",\n      \"type\": \"Override\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA19085TDX8B\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\n      \"integrityCheckDays\": \"\",\n      \"parentAccount1\": \"\",\n      \"accountAlias1\": \"\",\n      \"accLocation1\": \"\",\n      \"accProduct1\": \"SUMMARY.ACCOUNT\",\n      \"liveDate1\": \"20190419\",\n      \"linkType1\": \"LINK\",\n      \"cancelRestructure1\": \"\",\n      \"accountRef1\": \"78859\",\n      \"accCurrency1\": \"USD\",\n      \"shortName1\": \"\",\n      \"accCompany1\": \"GB0010001\",\n      \"altReference1\": \"\",\n      \"newBundleRef1\": \"\",\n      \"customer1\": \"100182\",\n      \"keepBalance1\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Account has negative balance while linking the pool.",
+              "id" : "AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA19085TDX8B",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "integrityCheckDays" : "",
+            "parentAccount1" : "",
+            "accountAlias1" : "",
+            "accLocation1" : "",
+            "accProduct1" : "SUMMARY.ACCOUNT",
+            "liveDate1" : "20190419",
+            "linkType1" : "LINK",
+            "cancelRestructure1" : "",
+            "accountRef1" : "78859",
+            "accCurrency1" : "USD",
+            "shortName1" : "",
+            "accCompany1" : "GB0010001",
+            "altReference1" : "",
+            "newBundleRef1" : "",
+            "customer1" : "100182",
+            "keepBalance1" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "BundleMasterArrangementsBody" : {
       "type" : "object",
@@ -4602,7 +4746,38 @@
         }
       },
       "description" : "CrossPoolAccountMovement",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"string\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA1907995MX2\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\"rules\": [{\n      \"allowedProductGroup\": \"\",\n      \"allowedProduct\": \"\",\n      \"parents\": [{\"allowedParent\": \"\"}]\n    }]},\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "string",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA1907995MX2",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "rules" : [ {
+              "allowedProductGroup" : "",
+              "allowedProduct" : "",
+              "parents" : [ {
+                "allowedParent" : ""
+              } ]
+            } ]
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "CrossPoolAccountMovementBody" : {
       "type" : "object",
@@ -4842,7 +5017,36 @@
         }
       },
       "description" : "SummaryAccountLimitConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-LIMIT\",\n    \"arrangmentId\": \"AA19079BDWGX\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"limit\": {\n      \"transactionType\": \"\",\n      \"creditCheck\": \"\",\n      \"internalLimit\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "arrangmentId" : "AA19079BDWGX",
+          "productId" : "SUMMARY.ACCOUNT",
+          "limit" : {
+            "transactionType" : "",
+            "creditCheck" : "",
+            "internalLimit" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "SummaryAccountLimitConditionsBody" : {
       "type" : "object",
@@ -5050,7 +5254,36 @@
         }
       },
       "description" : "TransactionAccountLimitConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-LIMIT\",\n    \"arrangmentId\": \"AA190799RT24\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"limit\": {\n      \"transactionType\": \"\",\n      \"creditCheck\": \"\",\n      \"internalLimit\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "arrangmentId" : "AA190799RT24",
+          "productId" : "TR.ACCOUNT",
+          "limit" : {
+            "transactionType" : "",
+            "creditCheck" : "",
+            "internalLimit" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "TransactionAccountLimitConditionsBody" : {
       "type" : "object",
@@ -5258,7 +5491,38 @@
         }
       },
       "description" : "CrossPoolAccountMovement",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"string\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA1907995MX2\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\"rules\": [{\n      \"allowedProductGroup\": \"\",\n      \"allowedProduct\": \"\",\n      \"parents\": [{\"allowedParent\": \"\"}]\n    }]},\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "string",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA1907995MX2",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "rules" : [ {
+              "allowedProductGroup" : "",
+              "allowedProduct" : "",
+              "parents" : [ {
+                "allowedParent" : ""
+              } ]
+            } ]
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "updateBundleMasterArrangements" : {
       "properties" : {
@@ -5270,7 +5534,47 @@
         }
       },
       "description" : "BundleMasterArrangements",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Account has negative balance while linking the pool.\",\n      \"id\": \"AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT\",\n      \"type\": \"Override\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA19085TDX8B\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\n      \"integrityCheckDays\": \"\",\n      \"parentAccount1\": \"\",\n      \"accountAlias1\": \"\",\n      \"accLocation1\": \"\",\n      \"accProduct1\": \"SUMMARY.ACCOUNT\",\n      \"liveDate1\": \"20190419\",\n      \"linkType1\": \"LINK\",\n      \"cancelRestructure1\": \"\",\n      \"accountRef1\": \"78859\",\n      \"accCurrency1\": \"USD\",\n      \"shortName1\": \"\",\n      \"accCompany1\": \"GB0010001\",\n      \"altReference1\": \"\",\n      \"newBundleRef1\": \"\",\n      \"customer1\": \"100182\",\n      \"keepBalance1\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Account has negative balance while linking the pool.",
+              "id" : "AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT",
+              "type" : "Override"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA19085TDX8B",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "integrityCheckDays" : "",
+            "parentAccount1" : "",
+            "accountAlias1" : "",
+            "accLocation1" : "",
+            "accProduct1" : "SUMMARY.ACCOUNT",
+            "liveDate1" : "20190419",
+            "linkType1" : "LINK",
+            "cancelRestructure1" : "",
+            "accountRef1" : "78859",
+            "accCurrency1" : "USD",
+            "shortName1" : "",
+            "accCompany1" : "GB0010001",
+            "altReference1" : "",
+            "newBundleRef1" : "",
+            "customer1" : "100182",
+            "keepBalance1" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "updateAccountOperationalDate" : {
       "properties" : {
@@ -5282,7 +5586,43 @@
         }
       },
       "description" : "AccountOperationalDate",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA190857YS4D\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\n      \"aliases\": [{\"alias\": \"\"}],\n      \"linkTypes\": [{\"linkType\": \"SET.LIVE.DATE\"}],\n      \"accounts\": [{\"account\": \"84816\"}],\n      \"goLiveDates\": [{\"goLiveDate\": \"20190520\"}]\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA190857YS4D",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "aliases" : [ {
+              "alias" : ""
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "SET.LIVE.DATE"
+            } ],
+            "accounts" : [ {
+              "account" : "84816"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "20190520"
+            } ]
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "createSummaryAccountLimitConditions" : {
       "properties" : {
@@ -5294,7 +5634,36 @@
         }
       },
       "description" : "SummaryAccountLimitConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-LIMIT\",\n    \"arrangmentId\": \"AA19079BDWGX\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"limit\": {\n      \"transactionType\": \"\",\n      \"creditCheck\": \"\",\n      \"internalLimit\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "arrangmentId" : "AA19079BDWGX",
+          "productId" : "SUMMARY.ACCOUNT",
+          "limit" : {
+            "transactionType" : "",
+            "creditCheck" : "",
+            "internalLimit" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "createTransactionAccountLimitConditions" : {
       "properties" : {
@@ -5306,7 +5675,36 @@
         }
       },
       "description" : "TransactionAccountLimitConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-LIMIT\",\n    \"arrangmentId\": \"AA190799RT24\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"limit\": {\n      \"transactionType\": \"\",\n      \"creditCheck\": \"\",\n      \"internalLimit\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "arrangmentId" : "AA190799RT24",
+          "productId" : "TR.ACCOUNT",
+          "limit" : {
+            "transactionType" : "",
+            "creditCheck" : "",
+            "internalLimit" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "deleteCrossPoolAccountMovement" : {
       "properties" : {
@@ -5318,7 +5716,38 @@
         }
       },
       "description" : "CrossPoolAccountMovement",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"string\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY\",\n    \"arrangmentId\": \"AA1907995MX2\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"bundlehierarchy\": {\"rules\": [{\n      \"allowedProductGroup\": \"\",\n      \"allowedProduct\": \"\",\n      \"parents\": [{\"allowedParent\": \"\"}]\n    }]},\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "string",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "arrangmentId" : "AA1907995MX2",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "rules" : [ {
+              "allowedProductGroup" : "",
+              "allowedProduct" : "",
+              "parents" : [ {
+                "allowedParent" : ""
+              } ]
+            } ]
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "updateTransactionAccountDebitInterestConditions" : {
       "properties" : {
@@ -5330,7 +5759,41 @@
         }
       },
       "description" : "TransactionAccountDebitInterestConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"190098\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-DRINTEREST\",\n    \"drinterest\": {\"interest\": [{\n      \"upTo\": \"\",\n      \"orPercent\": \"\",\n      \"effectiveRate\": \"\",\n      \"negativeRate\": \"\",\n      \"fixed\": \"9.5\",\n      \"maxRate\": \"\",\n      \"minMaxRate\": \"\",\n      \"spread\": \"\"\n    }]},\n    \"arrangmentId\": \"AA19079044VJ\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "190098"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "9.5",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ]
+          },
+          "arrangmentId" : "AA19079044VJ",
+          "productId" : "TR.ACCOUNT",
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "updateSummaryAccountDebitInterestConditions" : {
       "properties" : {
@@ -5342,7 +5805,41 @@
         }
       },
       "description" : "SummaryAccountDebitInterestConditions",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"190098\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-DRINTEREST\",\n    \"drinterest\": {\"interest\": [{\n      \"upTo\": \"\",\n      \"orPercent\": \"\",\n      \"effectiveRate\": \"\",\n      \"negativeRate\": \"\",\n      \"fixed\": \"7.5\",\n      \"maxRate\": \"\",\n      \"minMaxRate\": \"\",\n      \"spread\": \"\"\n    }]},\n    \"arrangmentId\": \"AA190797P0JT\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "190098"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "interest" : [ {
+              "upTo" : "",
+              "orPercent" : "",
+              "effectiveRate" : "",
+              "negativeRate" : "",
+              "fixed" : "7.5",
+              "maxRate" : "",
+              "minMaxRate" : "",
+              "spread" : ""
+            } ]
+          },
+          "arrangmentId" : "AA190797P0JT",
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : ""
+        }
+      }
     }
   }
 }

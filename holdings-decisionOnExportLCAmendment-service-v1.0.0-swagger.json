@@ -120,7 +120,13 @@
         }
       },
       "description" : "updateDecisionOnExportLCAmendment",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"amendmentNumber\": \"01\",\n    \"amendStatus\": \"REJECTED\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "amendmentNumber" : "01",
+          "amendStatus" : "REJECTED"
+        }
+      }
     },
     "updateDecisionOnExportLCAmendmentBody" : {
       "type" : "object",

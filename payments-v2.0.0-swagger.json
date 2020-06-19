@@ -799,7 +799,43 @@
         }
       },
       "description" : "PaymentResource",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"failureRedirectURL\": \"\",\n    \"scaStatus\": \"RECEIVED\",\n    \"successRedirectURL\": \"\",\n    \"trustedBeneficiary\": \"\",\n    \"scaExempt\": \"\",\n    \"certificate\": \"\",\n    \"subResourceIds\": [{\n      \"subResourceScaStatus\": \"\",\n      \"subResourceCaptureMethod\": \"\",\n      \"subResourceId\": \"\",\n      \"subResourceRequestId\": \"\"\n    }],\n    \"externalPaymentStatus\": \"\",\n    \"scaHint\": \"TEST\",\n    \"globalURN\": \"TEST\",\n    \"defaultRedirectURL\": \"\",\n    \"externalStatusReason\": \"\",\n    \"thirdpartyprovider\": \"TEST\",\n    \"customerId\": \"\",\n    \"authorisationKey\": \"\",\n    \"paymentStatus\": \"RCVD\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "failureRedirectURL" : "",
+          "scaStatus" : "RECEIVED",
+          "successRedirectURL" : "",
+          "trustedBeneficiary" : "",
+          "scaExempt" : "",
+          "certificate" : "",
+          "subResourceIds" : [ {
+            "subResourceScaStatus" : "",
+            "subResourceCaptureMethod" : "",
+            "subResourceId" : "",
+            "subResourceRequestId" : ""
+          } ],
+          "externalPaymentStatus" : "",
+          "scaHint" : "TEST",
+          "globalURN" : "TEST",
+          "defaultRedirectURL" : "",
+          "externalStatusReason" : "",
+          "thirdpartyprovider" : "TEST",
+          "customerId" : "",
+          "authorisationKey" : "",
+          "paymentStatus" : "RCVD"
+        }
+      }
     },
     "PaymentResourceBody" : {
       "type" : "object",
@@ -1663,7 +1699,38 @@
         }
       },
       "description" : "SEPAPaymentInitiation",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"creditorAddresses\": [{\"creditorAddress\": \"\"}],\n    \"creditorName\": \"TEST\",\n    \"purpose\": \"\",\n    \"endToEndReference\": \"TEST\",\n    \"creditCurrencyId\": \"EUR\",\n    \"chargeType\": \"\",\n    \"executionDate\": \"\",\n    \"structuredCreditorReference\": \"\",\n    \"debitAccountId\": \"14044\",\n    \"paymentDetail\": \"\",\n    \"chargeAmount\": \"\",\n    \"creditAccountId\": \"FR7614006000000209615304162\",\n    \"creditorAgentBIC\": \"AGRIGPGX\",\n    \"creditAmount\": \"10\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "creditorAddresses" : [ {
+            "creditorAddress" : ""
+          } ],
+          "creditorName" : "TEST",
+          "purpose" : "",
+          "endToEndReference" : "TEST",
+          "creditCurrencyId" : "EUR",
+          "chargeType" : "",
+          "executionDate" : "",
+          "structuredCreditorReference" : "",
+          "debitAccountId" : "14044",
+          "paymentDetail" : "",
+          "chargeAmount" : "",
+          "creditAccountId" : "FR7614006000000209615304162",
+          "creditorAgentBIC" : "AGRIGPGX",
+          "creditAmount" : "10"
+        }
+      }
     },
     "SEPAPaymentInitiationBody" : {
       "type" : "object",
@@ -1828,7 +1895,36 @@
         }
       },
       "description" : "SEPAStandingOrderInitiation",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"creditorAddress\": [{\"beneficiaryAddress\": \"\"}],\n    \"paymentDetail\": \"test\",\n    \"debitCurrency\": \"GBP\",\n    \"ultimateCreditor\": \"TEST\",\n    \"endToEndReference\": \"TEST\",\n    \"beneficiaryIBAN\": \"FR7614006000000209615304162\",\n    \"currentEndDate\": \"\",\n    \"instructionIdReference\": \"\",\n    \"currentAmountBalance\": \"10\",\n    \"BIC\": \"AGRIGPGX\",\n    \"currentFrequencyDate\": \"20190418 e0Y e0M e0W e1D e0F\",\n    \"beneficiaryOurCharges\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "creditorAddress" : [ {
+            "beneficiaryAddress" : ""
+          } ],
+          "paymentDetail" : "test",
+          "debitCurrency" : "GBP",
+          "ultimateCreditor" : "TEST",
+          "endToEndReference" : "TEST",
+          "beneficiaryIBAN" : "FR7614006000000209615304162",
+          "currentEndDate" : "",
+          "instructionIdReference" : "",
+          "currentAmountBalance" : "10",
+          "BIC" : "AGRIGPGX",
+          "currentFrequencyDate" : "20190418 e0Y e0M e0W e1D e0F",
+          "beneficiaryOurCharges" : ""
+        }
+      }
     },
     "SEPAStandingOrderInitiationBody" : {
       "type" : "object",
@@ -2125,7 +2221,24 @@
         }
       },
       "description" : "Payment",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"authorisationId\": \"\",\n    \"exemptFromSca\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "authorisationId" : "",
+          "exemptFromSca" : ""
+        }
+      }
     },
     "PaymentBody" : {
       "type" : "object"
@@ -2212,7 +2325,38 @@
         }
       },
       "description" : "SEPAPaymentInitiation",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"creditorAddresses\": [{\"creditorAddress\": \"\"}],\n    \"creditorName\": \"TEST\",\n    \"purpose\": \"\",\n    \"endToEndReference\": \"TEST\",\n    \"creditCurrencyId\": \"EUR\",\n    \"chargeType\": \"\",\n    \"executionDate\": \"\",\n    \"structuredCreditorReference\": \"\",\n    \"debitAccountId\": \"14044\",\n    \"paymentDetail\": \"\",\n    \"chargeAmount\": \"\",\n    \"creditAccountId\": \"FR7614006000000209615304162\",\n    \"creditorAgentBIC\": \"AGRIGPGX\",\n    \"creditAmount\": \"10\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "creditorAddresses" : [ {
+            "creditorAddress" : ""
+          } ],
+          "creditorName" : "TEST",
+          "purpose" : "",
+          "endToEndReference" : "TEST",
+          "creditCurrencyId" : "EUR",
+          "chargeType" : "",
+          "executionDate" : "",
+          "structuredCreditorReference" : "",
+          "debitAccountId" : "14044",
+          "paymentDetail" : "",
+          "chargeAmount" : "",
+          "creditAccountId" : "FR7614006000000209615304162",
+          "creditorAgentBIC" : "AGRIGPGX",
+          "creditAmount" : "10"
+        }
+      }
     },
     "updatePaymentResource" : {
       "properties" : {
@@ -2224,7 +2368,43 @@
         }
       },
       "description" : "PaymentResource",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"failureRedirectURL\": \"\",\n    \"scaStatus\": \"RECEIVED\",\n    \"successRedirectURL\": \"\",\n    \"trustedBeneficiary\": \"\",\n    \"scaExempt\": \"\",\n    \"certificate\": \"\",\n    \"subResourceIds\": [{\n      \"subResourceScaStatus\": \"\",\n      \"subResourceCaptureMethod\": \"\",\n      \"subResourceId\": \"\",\n      \"subResourceRequestId\": \"\"\n    }],\n    \"externalPaymentStatus\": \"\",\n    \"scaHint\": \"TEST\",\n    \"globalURN\": \"TEST\",\n    \"defaultRedirectURL\": \"\",\n    \"externalStatusReason\": \"\",\n    \"thirdpartyprovider\": \"TEST\",\n    \"customerId\": \"\",\n    \"authorisationKey\": \"\",\n    \"paymentStatus\": \"RCVD\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "failureRedirectURL" : "",
+          "scaStatus" : "RECEIVED",
+          "successRedirectURL" : "",
+          "trustedBeneficiary" : "",
+          "scaExempt" : "",
+          "certificate" : "",
+          "subResourceIds" : [ {
+            "subResourceScaStatus" : "",
+            "subResourceCaptureMethod" : "",
+            "subResourceId" : "",
+            "subResourceRequestId" : ""
+          } ],
+          "externalPaymentStatus" : "",
+          "scaHint" : "TEST",
+          "globalURN" : "TEST",
+          "defaultRedirectURL" : "",
+          "externalStatusReason" : "",
+          "thirdpartyprovider" : "TEST",
+          "customerId" : "",
+          "authorisationKey" : "",
+          "paymentStatus" : "RCVD"
+        }
+      }
     },
     "approvePayment" : {
       "properties" : {
@@ -2236,7 +2416,24 @@
         }
       },
       "description" : "Payment",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"authorisationId\": \"\",\n    \"exemptFromSca\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "authorisationId" : "",
+          "exemptFromSca" : ""
+        }
+      }
     },
     "createSEPAStandingOrderInitiation" : {
       "properties" : {
@@ -2248,7 +2445,36 @@
         }
       },
       "description" : "SEPAStandingOrderInitiation",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"creditorAddress\": [{\"beneficiaryAddress\": \"\"}],\n    \"paymentDetail\": \"test\",\n    \"debitCurrency\": \"GBP\",\n    \"ultimateCreditor\": \"TEST\",\n    \"endToEndReference\": \"TEST\",\n    \"beneficiaryIBAN\": \"FR7614006000000209615304162\",\n    \"currentEndDate\": \"\",\n    \"instructionIdReference\": \"\",\n    \"currentAmountBalance\": \"10\",\n    \"BIC\": \"AGRIGPGX\",\n    \"currentFrequencyDate\": \"20190418 e0Y e0M e0W e1D e0F\",\n    \"beneficiaryOurCharges\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "creditorAddress" : [ {
+            "beneficiaryAddress" : ""
+          } ],
+          "paymentDetail" : "test",
+          "debitCurrency" : "GBP",
+          "ultimateCreditor" : "TEST",
+          "endToEndReference" : "TEST",
+          "beneficiaryIBAN" : "FR7614006000000209615304162",
+          "currentEndDate" : "",
+          "instructionIdReference" : "",
+          "currentAmountBalance" : "10",
+          "BIC" : "AGRIGPGX",
+          "currentFrequencyDate" : "20190418 e0Y e0M e0W e1D e0F",
+          "beneficiaryOurCharges" : ""
+        }
+      }
     }
   }
 }

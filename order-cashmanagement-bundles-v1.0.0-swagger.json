@@ -425,7 +425,37 @@
         }
       },
       "description" : "BlockOnSummaryAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"summary\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHER\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-SUMMARY\",\n    \"arrangmentId\": \"AA19087VR5HN\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHER",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "arrangmentId" : "AA19087VR5HN",
+          "productId" : "SUMMARY.ACCOUNT",
+          "currency" : "USD",
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "BlockOnSummaryAccountsBody" : {
       "type" : "object",
@@ -857,7 +887,36 @@
         }
       },
       "description" : "BlockOnTransactionAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100292\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-BALANCE\",\n    \"arrangmentId\": \"AA190770396S\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"balance\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHERS\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100292"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "arrangmentId" : "AA190770396S",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHERS",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "BlockOnTransactionAccountsBody" : {
       "type" : "object",
@@ -1083,7 +1142,37 @@
         }
       },
       "description" : "BlockOnSummaryAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"summary\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHER\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-SUMMARY\",\n    \"arrangmentId\": \"AA19087VR5HN\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHER",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "arrangmentId" : "AA19087VR5HN",
+          "productId" : "SUMMARY.ACCOUNT",
+          "currency" : "USD",
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "updateBlockOnTransactionAccounts" : {
       "properties" : {
@@ -1095,7 +1184,36 @@
         }
       },
       "description" : "BlockOnTransactionAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100292\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-BALANCE\",\n    \"arrangmentId\": \"AA190770396S\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"balance\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHERS\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100292"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "arrangmentId" : "AA190770396S",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHERS",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     },
     "createBlockOnSummaryAccounts" : {
       "properties" : {
@@ -1107,7 +1225,37 @@
         }
       },
       "description" : "BlockOnSummaryAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"summary\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHER\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"partyIds\": [{\"partyId\": \"100336\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-SUMMARY\",\n    \"arrangmentId\": \"AA19087VR5HN\",\n    \"productId\": \"SUMMARY.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHER",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "partyIds" : [ {
+            "partyId" : "100336"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "arrangmentId" : "AA19087VR5HN",
+          "productId" : "SUMMARY.ACCOUNT",
+          "currency" : "USD",
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "createBlockOnTransactionAccounts" : {
       "properties" : {
@@ -1119,7 +1267,36 @@
         }
       },
       "description" : "BlockOnTransactionAccounts",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100292\"}],\n    \"activityId\": \"ACCOUNTS-UPDATE-BALANCE\",\n    \"arrangmentId\": \"AA190770396S\",\n    \"productId\": \"TR.ACCOUNT\",\n    \"balance\": {\n      \"expiryDate\": \"\",\n      \"restriction\": \"1\",\n      \"blockingCode\": \"OTHERS\",\n      \"blockingReason\": \"\",\n      \"startDate\": \"\"\n    },\n    \"arrangementEffectiveDate\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100292"
+          } ],
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "arrangmentId" : "AA190770396S",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "",
+            "restriction" : "1",
+            "blockingCode" : "OTHERS",
+            "blockingReason" : "",
+            "startDate" : ""
+          },
+          "arrangementEffectiveDate" : ""
+        }
+      }
     }
   }
 }

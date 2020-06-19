@@ -40,11 +40,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -110,11 +112,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -169,11 +173,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -219,11 +225,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -281,11 +289,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -351,11 +361,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -396,7 +408,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "The identifier of the customer",
+          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100336"
@@ -423,11 +435,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -494,11 +508,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -539,7 +555,7 @@
         "parameters" : [ {
           "name" : "purposeId",
           "in" : "query",
-          "description" : "Purpose identifier of the payment or transaction",
+          "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general.",
           "required" : false,
           "type" : "string"
         }, {
@@ -565,11 +581,13 @@
         }, {
           "name" : "credentials",
           "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -624,7 +642,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "The actual override message"
+                    "description" : "Contains the description of purpose of the payment."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -640,7 +658,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "The CURR.NO. of the record"
+              "description" : "Current number of the record"
             }
           }
         }
@@ -668,7 +686,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               },
               "roleId" : {
                 "type" : "string"
@@ -701,7 +719,7 @@
             "properties" : {
               "purpose" : {
                 "type" : "string",
-                "description" : "Indicates the purpose code of the payment"
+                "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
               }
             }
           }
@@ -714,7 +732,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               },
               "roleId" : {
                 "type" : "string"
@@ -733,7 +751,7 @@
               },
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               }
             }
           }
@@ -748,7 +766,7 @@
               },
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               }
             }
           }
@@ -797,11 +815,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "The status of the record"
+          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "The status of the transaction"
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
         },
         "audit" : {
           "type" : "object",
@@ -813,7 +831,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "The CURR.NO. of the record"
+              "description" : "Current number of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -846,7 +864,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               },
               "roleId" : {
                 "type" : "string"
@@ -879,7 +897,7 @@
             "properties" : {
               "purpose" : {
                 "type" : "string",
-                "description" : "Indicates the purpose code of the payment"
+                "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
               }
             }
           }
@@ -892,7 +910,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               },
               "roleId" : {
                 "type" : "string"
@@ -911,7 +929,7 @@
               },
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               }
             }
           }
@@ -926,7 +944,7 @@
               },
               "customerId" : {
                 "type" : "string",
-                "description" : "The identifier of the customer"
+                "description" : "Identifier of the customer"
               }
             }
           }
@@ -1163,7 +1181,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "The CURR.NO. of the record"
+              "description" : "Current number of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -1227,7 +1245,7 @@
           },
           "applicationId" : {
             "type" : "string",
-            "description" : "Application id.",
+            "description" : "Contains the application id of the service that has crashed due to error.",
             "maxLength" : 100
           }
         }
@@ -1327,7 +1345,17 @@
         }
       },
       "description" : "Dossier",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"activity\": \"UPDATE-APPLICATION\",\n    \"purposes\": [\n      {\"purposeId\": \"CUSTOMER.ONBOARDING\"},\n      {\"purposeId\": \"HOME.PURCHASE\"}\n    ]\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "activity" : "UPDATE-APPLICATION",
+          "purposes" : [ {
+            "purposeId" : "CUSTOMER.ONBOARDING"
+          }, {
+            "purposeId" : "HOME.PURCHASE"
+          } ]
+        }
+      }
     },
     "DossierBody" : {
       "type" : "object",
@@ -1340,11 +1368,11 @@
             "properties" : {
               "purposeId" : {
                 "type" : "string",
-                "description" : "Purpose identifier of the payment or transaction"
+                "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
               },
               "productId" : {
                 "type" : "string",
-                "description" : "Id of the product."
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
               }
             }
           }
@@ -1355,7 +1383,8 @@
             "type" : "object",
             "properties" : {
               "linkType" : {
-                "type" : "string"
+                "type" : "string",
+                "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row."
               },
               "linkReference" : {
                 "type" : "string"
@@ -1376,7 +1405,7 @@
               },
               "reference" : {
                 "type" : "string",
-                "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. "
+                "description" : "Indicates the transaction reference for which the history of transactions is requested. It is steered by the attribute 'booked' given the start date and end date or the entry from which the history is requested"
               },
               "forms" : {
                 "type" : "array",
@@ -1400,7 +1429,7 @@
         },
         "activity" : {
           "type" : "string",
-          "description" : "The name of the action that will be performed on a condition of an account."
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
         },
         "activityPurpose" : {
           "type" : "string"
@@ -1429,11 +1458,11 @@
             "properties" : {
               "purposeId" : {
                 "type" : "string",
-                "description" : "Purpose identifier of the payment or transaction"
+                "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
               },
               "productId" : {
                 "type" : "string",
-                "description" : "Id of the product."
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
               }
             }
           }
@@ -1444,7 +1473,8 @@
             "type" : "object",
             "properties" : {
               "linkType" : {
-                "type" : "string"
+                "type" : "string",
+                "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row."
               },
               "linkReference" : {
                 "type" : "string"
@@ -1465,7 +1495,7 @@
               },
               "reference" : {
                 "type" : "string",
-                "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. "
+                "description" : "Indicates the transaction reference for which the history of transactions is requested. It is steered by the attribute 'booked' given the start date and end date or the entry from which the history is requested"
               },
               "forms" : {
                 "type" : "array",
@@ -1489,7 +1519,7 @@
         },
         "activity" : {
           "type" : "string",
-          "description" : "The name of the action that will be performed on a condition of an account."
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
         },
         "activityPurpose" : {
           "type" : "string"
@@ -1520,7 +1550,7 @@
               "properties" : {
                 "product" : {
                   "type" : "string",
-                  "description" : "The product for which the pricing plan is applicable",
+                  "description" : "Indicates an id or name of a product",
                   "maxLength" : 35
                 },
                 "question" : {
@@ -1654,7 +1684,7 @@
               "properties" : {
                 "purposeId" : {
                   "type" : "string",
-                  "description" : "Purpose identifier of the payment or transaction",
+                  "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general.",
                   "maxLength" : 35
                 },
                 "purposeName" : {
@@ -1670,6 +1700,7 @@
               "properties" : {
                 "linkType" : {
                   "type" : "string",
+                  "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row.",
                   "maxLength" : 35
                 },
                 "linkReference" : {
@@ -1739,6 +1770,7 @@
                 },
                 "sequence" : {
                   "type" : "string",
+                  "description" : "Identifies the sequence of the event.",
                   "maxLength" : 35
                 },
                 "formId" : {
@@ -1855,7 +1887,7 @@
                 },
                 "data" : {
                   "type" : "string",
-                  "description" : "Input parameter",
+                  "description" : "Contains any input parameters/data required for the job",
                   "maxLength" : 35
                 },
                 "dataReference" : {
@@ -1871,7 +1903,7 @@
           },
           "applicationId" : {
             "type" : "string",
-            "description" : "Application id.",
+            "description" : "Contains the application id of the service that has crashed due to error.",
             "maxLength" : 35
           },
           "stage" : {
@@ -1907,12 +1939,12 @@
         "properties" : {
           "purposeId" : {
             "type" : "string",
-            "description" : "Purpose identifier of the payment or transaction",
+            "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general.",
             "maxLength" : 35
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Name used for display or enrichment purposes",
+            "description" : "Contains the name used for display or enrichment purposes",
             "maxLength" : 35
           },
           "displayFullName" : {
@@ -1932,7 +1964,17 @@
         }
       },
       "description" : "Dossier",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"activity\": \"UPDATE-APPLICATION\",\n    \"purposes\": [\n      {\"purposeId\": \"CUSTOMER.ONBOARDING\"},\n      {\"purposeId\": \"HOME.PURCHASE\"}\n    ]\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "activity" : "UPDATE-APPLICATION",
+          "purposes" : [ {
+            "purposeId" : "CUSTOMER.ONBOARDING"
+          }, {
+            "purposeId" : "HOME.PURCHASE"
+          } ]
+        }
+      }
     }
   }
 }

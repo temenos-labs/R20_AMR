@@ -127,7 +127,47 @@
         }
       },
       "description" : "BundleSettlementAccount",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Default Settlement Account not specified. Charges will not be processed.\",\n      \"id\": \"AA-DEF.SETTLE.ACCOUNT.MAND\",\n      \"type\": \"Override\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-UPDATE-SETTLEMENT\",\n    \"arrangmentId\": \"AA19085F2HQB\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\",\n    \"settlement\": {\"settlement\": [{\n      \"reference\": [{\n        \"payinPercentage\": \"\",\n        \"payoutAmount\": \"\",\n        \"payinAccount\": \"\",\n        \"payinAmount\": \"\",\n        \"payoutAccount\": \"\",\n        \"payoutPercentage\": \"\",\n        \"payinBeneficiary\": \"\",\n        \"payoutBeneficiary\": \"\",\n        \"ddMandateReference\": \"\"\n      }],\n      \"payinSettlement\": \"\",\n      \"payoutSettlement\": \"\"\n    }]}\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Default Settlement Account not specified. Charges will not be processed.",
+              "id" : "AA-DEF.SETTLE.ACCOUNT.MAND",
+              "type" : "Override",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-UPDATE-SETTLEMENT",
+          "arrangmentId" : "AA19085F2HQB",
+          "productId" : "MASTER.ACCOUNT",
+          "arrangementEffectiveDate" : "",
+          "settlement" : {
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "",
+                "payoutAmount" : "",
+                "payinAccount" : "",
+                "payinAmount" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payinBeneficiary" : "",
+                "payoutBeneficiary" : "",
+                "ddMandateReference" : ""
+              } ],
+              "payinSettlement" : "",
+              "payoutSettlement" : ""
+            } ]
+          }
+        }
+      }
     },
     "BundleSettlementAccountBody" : {
       "type" : "object",
@@ -920,7 +960,47 @@
         }
       },
       "description" : "BundleSettlementAccount",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"Default Settlement Account not specified. Charges will not be processed.\",\n      \"id\": \"AA-DEF.SETTLE.ACCOUNT.MAND\",\n      \"type\": \"Override\",\n      \"responseCode\": \"RECEIVED\"\n    }]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"\"}],\n    \"activityId\": \"BUNDLE-UPDATE-SETTLEMENT\",\n    \"arrangmentId\": \"AA19085F2HQB\",\n    \"productId\": \"MASTER.ACCOUNT\",\n    \"arrangementEffectiveDate\": \"\",\n    \"settlement\": {\"settlement\": [{\n      \"reference\": [{\n        \"payinPercentage\": \"\",\n        \"payoutAmount\": \"\",\n        \"payinAccount\": \"\",\n        \"payinAmount\": \"\",\n        \"payoutAccount\": \"\",\n        \"payoutPercentage\": \"\",\n        \"payinBeneficiary\": \"\",\n        \"payoutBeneficiary\": \"\",\n        \"ddMandateReference\": \"\"\n      }],\n      \"payinSettlement\": \"\",\n      \"payoutSettlement\": \"\"\n    }]}\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Default Settlement Account not specified. Charges will not be processed.",
+              "id" : "AA-DEF.SETTLE.ACCOUNT.MAND",
+              "type" : "Override",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : ""
+          } ],
+          "activityId" : "BUNDLE-UPDATE-SETTLEMENT",
+          "arrangmentId" : "AA19085F2HQB",
+          "productId" : "MASTER.ACCOUNT",
+          "arrangementEffectiveDate" : "",
+          "settlement" : {
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "",
+                "payoutAmount" : "",
+                "payinAccount" : "",
+                "payinAmount" : "",
+                "payoutAccount" : "",
+                "payoutPercentage" : "",
+                "payinBeneficiary" : "",
+                "payoutBeneficiary" : "",
+                "ddMandateReference" : ""
+              } ],
+              "payinSettlement" : "",
+              "payoutSettlement" : ""
+            } ]
+          }
+        }
+      }
     }
   }
 }

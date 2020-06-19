@@ -206,7 +206,45 @@
         }
       },
       "description" : "TravelNotification",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"travelNotifications\": [{\n      \"additionalInformation\": \"\",\n      \"travelStatus\": \"\",\n      \"scheduleType\": \"\",\n      \"endDate\": \"2019 04 18\",\n      \"accountIds\": [{\"accountId\": \"\"}],\n      \"visitPurpose\": \"\",\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\",\n      \"contactDetails\": [{\"contactDetail\": \"\"}],\n      \"countryId\": \"IN\",\n      \"startDate\": \"2019 04 18\"\n    }],\n    \"customerId\": \"100336\",\n    \"cancelRequest\": \"NO\",\n    \"overrides\": [{\"override\": \"\"}],\n    \"overallStatus\": \"ACTIVE\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "travelNotifications" : [ {
+            "additionalInformation" : "",
+            "travelStatus" : "",
+            "scheduleType" : "",
+            "endDate" : "2019 04 18",
+            "accountIds" : [ {
+              "accountId" : ""
+            } ],
+            "visitPurpose" : "",
+            "startTime" : "00:00",
+            "endTime" : "23:59",
+            "contactDetails" : [ {
+              "contactDetail" : ""
+            } ],
+            "countryId" : "IN",
+            "startDate" : "2019 04 18"
+          } ],
+          "customerId" : "100336",
+          "cancelRequest" : "NO",
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "overallStatus" : "ACTIVE"
+        }
+      }
     },
     "TravelNotificationBody" : {
       "type" : "object",
@@ -564,7 +602,45 @@
         }
       },
       "description" : "TravelNotification",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"travelNotifications\": [{\n      \"additionalInformation\": \"\",\n      \"travelStatus\": \"\",\n      \"scheduleType\": \"\",\n      \"endDate\": \"2019 04 18\",\n      \"accountIds\": [{\"accountId\": \"\"}],\n      \"visitPurpose\": \"\",\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\",\n      \"contactDetails\": [{\"contactDetail\": \"\"}],\n      \"countryId\": \"IN\",\n      \"startDate\": \"2019 04 18\"\n    }],\n    \"customerId\": \"100336\",\n    \"cancelRequest\": \"NO\",\n    \"overrides\": [{\"override\": \"\"}],\n    \"overallStatus\": \"ACTIVE\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "travelNotifications" : [ {
+            "additionalInformation" : "",
+            "travelStatus" : "",
+            "scheduleType" : "",
+            "endDate" : "2019 04 18",
+            "accountIds" : [ {
+              "accountId" : ""
+            } ],
+            "visitPurpose" : "",
+            "startTime" : "00:00",
+            "endTime" : "23:59",
+            "contactDetails" : [ {
+              "contactDetail" : ""
+            } ],
+            "countryId" : "IN",
+            "startDate" : "2019 04 18"
+          } ],
+          "customerId" : "100336",
+          "cancelRequest" : "NO",
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "overallStatus" : "ACTIVE"
+        }
+      }
     }
   }
 }

@@ -3,7 +3,7 @@
   "info" : {
     "description" : "Create/Update/View Customer Information",
     "version" : "v1.0.0",
-    "title" : "Party Customer"
+    "title" : "Customer management"
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190218"
         }, {
           "name" : "credentials",
           "in" : "header",
@@ -74,7 +75,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190218"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -279,7 +281,6 @@
         },
         "communicationDevices" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -386,7 +387,6 @@
         },
         "legalDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -434,7 +434,6 @@
         },
         "employDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -472,7 +471,6 @@
         },
         "residenceDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -510,8 +508,7 @@
                 "description" : "The identifier of the relationship between joint holder and owner "
               },
               "jointCustomer" : {
-                "type" : "number",
-                "description" : ""
+                "type" : "number"
               },
               "reverseJointRelationCode" : {
                 "type" : "number",
@@ -682,8 +679,7 @@
           "description" : "Date on which the entity is incorporated"
         },
         "domicile" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "manualRiskClass" : {
           "type" : "string",
@@ -694,8 +690,7 @@
           "description" : "Reason for changing the customer's risk class from the calculated risk class."
         },
         "numberOfDependents" : {
-          "type" : "number",
-          "description" : ""
+          "type" : "number"
         }
       }
     },
@@ -978,7 +973,6 @@
         },
         "communicationDevices" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1085,7 +1079,6 @@
         },
         "legalDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1133,7 +1126,6 @@
         },
         "employDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1171,7 +1163,6 @@
         },
         "residenceDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1209,8 +1200,7 @@
                 "description" : "The identifier of the relationship between joint holder and owner "
               },
               "jointCustomer" : {
-                "type" : "number",
-                "description" : ""
+                "type" : "number"
               },
               "reverseJointRelationCode" : {
                 "type" : "number",
@@ -1381,8 +1371,7 @@
           "description" : "Date on which the entity is incorporated"
         },
         "domicile" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "manualRiskClass" : {
           "type" : "string",
@@ -1393,8 +1382,7 @@
           "description" : "Reason for changing the customer's risk class from the calculated risk class."
         },
         "numberOfDependents" : {
-          "type" : "number",
-          "description" : ""
+          "type" : "number"
         }
       }
     }

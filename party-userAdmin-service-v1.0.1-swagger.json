@@ -1200,7 +1200,51 @@
         }
       },
       "description" : "ExternalUserCustomer",
-      "example" : "{\n  \"header\": {\"override\": {\"overrideDetails\": [\n    {\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    },\n    {\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Memorandum and Articles of Asscn/CUS*200 from 190258}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }\n  ]}},\n  \"body\": {\n    \"lastName\": \"ME\",\n    \"sectorId\": \"2001\",\n    \"gender\": \"\",\n    \"givenName\": \"TEST\",\n    \"nationalityId\": \"US\",\n    \"languageId\": \"1\",\n    \"dateOfBirth\": \"1994-11-05\",\n    \"title\": \"Mr\",\n    \"residenceId\": \"US\",\n    \"relation\": [{\n      \"relationCode\": \"1\",\n      \"relatedCustomerId\": \"100100\"\n    }],\n    \"companyId\": \"\",\n    \"street\": [{\"street\": \"NY STREET\"}],\n    \"legalDoc\": [{\n      \"expiryDate\": \"2020-02-26\",\n      \"holderName\": \"\",\n      \"documentId\": \"TEST NAME\",\n      \"documentName\": \"CUIL\",\n      \"issueDate\": \"1994-11-05\"\n    }]\n  }\n}"
+      "example" : {
+        "header" : {
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Memorandum and Articles of Asscn/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "lastName" : "ME",
+          "sectorId" : "2001",
+          "gender" : "",
+          "givenName" : "TEST",
+          "nationalityId" : "US",
+          "languageId" : "1",
+          "dateOfBirth" : "1994-11-05",
+          "title" : "Mr",
+          "residenceId" : "US",
+          "relation" : [ {
+            "relationCode" : "1",
+            "relatedCustomerId" : "100100"
+          } ],
+          "companyId" : "",
+          "street" : [ {
+            "street" : "NY STREET"
+          } ],
+          "legalDoc" : [ {
+            "expiryDate" : "2020-02-26",
+            "holderName" : "",
+            "documentId" : "TEST NAME",
+            "documentName" : "CUIL",
+            "issueDate" : "1994-11-05"
+          } ]
+        }
+      }
     },
     "ExternalUserCustomerBody" : {
       "type" : "object",
@@ -3037,7 +3081,51 @@
         }
       },
       "description" : "ExternalUserCustomer",
-      "example" : "{\n  \"header\": {\"override\": {\"overrideDetails\": [\n    {\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    },\n    {\n      \"options\": [\n        \"RECEIVED\",\n        \"NOT RECEIVED\"\n      ],\n      \"description\": \"Have you received Memorandum and Articles of Asscn/CUS*200 from 190258}RECEIVED_NOT RECEIVED\",\n      \"id\": \"DM.CONFIRM.DOC\",\n      \"type\": \"Warning\",\n      \"responseCode\": \"RECEIVED\"\n    }\n  ]}},\n  \"body\": {\n    \"lastName\": \"ME\",\n    \"sectorId\": \"2001\",\n    \"gender\": \"\",\n    \"givenName\": \"TEST\",\n    \"nationalityId\": \"US\",\n    \"languageId\": \"1\",\n    \"dateOfBirth\": \"1994-11-05\",\n    \"title\": \"Mr\",\n    \"residenceId\": \"US\",\n    \"relation\": [{\n      \"relationCode\": \"1\",\n      \"relatedCustomerId\": \"100100\"\n    }],\n    \"companyId\": \"\",\n    \"street\": [{\"street\": \"NY STREET\"}],\n    \"legalDoc\": [{\n      \"expiryDate\": \"2020-02-26\",\n      \"holderName\": \"\",\n      \"documentId\": \"TEST NAME\",\n      \"documentName\": \"CUIL\",\n      \"issueDate\": \"1994-11-05\"\n    }]\n  }\n}"
+      "example" : {
+        "header" : {
+          "override" : {
+            "overrideDetails" : [ {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Memorandum and Articles of Asscn/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "lastName" : "ME",
+          "sectorId" : "2001",
+          "gender" : "",
+          "givenName" : "TEST",
+          "nationalityId" : "US",
+          "languageId" : "1",
+          "dateOfBirth" : "1994-11-05",
+          "title" : "Mr",
+          "residenceId" : "US",
+          "relation" : [ {
+            "relationCode" : "1",
+            "relatedCustomerId" : "100100"
+          } ],
+          "companyId" : "",
+          "street" : [ {
+            "street" : "NY STREET"
+          } ],
+          "legalDoc" : [ {
+            "expiryDate" : "2020-02-26",
+            "holderName" : "",
+            "documentId" : "TEST NAME",
+            "documentName" : "CUIL",
+            "issueDate" : "1994-11-05"
+          } ]
+        }
+      }
     }
   }
 }

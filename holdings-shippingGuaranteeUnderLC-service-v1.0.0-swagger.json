@@ -114,7 +114,17 @@
         }
       },
       "description" : "createShippingGuaranteeUnderLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"amount\": \"10000\",\n    \"lCReference\": \"TF1908507106\",\n    \"maturityDate\": \"20201222\",\n    \"customerId\": \"100160\",\n    \"currency\": \"USD\",\n    \"takeMargin\": \"Y\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "amount" : "10000",
+          "lCReference" : "TF1908507106",
+          "maturityDate" : "20201222",
+          "customerId" : "100160",
+          "currency" : "USD",
+          "takeMargin" : "Y"
+        }
+      }
     },
     "createShippingGuaranteeUnderLCBody" : {
       "type" : "object",

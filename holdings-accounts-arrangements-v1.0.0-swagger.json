@@ -25090,7 +25090,48 @@
         }
       },
       "description" : "SavingAccount",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Payment Schedule Start Date is not Working Day\",\n        \"id\": \"AA.PS.START.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Payment Schedule Start Date is not Working Day\",\n        \"id\": \"AA.PS.START.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST\",\n        \"id\": \"AA.PS.DUPLICATE.STATEMENT.GENERATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Account Opening Agreement/AAA*212 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"ACCOUNTS-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"SAVINGS.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Payment Schedule Start Date is not Working Day",
+              "id" : "AA.PS.START.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Payment Schedule Start Date is not Working Day",
+              "id" : "AA.PS.START.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST",
+              "id" : "AA.PS.DUPLICATE.STATEMENT.GENERATE",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Account Opening Agreement/AAA*212 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "ACCOUNTS-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "SAVINGS.ACCOUNT",
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     },
     "SavingAccountBody" : {
       "type" : "object",
@@ -33252,7 +33293,48 @@
         }
       },
       "description" : "SavingAccount",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [\n      {\n        \"description\": \"Payment Schedule Start Date is not Working Day\",\n        \"id\": \"AA.PS.START.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Payment Schedule Start Date is not Working Day\",\n        \"id\": \"AA.PS.START.DATE.NOT.WORKING.DAY\",\n        \"type\": \"Override\"\n      },\n      {\n        \"description\": \"Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST\",\n        \"id\": \"AA.PS.DUPLICATE.STATEMENT.GENERATE\",\n        \"type\": \"Override\"\n      },\n      {\n        \"options\": [\n          \"RECEIVED\",\n          \"NOT RECEIVED\"\n        ],\n        \"description\": \"Have you received Account Opening Agreement/AAA*212 from 100500}RECEIVED_NOT RECEIVED\",\n        \"id\": \"DM.CONFIRM.DOC\",\n        \"type\": \"Warning\",\n        \"responseCode\": \"RECEIVED\"\n      }\n    ]}\n  },\n  \"body\": {\n    \"partyIds\": [{\"partyId\": \"100500\"}],\n    \"activityId\": \"ACCOUNTS-NEW-ARRANGEMENT\",\n    \"arrangmentId\": \"NEW\",\n    \"productId\": \"SAVINGS.ACCOUNT\",\n    \"currency\": \"USD\",\n    \"tradeDate\": \"\",\n    \"partyRoles\": [{\"partyRole\": \"OWNER\"}],\n    \"arrangementEffectiveDate\": \"20190417\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Payment Schedule Start Date is not Working Day",
+              "id" : "AA.PS.START.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Payment Schedule Start Date is not Working Day",
+              "id" : "AA.PS.START.DATE.NOT.WORKING.DAY",
+              "type" : "Override"
+            }, {
+              "description" : "Statement would get generated both on schedule date and the date defined in statement condition for CRINTEREST",
+              "id" : "AA.PS.DUPLICATE.STATEMENT.GENERATE",
+              "type" : "Override"
+            }, {
+              "options" : [ "RECEIVED", "NOT RECEIVED" ],
+              "description" : "Have you received Account Opening Agreement/AAA*212 from 100500}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "type" : "Warning",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "ACCOUNTS-NEW-ARRANGEMENT",
+          "arrangmentId" : "NEW",
+          "productId" : "SAVINGS.ACCOUNT",
+          "currency" : "USD",
+          "tradeDate" : "",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "arrangementEffectiveDate" : "20190417"
+        }
+      }
     }
   }
 }

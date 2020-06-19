@@ -406,7 +406,43 @@
         }
       },
       "description" : "PaymentStop",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"recordStatus\": \"\",\n    \"stops\": [{\n      \"waiveCharge\": \"\",\n      \"charges\": [{\n        \"accountId\": \"\",\n        \"amount\": 0,\n        \"chargeId\": \"\"\n      }],\n      \"firstChequeId\": \"\",\n      \"amountTo\": 0,\n      \"stopTypeId\": \"1\",\n      \"amountFrom\": 0,\n      \"lastChequeId\": \"\",\n      \"chequeTypeId\": \"\",\n      \"stopDate\": \"20190417\",\n      \"beneficiaryId\": \"\"\n    }],\n    \"overrides\": [{\"override\": \"\"}],\n    \"currencyId\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "recordStatus" : "",
+          "stops" : [ {
+            "waiveCharge" : "",
+            "charges" : [ {
+              "accountId" : "",
+              "amount" : 0,
+              "chargeId" : ""
+            } ],
+            "firstChequeId" : "",
+            "amountTo" : 0,
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "",
+            "chequeTypeId" : "",
+            "stopDate" : "20190417",
+            "beneficiaryId" : ""
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "currencyId" : ""
+        }
+      }
     },
     "PaymentStopBody" : {
       "type" : "object",
@@ -1108,7 +1144,43 @@
         }
       },
       "description" : "PaymentStop",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"recordStatus\": \"\",\n    \"stops\": [{\n      \"waiveCharge\": \"\",\n      \"charges\": [{\n        \"accountId\": \"\",\n        \"amount\": 0,\n        \"chargeId\": \"\"\n      }],\n      \"firstChequeId\": \"\",\n      \"amountTo\": 0,\n      \"stopTypeId\": \"1\",\n      \"amountFrom\": 0,\n      \"lastChequeId\": \"\",\n      \"chequeTypeId\": \"\",\n      \"stopDate\": \"20190417\",\n      \"beneficiaryId\": \"\"\n    }],\n    \"overrides\": [{\"override\": \"\"}],\n    \"currencyId\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "recordStatus" : "",
+          "stops" : [ {
+            "waiveCharge" : "",
+            "charges" : [ {
+              "accountId" : "",
+              "amount" : 0,
+              "chargeId" : ""
+            } ],
+            "firstChequeId" : "",
+            "amountTo" : 0,
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "",
+            "chequeTypeId" : "",
+            "stopDate" : "20190417",
+            "beneficiaryId" : ""
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "currencyId" : ""
+        }
+      }
     },
     "updatePaymentStop" : {
       "properties" : {
@@ -1120,7 +1192,43 @@
         }
       },
       "description" : "PaymentStop",
-      "example" : "{\n  \"header\": {\n    \"audit\": {\"versionNumber\": \"\"},\n    \"override\": {\"overrideDetails\": [{\n      \"description\": \"\",\n      \"id\": \"\",\n      \"responseCode\": \"\"\n    }]}\n  },\n  \"body\": {\n    \"recordStatus\": \"\",\n    \"stops\": [{\n      \"waiveCharge\": \"\",\n      \"charges\": [{\n        \"accountId\": \"\",\n        \"amount\": 0,\n        \"chargeId\": \"\"\n      }],\n      \"firstChequeId\": \"\",\n      \"amountTo\": 0,\n      \"stopTypeId\": \"1\",\n      \"amountFrom\": 0,\n      \"lastChequeId\": \"\",\n      \"chequeTypeId\": \"\",\n      \"stopDate\": \"20190417\",\n      \"beneficiaryId\": \"\"\n    }],\n    \"overrides\": [{\"override\": \"\"}],\n    \"currencyId\": \"\"\n  }\n}"
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "recordStatus" : "",
+          "stops" : [ {
+            "waiveCharge" : "",
+            "charges" : [ {
+              "accountId" : "",
+              "amount" : 0,
+              "chargeId" : ""
+            } ],
+            "firstChequeId" : "",
+            "amountTo" : 0,
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "",
+            "chequeTypeId" : "",
+            "stopDate" : "20190417",
+            "beneficiaryId" : ""
+          } ],
+          "overrides" : [ {
+            "override" : ""
+          } ],
+          "currencyId" : ""
+        }
+      }
     }
   }
 }

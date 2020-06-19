@@ -128,7 +128,33 @@
         }
       },
       "description" : "IssuanceOfPreAdviseImportLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"amount\": 100000,\n    \"confirmationInstruction\": \"CONFIRM\",\n    \"requestedConfirmBank\": \"129031\",\n    \"chargeDefaultAccount\": \"75132\",\n    \"applicant\": \"100100\",\n    \"expiryDate\": \"20200220\",\n    \"charges\": [{\n      \"partyCharged\": \"O\",\n      \"amortiseCharges\": \"NO\",\n      \"chargeDebitAccount\": \"75132\",\n      \"chargeCode\": \"LCOPENAMRT\"\n    }],\n    \"beneficiaryCustomerId\": \"100160\",\n    \"waiveCharge\": \"NO\",\n    \"availableWithBanks\": [{\"availableWithBank\": \"ANY\"}],\n    \"lcType\": \"ISC\",\n    \"advisingBankId\": \"100460\",\n    \"currency\": \"USD\",\n    \"expiryPlace\": \"US\",\n    \"chargeFrom\": \"O\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "amount" : 100000,
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "chargeDefaultAccount" : "75132",
+          "applicant" : "100100",
+          "expiryDate" : "20200220",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "chargeDebitAccount" : "75132",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "lcType" : "ISC",
+          "advisingBankId" : "100460",
+          "currency" : "USD",
+          "expiryPlace" : "US",
+          "chargeFrom" : "O"
+        }
+      }
     },
     "IssuanceOfPreAdviseImportLCBody" : {
       "type" : "object",
@@ -1090,7 +1116,33 @@
         }
       },
       "description" : "IssuanceOfPreAdviseImportLC",
-      "example" : "{\n  \"header\": {},\n  \"body\": {\n    \"amount\": 100000,\n    \"confirmationInstruction\": \"CONFIRM\",\n    \"requestedConfirmBank\": \"129031\",\n    \"chargeDefaultAccount\": \"75132\",\n    \"applicant\": \"100100\",\n    \"expiryDate\": \"20200220\",\n    \"charges\": [{\n      \"partyCharged\": \"O\",\n      \"amortiseCharges\": \"NO\",\n      \"chargeDebitAccount\": \"75132\",\n      \"chargeCode\": \"LCOPENAMRT\"\n    }],\n    \"beneficiaryCustomerId\": \"100160\",\n    \"waiveCharge\": \"NO\",\n    \"availableWithBanks\": [{\"availableWithBank\": \"ANY\"}],\n    \"lcType\": \"ISC\",\n    \"advisingBankId\": \"100460\",\n    \"currency\": \"USD\",\n    \"expiryPlace\": \"US\",\n    \"chargeFrom\": \"O\"\n  }\n}"
+      "example" : {
+        "header" : { },
+        "body" : {
+          "amount" : 100000,
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "chargeDefaultAccount" : "75132",
+          "applicant" : "100100",
+          "expiryDate" : "20200220",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "chargeDebitAccount" : "75132",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "lcType" : "ISC",
+          "advisingBankId" : "100460",
+          "currency" : "USD",
+          "expiryPlace" : "US",
+          "chargeFrom" : "O"
+        }
+      }
     }
   }
 }
