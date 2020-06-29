@@ -31,12 +31,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -101,12 +95,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -176,12 +164,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -241,12 +223,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -316,12 +292,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -381,12 +351,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -448,12 +412,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -513,12 +471,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -582,7 +534,7 @@
         }, {
           "name" : "imageReferenceId",
           "in" : "query",
-          "description" : "Contains the identifier associated to the image reference",
+          "description" : "Specifies the identifier for the image stored",
           "required" : false,
           "type" : "string"
         }, {
@@ -603,12 +555,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -679,12 +625,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -742,11 +682,11 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
                   },
                   "code" : {
                     "type" : "string",
-                    "description" : "The identifier of the error message"
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -762,7 +702,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -838,11 +778,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -858,7 +798,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1158,7 +1098,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1479,7 +1419,7 @@
           },
           "imageContent" : {
             "type" : "string",
-            "description" : "Specifies base64 encoded string of documents which can be decoded in client side to view or download documents",
+            "description" : "Specifies base64 encoded string of documents which can be decoded in client side to view or download documents,",
             "maxLength" : 56000
           },
           "imageApplication" : {

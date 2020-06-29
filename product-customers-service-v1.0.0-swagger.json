@@ -14,6 +14,8 @@
   "paths" : {
     "/product/customers/{customerId}/eligibleProducts" : {
       "get" : {
+        "summary" : "Retrieves the eligible product details for a customer",
+        "description" : "Retrieves eligible products details",
         "operationId" : "getEligibleProducts",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -74,14 +76,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -91,6 +87,152 @@
             "description" : "EligibleProductsResponse",
             "schema" : {
               "$ref" : "#/definitions/EligibleProductsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/product/periodicInterests/{periodicInterestId}" : {
+      "get" : {
+        "summary" : "Retrieves the periodic interest rate details for specific id",
+        "description" : "Retrieves periodic interests details",
+        "operationId" : "getPeriodicInterests",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "periodicInterestId",
+          "in" : "path",
+          "description" : "Speicifies the product periodic interest id",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "PeriodicInterestsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/PeriodicInterestsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/product/interestCatalog/{interestCatalogId}" : {
+      "get" : {
+        "summary" : "Retrieves the interest details for specific interest catalog",
+        "description" : "Retrieves interest catalog details",
+        "operationId" : "getInterestCatalog",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "interestCatalogId",
+          "in" : "path",
+          "description" : "Contains the identifier of the catalog for periodic Interest rates",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "InterestCatalogResponse",
+            "schema" : {
+              "$ref" : "#/definitions/InterestCatalogResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -121,11 +263,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -169,22 +314,17 @@
         "properties" : {
           "currencies" : {
             "type" : "array",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "items" : {
               "type" : "object",
               "properties" : {
                 "currencyId" : {
-                  "type" : "array",
-                  "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
-                  "items" : {
-                    "type" : "string"
-                  }
+                  "type" : "string",
+                  "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
                 },
                 "currencyName" : {
-                  "type" : "array",
-                  "description" : "The name that is displayed for the currency",
-                  "items" : {
-                    "type" : "string"
-                  }
+                  "type" : "string",
+                  "description" : "The name that is displayed for the currency"
                 }
               }
             }
@@ -195,16 +335,12 @@
               "type" : "object",
               "properties" : {
                 "minimumTerm" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "string"
-                  }
+                  "type" : "string",
+                  "description" : "Refers to the minimum term associated with the loan process."
                 },
                 "maximumTerm" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "string"
-                  }
+                  "type" : "string",
+                  "description" : "Refers to the maximum term associated with the loan process."
                 }
               }
             }
@@ -259,9 +395,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -288,11 +427,146 @@
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "PeriodicInterestsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PeriodicInterestsResponseBody"
+        }
+      },
+      "description" : "PeriodicInterestsResponse"
+    },
+    "PeriodicInterestsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "periodicInterests" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "amount" : {
+                  "type" : "string",
+                  "description" : "This is the payment amount"
+                },
+                "interestRate" : {
+                  "type" : "string",
+                  "description" : "Identifies the bid rate of the related currency for the defined time period",
+                  "maxLength" : 11
+                }
+              }
+            }
+          },
+          "term" : {
+            "type" : "string",
+            "description" : "Indicates the term for which the contract is booked",
+            "maxLength" : 5
+          }
+        }
+      }
+    },
+    "InterestCatalogResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/InterestCatalogResponseBody"
+        }
+      },
+      "description" : "InterestCatalogResponse"
+    },
+    "InterestCatalogResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "periodicIndexes" : {
+            "type" : "array",
+            "description" : "Denotes an index which points to the right period of the securities or holdings.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "periodicIndex" : {
+                  "type" : "string",
+                  "description" : "Denotes an index which points to the right period of the securities or holdings.",
+                  "maxLength" : 4
+                }
+              }
+            }
+          },
+          "periodicInterestId" : {
+            "type" : "string",
+            "description" : "Contains the id of the rate of interest assessed on a loan or investment over a set time period when compounding occurs more than once per year",
+            "maxLength" : 80
+          }
         }
       }
     }

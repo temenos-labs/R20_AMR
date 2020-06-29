@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "data",
           "in" : "query",
-          "description" : "Contains any input parameters/data required for the job",
+          "description" : "Input parameter",
           "required" : false,
           "type" : "string"
         }, {
@@ -51,15 +51,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -112,7 +105,7 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
+          "description" : "Transaction reference identifier.",
           "required" : false,
           "type" : "string"
         }, {
@@ -148,15 +141,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -197,19 +183,17 @@
         "parameters" : [ {
           "name" : "userRole",
           "in" : "query",
-          "description" : "User who initiated the transaction",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "originateProcess",
           "in" : "query",
-          "description" : "Process Id who initiated the entire workflow of transactions",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "processId",
           "in" : "query",
-          "description" : "Contains the process identifier",
+          "description" : "Process ID",
           "required" : false,
           "type" : "string"
         }, {
@@ -233,15 +217,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -282,7 +259,7 @@
         "parameters" : [ {
           "name" : "processId",
           "in" : "query",
-          "description" : "Contains the process identifier",
+          "description" : "Process ID",
           "required" : false,
           "type" : "string"
         }, {
@@ -306,15 +283,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -391,15 +361,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -450,7 +413,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -516,7 +479,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes"
+            "description" : "Name used for display or enrichment purposes"
           },
           "owner" : {
             "type" : "string",
@@ -528,7 +491,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           },
           "status" : {
             "type" : "string",
@@ -667,7 +630,7 @@
         "properties" : {
           "processId" : {
             "type" : "string",
-            "description" : "Contains the process identifier",
+            "description" : "Process ID",
             "maxLength" : 35
           },
           "activityId" : {
@@ -687,7 +650,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 35
           },
           "user" : {
@@ -726,12 +689,12 @@
         "properties" : {
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "Name used for display or enrichment purposes",
             "maxLength" : 15
           },
           "processId" : {
             "type" : "string",
-            "description" : "Contains the process identifier",
+            "description" : "Process ID",
             "maxLength" : 35
           },
           "activity" : {
@@ -741,12 +704,12 @@
           },
           "participantGroup" : {
             "type" : "string",
-            "description" : "The department/user group who is responsible for this transaction.",
+            "description" : "The department / user group who is responsible for this transaction.",
             "maxLength" : 34
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 24
           },
           "target" : {
@@ -806,7 +769,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "Name used for display or enrichment purposes",
             "maxLength" : 35
           },
           "user" : {

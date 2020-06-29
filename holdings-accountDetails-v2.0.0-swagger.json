@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA190770396S"
@@ -46,15 +46,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -105,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -158,38 +151,34 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string."
           },
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 17
           },
           "beneficialOwner" : {
             "type" : "string",
-            "description" : "Indicates the customer who is the legal owner of the arrangement and is the responsible customer of the contract with bank.",
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : "Indicates the description of the Product"
+            "type" : "string"
           },
           "arrangementStartDate" : {
-            "type" : "string",
-            "description" : "Indicates the date on which the arrangement was created"
+            "type" : "string"
           },
           "originalContractDate" : {
             "type" : "string",
-            "description" : "Indicates the original contract date of the arrangement which was migrated from the legacy system.",
             "maxLength" : 11
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+            "description" : "The status of the arrangement",
             "maxLength" : 15
           }
         }

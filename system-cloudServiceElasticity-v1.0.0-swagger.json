@@ -39,15 +39,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -107,15 +100,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -175,15 +161,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -241,15 +220,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -309,15 +281,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -376,15 +341,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -443,15 +401,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -506,7 +457,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -522,7 +473,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -565,11 +516,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -585,7 +536,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -850,7 +801,7 @@
       "properties" : {
         "dynamicProvisioning" : {
           "type" : "string",
-          "description" : "Contains the setting for elastic scaling e.g Yes or No.When set to Yes the dynamic upscaling and downscaling system feature is enabled.",
+          "description" : "Contains the setting for elastic scaling e.g Yes or No. When set to Yes the dynamic upscaling and downscaling system feature is enabled.",
           "minLength" : 0,
           "maxLength" : 19
         },
@@ -878,7 +829,7 @@
       "properties" : {
         "dynamicProvisioning" : {
           "type" : "string",
-          "description" : "Contains the setting for elastic scaling e.g Yes or No.When set to Yes the dynamic upscaling and downscaling system feature is enabled.",
+          "description" : "Contains the setting for elastic scaling e.g Yes or No. When set to Yes the dynamic upscaling and downscaling system feature is enabled.",
           "minLength" : 0,
           "maxLength" : 19
         },
@@ -966,19 +917,19 @@
         },
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes",
+          "description" : "Name used for display or enrichment purposes",
           "minLength" : 0,
           "maxLength" : 25
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started",
+          "description" : "The time job was started",
           "minLength" : 0,
           "maxLength" : 25
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "minLength" : 0,
           "maxLength" : 25
         }
@@ -1044,19 +995,19 @@
         },
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes",
+          "description" : "Name used for display or enrichment purposes",
           "minLength" : 0,
           "maxLength" : 25
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started",
+          "description" : "The time job was started",
           "minLength" : 0,
           "maxLength" : 25
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "minLength" : 0,
           "maxLength" : 25
         }
@@ -1084,6 +1035,7 @@
       "properties" : {
         "deploymentMode" : {
           "type" : "string",
+          "description" : "Indicates the deployment mode setting. For example CLOUD for cloud deployment, otherwise null.",
           "minLength" : 0,
           "maxLength" : 14
         }
@@ -1105,6 +1057,7 @@
       "properties" : {
         "deploymentMode" : {
           "type" : "string",
+          "description" : "Indicates the deployment mode setting. For example CLOUD for cloud deployment, otherwise null.",
           "minLength" : 0,
           "maxLength" : 14
         }
@@ -1122,7 +1075,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1175,7 +1128,7 @@
         "properties" : {
           "result" : {
             "type" : "string",
-            "description" : "Status to determine requirements of the agents for scaling of services",
+            "description" : "Contains the total number of agents currently required at a particular point of time.",
             "maxLength" : 2
           }
         }
@@ -1283,17 +1236,17 @@
         "properties" : {
           "serviceId" : {
             "type" : "string",
-            "description" : "Contains the identifier name of the service that has to be executed.",
+            "description" : "Provides the id of the service that has to be run.",
             "maxLength" : 70
           },
           "dateTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the date and time separated by '-'"
+            "description" : "Date and time separated by '-'"
           },
           "queueDepth" : {
             "type" : "string",
-            "description" : "Number of entries waiting to be processed in the Queue",
+            "description" : "Contains the number of records to be processed for the particular job.",
             "maxLength" : 70
           },
           "minimumAgent" : {
@@ -1308,12 +1261,12 @@
           },
           "totalAgent" : {
             "type" : "number",
-            "description" : "The total number of agents expected to be run",
+            "description" : "Contains the total number of agents for the service.",
             "maximum" : 70
           },
           "runningAgent" : {
             "type" : "number",
-            "description" : "The number of agents currently running",
+            "description" : "Contains the number of agents currently running.",
             "maximum" : 70
           }
         }

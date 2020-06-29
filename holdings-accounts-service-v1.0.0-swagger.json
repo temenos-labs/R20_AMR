@@ -7,13 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/holdings/accounts" : {
       "get" : {
+        "summary" : "Retrieves the list of account information for Internet Banking Users",
+        "description" : "Retrieves account details",
         "operationId" : "getAccounts",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -47,6 +49,12 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "arrangementId",
+          "in" : "query",
+          "description" : "Indicates an unique identifier of an account",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "page_size",
           "in" : "query",
           "description" : "The total number of records per page",
@@ -67,14 +75,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -83,7 +85,19 @@
           "200" : {
             "description" : "AccountsResponse",
             "schema" : {
-              "$ref" : "#/definitions/holdingsAccountsResponse"
+              "$ref" : "#/definitions/AccountsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -97,6 +111,8 @@
     },
     "/holdings/accounts/{accountId}/transactions" : {
       "get" : {
+        "summary" : "Retrieves the account transaction details for Internet Banking Users",
+        "description" : "Retrieves account  transaction details",
         "operationId" : "getAccountTransactions",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -164,14 +180,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -180,7 +190,19 @@
           "200" : {
             "description" : "AccountTransactionsResponse",
             "schema" : {
-              "$ref" : "#/definitions/holdingsAccountTransactionsResponse"
+              "$ref" : "#/definitions/AccountTransactionsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -194,6 +216,8 @@
     },
     "/holdings/accounts/{accountId}/cards" : {
       "get" : {
+        "summary" : "Retrieves the available card details",
+        "description" : "Retrieves account cards",
         "operationId" : "getAccountCards",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -248,14 +272,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -264,7 +282,19 @@
           "200" : {
             "description" : "AccountCardsResponse",
             "schema" : {
-              "$ref" : "#/definitions/holdingsAccountCardsResponse"
+              "$ref" : "#/definitions/AccountCardsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -278,6 +308,8 @@
     },
     "/holdings/accounts/balances" : {
       "get" : {
+        "summary" : "Retrieves the list of account balance details",
+        "description" : "Retrieves the account balance details",
         "operationId" : "getAccountBalanceToday",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -332,14 +364,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -348,126 +374,19 @@
           "200" : {
             "description" : "AccountBalanceTodayResponse",
             "schema" : {
-              "$ref" : "#/definitions/holdingsAccountBalanceTodayResponse"
+              "$ref" : "#/definitions/AccountBalanceTodayResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
             "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/holdings/accounts/{accountId}" : {
-      "get" : {
-        "operationId" : "getAccountDetails",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "accountId",
-          "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "page_size",
-          "in" : "query",
-          "description" : "The total number of records per page",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_start",
-          "in" : "query",
-          "description" : "The record from which the response should be displayed",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_token",
-          "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "AccountDetailsResponse",
-            "schema" : {
-              "$ref" : "#/definitions/holdingsAccountDetailsResponse"
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
             "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/holdings/accounts/{accountId}/alertEvents" : {
-      "get" : {
-        "operationId" : "getEligibleEvents",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "accountId",
-          "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "78654"
-        }, {
-          "name" : "page_size",
-          "in" : "query",
-          "description" : "The total number of records per page",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_start",
-          "in" : "query",
-          "description" : "The record from which the response should be displayed",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_token",
-          "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "EligibleEventsResponse",
-            "schema" : {
-              "$ref" : "#/definitions/holdingsEligibleEventsResponse"
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -498,14 +417,21 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -528,18 +454,18 @@
         }
       }
     },
-    "holdingsAccountsResponse" : {
+    "AccountsResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/QueryHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/holdingsAccountsResponseBody"
+          "$ref" : "#/definitions/AccountsResponseBody"
         }
       },
-      "description" : "holdingsAccountsResponse"
+      "description" : "AccountsResponse"
     },
-    "holdingsAccountsResponseBody" : {
+    "AccountsResponseBody" : {
       "type" : "array",
       "items" : {
         "type" : "object",
@@ -565,15 +491,18 @@
           },
           "lockedAmount" : {
             "type" : "number",
-            "description" : "Shows reserved amount for the underlying account for a given balance reservation event."
+            "description" : "Shows reserved amount for the underlying account for a given balance reservation event.",
+            "maximum" : 19
           },
           "workingBalance" : {
             "type" : "number",
-            "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
+            "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries.",
+            "maximum" : 19
           },
           "onlineActualBalance" : {
             "type" : "number",
-            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date.",
+            "maximum" : 19
           },
           "availableBalance" : {
             "type" : "number",
@@ -615,7 +544,34 @@
           },
           "clearedBalance" : {
             "type" : "number",
-            "description" : "Balance taking into consideration all cleared funds booked against the account, including credit and reversed debit entries with a future exposure date."
+            "description" : "Balance taking into consideration all cleared funds booked against the account, including credit and reversed debit entries with a future exposure date.",
+            "maximum" : 19
+          },
+          "availableFunds" : {
+            "type" : "number",
+            "description" : "Total funds available in the account after all the ongoing transactions have been completed",
+            "maximum" : 19
+          },
+          "taxId" : {
+            "type" : "string",
+            "description" : "Holds the Customer's TAX/SSN Id."
+          },
+          "customerName" : {
+            "type" : "string",
+            "description" : "Name of the customer"
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "Indicates an unique identifier of an account",
+            "maxLength" : 17
+          },
+          "productId" : {
+            "type" : "string",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+          },
+          "productGroupId" : {
+            "type" : "string",
+            "description" : "The group, as defined by the institution, that the product belongs to."
           }
         }
       }
@@ -634,12 +590,19 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
         }
       }
     },
@@ -663,15 +626,71 @@
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
         }
       }
     },
-    "holdingsAccountTransactionsResponseQueryHeader" : {
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "AccountTransactionsResponseQueryHeader" : {
       "properties" : {
         "audit" : {
           "type" : "object",
@@ -683,14 +702,21 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -735,18 +761,18 @@
         }
       }
     },
-    "holdingsAccountTransactionsResponse" : {
+    "AccountTransactionsResponse" : {
       "properties" : {
         "header" : {
-          "$ref" : "#/definitions/holdingsAccountTransactionsResponseQueryHeader"
+          "$ref" : "#/definitions/AccountTransactionsResponseQueryHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/holdingsAccountTransactionsResponseBody"
+          "$ref" : "#/definitions/AccountTransactionsResponseBody"
         }
       },
-      "description" : "holdingsAccountTransactionsResponse"
+      "description" : "AccountTransactionsResponse"
     },
-    "holdingsAccountTransactionsResponseBody" : {
+    "AccountTransactionsResponseBody" : {
       "type" : "array",
       "items" : {
         "type" : "object",
@@ -785,88 +811,25 @@
         }
       }
     },
-    "AccountTransactionsResponseQueryHeader" : {
-      "properties" : {
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "T24_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to response by T24"
-            },
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "The CURR.NO. of the record"
-            },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the response by IRIS"
-            }
-          }
-        },
-        "page_size" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The total number of records per page"
-        },
-        "page_start" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The record from which the response should be displayed"
-        },
-        "total_size" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The total number of records present"
-        },
-        "page_token" : {
-          "type" : "string",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
-        },
-        "data" : {
-          "type" : "object",
-          "properties" : {
-            "accountId" : {
-              "type" : "string",
-              "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
-            },
-            "customerId" : {
-              "type" : "string",
-              "description" : "The identifier of the customer"
-            },
-            "accountCurrency" : {
-              "type" : "string",
-              "description" : "The currency of the account"
-            },
-            "openingBalance" : {
-              "type" : "string",
-              "maxLength" : 19
-            }
-          }
-        }
-      }
-    },
-    "holdingsAccountCardsResponse" : {
+    "AccountCardsResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/QueryHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/holdingsAccountCardsResponseBody"
+          "$ref" : "#/definitions/AccountCardsResponseBody"
         }
       },
-      "description" : "holdingsAccountCardsResponse"
+      "description" : "AccountCardsResponse"
     },
-    "holdingsAccountCardsResponseBody" : {
+    "AccountCardsResponseBody" : {
       "type" : "array",
       "items" : {
         "type" : "object",
         "properties" : {
           "accountIds" : {
             "type" : "array",
-            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -880,7 +843,7 @@
           },
           "cardNames" : {
             "type" : "array",
-            "description" : "The name that is displayed for the card",
+            "description" : "Name of the Cardholder/Customer",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -946,23 +909,23 @@
           "versionNumber" : {
             "type" : "string",
             "description" : "Current number of the record",
-            "maxLength" : 4
+            "maxLength" : 6
           }
         }
       }
     },
-    "holdingsAccountBalanceTodayResponse" : {
+    "AccountBalanceTodayResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/QueryHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/holdingsAccountBalanceTodayResponseBody"
+          "$ref" : "#/definitions/AccountBalanceTodayResponseBody"
         }
       },
-      "description" : "holdingsAccountBalanceTodayResponse"
+      "description" : "AccountBalanceTodayResponse"
     },
-    "holdingsAccountBalanceTodayResponseBody" : {
+    "AccountBalanceTodayResponseBody" : {
       "type" : "array",
       "items" : {
         "type" : "object",
@@ -1015,231 +978,6 @@
           "useableBalance" : {
             "type" : "string",
             "description" : "Contains the usable amount in the balance"
-          }
-        }
-      }
-    },
-    "holdingsAccountDetailsResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/QueryHeader"
-        },
-        "body" : {
-          "$ref" : "#/definitions/holdingsAccountDetailsResponseBody"
-        }
-      },
-      "description" : "holdingsAccountDetailsResponse"
-    },
-    "holdingsAccountDetailsResponseBody" : {
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "sharedLimitAccounts" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "sharedLimitAccount" : {
-                  "type" : "string",
-                  "description" : "Denotes the account in which the credit card limit is assigned to the customer across all the credit cards"
-                },
-                "sharedLimitAccountType" : {
-                  "type" : "string",
-                  "description" : "Indicates the type of shared limit account"
-                }
-              }
-            }
-          },
-          "taxRates" : {
-            "type" : "array",
-            "description" : "The applicable rate of tax",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "taxRate" : {
-                  "type" : "string",
-                  "description" : "Indicates tax charged to an account"
-                }
-              }
-            }
-          },
-          "interests" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
-                },
-                "interestCompoundType" : {
-                  "type" : "string",
-                  "description" : "Indicates the interest compound type of an account"
-                },
-                "interestCompoundTypeValue" : {
-                  "type" : "string",
-                  "description" : "Indicates the interest compound type value of an account"
-                },
-                "consolidateInterests" : {
-                  "type" : "array",
-                  "items" : {
-                    "type" : "object",
-                    "properties" : {
-                      "consolidateInterest" : {
-                        "type" : "string",
-                        "description" : "Contains the sum of the cash interest expense and net of cash interest income of the borrower and the restricted subsidiaries determined on a consolidated basis"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "sharedInterestAccounts" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "sharedInterestAccount" : {
-                  "type" : "string",
-                  "description" : "Contains the account details which shares the interest among the eligible or joint customers."
-                },
-                "sharedInterestAccountType" : {
-                  "type" : "string",
-                  "description" : "Indicates the type of shared interest account"
-                }
-              }
-            }
-          },
-          "charges" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "paymentFrequency" : {
-                  "type" : "string",
-                  "description" : "The frequency at which a payment is required to be generated"
-                },
-                "paymentTypeName" : {
-                  "type" : "string",
-                  "description" : "Indicates Payment type set to an account"
-                },
-                "propertyName" : {
-                  "type" : "string",
-                  "description" : "Indicates the Id of the product property"
-                },
-                "paymentMethod" : {
-                  "type" : "string",
-                  "description" : "Method chosen to make the payment"
-                },
-                "chargeSchedulePaymentValue" : {
-                  "type" : "string",
-                  "description" : "Indicates the payment frequency associated with the charge"
-                }
-              }
-            }
-          },
-          "openActualBalance" : {
-            "type" : "number",
-            "description" : "Contains the opening actual balance of an account"
-          },
-          "availableOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Contains the overdraft limit still available to be utilized"
-          },
-          "openingDate" : {
-            "type" : "string",
-            "format" : "date",
-            "description" : "The date the account is opened."
-          },
-          "approvedOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Contains the approved overdraft limit"
-          },
-          "limitExpiryDate" : {
-            "type" : "string",
-            "format" : "date",
-            "description" : "This field specifies the validity of the Limit, i.e. how long is it to remain in force"
-          },
-          "availableFunds" : {
-            "type" : "number",
-            "description" : "Total funds available in the account after all the ongoing transactions have been completed"
-          },
-          "outstandingOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Indicates the outstanding overdraft limit of an account"
-          },
-          "onlineClearedBalance" : {
-            "type" : "number",
-            "description" : "Indicates the available balance allowed to use"
-          },
-          "openClearedBalance" : {
-            "type" : "number",
-            "description" : "Indicates the opening balance after clearing"
-          },
-          "accountWithBankBIC" : {
-            "type" : "string",
-            "description" : "This is the BIC code of the institution where beneficiary holds an account"
-          }
-        }
-      }
-    },
-    "holdingsEligibleEventsResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/QueryHeader"
-        },
-        "body" : {
-          "$ref" : "#/definitions/holdingsEligibleEventsResponseBody"
-        }
-      },
-      "description" : "holdingsEligibleEventsResponse"
-    },
-    "holdingsEligibleEventsResponseBody" : {
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "fields" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "fieldDisplayName" : {
-                  "type" : "string",
-                  "description" : "Contains the name of the display for enrichment purposes"
-                },
-                "operand" : {
-                  "type" : "string",
-                  "description" : "This field along with fieldName and value, defines the conditions for the alert to be triggered."
-                },
-                "fieldValue" : {
-                  "type" : "string",
-                  "description" : "Value of the field"
-                }
-              }
-            }
-          },
-          "eventId" : {
-            "type" : "string",
-            "description" : "Event identifier"
-          },
-          "displayName" : {
-            "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes"
-          },
-          "displayCondition" : {
-            "type" : "string",
-            "description" : "The condition which must be pulled from the record for which the response should be displayed"
-          },
-          "messageGroupId" : {
-            "type" : "string",
-            "description" : "Contains the starting message id of the conversation"
-          },
-          "subscriptionLevel" : {
-            "type" : "string",
-            "description" : "Extra filtering and validation at the subscription level to indicate if this event can be subscribed by a customer or department or both.  If defined as GLOBAL, then the customer cannot subscribe or un-subscribe to this event.  Allowed values: - INTERNAL - EXTERNAL - BOTH - GLOBAL"
           }
         }
       }

@@ -28,7 +28,6 @@
         }, {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -43,15 +42,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -112,7 +104,6 @@
             "properties" : {
               "closureNote" : {
                 "type" : "string",
-                "description" : "",
                 "maxLength" : 35
               }
             }
@@ -125,12 +116,10 @@
         },
         "automaticRun" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 35
         },
         "simulationRunReference" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 30
         },
         "effectiveDate" : {
@@ -145,7 +134,7 @@
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+          "description" : "The transaction amount"
         },
         "closureReason" : {
           "type" : "string",
@@ -157,134 +146,107 @@
           "properties" : {
             "payinSettlement1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Settlement" ]
             },
             "ddMandateRef11" : {
               "type" : "string",
-              "format" : "date",
-              "description" : ""
+              "format" : "date"
             },
             "payinAccount11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Account" ]
             },
             "payinBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Beneficiary" ]
             },
             "payinPercentage11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payinAmount11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payoutSettlement1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Settlement" ]
             },
             "payoutAccount11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Account" ]
             },
             "payoutBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Beneficiary" ]
             },
             "payoutPercentage11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payoutAmount11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "paymentType11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payment Type" ]
             },
             "payinPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Product" ]
             },
             "payinActivity11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Activity" ]
             },
             "payinAcDbRule1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Account Debit Rule" ]
             },
             "payinSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Settle Activity" ]
             },
             "payinRcType1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin RC Type" ]
             },
             "payinRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin RC Condition" ]
             },
             "defaultSettlementAccount" : {
               "type" : "string",
-              "description" : "Default settlement account to be used for all incoming payments and outgoing settlements when a specific settlement account is not provided for each payment type.",
               "maxLength" : 26,
               "enum" : [ "Default Settlement Account" ]
             },
             "payoutPptyClass11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Property Class" ]
             },
             "payoutProperty11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Property" ]
             },
             "payoutPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Product" ]
             },
             "payoutActivity11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Activity" ]
             },
             "payoutAcCrRule1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Account Credit Rule" ]
             },
             "payoutSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Settle Activity" ]
             },
             "payoutRcType1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout RC Type" ]
             },
             "payoutRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout RC Condition" ]
             }
           }
@@ -307,7 +269,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -323,7 +285,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -347,21 +309,19 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The identifier of the arrangement"
           },
           "chargeProperty" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "simulationReference" : {
             "type" : "string",
-            "description" : "Indicates the Reference ID for simulation activity",
             "maxLength" : 40
           },
           "chargeAmount" : {
             "type" : "string",
-            "description" : "Retrieves the Charge Amount after redeem",
+            "description" : "Indicates the charge amount in the charge currency which is to be applied for instruction for e.g. charge to be taken for payment stop instruction",
             "maxLength" : 20
           }
         }
@@ -463,7 +423,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",

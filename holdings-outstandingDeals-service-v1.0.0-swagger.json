@@ -33,7 +33,7 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
+          "description" : "Transaction reference identifier.",
           "required" : false,
           "type" : "string"
         }, {
@@ -135,15 +135,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -194,7 +187,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -275,7 +268,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 16
           },
           "dealType" : {

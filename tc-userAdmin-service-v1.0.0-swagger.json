@@ -18,13 +18,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
@@ -40,19 +40,18 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -64,7 +63,6 @@
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -94,15 +92,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -128,13 +119,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
@@ -150,19 +141,18 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -174,7 +164,6 @@
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -204,15 +193,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -238,13 +220,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -260,7 +242,6 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
@@ -272,19 +253,18 @@
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -308,15 +288,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -342,13 +315,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -364,7 +337,6 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
@@ -376,19 +348,18 @@
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -412,15 +383,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -469,12 +433,10 @@
               "type" : "object",
               "properties" : {
                 "linkedSubArrangementId" : {
-                  "type" : "string",
-                  "description" : "Unique identification number for the Sub-arrangement (Role)"
+                  "type" : "string"
                 },
                 "linkedSubArrangementName" : {
-                  "type" : "string",
-                  "description" : "Name of the sub Arrangement or Role"
+                  "type" : "string"
                 }
               }
             }
@@ -490,12 +452,10 @@
                   "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : "The user identifier name who input the transaction"
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : "Name of the external user"
+                  "type" : "string"
                 },
                 "inputters" : {
                   "type" : "array",
@@ -514,15 +474,14 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The identifier of the arrangement"
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+            "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure"
           },
           "subArrangementName" : {
-            "type" : "string",
-            "description" : "The name of the sub arrangement that is displayed."
+            "type" : "string"
           },
           "productGroupId" : {
             "type" : "string",
@@ -534,15 +493,15 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+            "description" : "Id of the product."
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition."
+            "description" : "Name of the product, which is also its Id."
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "customerName" : {
             "type" : "string",
@@ -551,19 +510,17 @@
           "startDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Contains the date on which the transaction or payment gets initiated."
+            "description" : "Specifies the start date when the instruction will be made active"
           },
           "masterArrangementId" : {
-            "type" : "string",
-            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+            "type" : "string"
           },
           "activityId" : {
             "type" : "string",
             "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
           },
           "pendingActivityId" : {
-            "type" : "string",
-            "description" : "ID of the arrangement activity which is pending to be authorised"
+            "type" : "string"
           }
         }
       }
@@ -608,7 +565,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -781,12 +738,10 @@
               "properties" : {
                 "linkedSubArrangementId" : {
                   "type" : "string",
-                  "description" : "Unique identification number for the Sub-arrangement (Role)",
                   "maxLength" : 20
                 },
                 "linkedSubArrangementName" : {
                   "type" : "string",
-                  "description" : "Name of the sub Arrangement or Role",
                   "maxLength" : 35
                 }
               }
@@ -798,8 +753,7 @@
               "type" : "object",
               "properties" : {
                 "pendingActivityId" : {
-                  "type" : "string",
-                  "description" : "ID of the arrangement activity which is pending to be authorised"
+                  "type" : "string"
                 },
                 "recordStatus" : {
                   "type" : "string",
@@ -810,29 +764,26 @@
                   "description" : "The user identifier who input the transaction"
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : "The user identifier name who input the transaction"
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : "Name of the external user"
+                  "type" : "string"
                 }
               }
             }
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The identifier of the arrangement",
             "maxLength" : 17
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+            "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
             "maxLength" : 15
           },
           "subArrangementName" : {
             "type" : "string",
-            "description" : "The name of the sub arrangement that is displayed.",
             "maxLength" : 35
           },
           "productGroupId" : {
@@ -847,17 +798,17 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "description" : "Id of the product.",
             "maxLength" : 30
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "Name of the product, which is also its Id.",
             "maxLength" : 30
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "customerName" : {
@@ -867,7 +818,6 @@
           },
           "masterArrangementId" : {
             "type" : "string",
-            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
             "maxLength" : 20
           },
           "activityId" : {

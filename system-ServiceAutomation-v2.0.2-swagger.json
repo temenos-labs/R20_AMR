@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "processId",
           "in" : "path",
-          "description" : "Contains the process identifier",
+          "description" : "Process ID",
           "required" : true,
           "type" : "string"
         }, {
@@ -39,15 +39,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -86,7 +79,7 @@
         "parameters" : [ {
           "name" : "processId",
           "in" : "path",
-          "description" : "Contains the process identifier",
+          "description" : "Process ID",
           "required" : true,
           "type" : "string"
         }, {
@@ -104,15 +97,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -153,14 +139,14 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : true,
           "type" : "string",
           "x-example" : "BNK/RD.COPY.DE.BIC"
         }, {
           "name" : "serverName",
           "in" : "query",
-          "description" : "Contains the name of the Server on which the service will run.",
+          "description" : "Hostname of the Server on which the service will run.",
           "required" : false,
           "type" : "string"
         }, {
@@ -178,7 +164,7 @@
         }, {
           "name" : "processStatus",
           "in" : "query",
-          "description" : "Contains the current process status. Allowed values: - 0: Ready - 1: Running - 2: Completed successfully - 3: On hold or in error",
+          "description" : "The current process status.   Allowed values: - 0: Ready - 1: Running  - 2: Completed successfully  - 3: On hold or in error",
           "required" : false,
           "type" : "string"
         }, {
@@ -202,15 +188,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -249,7 +228,7 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : true,
           "type" : "string",
           "x-example" : "BNK/RD.COPY.DE.BIC"
@@ -268,15 +247,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -315,7 +287,7 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : true,
           "type" : "string",
           "x-example" : "BNK/RD.COPY.DE.BIC"
@@ -334,15 +306,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -390,7 +355,7 @@
         }, {
           "name" : "agentsRequired",
           "in" : "query",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "required" : false,
           "type" : "string"
         }, {
@@ -420,15 +385,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -486,15 +444,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -552,15 +503,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -601,13 +545,13 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "query",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "serverName",
           "in" : "query",
-          "description" : "Contains the name of the Server on which the service will run.",
+          "description" : "Hostname of the Server on which the service will run.",
           "required" : false,
           "type" : "string"
         }, {
@@ -625,7 +569,7 @@
         }, {
           "name" : "processStatus",
           "in" : "query",
-          "description" : "Contains the current process status. Allowed values: - 0: Ready - 1: Running - 2: Completed successfully - 3: On hold or in error",
+          "description" : "The current process status.   Allowed values: - 0: Ready - 1: Running  - 2: Completed successfully  - 3: On hold or in error",
           "required" : false,
           "type" : "string"
         }, {
@@ -649,15 +593,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -698,7 +635,7 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : true,
           "type" : "string",
           "x-example" : "BNK/AC.HVT.MERGE.SERVICE"
@@ -723,15 +660,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -772,7 +702,7 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "query",
-          "description" : "Contains the identifier name of the service that has to be executed.",
+          "description" : "Provides the id of the service that has to be run.",
           "required" : false,
           "type" : "string"
         }, {
@@ -796,15 +726,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -863,15 +786,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -918,7 +834,7 @@
         }, {
           "name" : "reportName",
           "in" : "query",
-          "description" : "Contains the name of the process that produces the report",
+          "description" : "Contains the name of the process that produces the report.",
           "required" : false,
           "type" : "string"
         }, {
@@ -942,15 +858,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -997,7 +906,7 @@
         }, {
           "name" : "agentsRequired",
           "in" : "query",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "required" : false,
           "type" : "string"
         }, {
@@ -1027,15 +936,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1106,15 +1008,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1169,7 +1064,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -1185,7 +1080,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -1213,43 +1108,43 @@
         },
         "processEnvironment" : {
           "type" : "string",
-          "description" : "Environment where the process will run. Typically this should be set to F",
+          "description" : "Environment where the process will run. Typically this should be set to 'F'",
           "minLength" : 0,
           "maxLength" : 32,
           "enum" : [ "B", "F" ]
         },
         "jobId" : {
           "type" : "string",
-          "description" : "Contains the job identifier.",
+          "description" : "The job name entered must be an entry on the main program file.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "verificationJobId" : {
           "type" : "string",
-          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed.",
+          "description" : "Same as jobID, but functionally it does the verification as to whether a job is completed before the jobID is executed.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "jobFrequency" : {
           "type" : "string",
-          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered.",
+          "description" : "Defines the frequency at which the job is processed next.  POSSIBLE VALUES: - D: Every working day.  - Dnn: Every nn'th working day. - W: Weekly every Friday.  - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered. - A: The job is picked on the any ad-hoc date. The next run date has to be updated manually.  - Y: Last working day of the year.  - Ynn: Last working day of the nn'th month.  - Jxxx: Always run with job name xxx.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "data" : {
           "type" : "string",
-          "description" : "Contains any input parameters/data required for the job",
+          "description" : "Input parameter",
           "minLength" : 0,
           "maxLength" : 32
         },
         "operatorName" : {
           "type" : "string",
-          "description" : "Contains the operator-user name to be loaded for reporting jobs during Close of Business ",
+          "description" : "Contains the operator name to be loaded for reporting jobs during Close of Business",
           "minLength" : 0,
           "maxLength" : 32
         }
@@ -1263,11 +1158,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -1283,7 +1178,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1321,43 +1216,43 @@
         },
         "processEnvironment" : {
           "type" : "string",
-          "description" : "Environment where the process will run. Typically this should be set to F",
+          "description" : "Environment where the process will run. Typically this should be set to 'F'",
           "minLength" : 0,
           "maxLength" : 32,
           "enum" : [ "B", "F" ]
         },
         "jobId" : {
           "type" : "string",
-          "description" : "Contains the job identifier.",
+          "description" : "The job name entered must be an entry on the main program file.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "verificationJobId" : {
           "type" : "string",
-          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed.",
+          "description" : "Same as jobID, but functionally it does the verification as to whether a job is completed before the jobID is executed.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "jobFrequency" : {
           "type" : "string",
-          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered.",
+          "description" : "Defines the frequency at which the job is processed next.  POSSIBLE VALUES: - D: Every working day.  - Dnn: Every nn'th working day. - W: Weekly every Friday.  - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered. - A: The job is picked on the any ad-hoc date. The next run date has to be updated manually.  - Y: Last working day of the year.  - Ynn: Last working day of the nn'th month.  - Jxxx: Always run with job name xxx.",
           "minLength" : 0,
           "maxLength" : 32
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "data" : {
           "type" : "string",
-          "description" : "Contains any input parameters/data required for the job",
+          "description" : "Input parameter",
           "minLength" : 0,
           "maxLength" : 32
         },
         "operatorName" : {
           "type" : "string",
-          "description" : "Contains the operator-user name to be loaded for reporting jobs during Close of Business ",
+          "description" : "Contains the operator name to be loaded for reporting jobs during Close of Business",
           "minLength" : 0,
           "maxLength" : 32
         }
@@ -1594,13 +1489,13 @@
               },
               "serverName" : {
                 "type" : "string",
-                "description" : "Contains the name of the Server on which the service will run.",
+                "description" : "Hostname of the Server on which the service will run.",
                 "minLength" : 0,
                 "maxLength" : 25
               },
               "jobServerStatus" : {
                 "type" : "string",
-                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive",
+                "description" : "Status of Server  POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -1609,26 +1504,26 @@
         },
         "serviceDescription" : {
           "type" : "string",
-          "description" : "Contains the description of the Service",
+          "description" : "Description of the Service",
           "minLength" : 0,
           "maxLength" : 25
         },
         "operatorName" : {
           "type" : "string",
-          "description" : "Contains the operator-user name to be loaded for reporting jobs during Close of Business ",
+          "description" : "Contains the operator name to be loaded for reporting jobs during Close of Business",
           "minLength" : 0,
           "maxLength" : 25
         },
         "instruction" : {
           "type" : "string",
-          "description" : "Contains the instruction control for the current service. Allowed values: - START: to start the current service. - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
+          "description" : "Used in the generation of messages/advices, this field can be used to stiputate any special or additional instructions to the Paying/Accepting/Negotiating Bank.",
           "minLength" : 0,
           "maxLength" : 25,
           "enum" : [ "START", "STOP", "AUTO" ]
         },
         "correlationId" : {
           "type" : "string",
-          "description" : "Unique reference to be used in service execution",
+          "description" : "Unique reference to be used in service execution.",
           "minLength" : 0,
           "maxLength" : 13
         }
@@ -1661,13 +1556,13 @@
               },
               "serverName" : {
                 "type" : "string",
-                "description" : "Contains the name of the Server on which the service will run.",
+                "description" : "Hostname of the Server on which the service will run.",
                 "minLength" : 0,
                 "maxLength" : 25
               },
               "jobServerStatus" : {
                 "type" : "string",
-                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive",
+                "description" : "Status of Server  POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -1676,26 +1571,26 @@
         },
         "serviceDescription" : {
           "type" : "string",
-          "description" : "Contains the description of the Service",
+          "description" : "Description of the Service",
           "minLength" : 0,
           "maxLength" : 25
         },
         "operatorName" : {
           "type" : "string",
-          "description" : "Contains the operator-user name to be loaded for reporting jobs during Close of Business ",
+          "description" : "Contains the operator name to be loaded for reporting jobs during Close of Business",
           "minLength" : 0,
           "maxLength" : 25
         },
         "instruction" : {
           "type" : "string",
-          "description" : "Contains the instruction control for the current service. Allowed values: - START: to start the current service. - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
+          "description" : "Used in the generation of messages/advices, this field can be used to stiputate any special or additional instructions to the Paying/Accepting/Negotiating Bank.",
           "minLength" : 0,
           "maxLength" : 25,
           "enum" : [ "START", "STOP", "AUTO" ]
         },
         "correlationId" : {
           "type" : "string",
-          "description" : "Unique reference to be used in service execution",
+          "description" : "Unique reference to be used in service execution.",
           "minLength" : 0,
           "maxLength" : 13
         }
@@ -1717,19 +1612,19 @@
       "properties" : {
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes",
+          "description" : "Name used for display or enrichment purposes",
           "minLength" : 0,
           "maxLength" : 25
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started",
+          "description" : "The time job was started",
           "minLength" : 0,
           "maxLength" : 25
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "minLength" : 0,
           "maxLength" : 25
         }
@@ -1751,19 +1646,19 @@
       "properties" : {
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes",
+          "description" : "Name used for display or enrichment purposes",
           "minLength" : 0,
           "maxLength" : 25
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started",
+          "description" : "The time job was started",
           "minLength" : 0,
           "maxLength" : 25
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required",
+          "description" : "The number of agents required",
           "minLength" : 0,
           "maxLength" : 25
         }
@@ -1781,7 +1676,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1839,7 +1734,7 @@
               "properties" : {
                 "serverName" : {
                   "type" : "string",
-                  "description" : "Contains the name of the Server on which the service will run.",
+                  "description" : "Hostname of the Server on which the service will run.",
                   "maxLength" : 50
                 },
                 "serverStatus" : {
@@ -1862,21 +1757,21 @@
               "properties" : {
                 "jobId" : {
                   "type" : "string",
-                  "description" : "Contains the job identifier."
+                  "description" : "The job name entered must be an entry on the main program file."
                 },
                 "jobStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the job. POSSIBLE VALUES: 0: Ready 1: Running 2: Completed successfully 3: On hold or in error",
+                  "description" : "The current status of the job.  POSSIBLE VALUES: 0: Ready  1: Running  2: Completed successfully  3: On hold or in error",
                   "maxLength" : 2
                 },
                 "verificationJobId" : {
                   "type" : "string",
-                  "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed.",
+                  "description" : "Same as jobID, but functionally it does the verification as to whether a job is completed before the jobID is executed.",
                   "maxLength" : 50
                 },
                 "jobFrequency" : {
                   "type" : "string",
-                  "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered.",
+                  "description" : "Defines the frequency at which the job is processed next.  POSSIBLE VALUES: - D: Every working day.  - Dnn: Every nn'th working day. - W: Weekly every Friday.  - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered. - A: The job is picked on the any ad-hoc date. The next run date has to be updated manually.  - Y: Last working day of the year.  - Ynn: Last working day of the nn'th month.  - Jxxx: Always run with job name xxx.",
                   "maxLength" : 50
                 }
               }
@@ -1884,25 +1779,25 @@
           },
           "serviceId" : {
             "type" : "string",
-            "description" : "Contains the identifier name of the service that has to be executed.",
+            "description" : "Provides the id of the service that has to be run.",
             "maxLength" : 50
           },
           "instruction" : {
             "type" : "string",
-            "description" : "Contains the instruction control for the current service. Allowed values: - START: to start the current service. - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process."
+            "description" : "Used in the generation of messages/advices, this field can be used to stiputate any special or additional instructions to the Paying/Accepting/Negotiating Bank."
           },
           "processStatus" : {
             "type" : "string",
-            "description" : "Contains the current process status. Allowed values: - 0: Ready - 1: Running - 2: Completed successfully - 3: On hold or in error",
+            "description" : "The current process status.   Allowed values: - 0: Ready - 1: Running  - 2: Completed successfully  - 3: On hold or in error",
             "maxLength" : 2
           },
           "jobLastStartedAt" : {
             "type" : "string",
-            "description" : "Contains the time on which the service was started."
+            "description" : "The time on which the service was started."
           },
           "jobLastStoppedAt" : {
             "type" : "string",
-            "description" : "Contains the time on which the service was stopped."
+            "description" : "The time on which the service was stopped."
           }
         }
       }
@@ -2009,7 +1904,7 @@
         "properties" : {
           "serviceId" : {
             "type" : "string",
-            "description" : "Contains the identifier name of the service that has to be executed.",
+            "description" : "Provides the id of the service that has to be run.",
             "maxLength" : 30
           },
           "agentReference" : {
@@ -2019,28 +1914,28 @@
           },
           "serverName" : {
             "type" : "string",
-            "description" : "Contains the name of the Server on which the service will run.",
+            "description" : "Hostname of the Server on which the service will run.",
             "maxLength" : 35
           },
           "agentStatus" : {
             "type" : "string",
-            "description" : "Contains the status of the agent. Possible values: - RUNNING - STOPPED",
+            "description" : "The status of the agent.  Possible values: - RUNNING - STOPPED",
             "maxLength" : 35
           },
           "portId" : {
             "type" : "string",
-            "description" : "Contains the port on which agent is running",
+            "description" : "The port in which agent is running",
             "maxLength" : 12
           },
           "sessionNo" : {
             "type" : "number",
-            "description" : "Contains the session number in which the agent is running",
+            "description" : "The session number in which agent is running",
             "maximum" : 10
           },
           "lastContactTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the Last contact time of running agent."
+            "description" : "The Last contact time of agent."
           }
         }
       }
@@ -2068,56 +1963,56 @@
               "properties" : {
                 "controlList" : {
                   "type" : "string",
-                  "description" : "Contains the service control list of values to process",
+                  "description" : "Control List value.",
                   "maxLength" : 70
                 },
                 "processedJob" : {
                   "type" : "string",
-                  "description" : "Contains the total number of records/contracts that were processed",
+                  "description" : "The total number of records/contracts that was processed.",
                   "maxLength" : 70
                 },
                 "completed" : {
                   "type" : "string",
-                  "description" : "Contains the number of contracts completed processing.",
+                  "description" : "The number of contracts completed processing.",
                   "maxLength" : 70
                 },
                 "correlationId" : {
                   "type" : "string",
-                  "description" : "Unique reference to be used in service execution",
+                  "description" : "Unique reference to be used in service execution.",
                   "maxLength" : 70
                 },
                 "utcDate" : {
                   "type" : "string",
                   "format" : "date",
-                  "description" : "Co-ordinated Universal Date"
+                  "description" : "Co-ordinated Universal Date."
                 }
               }
             }
           },
           "serviceId" : {
             "type" : "string",
-            "description" : "Contains the identifier name of the service that has to be executed.",
+            "description" : "Provides the id of the service that has to be run.",
             "maxLength" : 70
           },
           "startTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the time job was started"
+            "description" : "The time job was started"
           },
           "endTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the time the job  ended."
+            "description" : "The time the job was ended.  "
           },
           "throughPut" : {
             "type" : "string",
-            "description" : "Contains the number of records processed per minute. Calculated as: keys processed / elapsed time * 60",
+            "description" : "The number of records processed per minute.   Calculated as:  keys processed / elapsed time * 60",
             "maxLength" : 70
           },
           "lastTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the time taken to complete the job. "
+            "description" : "The time taken to run the job.  Indicates the time taken to Select the job plus the time difference of Start time and End time."
           }
         }
       }
@@ -2150,40 +2045,40 @@
                 },
                 "sessionNo" : {
                   "type" : "number",
-                  "description" : "Contains the session number in which the agent is running",
+                  "description" : "The session number in which agent is running",
                   "maximum" : 3
                 },
                 "startTime" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "Contains the time job was started"
+                  "description" : "The time job was started"
                 },
                 "endTime" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "Contains the time the job  ended."
+                  "description" : "The time the job was ended.  "
                 },
                 "elapsedTime" : {
                   "type" : "string",
                   "format" : "date-time",
-                  "description" : "Contains the elapsed time of the report in seconds"
+                  "description" : "The elapsed time of the report in seconds."
                 },
                 "correlationId" : {
                   "type" : "string",
-                  "description" : "Unique reference to be used in service execution",
+                  "description" : "Unique reference to be used in service execution.",
                   "maxLength" : 80
                 },
                 "utcDate" : {
                   "type" : "string",
                   "format" : "date",
-                  "description" : "Co-ordinated Universal Date"
+                  "description" : "Co-ordinated Universal Date."
                 }
               }
             }
           },
           "reportName" : {
             "type" : "string",
-            "description" : "Contains the name of the process that produces the report",
+            "description" : "Contains the name of the process that produces the report.",
             "maxLength" : 70
           }
         }
@@ -2212,7 +2107,7 @@
               "properties" : {
                 "agentsRequired" : {
                   "type" : "number",
-                  "description" : "Contains the number of agents required",
+                  "description" : "The number of agents required",
                   "maximum" : 2
                 },
                 "workProfileTime" : {
@@ -2259,22 +2154,22 @@
           },
           "detailKey" : {
             "type" : "string",
-            "description" : "Contains the keys to the records that were saved at the time the error was reported.",
+            "description" : "The keys to those records that were saved at the time the error was reported.",
             "maxLength" : 30
           },
           "dateTime" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the date and time separated by '-'"
+            "description" : "Date and time separated by '-'"
           },
           "errorMessage" : {
             "type" : "string",
-            "description" : "Contains the description of the error.",
+            "description" : "Description of the error.",
             "maxLength" : 30
           },
           "applicationId" : {
             "type" : "string",
-            "description" : "Contains the application id of the service that has crashed due to error.",
+            "description" : "Application id.",
             "maxLength" : 2
           },
           "isFixRequired" : {
@@ -2285,7 +2180,7 @@
           "dateResolved" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Contains the date on which error has been resolved."
+            "description" : "The date on which error has been resolved."
           }
         }
       }

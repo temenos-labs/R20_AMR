@@ -30,7 +30,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -76,7 +76,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -155,7 +155,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -201,7 +201,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -294,8 +294,9 @@
           "description" : "The total number of records present"
         },
         "page_token" : {
-          "type" : "string",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request."
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
         }
       }
     },
@@ -322,7 +323,7 @@
           },
           "title" : {
             "type" : "string",
-            "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages.",
+            "description" : "Main menu title which user wants to display",
             "maxLength" : 35
           },
           "helpMenuId" : {
@@ -332,7 +333,7 @@
           },
           "description" : {
             "type" : "string",
-            "description" : "Contains the description of purpose of the payment.",
+            "description" : "The name used for display purposes",
             "maxLength" : 45
           },
           "menuDisplayId" : {
@@ -413,7 +414,7 @@
           },
           "title" : {
             "type" : "string",
-            "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages.",
+            "description" : "Main menu title which user wants to display",
             "maxLength" : 35
           },
           "helpMenuId" : {
@@ -423,7 +424,7 @@
           },
           "description" : {
             "type" : "string",
-            "description" : "Contains the description of purpose of the payment.",
+            "description" : "The name used for display purposes",
             "maxLength" : 45
           },
           "menuDisplayId" : {
@@ -485,12 +486,12 @@
           },
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "Valid application name which user want to include in this specific menu",
             "maxLength" : 65
           },
           "description" : {
             "type" : "string",
-            "description" : "Contains the description of purpose of the payment.",
+            "description" : "The name used for display purposes",
             "maxLength" : 45
           },
           "displayApplication" : {
@@ -552,12 +553,12 @@
           },
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "Valid application name which user want to include in this specific menu",
             "maxLength" : 65
           },
           "description" : {
             "type" : "string",
-            "description" : "Contains the description of purpose of the payment.",
+            "description" : "The name used for display purposes",
             "maxLength" : 45
           },
           "displayApplication" : {
@@ -626,7 +627,7 @@
             "properties" : {
               "title" : {
                 "type" : "string",
-                "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
+                "description" : "Main menu title which user wants to display"
               }
             }
           }
@@ -648,7 +649,7 @@
                   "properties" : {
                     "description" : {
                       "type" : "string",
-                      "description" : "Contains the description of purpose of the payment."
+                      "description" : "The name used for display purposes"
                     }
                   }
                 }
@@ -670,11 +671,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -714,7 +715,7 @@
             "properties" : {
               "title" : {
                 "type" : "string",
-                "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
+                "description" : "Main menu title which user wants to display"
               }
             }
           }
@@ -736,7 +737,7 @@
                   "properties" : {
                     "description" : {
                       "type" : "string",
-                      "description" : "Contains the description of purpose of the payment."
+                      "description" : "The name used for display purposes"
                     }
                   }
                 }
@@ -812,7 +813,7 @@
             "properties" : {
               "applicationName" : {
                 "type" : "string",
-                "description" : "The name of the application."
+                "description" : "Valid application name which user want to include in this specific menu"
               },
               "description" : {
                 "type" : "array",
@@ -821,7 +822,7 @@
                   "properties" : {
                     "description" : {
                       "type" : "string",
-                      "description" : "Contains the description of purpose of the payment."
+                      "description" : "The name used for display purposes"
                     }
                   }
                 }
@@ -857,7 +858,7 @@
             "properties" : {
               "applicationName" : {
                 "type" : "string",
-                "description" : "The name of the application."
+                "description" : "Valid application name which user want to include in this specific menu"
               },
               "description" : {
                 "type" : "array",
@@ -866,7 +867,7 @@
                   "properties" : {
                     "description" : {
                       "type" : "string",
-                      "description" : "Contains the description of purpose of the payment."
+                      "description" : "The name used for display purposes"
                     }
                   }
                 }

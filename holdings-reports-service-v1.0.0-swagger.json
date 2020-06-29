@@ -51,15 +51,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -100,7 +93,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Indicates the type of currency to which the account belongs",
           "required" : false,
           "type" : "string"
         }, {
@@ -178,15 +171,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -419,7 +405,7 @@
         }, {
           "name" : "depository",
           "in" : "query",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
           "required" : false,
           "type" : "string"
         }, {
@@ -455,7 +441,7 @@
         }, {
           "name" : "displayName",
           "in" : "query",
-          "description" : "Contains the name used for display or enrichment purposes",
+          "description" : "Name used for display or enrichment purposes",
           "required" : false,
           "type" : "string"
         }, {
@@ -485,7 +471,7 @@
         }, {
           "name" : "dateTime",
           "in" : "query",
-          "description" : "Contains the date and time separated by '-'",
+          "description" : "Date and time separated by '-'",
           "required" : false,
           "type" : "string"
         }, {
@@ -539,15 +525,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -598,7 +577,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -667,7 +646,7 @@
           },
           "yearToDate" : {
             "type" : "string",
-            "description" : ""
+            "description" : "The calculated value for the period  from the beginning of the year till current date."
           },
           "unrealizedMarkToMarket" : {
             "type" : "string",
@@ -878,7 +857,7 @@
         "properties" : {
           "contractId" : {
             "type" : "string",
-            "description" : "Identifies the unique identifier of the transaction or contract.",
+            "description" : "The identifier of the contract",
             "maxLength" : 12
           },
           "counterpartyId" : {
@@ -968,7 +947,7 @@
           },
           "depository" : {
             "type" : "string",
-            "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+            "description" : "The custodian where securities are held",
             "maxLength" : 20
           },
           "inputter" : {
@@ -998,7 +977,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "Name used for display or enrichment purposes",
             "maxLength" : 30
           },
           "orderStatus" : {
@@ -1023,7 +1002,7 @@
           },
           "dateTime" : {
             "type" : "string",
-            "description" : "Contains the date and time separated by '-'",
+            "description" : "Date and time separated by '-'",
             "maxLength" : 20
           },
           "fixingExerciseDate" : {

@@ -19,7 +19,6 @@
         "parameters" : [ {
           "name" : "guaranteeId",
           "in" : "path",
-          "description" : "Identifier of the guarantee",
           "required" : true,
           "type" : "string"
         }, {
@@ -37,15 +36,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -88,7 +80,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -104,7 +96,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -148,7 +140,7 @@
             "properties" : {
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               }
             }
           }
@@ -210,15 +202,14 @@
               },
               "chargeCurrency" : {
                 "type" : "string",
-                "description" : "Indicates the currency code of the charge account from where the fee is deducted"
+                "description" : "Holds the currency code of the charge account from where the fee is deducted"
               },
               "debitChargeAccount" : {
                 "type" : "string",
                 "description" : "The account from which the Charges will be debited"
               },
               "chargeCode" : {
-                "type" : "string",
-                "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example: C(Credit less Charges The Credit less Charges), D(Debit plus Charge The Debit plus Charge) , W(Waive)."
+                "type" : "string"
               }
             }
           }
@@ -229,8 +220,7 @@
             "type" : "object",
             "properties" : {
               "bankAddress" : {
-                "type" : "string",
-                "description" : "Hold the name and address of the RECEIVING.BANK."
+                "type" : "string"
               }
             }
           }
@@ -241,66 +231,63 @@
             "type" : "object",
             "properties" : {
               "detailOfGuarantee" : {
-                "type" : "string",
-                "description" : "This field contains all terms, conditions and details of the guarantee undertaking. "
+                "type" : "string"
               }
             }
           }
         },
         "guaranteeReference" : {
           "type" : "string",
-          "description" : "Another ID for the transaction for retrieval purposes or it can be used for the bank to use a unique guarantee number rather than the system generated ID"
+          "description" : "Another ID for the transaction for retrieval purposes"
         },
         "customerReference" : {
           "type" : "string",
-          "description" : "The reference which is provided to the beneficiary/ creditor by the originator of payment"
+          "description" : "The reference quoted by customer of the ordering account in a payment that is to be communicated to the beneficiary when a payment takes place"
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "guaranteeType" : {
           "type" : "string",
-          "description" : "Refers to the type of the contract that is being issued."
+          "description" : "Refers to the type of the contract that is being issued"
         },
         "productCategoryId" : {
           "type" : "string",
           "description" : "The identifier of the product category"
         },
         "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+          "type" : "string"
         },
         "amount" : {
-          "type" : "number",
-          "description" : "This is the payment amount"
+          "type" : "number"
         },
         "dealDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Date on which the deal was agreed. "
+          "description" : "The date on which the deal was made."
         },
         "expiryDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+          "description" : "The date an agreement such as a credit facility or limit is due to expire"
         },
         "maturityDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Indicates maturity date of the contract"
+          "description" : "The delivery period or maturity date of the contract transacted"
         },
         "limitReference" : {
           "type" : "string",
-          "description" : "Identifies the credit limit reference for the underlying account."
+          "description" : "Identifies the type of limit applicable to the Account"
         },
         "eventsProcessing" : {
           "type" : "string",
-          "description" : "Determines whether the principal movements and raising entries will occur Online or at End of Day Allowed values: - ONLINE (default) - END.OF.DAY"
+          "description" : "Determines whether the principal movements and raising entries will occur at Online or at End of Day"
         },
         "autoExpiry" : {
           "type" : "string",
-          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not Allowed values: - YES - NO - null (default value, same as NO)"
+          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not"
         },
         "marginToBeTaken" : {
           "type" : "string",
@@ -308,7 +295,7 @@
         },
         "releaseProvision" : {
           "type" : "string",
-          "description" : "Flag to enable the online release of the cash margin. Allowed values: - YES - null (default)"
+          "description" : "Field to decide whether the provision should be released or not"
         },
         "releaseAmount" : {
           "type" : "string",
@@ -320,15 +307,15 @@
         },
         "reinstateContract" : {
           "type" : "string",
-          "description" : "Indicates whether the Liquidated contracts  to be reinstated or not, Valid option is YES"
+          "description" : "Indicates whether the Liquidated contracts  to be reinstated or not"
         },
         "commissionRecalculationStartDate" : {
           "type" : "string",
-          "description" : "The date from which the commission is to be recalculated when the contract is reinstated."
+          "description" : "The date from which the commission is to be recalculated upon reinstation of the contract"
         },
         "takeMargin" : {
           "type" : "string",
-          "description" : "Field to check whether provision is to be taken for the transaction or not. YES or NO"
+          "description" : "Field to check whether provision is to be taken for the transaction or not"
         },
         "marginPercent" : {
           "type" : "string",
@@ -343,20 +330,17 @@
           "description" : "Field to state the account from which the provision amount is to be debited"
         },
         "receivingBank" : {
-          "type" : "string",
-          "description" : "Identifies the counter party Bank to whom the Guarantee message is to be sent when it is an issue of undertaking."
+          "type" : "string"
         },
         "applicableRule" : {
-          "type" : "string",
-          "description" : "Specifies the rules the Letter of credit is subject to. Following are the valid inputs under this field: UCP LATEST VERSION, EUCP LATEST VERSION, UCPURR LATEST VERSION, EUCPURR LATEST VERSION, ISP LATEST VERSION, OTHR. If OTHR is input then, the rule under which credit is subject to must be input in applicable rules description field."
+          "type" : "string"
         },
         "narrative" : {
           "type" : "string",
           "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference"
         },
         "furtherIdentification" : {
-          "type" : "string",
-          "description" : "This field identifies the purpose of the guarantee message (ISSUE or REQUEST). Ie to identify if the message conveys the issuance of guarantee from the guarantor or requesting the receiver bank to issue the another guarantee undertaking based on the undertaking received from guarantor."
+          "type" : "string"
         }
       }
     },
@@ -368,11 +352,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -384,7 +368,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -417,7 +401,7 @@
             "properties" : {
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               }
             }
           }
@@ -479,15 +463,14 @@
               },
               "chargeCurrency" : {
                 "type" : "string",
-                "description" : "Indicates the currency code of the charge account from where the fee is deducted"
+                "description" : "Holds the currency code of the charge account from where the fee is deducted"
               },
               "debitChargeAccount" : {
                 "type" : "string",
                 "description" : "The account from which the Charges will be debited"
               },
               "chargeCode" : {
-                "type" : "string",
-                "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example: C(Credit less Charges The Credit less Charges), D(Debit plus Charge The Debit plus Charge) , W(Waive)."
+                "type" : "string"
               }
             }
           }
@@ -498,8 +481,7 @@
             "type" : "object",
             "properties" : {
               "bankAddress" : {
-                "type" : "string",
-                "description" : "Hold the name and address of the RECEIVING.BANK."
+                "type" : "string"
               }
             }
           }
@@ -510,66 +492,63 @@
             "type" : "object",
             "properties" : {
               "detailOfGuarantee" : {
-                "type" : "string",
-                "description" : "This field contains all terms, conditions and details of the guarantee undertaking. "
+                "type" : "string"
               }
             }
           }
         },
         "guaranteeReference" : {
           "type" : "string",
-          "description" : "Another ID for the transaction for retrieval purposes or it can be used for the bank to use a unique guarantee number rather than the system generated ID"
+          "description" : "Another ID for the transaction for retrieval purposes"
         },
         "customerReference" : {
           "type" : "string",
-          "description" : "The reference which is provided to the beneficiary/ creditor by the originator of payment"
+          "description" : "The reference quoted by customer of the ordering account in a payment that is to be communicated to the beneficiary when a payment takes place"
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "guaranteeType" : {
           "type" : "string",
-          "description" : "Refers to the type of the contract that is being issued."
+          "description" : "Refers to the type of the contract that is being issued"
         },
         "productCategoryId" : {
           "type" : "string",
           "description" : "The identifier of the product category"
         },
         "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+          "type" : "string"
         },
         "amount" : {
-          "type" : "number",
-          "description" : "This is the payment amount"
+          "type" : "number"
         },
         "dealDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Date on which the deal was agreed. "
+          "description" : "The date on which the deal was made."
         },
         "expiryDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+          "description" : "The date an agreement such as a credit facility or limit is due to expire"
         },
         "maturityDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Indicates maturity date of the contract"
+          "description" : "The delivery period or maturity date of the contract transacted"
         },
         "limitReference" : {
           "type" : "string",
-          "description" : "Identifies the credit limit reference for the underlying account."
+          "description" : "Identifies the type of limit applicable to the Account"
         },
         "eventsProcessing" : {
           "type" : "string",
-          "description" : "Determines whether the principal movements and raising entries will occur Online or at End of Day Allowed values: - ONLINE (default) - END.OF.DAY"
+          "description" : "Determines whether the principal movements and raising entries will occur at Online or at End of Day"
         },
         "autoExpiry" : {
           "type" : "string",
-          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not Allowed values: - YES - NO - null (default value, same as NO)"
+          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not"
         },
         "marginToBeTaken" : {
           "type" : "string",
@@ -577,7 +556,7 @@
         },
         "releaseProvision" : {
           "type" : "string",
-          "description" : "Flag to enable the online release of the cash margin. Allowed values: - YES - null (default)"
+          "description" : "Field to decide whether the provision should be released or not"
         },
         "releaseAmount" : {
           "type" : "string",
@@ -589,15 +568,15 @@
         },
         "reinstateContract" : {
           "type" : "string",
-          "description" : "Indicates whether the Liquidated contracts  to be reinstated or not, Valid option is YES"
+          "description" : "Indicates whether the Liquidated contracts  to be reinstated or not"
         },
         "commissionRecalculationStartDate" : {
           "type" : "string",
-          "description" : "The date from which the commission is to be recalculated when the contract is reinstated."
+          "description" : "The date from which the commission is to be recalculated upon reinstation of the contract"
         },
         "takeMargin" : {
           "type" : "string",
-          "description" : "Field to check whether provision is to be taken for the transaction or not. YES or NO"
+          "description" : "Field to check whether provision is to be taken for the transaction or not"
         },
         "marginPercent" : {
           "type" : "string",
@@ -612,20 +591,17 @@
           "description" : "Field to state the account from which the provision amount is to be debited"
         },
         "receivingBank" : {
-          "type" : "string",
-          "description" : "Identifies the counter party Bank to whom the Guarantee message is to be sent when it is an issue of undertaking."
+          "type" : "string"
         },
         "applicableRule" : {
-          "type" : "string",
-          "description" : "Specifies the rules the Letter of credit is subject to. Following are the valid inputs under this field: UCP LATEST VERSION, EUCP LATEST VERSION, UCPURR LATEST VERSION, EUCPURR LATEST VERSION, ISP LATEST VERSION, OTHR. If OTHR is input then, the rule under which credit is subject to must be input in applicable rules description field."
+          "type" : "string"
         },
         "narrative" : {
           "type" : "string",
           "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference"
         },
         "furtherIdentification" : {
-          "type" : "string",
-          "description" : "This field identifies the purpose of the guarantee message (ISSUE or REQUEST). Ie to identify if the message conveys the issuance of guarantee from the guarantor or requesting the receiver bank to issue the another guarantee undertaking based on the undertaking received from guarantor."
+          "type" : "string"
         }
       }
     },

@@ -52,15 +52,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -108,7 +101,7 @@
         }, {
           "name" : "date",
           "in" : "query",
-          "description" : "Indicates the date on which activity was performed",
+          "description" : "Date in the format YYYYMMDD. E.g. 20191231",
           "required" : false,
           "type" : "string"
         }, {
@@ -132,15 +125,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -212,15 +198,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -292,15 +271,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -341,7 +313,6 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "required" : true,
           "type" : "string",
           "x-example" : "14095"
@@ -373,7 +344,7 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string",
           "x-example" : "GBP"
@@ -410,15 +381,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -466,14 +430,12 @@
         }, {
           "name" : "startDate",
           "in" : "query",
-          "description" : "Contains the date on which the transaction or payment gets initiated.",
           "required" : false,
           "type" : "string",
           "x-example" : "20190417"
         }, {
           "name" : "endDate",
           "in" : "query",
-          "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned",
           "required" : false,
           "type" : "string"
         }, {
@@ -498,7 +460,7 @@
         }, {
           "name" : "deltaList",
           "in" : "query",
-          "description" : "Indicates the entry from which the transaction history needs to be retrieved. If an end date is not specified, transactions from delta list till 'today' are retrieved. ",
+          "description" : "Indicates the entry from which the transaction history needs to be retreived. If an end date is not specified, transactions from delta list till 'today' are retreived. ",
           "required" : false,
           "type" : "string"
         }, {
@@ -528,15 +490,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -587,7 +542,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -645,7 +600,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 3
           },
           "openingBooked" : {
@@ -655,12 +610,12 @@
           },
           "interimBooked" : {
             "type" : "string",
-            "description" : "Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.",
+            "description" : "Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.",
             "maxLength" : 35
           },
           "interimAvailable" : {
             "type" : "string",
-            "description" : "Available balance calculated in the course of the account servicer’s business day, at the time specified. This balance will be subject to further changes during the business day. The interim balance is calculated on the basis of  booked credit and debit items during the calculation time/period specified.",
+            "description" : "Available balance calculated in the course of the account servicer’s business day, at the time specified. This balance will be subject to further changes during the business day. The interim balance is calculated on the basis of  booked credit and debit items during the calculation time/period specified.",
             "maxLength" : 35
           },
           "productId" : {
@@ -670,7 +625,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "Name used for display or enrichment purposes",
             "maxLength" : 35
           },
           "balances" : {
@@ -805,7 +760,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -882,7 +837,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+            "description" : "Identifies the currency. E.g. USD, GBP etc"
           },
           "referenceDate" : {
             "type" : "string",
@@ -890,7 +845,7 @@
           },
           "dateTime" : {
             "type" : "string",
-            "description" : "Contains the date and time separated by '-'"
+            "description" : "Date and time separated by '-'"
           }
         }
       }
@@ -933,7 +888,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+            "description" : "Identifies the currency. E.g. USD, GBP etc"
           },
           "ledgerBalance" : {
             "type" : "string",
@@ -984,7 +939,8 @@
             "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc."
           },
           "transactionReference" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Transaction reference identifier."
           },
           "endToEndReference" : {
             "type" : "string",
@@ -1113,7 +1069,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 19
           },
           "accountStatus" : {
@@ -1123,7 +1079,7 @@
           },
           "dateTime" : {
             "type" : "string",
-            "description" : "Contains the date and time separated by '-'",
+            "description" : "Date and time separated by '-'",
             "maxLength" : 20
           },
           "fundsAvailable" : {
@@ -1146,7 +1102,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -1230,6 +1186,7 @@
           },
           "transactionReference" : {
             "type" : "string",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 150
           },
           "accountCurrency" : {

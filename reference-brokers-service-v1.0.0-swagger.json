@@ -114,7 +114,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           }
         }

@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "required" : true,
           "type" : "string"
         }, {
@@ -45,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -94,7 +86,6 @@
         "parameters" : [ {
           "name" : "depositId",
           "in" : "path",
-          "description" : "Indicates the Id of the deposit account",
           "required" : true,
           "type" : "string"
         }, {
@@ -118,15 +109,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -167,7 +151,6 @@
         "parameters" : [ {
           "name" : "loanId",
           "in" : "path",
-          "description" : "Denotes the arrangement id of the loan",
           "required" : true,
           "type" : "string"
         }, {
@@ -191,15 +174,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -250,7 +226,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -303,17 +279,14 @@
         "properties" : {
           "sharedLimitAccounts" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "sharedLimitAccount" : {
-                  "type" : "string",
-                  "description" : "Denotes the account in which the credit card limit is assigned to the customer across all the credit cards"
+                  "type" : "string"
                 },
                 "sharedLimitAccountType" : {
-                  "type" : "string",
-                  "description" : "Indicates the type of shared limit account"
+                  "type" : "string"
                 }
               }
             }
@@ -338,29 +311,23 @@
               "type" : "object",
               "properties" : {
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
+                  "type" : "string"
                 },
                 "interestCompoundType" : {
-                  "type" : "string",
-                  "description" : "Indicates the interest compound type of an account"
+                  "type" : "string"
                 },
                 "interestCompoundTypeValue" : {
-                  "type" : "string",
-                  "description" : "Indicates the interest compound type value of an account"
+                  "type" : "string"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 },
                 "consolidateInterests" : {
                   "type" : "array",
@@ -368,8 +335,7 @@
                     "type" : "object",
                     "properties" : {
                       "consolidateInterest" : {
-                        "type" : "string",
-                        "description" : "Contains the sum of the cash interest expense and net of cash interest income of the borrower and the restricted subsidiaries determined on a consolidated basis"
+                        "type" : "string"
                       }
                     }
                   }
@@ -379,17 +345,14 @@
           },
           "sharedInterestAccounts" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "sharedInterestAccount" : {
-                  "type" : "string",
-                  "description" : "Contains the account details which shares the interest among the eligible or joint customers."
+                  "type" : "string"
                 },
                 "sharedInterestAccountType" : {
-                  "type" : "string",
-                  "description" : "Indicates the type of shared interest account"
+                  "type" : "string"
                 }
               }
             }
@@ -424,12 +387,10 @@
             }
           },
           "openActualBalance" : {
-            "type" : "number",
-            "description" : "Contains the opening actual balance of an account"
+            "type" : "number"
           },
           "availableOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Contains the overdraft limit still available to be utilized"
+            "type" : "number"
           },
           "openingDate" : {
             "type" : "string",
@@ -437,8 +398,7 @@
             "description" : "The date the account is opened."
           },
           "approvedOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Contains the approved overdraft limit"
+            "type" : "number"
           },
           "limitExpiryDate" : {
             "type" : "string",
@@ -446,57 +406,48 @@
             "description" : "This field specifies the validity of the Limit, i.e. how long is it to remain in force"
           },
           "availableFunds" : {
-            "type" : "number",
-            "description" : "Total funds available in the account after all the ongoing transactions have been completed"
+            "type" : "number"
           },
           "outstandingOverdraftLimit" : {
-            "type" : "number",
-            "description" : "Indicates the outstanding overdraft limit of an account"
+            "type" : "number"
           },
           "onlineClearedBalance" : {
             "type" : "number",
             "description" : "Indicates the available balance allowed to use"
           },
           "openClearedBalance" : {
-            "type" : "number",
-            "description" : "Indicates the opening balance after clearing"
+            "type" : "number"
           },
           "accountWithBankBIC" : {
             "type" : "string",
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }
@@ -682,17 +633,14 @@
                   "description" : "Indicates the payment frequency associated with the charge"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 }
               }
             }
@@ -732,7 +680,7 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "Identifier of the arrangement"
           },
           "currencyId" : {
             "type" : "string",
@@ -830,37 +778,31 @@
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }
@@ -896,12 +838,10 @@
                   "description" : "Indicates the interest property name"
                 },
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
+                  "type" : "string"
                 },
                 "compoundType" : {
-                  "type" : "string",
-                  "description" : "Contains the frequency type of compound in loan. For example, annually or monthly."
+                  "type" : "string"
                 },
                 "rateType" : {
                   "type" : "string",
@@ -909,7 +849,7 @@
                 },
                 "effectiveRate" : {
                   "type" : "string",
-                  "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value"
+                  "description" : "The actual interest rate for the account at this point in time."
                 },
                 "tierType" : {
                   "type" : "string",
@@ -924,17 +864,14 @@
                   "description" : "Amount of the balance"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 }
               }
             }
@@ -946,32 +883,26 @@
               "type" : "object",
               "properties" : {
                 "paidScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the paid dates for repayment."
+                  "type" : "string"
                 },
                 "dueScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the due dates for repayment."
+                  "type" : "string"
                 },
                 "futureScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the future scheduled payments involving the principal and interest for a given loan"
+                  "type" : "string"
                 },
                 "schedulePaymentType" : {
                   "type" : "string",
                   "description" : "Indicates payment schedule type"
                 },
                 "schedulePaymentMethod" : {
-                  "type" : "string",
-                  "description" : "Denotes the payment schedule method of the loan such as capitalise, pay, due and maintain."
+                  "type" : "string"
                 },
                 "scheduleProperty" : {
-                  "type" : "string",
-                  "description" : "Denotes the property of the loans schedule"
+                  "type" : "string"
                 },
                 "schedulePaymentAmount" : {
-                  "type" : "number",
-                  "description" : "Contains the amount payable in the schedule"
+                  "type" : "number"
                 },
                 "schedulePaymentFrequency" : {
                   "type" : "string",
@@ -982,7 +913,7 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "Identifier of the arrangement"
           },
           "currencyId" : {
             "type" : "string",
@@ -1017,8 +948,7 @@
             "description" : "Indicates next payment date for the contract"
           },
           "virtualBalance" : {
-            "type" : "string",
-            "description" : "Contains the virtual balance of the collateral"
+            "type" : "string"
           },
           "lastPayment" : {
             "type" : "string",
@@ -1030,45 +960,38 @@
             "description" : "Indicates the term for which the contract is booked"
           },
           "payoffRequest" : {
-            "type" : "string",
-            "description" : "Request for loans settlement"
+            "type" : "string"
           },
           "accountWithBankBIC" : {
             "type" : "string",
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }

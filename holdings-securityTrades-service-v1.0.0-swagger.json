@@ -63,12 +63,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -122,16 +116,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -180,46 +172,47 @@
               "properties" : {
                 "customerId" : {
                   "type" : "string",
-                  "description" : "Identifier of the customer"
+                  "description" : "Identifier of the customer",
+                  "maxLength" : 10
                 },
                 "customerName" : {
                   "type" : "string",
                   "description" : "Name of the customer"
                 },
                 "netAmount" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "Holds the total amount"
                 },
                 "interestAmount" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "The accrued Interest due or accrued."
                 },
                 "commission" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "The bank fees or commission charged for the transaction"
                 },
                 "taxAmount" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "Total amount of taxes applicable on all commission or charges calculated for the transaction/payment."
                 },
                 "foreignFee" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "This field Records the Foreign Fee amount charged to the Customer for the trade."
                 },
                 "miscellaneousFee" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "The amount of miscellaneous fees charged to the Customer for the trade"
                 },
                 "EBVFee" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "This field Records the amount of EBV Fees charged to the Customer for the trade."
                 },
                 "grossAmount" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "Contains the gross amount"
                 },
                 "grossInterestAccrued" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "Contains the sum of gross amount and interest accrued"
                 },
                 "nominalDetails" : {
@@ -229,10 +222,11 @@
                     "properties" : {
                       "quantity" : {
                         "type" : "number",
-                        "description" : "The nominal quantity"
+                        "description" : "The nominal quantity",
+                        "maximum" : 18
                       },
                       "price" : {
-                        "type" : "number",
+                        "type" : "string",
                         "description" : "The Price at which the nominal amount of the Security is to be valued for the transaction."
                       }
                     }
@@ -245,7 +239,8 @@
                     "properties" : {
                       "deliveryKey" : {
                         "type" : "string",
-                        "description" : "Delivery instruction reference"
+                        "description" : "Delivery instruction reference",
+                        "maxLength" : 30
                       },
                       "dateTime" : {
                         "type" : "string",
@@ -269,7 +264,8 @@
                     "properties" : {
                       "deliveryKey" : {
                         "type" : "string",
-                        "description" : "Delivery instruction reference"
+                        "description" : "Delivery instruction reference",
+                        "maxLength" : 30
                       },
                       "messageType" : {
                         "type" : "string",
@@ -317,7 +313,8 @@
           },
           "depositoryDeliveryKey" : {
             "type" : "string",
-            "description" : "Contains the swift message reference for the MT540-543"
+            "description" : "Contains the swift message reference for the MT540-543",
+            "maxLength" : 30
           },
           "dateTime" : {
             "type" : "string",
@@ -357,13 +354,11 @@
               "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -386,7 +381,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -414,7 +409,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -442,7 +437,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",

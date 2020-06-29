@@ -32,15 +32,9 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -92,15 +86,9 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -152,15 +140,9 @@
             "$ref" : "#/definitions/TransactionAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -212,15 +194,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -272,15 +248,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -332,15 +302,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -405,15 +369,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -465,15 +423,9 @@
             "$ref" : "#/definitions/BundleMasterArrangements"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -525,15 +477,9 @@
             "$ref" : "#/definitions/BundleMasterArrangements1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -583,15 +529,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -643,15 +583,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -703,15 +637,9 @@
             "$ref" : "#/definitions/CrossPoolAccountMovement"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -763,15 +691,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -823,15 +745,9 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -883,15 +799,9 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -943,15 +853,9 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1003,15 +907,9 @@
             "$ref" : "#/definitions/TransactionAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1063,15 +961,9 @@
             "$ref" : "#/definitions/SummaryAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1123,15 +1015,9 @@
             "$ref" : "#/definitions/SummaryAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1183,15 +1069,9 @@
             "$ref" : "#/definitions/TransactionAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1246,11 +1126,11 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
                   },
                   "code" : {
                     "type" : "string",
-                    "description" : "The identifier of the error message"
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -1266,7 +1146,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -1328,7 +1208,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -1342,19 +1221,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -1388,7 +1266,6 @@
                   },
                   "effectiveRate" : {
                     "type" : "string",
-                    "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value",
                     "minLength" : 0,
                     "maxLength" : 14
                   },
@@ -1424,7 +1301,7 @@
                         },
                         "marginRate" : {
                           "type" : "string",
-                          "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                          "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                           "minLength" : 0,
                           "maxLength" : 10
                         }
@@ -1452,7 +1329,7 @@
                   },
                   "linkedArrangement" : {
                     "type" : "string",
-                    "description" : "The account which is linked for calculating interest that should be applied to this account",
+                    "description" : "The Arrangement to be linked for calculating the Interest Rate",
                     "minLength" : 0,
                     "maxLength" : 18
                   }
@@ -1477,7 +1354,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -1489,7 +1366,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -1505,7 +1382,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1543,7 +1420,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -1557,19 +1433,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -1582,12 +1457,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1607,15 +1481,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1629,7 +1501,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -1640,7 +1512,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1674,7 +1546,6 @@
                           },
                           "effectiveRate" : {
                             "type" : "string",
-                            "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value",
                             "minLength" : 0,
                             "maxLength" : 14
                           },
@@ -1710,7 +1581,7 @@
                                 },
                                 "marginRate" : {
                                   "type" : "string",
-                                  "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                                  "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                                   "minLength" : 0,
                                   "maxLength" : 10
                                 }
@@ -1738,7 +1609,7 @@
                           },
                           "linkedArrangement" : {
                             "type" : "string",
-                            "description" : "The account which is linked for calculating interest that should be applied to this account",
+                            "description" : "The Arrangement to be linked for calculating the Interest Rate",
                             "minLength" : 0,
                             "maxLength" : 18
                           }
@@ -1766,15 +1637,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1787,15 +1656,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1808,15 +1675,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1829,15 +1694,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1850,15 +1713,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1871,15 +1732,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1892,15 +1751,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2126,7 +1983,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -2140,19 +1996,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -2186,7 +2041,6 @@
                   },
                   "effectiveRate" : {
                     "type" : "string",
-                    "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value",
                     "minLength" : 0,
                     "maxLength" : 14
                   },
@@ -2222,7 +2076,7 @@
                         },
                         "marginRate" : {
                           "type" : "string",
-                          "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                          "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                           "minLength" : 0,
                           "maxLength" : 10
                         }
@@ -2250,7 +2104,7 @@
                   },
                   "linkedArrangement" : {
                     "type" : "string",
-                    "description" : "The account which is linked for calculating interest that should be applied to this account",
+                    "description" : "The Arrangement to be linked for calculating the Interest Rate",
                     "minLength" : 0,
                     "maxLength" : 18
                   }
@@ -2295,7 +2149,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -2309,19 +2162,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -2334,12 +2186,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -2359,15 +2210,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2381,7 +2230,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -2392,7 +2241,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2426,7 +2275,6 @@
                           },
                           "effectiveRate" : {
                             "type" : "string",
-                            "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value",
                             "minLength" : 0,
                             "maxLength" : 14
                           },
@@ -2462,7 +2310,7 @@
                                 },
                                 "marginRate" : {
                                   "type" : "string",
-                                  "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                                  "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                                   "minLength" : 0,
                                   "maxLength" : 10
                                 }
@@ -2490,7 +2338,7 @@
                           },
                           "linkedArrangement" : {
                             "type" : "string",
-                            "description" : "The account which is linked for calculating interest that should be applied to this account",
+                            "description" : "The Arrangement to be linked for calculating the Interest Rate",
                             "minLength" : 0,
                             "maxLength" : 18
                           }
@@ -2518,15 +2366,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2539,15 +2385,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2560,15 +2404,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2581,15 +2423,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2602,15 +2442,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2623,15 +2461,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2644,15 +2480,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2665,15 +2499,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2686,15 +2518,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2707,15 +2537,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2728,15 +2556,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2804,7 +2630,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -2818,19 +2643,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -2844,7 +2668,6 @@
                 "properties" : {
                   "alias" : {
                     "type" : "string",
-                    "description" : "This field forms part of an associated multi-value set to specify the details of an Account during one of Restructure events.",
                     "minLength" : 0,
                     "maxLength" : 5
                   }
@@ -2858,7 +2681,6 @@
                 "properties" : {
                   "account" : {
                     "type" : "string",
-                    "description" : "Identifies the unique account Id of the payment entered.",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -2872,7 +2694,6 @@
                 "properties" : {
                   "customer" : {
                     "type" : "string",
-                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -2886,7 +2707,6 @@
                 "properties" : {
                   "company" : {
                     "type" : "string",
-                    "description" : "The company code",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -2900,7 +2720,6 @@
                 "properties" : {
                   "currency" : {
                     "type" : "string",
-                    "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -2914,7 +2733,6 @@
                 "properties" : {
                   "product" : {
                     "type" : "string",
-                    "description" : "Indicates an id or name of a product",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -2928,7 +2746,6 @@
                 "properties" : {
                   "name" : {
                     "type" : "string",
-                    "description" : "Short title for the Account to be created",
                     "minLength" : 0,
                     "maxLength" : 4
                   }
@@ -2942,7 +2759,6 @@
                 "properties" : {
                   "alternateReference" : {
                     "type" : "string",
-                    "description" : "If the new Account to be created is a shadow of another Account already exisitng in another system, then the Account reference of that system can be specified here. The value given in this field will be mapped to ALTERNATE.ID field in arrangement activity and ensure that this Account doesn't already exist in T24 with another reference (because ALTERNATE.ID would be configured to be unique across T24).",
                     "minLength" : 0,
                     "maxLength" : 18
                   }
@@ -2971,7 +2787,6 @@
                 "properties" : {
                   "level" : {
                     "type" : "string",
-                    "description" : "Captured for information purpose to render the placeholders in GUI",
                     "minLength" : 0,
                     "maxLength" : 5
                   }
@@ -2985,7 +2800,6 @@
                 "properties" : {
                   "goLiveDate" : {
                     "type" : "string",
-                    "description" : "Denotes the date on which the Account is expected to go live in cash pool structure. Input is prohibited when bundle is in Draft status Input is allowed for NEW.OFFER accounts only for setting live date for link type SET.LIVE.DATE Input is mandatory for any restructure activity on Live accounts. Restructure activity on preliminary accounts will be effective current dated.",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -2999,7 +2813,6 @@
                 "properties" : {
                   "linkType" : {
                     "type" : "string",
-                    "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row.",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -3013,7 +2826,6 @@
                 "properties" : {
                   "keepBalance" : {
                     "type" : "string",
-                    "description" : "When an Account is removed from a Hierarchy, it is possible to dictate if it should be removed with or without Balance. Allows YES and Null  Yes - The account will move out of pool with balance while delinking account or during change pool. Null - The account will move out of pool with ZERO balance while delinking/change pool. Amount will be settled to its settlement account.",
                     "minLength" : 0,
                     "maxLength" : 11
                   }
@@ -3027,7 +2839,6 @@
                 "properties" : {
                   "newMaster" : {
                     "type" : "string",
-                    "description" : "The new bundle reference is specified in this field when a account moves from the current pool to another pool. Accepts bundle arrangement reference.Bundle reference must be given with mnemonic in case of other company. Example AA24DGRYHY/CO3. This field is allowed to be input only for link type Change Pool..",
                     "minLength" : 0,
                     "maxLength" : 9
                   }
@@ -3081,7 +2892,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -3095,19 +2905,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -3120,12 +2929,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -3146,7 +2954,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -3157,7 +2965,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3171,7 +2979,6 @@
                         "properties" : {
                           "alias" : {
                             "type" : "string",
-                            "description" : "This field forms part of an associated multi-value set to specify the details of an Account during one of Restructure events.",
                             "minLength" : 0,
                             "maxLength" : 5
                           }
@@ -3185,7 +2992,6 @@
                         "properties" : {
                           "account" : {
                             "type" : "string",
-                            "description" : "Identifies the unique account Id of the payment entered.",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -3199,7 +3005,6 @@
                         "properties" : {
                           "customer" : {
                             "type" : "string",
-                            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -3213,7 +3018,6 @@
                         "properties" : {
                           "company" : {
                             "type" : "string",
-                            "description" : "The company code",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -3227,7 +3031,6 @@
                         "properties" : {
                           "currency" : {
                             "type" : "string",
-                            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -3241,7 +3044,6 @@
                         "properties" : {
                           "product" : {
                             "type" : "string",
-                            "description" : "Indicates an id or name of a product",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -3255,7 +3057,6 @@
                         "properties" : {
                           "name" : {
                             "type" : "string",
-                            "description" : "Short title for the Account to be created",
                             "minLength" : 0,
                             "maxLength" : 4
                           }
@@ -3269,7 +3070,6 @@
                         "properties" : {
                           "alternateReference" : {
                             "type" : "string",
-                            "description" : "If the new Account to be created is a shadow of another Account already exisitng in another system, then the Account reference of that system can be specified here. The value given in this field will be mapped to ALTERNATE.ID field in arrangement activity and ensure that this Account doesn't already exist in T24 with another reference (because ALTERNATE.ID would be configured to be unique across T24).",
                             "minLength" : 0,
                             "maxLength" : 18
                           }
@@ -3298,7 +3098,6 @@
                         "properties" : {
                           "level" : {
                             "type" : "string",
-                            "description" : "Captured for information purpose to render the placeholders in GUI",
                             "minLength" : 0,
                             "maxLength" : 5
                           }
@@ -3312,7 +3111,6 @@
                         "properties" : {
                           "goLiveDate" : {
                             "type" : "string",
-                            "description" : "Denotes the date on which the Account is expected to go live in cash pool structure. Input is prohibited when bundle is in Draft status Input is allowed for NEW.OFFER accounts only for setting live date for link type SET.LIVE.DATE Input is mandatory for any restructure activity on Live accounts. Restructure activity on preliminary accounts will be effective current dated.",
                             "minLength" : 0,
                             "maxLength" : 10
                           }
@@ -3326,7 +3124,6 @@
                         "properties" : {
                           "linkType" : {
                             "type" : "string",
-                            "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row.",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -3340,7 +3137,6 @@
                         "properties" : {
                           "keepBalance" : {
                             "type" : "string",
-                            "description" : "When an Account is removed from a Hierarchy, it is possible to dictate if it should be removed with or without Balance. Allows YES and Null  Yes - The account will move out of pool with balance while delinking account or during change pool. Null - The account will move out of pool with ZERO balance while delinking/change pool. Amount will be settled to its settlement account.",
                             "minLength" : 0,
                             "maxLength" : 11
                           }
@@ -3354,7 +3150,6 @@
                         "properties" : {
                           "newMaster" : {
                             "type" : "string",
-                            "description" : "The new bundle reference is specified in this field when a account moves from the current pool to another pool. Accepts bundle arrangement reference.Bundle reference must be given with mnemonic in case of other company. Example AA24DGRYHY/CO3. This field is allowed to be input only for link type Change Pool..",
                             "minLength" : 0,
                             "maxLength" : 9
                           }
@@ -3400,7 +3195,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -3414,7 +3209,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -3455,27 +3250,22 @@
         "properties" : {
           "recipientProduct" : {
             "type" : "string",
-            "description" : "The field recipientProduct denotes the product name of the interest recipient.",
             "maxLength" : 30
           },
           "recipientProperty" : {
             "type" : "string",
-            "description" : "The field PROPERTY will accept a valid property from the recipient product.",
             "maxLength" : 30
           },
           "donorProduct" : {
             "type" : "string",
-            "description" : "The field donorproduct denotes the product name of the interest donor",
             "maxLength" : 30
           },
           "donorProperty" : {
             "type" : "string",
-            "description" : "The field PROPERTY will accept a valid property from the donor product.",
             "maxLength" : 30
           },
           "donorAccrual" : {
             "type" : "string",
-            "description" : "This field Indicates whether accruals needs to be Suppressed or Accrual should be done for the Alternate Interest Property.",
             "maxLength" : 20
           }
         }
@@ -3644,7 +3434,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -3658,19 +3447,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -3689,7 +3477,6 @@
                   },
                   "product" : {
                     "type" : "string",
-                    "description" : "Indicates an id or name of a product",
                     "minLength" : 0,
                     "maxLength" : 7
                   },
@@ -3715,7 +3502,6 @@
                         },
                         "currency" : {
                           "type" : "string",
-                          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                           "minLength" : 0,
                           "maxLength" : 8
                         }
@@ -3734,7 +3520,7 @@
                         },
                         "propertyType" : {
                           "type" : "string",
-                          "description" : "Values selected to determine action on condition e.g. accounting rules only changed at product level. Standard set of values to select from.",
+                          "description" : "The property type of the arrangement e.g. Forward.dated, product.only, credit etc.",
                           "minLength" : 0,
                           "maxLength" : 12
                         }
@@ -3773,7 +3559,6 @@
                 "properties" : {
                   "alias" : {
                     "type" : "string",
-                    "description" : "This field forms part of an associated multi-value set to specify the details of an Account during one of Restructure events.",
                     "minLength" : 0,
                     "maxLength" : 5
                   }
@@ -3787,7 +3572,6 @@
                 "properties" : {
                   "account" : {
                     "type" : "string",
-                    "description" : "Identifies the unique account Id of the payment entered.",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -3801,7 +3585,6 @@
                 "properties" : {
                   "customer" : {
                     "type" : "string",
-                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -3815,7 +3598,6 @@
                 "properties" : {
                   "company" : {
                     "type" : "string",
-                    "description" : "The company code",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -3829,7 +3611,6 @@
                 "properties" : {
                   "currency" : {
                     "type" : "string",
-                    "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -3843,7 +3624,6 @@
                 "properties" : {
                   "product" : {
                     "type" : "string",
-                    "description" : "Indicates an id or name of a product",
                     "minLength" : 0,
                     "maxLength" : 7
                   }
@@ -3857,7 +3637,6 @@
                 "properties" : {
                   "name" : {
                     "type" : "string",
-                    "description" : "Short title for the Account to be created",
                     "minLength" : 0,
                     "maxLength" : 4
                   }
@@ -3871,7 +3650,6 @@
                 "properties" : {
                   "alternateReference" : {
                     "type" : "string",
-                    "description" : "If the new Account to be created is a shadow of another Account already exisitng in another system, then the Account reference of that system can be specified here. The value given in this field will be mapped to ALTERNATE.ID field in arrangement activity and ensure that this Account doesn't already exist in T24 with another reference (because ALTERNATE.ID would be configured to be unique across T24).",
                     "minLength" : 0,
                     "maxLength" : 18
                   }
@@ -3900,7 +3678,6 @@
                 "properties" : {
                   "level" : {
                     "type" : "string",
-                    "description" : "Captured for information purpose to render the placeholders in GUI",
                     "minLength" : 0,
                     "maxLength" : 5
                   }
@@ -3914,7 +3691,6 @@
                 "properties" : {
                   "goLiveDate" : {
                     "type" : "string",
-                    "description" : "Denotes the date on which the Account is expected to go live in cash pool structure. Input is prohibited when bundle is in Draft status Input is allowed for NEW.OFFER accounts only for setting live date for link type SET.LIVE.DATE Input is mandatory for any restructure activity on Live accounts. Restructure activity on preliminary accounts will be effective current dated.",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -3928,7 +3704,6 @@
                 "properties" : {
                   "linkType" : {
                     "type" : "string",
-                    "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row.",
                     "minLength" : 0,
                     "maxLength" : 8
                   }
@@ -3942,7 +3717,6 @@
                 "properties" : {
                   "keepBalance" : {
                     "type" : "string",
-                    "description" : "When an Account is removed from a Hierarchy, it is possible to dictate if it should be removed with or without Balance. Allows YES and Null  Yes - The account will move out of pool with balance while delinking account or during change pool. Null - The account will move out of pool with ZERO balance while delinking/change pool. Amount will be settled to its settlement account.",
                     "minLength" : 0,
                     "maxLength" : 11
                   }
@@ -3956,7 +3730,6 @@
                 "properties" : {
                   "newMaster" : {
                     "type" : "string",
-                    "description" : "The new bundle reference is specified in this field when a account moves from the current pool to another pool. Accepts bundle arrangement reference.Bundle reference must be given with mnemonic in case of other company. Example AA24DGRYHY/CO3. This field is allowed to be input only for link type Change Pool..",
                     "minLength" : 0,
                     "maxLength" : 9
                   }
@@ -4010,7 +3783,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -4024,19 +3796,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -4049,12 +3820,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -4075,7 +3845,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -4086,7 +3856,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4105,7 +3875,6 @@
                           },
                           "product" : {
                             "type" : "string",
-                            "description" : "Indicates an id or name of a product",
                             "minLength" : 0,
                             "maxLength" : 7
                           },
@@ -4131,7 +3900,6 @@
                                 },
                                 "currency" : {
                                   "type" : "string",
-                                  "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                                   "minLength" : 0,
                                   "maxLength" : 8
                                 }
@@ -4150,7 +3918,7 @@
                                 },
                                 "propertyType" : {
                                   "type" : "string",
-                                  "description" : "Values selected to determine action on condition e.g. accounting rules only changed at product level. Standard set of values to select from.",
+                                  "description" : "The property type of the arrangement e.g. Forward.dated, product.only, credit etc.",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 }
@@ -4189,7 +3957,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -4200,7 +3968,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4214,7 +3982,6 @@
                         "properties" : {
                           "alias" : {
                             "type" : "string",
-                            "description" : "This field forms part of an associated multi-value set to specify the details of an Account during one of Restructure events.",
                             "minLength" : 0,
                             "maxLength" : 5
                           }
@@ -4228,7 +3995,6 @@
                         "properties" : {
                           "account" : {
                             "type" : "string",
-                            "description" : "Identifies the unique account Id of the payment entered.",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -4242,7 +4008,6 @@
                         "properties" : {
                           "customer" : {
                             "type" : "string",
-                            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -4256,7 +4021,6 @@
                         "properties" : {
                           "company" : {
                             "type" : "string",
-                            "description" : "The company code",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -4270,7 +4034,6 @@
                         "properties" : {
                           "currency" : {
                             "type" : "string",
-                            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -4284,7 +4047,6 @@
                         "properties" : {
                           "product" : {
                             "type" : "string",
-                            "description" : "Indicates an id or name of a product",
                             "minLength" : 0,
                             "maxLength" : 7
                           }
@@ -4298,7 +4060,6 @@
                         "properties" : {
                           "name" : {
                             "type" : "string",
-                            "description" : "Short title for the Account to be created",
                             "minLength" : 0,
                             "maxLength" : 4
                           }
@@ -4312,7 +4073,6 @@
                         "properties" : {
                           "alternateReference" : {
                             "type" : "string",
-                            "description" : "If the new Account to be created is a shadow of another Account already exisitng in another system, then the Account reference of that system can be specified here. The value given in this field will be mapped to ALTERNATE.ID field in arrangement activity and ensure that this Account doesn't already exist in T24 with another reference (because ALTERNATE.ID would be configured to be unique across T24).",
                             "minLength" : 0,
                             "maxLength" : 18
                           }
@@ -4341,7 +4101,6 @@
                         "properties" : {
                           "level" : {
                             "type" : "string",
-                            "description" : "Captured for information purpose to render the placeholders in GUI",
                             "minLength" : 0,
                             "maxLength" : 5
                           }
@@ -4355,7 +4114,6 @@
                         "properties" : {
                           "goLiveDate" : {
                             "type" : "string",
-                            "description" : "Denotes the date on which the Account is expected to go live in cash pool structure. Input is prohibited when bundle is in Draft status Input is allowed for NEW.OFFER accounts only for setting live date for link type SET.LIVE.DATE Input is mandatory for any restructure activity on Live accounts. Restructure activity on preliminary accounts will be effective current dated.",
                             "minLength" : 0,
                             "maxLength" : 10
                           }
@@ -4369,7 +4127,6 @@
                         "properties" : {
                           "linkType" : {
                             "type" : "string",
-                            "description" : "Denotes associated multi value set to specify Accounts involved in the Pool Restructuring and dictates what should happen to the Account in the corresponding row.",
                             "minLength" : 0,
                             "maxLength" : 8
                           }
@@ -4383,7 +4140,6 @@
                         "properties" : {
                           "keepBalance" : {
                             "type" : "string",
-                            "description" : "When an Account is removed from a Hierarchy, it is possible to dictate if it should be removed with or without Balance. Allows YES and Null  Yes - The account will move out of pool with balance while delinking account or during change pool. Null - The account will move out of pool with ZERO balance while delinking/change pool. Amount will be settled to its settlement account.",
                             "minLength" : 0,
                             "maxLength" : 11
                           }
@@ -4397,7 +4153,6 @@
                         "properties" : {
                           "newMaster" : {
                             "type" : "string",
-                            "description" : "The new bundle reference is specified in this field when a account moves from the current pool to another pool. Accepts bundle arrangement reference.Bundle reference must be given with mnemonic in case of other company. Example AA24DGRYHY/CO3. This field is allowed to be input only for link type Change Pool..",
                             "minLength" : 0,
                             "maxLength" : 9
                           }
@@ -4452,7 +4207,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -4466,19 +4220,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -4579,7 +4332,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -4593,19 +4345,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -4618,12 +4369,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -4644,7 +4394,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -4655,7 +4405,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4789,7 +4539,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -4803,19 +4552,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -4835,7 +4583,7 @@
                   },
                   "allowedProduct" : {
                     "type" : "string",
-                    "description" : "Product or products allowed to be used within the product bundle.",
+                    "description" : "List of relevant allowed product identifiers",
                     "minLength" : 0,
                     "maxLength" : 14
                   },
@@ -4883,7 +4631,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -4897,19 +4644,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -4922,12 +4668,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -4948,7 +4693,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -4959,7 +4704,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4979,7 +4724,7 @@
                           },
                           "allowedProduct" : {
                             "type" : "string",
-                            "description" : "Product or products allowed to be used within the product bundle.",
+                            "description" : "List of relevant allowed product identifiers",
                             "minLength" : 0,
                             "maxLength" : 14
                           },
@@ -5058,7 +4803,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -5072,19 +4816,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -5093,13 +4836,11 @@
           "properties" : {
             "creditCheck" : {
               "type" : "string",
-              "description" : "Set to yes if the Collateral Surplus Deficit is positive",
               "minLength" : 0,
               "maxLength" : 19
             },
             "transactionType" : {
               "type" : "string",
-              "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
               "minLength" : 0,
               "maxLength" : 19
             },
@@ -5136,7 +4877,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -5150,19 +4890,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -5175,12 +4914,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -5201,7 +4939,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -5212,7 +4950,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -5221,13 +4959,11 @@
                   "properties" : {
                     "creditCheck" : {
                       "type" : "string",
-                      "description" : "Set to yes if the Collateral Surplus Deficit is positive",
                       "minLength" : 0,
                       "maxLength" : 19
                     },
                     "transactionType" : {
                       "type" : "string",
-                      "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
                       "minLength" : 0,
                       "maxLength" : 19
                     },
@@ -5295,7 +5031,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0,
                 "maxLength" : 45
               }
@@ -5309,19 +5044,18 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "minLength" : 0,
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -5330,13 +5064,11 @@
           "properties" : {
             "creditCheck" : {
               "type" : "string",
-              "description" : "Set to yes if the Collateral Surplus Deficit is positive",
               "minLength" : 0,
               "maxLength" : 19
             },
             "transactionType" : {
               "type" : "string",
-              "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
               "minLength" : 0,
               "maxLength" : 19
             },
@@ -5373,7 +5105,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0,
                     "maxLength" : 45
                   }
@@ -5387,19 +5118,18 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "minLength" : 0,
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 45
             }
@@ -5412,12 +5142,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -5438,7 +5167,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -5449,7 +5178,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -5458,13 +5187,11 @@
                   "properties" : {
                     "creditCheck" : {
                       "type" : "string",
-                      "description" : "Set to yes if the Collateral Surplus Deficit is positive",
                       "minLength" : 0,
                       "maxLength" : 19
                     },
                     "transactionType" : {
                       "type" : "string",
-                      "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
                       "minLength" : 0,
                       "maxLength" : 19
                     },

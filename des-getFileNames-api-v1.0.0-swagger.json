@@ -19,19 +19,16 @@
         "parameters" : [ {
           "name" : "companyMnemonic",
           "in" : "query",
-          "description" : "Shortcut code for referring an Entity/Company/Branch related to the image record",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "applicationName",
           "in" : "query",
-          "description" : "The name of the application.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "patternType",
           "in" : "query",
-          "description" : "Specifies the pattern to match in the filter criteria",
           "required" : true,
           "type" : "string"
         }, {
@@ -55,15 +52,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -114,7 +104,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -165,6 +155,10 @@
       "items" : {
         "type" : "object",
         "properties" : {
+          "applicationName" : {
+            "type" : "string",
+            "description" : "The name of the application. "
+          },
           "t24FileName" : {
             "type" : "string",
             "description" : "Specifies the applications available under a specific company"

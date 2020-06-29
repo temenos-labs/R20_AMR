@@ -34,7 +34,7 @@
         }, {
           "name" : "date",
           "in" : "query",
-          "description" : "Indicates the date on which activity was performed",
+          "description" : "Basde on this date the balances are returned.",
           "required" : false,
           "type" : "string"
         }, {
@@ -177,37 +177,30 @@
             "type" : "object",
             "properties" : {
               "balanceType" : {
-                "type" : "string",
-                "description" : "Type of balance (e.g. current balance, credit interest accrued, deferred commission, etc.) as defined in the institution's accounting schemas."
+                "type" : "string"
               },
               "creditLimitIncluded" : {
-                "type" : "string",
-                "description" : "Identifies whether the credit limit amount has been included in the balance amount. Set to 'true' if the associated balance amount includes value of credit limits"
+                "type" : "string"
               },
               "lastChangeDateTime" : {
-                "type" : "string",
-                "description" : "Indicates the ISO date time zone in which the latest statement record fetched or the transaction committed."
+                "type" : "string"
               },
               "lastCommittedTransaction" : {
-                "type" : "string",
-                "description" : "Contains the record of the last committed transaction"
+                "type" : "string"
               },
               "balanceAmount" : {
                 "type" : "object",
                 "properties" : {
                   "amount" : {
-                    "type" : "string",
-                    "description" : "This is the payment amount"
+                    "type" : "string"
                   },
                   "currency" : {
-                    "type" : "string",
-                    "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                    "type" : "string"
                   }
                 }
               },
               "referenceDate" : {
-                "type" : "string",
-                "description" : "Booking date on which the transaction is committed "
+                "type" : "string"
               }
             }
           }
@@ -216,19 +209,16 @@
           "type" : "object",
           "properties" : {
             "bban" : {
-              "type" : "string",
-              "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+              "type" : "string"
             },
             "maskedPan" : {
               "type" : "string"
             },
             "iban" : {
-              "type" : "string",
-              "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+              "type" : "string"
             },
             "currency" : {
-              "type" : "string",
-              "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+              "type" : "string"
             },
             "pan" : {
               "type" : "string"

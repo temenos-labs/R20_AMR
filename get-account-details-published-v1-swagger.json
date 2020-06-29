@@ -22,13 +22,13 @@
         }, {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "withBalance",
           "in" : "query",
-          "description" : "Identifies whether balance information needs to be retrieved. Possible values YES or NO. Default is NO.",
+          "description" : "Generally used in delinking with balance when one account is being delinked with some balance",
           "required" : false,
           "type" : "string"
         }, {
@@ -120,40 +120,35 @@
         "properties" : {
           "status" : {
             "type" : "string",
-            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+            "description" : "The status identifier",
             "maxLength" : 25
           },
           "bban" : {
-            "type" : "string",
-            "description" : "Basic Bank Account Number, represents a country-specific bank account number."
+            "type" : "string"
           },
           "name" : {
-            "type" : "string",
-            "description" : "Short title for the Account to be created"
+            "type" : "string"
           },
           "bookedBalance" : {
             "type" : "string",
-            "description" : "Balances of the account as per the Booking dated."
+            "description" : "The total of all entries posted against the account excluding any entries with the processing date in the future."
           },
           "iban" : {
             "type" : "string",
-            "description" : "International Bank Account number, an identifier of the account. E.g. GB29 NWBK 6016 1331 9268 19"
+            "description" : "The International Bank Account Number (IBAN) is an internationally agreed system of identifying bank accounts across national borders. The current standard is ISO 13616:2007. The IBAN consists of up to 34 alphanumeric characters comprising: a country code; two check digits; and a number that includes the domestic bank account number, branch identifier, and potential routing information. The check digits enable a check of the bank account number to confirm its integrity before submitting a transaction."
           },
           "currency" : {
-            "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+            "type" : "string"
           },
           "bic" : {
-            "type" : "string",
-            "description" : "The BIC code of the Beneficiary bank"
+            "type" : "string"
           },
           "product" : {
-            "type" : "string",
-            "description" : "Indicates an id or name of a product"
+            "type" : "string"
           },
           "availableBalance" : {
             "type" : "string",
-            "description" : "Available balance of the account which is the projected balance which includes the net movements of both debits and credits against the account."
+            "description" : "Projected net movements of funds against the account. Depending on the setup in the field AVAILABLE.BAL.UPD in the ACCOUNT.PARAMETER record, may or may not include unauthorised debits, credits, both debits and credits."
           }
         }
       }

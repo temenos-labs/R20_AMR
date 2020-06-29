@@ -3,7 +3,7 @@
   "info" : {
     "description" : "Allows the creation, viewing and management of messages to and from customers.",
     "version" : "v1.0.0",
-    "title" : "Party Customers Messages APIs"
+    "title" : "Party Customer Secure Messages APIs"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0",
@@ -16,7 +16,7 @@
         "parameters" : [ {
           "name" : "messageId",
           "in" : "path",
-          "description" : "The holds the record key of the message ID.",
+          "description" : "The identifier of the message",
           "required" : true,
           "type" : "string"
         } ],
@@ -41,7 +41,7 @@
         "parameters" : [ {
           "name" : "messageId",
           "in" : "path",
-          "description" : "The holds the record key of the message ID.",
+          "description" : "The identifier of the message",
           "required" : true,
           "type" : "string"
         }, {
@@ -82,13 +82,12 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "messageId",
           "in" : "path",
-          "description" : "The holds the record key of the message ID.",
+          "description" : "The identifier of the message",
           "required" : true,
           "type" : "string"
         } ],
@@ -113,13 +112,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "messageId",
           "in" : "path",
-          "description" : "The holds the record key of the message ID.",
+          "description" : "The identifier of the message",
           "required" : true,
           "type" : "string"
         }, {
@@ -193,7 +192,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -238,7 +237,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -299,13 +298,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -316,23 +313,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -348,11 +345,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -387,13 +384,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -404,23 +399,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -515,13 +510,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -532,23 +525,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -612,13 +605,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -629,23 +620,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -709,13 +700,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -726,19 +715,19 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -762,13 +751,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -779,23 +766,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -859,13 +846,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -876,19 +861,19 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -912,13 +897,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -929,23 +912,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -980,13 +963,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -997,19 +978,19 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -1033,13 +1014,11 @@
       "properties" : {
         "messages" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+                "type" : "string"
               }
             }
           }
@@ -1050,23 +1029,23 @@
         },
         "parentMessageId" : {
           "type" : "string",
-          "description" : "Identifier of the parent message."
+          "description" : "The identifier of the parent message."
         },
         "fromCustomerId" : {
           "type" : "string",
-          "description" : "The Customer ID from which the message is triggered."
+          "description" : "Identifies the first customerId in a range"
         },
         "messageStatus" : {
           "type" : "string",
-          "description" : "Status of the message"
+          "description" : "The status of a financial message"
         },
         "toAccountOfficerId" : {
           "type" : "string",
-          "description" : "Id of the Account Officer, to which the message is to be sent"
+          "description" : "The unique account officer identifier"
         },
         "uploadId" : {
           "type" : "string",
-          "description" : "The unique identifier of the uploaded file"
+          "description" : "The unique ID of the uploaded file"
         },
         "uploadPath" : {
           "type" : "string",
@@ -1196,13 +1175,11 @@
         "properties" : {
           "messages" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "message" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
@@ -1212,12 +1189,12 @@
           },
           "toStatus" : {
             "type" : "string",
-            "description" : "Status of the message.  POSSIBLE VALUES: UNREAD (Default) READ",
+            "description" : "Defines the status of the message",
             "maxLength" : 35
           },
           "messageId" : {
             "type" : "string",
-            "description" : "The holds the record key of the message ID.",
+            "description" : "The identifier of the message",
             "maxLength" : 35
           },
           "subject" : {
@@ -1227,12 +1204,12 @@
           },
           "dateSent" : {
             "type" : "string",
-            "description" : "The date when the message is sent.",
+            "description" : "Holds the date when the item was sent.",
             "maxLength" : 11
           },
           "sentAt" : {
             "type" : "string",
-            "description" : "The time on which the message was sent.",
+            "description" : "The sent at time",
             "maxLength" : 35
           },
           "fromDepartmentId" : {
@@ -1242,17 +1219,17 @@
           },
           "fromDepartmentName" : {
             "type" : "string",
-            "description" : "The Account Officer in the department account officer table department account officer tab",
+            "description" : "The display name of the originating department",
             "maxLength" : 35
           },
           "parentMessageId" : {
             "type" : "string",
-            "description" : "Identifier of the parent message.",
+            "description" : "The identifier of the parent message.",
             "maxLength" : 35
           },
           "toDepartmentId" : {
             "type" : "string",
-            "description" : "The unique department identifier, to which the message is to be sent.",
+            "description" : "The unique department identifier, to which the message is to be sent",
             "maxLength" : 35
           },
           "toDepartmentName" : {
@@ -1262,22 +1239,21 @@
           },
           "toCustomerId" : {
             "type" : "string",
-            "description" : "The unique customer identifier of the Payee, to whom the payment message is to be sent",
+            "description" : "The unique customer identifier, to whom the message is to be sent ",
             "maxLength" : 10
           },
           "fromCustomerId" : {
             "type" : "string",
-            "description" : "The Customer ID from which the message is triggered.",
+            "description" : "Identifies the first customerId in a range",
             "maxLength" : 10
           },
           "uploadId" : {
             "type" : "string",
-            "description" : "The unique identifier of the uploaded file",
+            "description" : "The unique ID of the uploaded file",
             "maxLength" : 12
           },
           "fileUpload" : {
             "type" : "string",
-            "description" : "Uses a file browser to locate and display the file. ",
             "maxLength" : 50
           }
         }

@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "Identifier of the arrangement",
           "required" : true,
           "type" : "string"
         }, {
@@ -55,15 +55,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -114,7 +107,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -168,7 +161,7 @@
           "arrangementEffectiveDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "It is a date on/upon which an account is considered to take effect"
+            "description" : "Date from which the arrangement activity is effective"
           },
           "limitSchedule" : {
             "type" : "number",

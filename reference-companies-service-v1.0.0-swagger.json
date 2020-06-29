@@ -109,22 +109,22 @@
         "properties" : {
           "companyId" : {
             "type" : "string",
-            "description" : "The identifier of the underlying Entity/Company/Branch.",
+            "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
             "maxLength" : 11
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 22
           },
           "mnemonic" : {
             "type" : "string",
-            "description" : "Shortcut code for referring an Entity/Company/Branch.",
+            "description" : "The alternative means of referencing the record",
             "maxLength" : 3
           },
           "languageId" : {
             "type" : "number",
-            "description" : "Represents the language code of the underlying Entity/Company/Branch."
+            "description" : "The identifier of the language"
           }
         }
       }

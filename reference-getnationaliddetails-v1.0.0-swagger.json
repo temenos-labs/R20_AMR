@@ -27,13 +27,11 @@
         }, {
           "name" : "countryCode",
           "in" : "query",
-          "description" : "Specifies the country code of the beneficiary's address ",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "scheme",
           "in" : "query",
-          "description" : "Represents the scheme (a synonym for the National ID type) under which the National ID is defined",
           "required" : false,
           "type" : "string"
         }, {
@@ -54,12 +52,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -116,7 +108,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -171,28 +163,22 @@
               "type" : "object",
               "properties" : {
                 "addressLine1" : {
-                  "type" : "string",
-                  "description" : "Indicates first line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine2" : {
-                  "type" : "string",
-                  "description" : "Indicates second line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine3" : {
-                  "type" : "string",
-                  "description" : "Indicates third line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine4" : {
-                  "type" : "string",
-                  "description" : "Indicates fourth line of the address of the BIC"
+                  "type" : "string"
                 },
                 "bicLocation1" : {
-                  "type" : "string",
-                  "description" : "Indicates first line of branch location of the financial institution"
+                  "type" : "string"
                 },
                 "bicLocation2" : {
-                  "type" : "string",
-                  "description" : "Indicates second line of branch location of the financial institution"
+                  "type" : "string"
                 },
                 "addressCity" : {
                   "type" : "string",
@@ -207,8 +193,7 @@
                   "description" : "This is the country name that the financial institution resides in."
                 },
                 "countryCode" : {
-                  "type" : "string",
-                  "description" : "Specifies the country code of the beneficiary's address "
+                  "type" : "string"
                 }
               }
             }
@@ -218,12 +203,11 @@
             "description" : "National identifier of the institution/branch. This field contains the National bank code for the financial institution (for example, BSC codes for UK banks)"
           },
           "scheme" : {
-            "type" : "string",
-            "description" : "Represents the scheme (a synonym for the National ID type) under which the National ID is defined"
+            "type" : "string"
           },
           "institutionName" : {
             "type" : "string",
-            "description" : "Contains the name of the institution"
+            "description" : "Identifies the Financial Institution of BIC"
           },
           "branch" : {
             "type" : "string",

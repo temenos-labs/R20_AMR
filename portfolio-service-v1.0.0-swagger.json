@@ -51,7 +51,7 @@
         "parameters" : [ {
           "name" : "portfolioId",
           "in" : "path",
-          "description" : "Id of the portfolio or security account",
+          "description" : "The identifier of the portfolio",
           "required" : true,
           "type" : "string"
         } ],
@@ -76,7 +76,7 @@
         "parameters" : [ {
           "name" : "portfolioId",
           "in" : "path",
-          "description" : "Id of the portfolio or security account",
+          "description" : "The identifier of the portfolio",
           "required" : true,
           "type" : "string"
         }, {
@@ -142,8 +142,7 @@
             "type" : "object",
             "properties" : {
               "account" : {
-                "type" : "string",
-                "description" : "Identifies the unique account Id of the payment entered."
+                "type" : "string"
               }
             }
           }
@@ -158,19 +157,18 @@
                 "description" : "The identifier of the joint holder"
               },
               "jointRelationCode" : {
-                "type" : "string",
-                "description" : "The identifier of the relationship between joint holder and owner "
+                "type" : "string"
               },
               "additionalDetail" : {
                 "type" : "string",
-                "description" : "Additional details provided to add context. Closure notes for closed accounts, positing restriction details for restricted accounts & joint holder notes or account title for active accounts"
+                "description" : "Additional details provided to add context"
               }
             }
           }
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "referenceCurrency" : {
           "type" : "string",
@@ -185,16 +183,14 @@
           "description" : "The name that is displayed for the portfolio"
         },
         "accountOfficer" : {
-          "type" : "string",
-          "description" : "Identifier of Department Account Officer"
+          "type" : "string"
         },
         "investmentProgram" : {
-          "type" : "string",
-          "description" : "The identifier of the investment strategy followed by the Portfolio"
+          "type" : "string"
         },
         "managedAccount" : {
           "type" : "string",
-          "description" : "The type of managed account- Discretionary or otherwise"
+          "description" : "The type of managed account- discretionary or otherwise"
         },
         "safekeepChargeAccount" : {
           "type" : "string",
@@ -203,7 +199,7 @@
         "startDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         }
       }
     },
@@ -215,11 +211,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -259,8 +255,7 @@
             "type" : "object",
             "properties" : {
               "account" : {
-                "type" : "string",
-                "description" : "Identifies the unique account Id of the payment entered."
+                "type" : "string"
               }
             }
           }
@@ -275,19 +270,18 @@
                 "description" : "The identifier of the joint holder"
               },
               "jointRelationCode" : {
-                "type" : "string",
-                "description" : "The identifier of the relationship between joint holder and owner "
+                "type" : "string"
               },
               "additionalDetail" : {
                 "type" : "string",
-                "description" : "Additional details provided to add context. Closure notes for closed accounts, positing restriction details for restricted accounts & joint holder notes or account title for active accounts"
+                "description" : "Additional details provided to add context"
               }
             }
           }
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "referenceCurrency" : {
           "type" : "string",
@@ -302,16 +296,14 @@
           "description" : "The name that is displayed for the portfolio"
         },
         "accountOfficer" : {
-          "type" : "string",
-          "description" : "Identifier of Department Account Officer"
+          "type" : "string"
         },
         "investmentProgram" : {
-          "type" : "string",
-          "description" : "The identifier of the investment strategy followed by the Portfolio"
+          "type" : "string"
         },
         "managedAccount" : {
           "type" : "string",
-          "description" : "The type of managed account- Discretionary or otherwise"
+          "description" : "The type of managed account- discretionary or otherwise"
         },
         "safekeepChargeAccount" : {
           "type" : "string",
@@ -320,7 +312,7 @@
         "startDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         }
       }
     },
@@ -416,8 +408,7 @@
             "type" : "object",
             "properties" : {
               "account" : {
-                "type" : "string",
-                "description" : "Identifies the unique account Id of the payment entered."
+                "type" : "string"
               }
             }
           }
@@ -432,19 +423,18 @@
                 "description" : "The identifier of the joint holder"
               },
               "jointRelationCode" : {
-                "type" : "string",
-                "description" : "The identifier of the relationship between joint holder and owner "
+                "type" : "string"
               },
               "additionalDetail" : {
                 "type" : "string",
-                "description" : "Additional details provided to add context. Closure notes for closed accounts, positing restriction details for restricted accounts & joint holder notes or account title for active accounts"
+                "description" : "Additional details provided to add context"
               }
             }
           }
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "referenceCurrency" : {
           "type" : "string",
@@ -459,16 +449,14 @@
           "description" : "The name that is displayed for the portfolio"
         },
         "accountOfficer" : {
-          "type" : "string",
-          "description" : "Identifier of Department Account Officer"
+          "type" : "string"
         },
         "investmentProgram" : {
-          "type" : "string",
-          "description" : "The identifier of the investment strategy followed by the Portfolio"
+          "type" : "string"
         },
         "managedAccount" : {
           "type" : "string",
-          "description" : "The type of managed account- Discretionary or otherwise"
+          "description" : "The type of managed account- discretionary or otherwise"
         },
         "safekeepChargeAccount" : {
           "type" : "string",
@@ -477,7 +465,7 @@
         "startDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         }
       }
     },
@@ -502,8 +490,7 @@
             "type" : "object",
             "properties" : {
               "account" : {
-                "type" : "string",
-                "description" : "Identifies the unique account Id of the payment entered."
+                "type" : "string"
               }
             }
           }
@@ -518,19 +505,18 @@
                 "description" : "The identifier of the joint holder"
               },
               "jointRelationCode" : {
-                "type" : "string",
-                "description" : "The identifier of the relationship between joint holder and owner "
+                "type" : "string"
               },
               "additionalDetail" : {
                 "type" : "string",
-                "description" : "Additional details provided to add context. Closure notes for closed accounts, positing restriction details for restricted accounts & joint holder notes or account title for active accounts"
+                "description" : "Additional details provided to add context"
               }
             }
           }
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "referenceCurrency" : {
           "type" : "string",
@@ -545,16 +531,14 @@
           "description" : "The name that is displayed for the portfolio"
         },
         "accountOfficer" : {
-          "type" : "string",
-          "description" : "Identifier of Department Account Officer"
+          "type" : "string"
         },
         "investmentProgram" : {
-          "type" : "string",
-          "description" : "The identifier of the investment strategy followed by the Portfolio"
+          "type" : "string"
         },
         "managedAccount" : {
           "type" : "string",
-          "description" : "The type of managed account- Discretionary or otherwise"
+          "description" : "The type of managed account- discretionary or otherwise"
         },
         "safekeepChargeAccount" : {
           "type" : "string",
@@ -563,7 +547,7 @@
         "startDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         }
       }
     },
@@ -628,8 +612,7 @@
             "type" : "object",
             "properties" : {
               "account" : {
-                "type" : "string",
-                "description" : "Identifies the unique account Id of the payment entered."
+                "type" : "string"
               }
             }
           }
@@ -644,19 +627,18 @@
                 "description" : "The identifier of the joint holder"
               },
               "jointRelationCode" : {
-                "type" : "string",
-                "description" : "The identifier of the relationship between joint holder and owner "
+                "type" : "string"
               },
               "additionalDetail" : {
                 "type" : "string",
-                "description" : "Additional details provided to add context. Closure notes for closed accounts, positing restriction details for restricted accounts & joint holder notes or account title for active accounts"
+                "description" : "Additional details provided to add context"
               }
             }
           }
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "referenceCurrency" : {
           "type" : "string",
@@ -671,16 +653,14 @@
           "description" : "The name that is displayed for the portfolio"
         },
         "accountOfficer" : {
-          "type" : "string",
-          "description" : "Identifier of Department Account Officer"
+          "type" : "string"
         },
         "investmentProgram" : {
-          "type" : "string",
-          "description" : "The identifier of the investment strategy followed by the Portfolio"
+          "type" : "string"
         },
         "managedAccount" : {
           "type" : "string",
-          "description" : "The type of managed account- Discretionary or otherwise"
+          "description" : "The type of managed account- discretionary or otherwise"
         },
         "safekeepChargeAccount" : {
           "type" : "string",
@@ -689,7 +669,7 @@
         "startDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         }
       }
     },

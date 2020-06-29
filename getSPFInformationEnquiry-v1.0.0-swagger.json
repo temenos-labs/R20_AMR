@@ -37,15 +37,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -84,7 +77,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -132,12 +125,12 @@
         "properties" : {
           "runDate" : {
             "type" : "string",
-            "description" : "Date as at when the report enquiry is executed, the current date.",
+            "description" : "Run date detail from SPF SYSTEM",
             "maxLength" : 11
           },
           "releaseName" : {
             "type" : "string",
-            "description" : "Current release of the system",
+            "description" : "Current release of T24 from SPF",
             "maxLength" : 20
           }
         }

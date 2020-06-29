@@ -7,13 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/reference/dates" : {
       "get" : {
+        "summary" : "Retrieves the list of dates",
+        "description" : "Retrieve list of dates",
         "operationId" : "getDates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -32,7 +34,7 @@
         }, {
           "name" : "lastWorkingDay",
           "in" : "query",
-          "description" : "Contains the date of the last working day",
+          "description" : "Date of the last working day in this Company.",
           "required" : false,
           "type" : "string",
           "format" : "date"
@@ -64,15 +66,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -81,6 +76,18 @@
             "description" : "DatesResponse",
             "schema" : {
               "$ref" : "#/definitions/DatesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -94,6 +101,8 @@
     },
     "/reference/dates/{companyId}" : {
       "get" : {
+        "summary" : "Retrieves the details of date for a specific company identifier",
+        "description" : "Retrieves dates for specific legal entity",
         "operationId" : "getDatesByCompany",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -113,7 +122,7 @@
         }, {
           "name" : "lastWorkingDay",
           "in" : "query",
-          "description" : "Contains the date of the last working day",
+          "description" : "Date of the last working day in this Company.",
           "required" : false,
           "type" : "string",
           "format" : "date"
@@ -145,24 +154,28 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
+          "name" : "companyId",
+          "in" : "header",
           "required" : false,
           "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string",
-          "x-example" : "GB0010001"
         } ],
         "responses" : {
           "200" : {
             "description" : "DatesByCompanyResponse",
             "schema" : {
               "$ref" : "#/definitions/DatesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -193,9 +206,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -276,7 +294,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -301,15 +324,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     }

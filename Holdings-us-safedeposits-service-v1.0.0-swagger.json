@@ -45,12 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -104,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -162,20 +156,17 @@
             "description" : "Indicates an unique identifier of an account"
           },
           "alternateAccountId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "alternateAccountType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "accountStatus" : {
             "type" : "string",
             "description" : "Specifies the current status of the account, which is either active, inactive or closed."
           },
           "branchId" : {
-            "type" : "string",
-            "description" : "Unique and unambiguous identification of a branch of a financial institution."
+            "type" : "string"
           },
           "accountCompany" : {
             "type" : "string",
@@ -212,7 +203,7 @@
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "Indicates role of a customer for an arrangement."
+            "description" : "The customer role with drop down of standard selections"
           },
           "accountTitle1" : {
             "type" : "string",
@@ -261,7 +252,7 @@
           },
           "outstandingAmount" : {
             "type" : "number",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. "
           },
           "visitDate" : {
             "type" : "string",

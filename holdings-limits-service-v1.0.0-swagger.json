@@ -16,7 +16,7 @@
         "parameters" : [ {
           "name" : "limitId",
           "in" : "path",
-          "description" : "The identifier of credit limit",
+          "description" : "The identifier of the limit",
           "required" : true,
           "type" : "string",
           "x-example" : "190089.0001090.01"
@@ -64,7 +64,7 @@
         "parameters" : [ {
           "name" : "limitId",
           "in" : "path",
-          "description" : "The identifier of credit limit",
+          "description" : "The identifier of the limit",
           "required" : true,
           "type" : "string",
           "x-example" : "190089.0001090.01"
@@ -163,29 +163,29 @@
         "type" : "object",
         "properties" : {
           "transactionReference" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "The transaction reference identifier"
           },
           "buyCurrency" : {
             "type" : "string",
-            "description" : "ISO Currency code for the bought currency.  "
+            "description" : "The SWIFT code of the currency of the purchase"
           },
           "buyAmount" : {
             "type" : "string",
-            "description" : "Amount bought in the FX deal.",
+            "description" : "The amount being purchased.",
             "maxLength" : 18
           },
           "sellCurrency" : {
             "type" : "string",
-            "description" : "ISO Currency code for the sold currency.  "
+            "description" : "The SWIFT code of the sold currency."
           },
           "sellAmount" : {
             "type" : "string",
-            "description" : "Amount sold in the FX deal.",
+            "description" : "The amount of the currency being sold. ",
             "maxLength" : 18
           },
           "date" : {
             "type" : "string",
-            "description" : "Indicates the date on which activity was performed",
             "maxLength" : 44
           }
         }
@@ -280,32 +280,29 @@
           "properties" : {
             "limitProduct" : {
               "type" : "string",
-              "description" : "Identifier of the credit limit product"
+              "description" : "Provides a unique reference for each Limit. "
             },
             "liabilityNumber" : {
-              "type" : "string",
-              "description" : "Identifier of the Liability Customer to the credit limit"
+              "type" : "string"
             },
             "liabilityName" : {
               "type" : "string",
-              "description" : "Display Name of the Liability Customer"
+              "description" : "The name that is displayed for the individual"
             },
             "customerName" : {
               "type" : "string",
-              "description" : "Name of the customer"
+              "description" : "The name that is displayed for the customer"
             },
             "currency" : {
-              "type" : "string",
-              "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+              "type" : "string"
             },
             "limitAmount" : {
               "type" : "string",
-              "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit",
+              "description" : "The amount allocated to a credit limit agreement",
               "maxLength" : 11
             },
             "cleanRisk" : {
               "type" : "string",
-              "description" : "Clean risk or delivery risk, i.e. non-netted total value of forex trades maturing on any single day",
               "maxLength" : 11
             }
           }
@@ -330,17 +327,15 @@
         "properties" : {
           "date" : {
             "type" : "string",
-            "description" : "Indicates the date on which activity was performed",
             "maxLength" : 19
           },
           "amount" : {
             "type" : "string",
-            "description" : "This is the payment amount",
             "maxLength" : 20
           },
           "totalAmount" : {
             "type" : "string",
-            "description" : "Total amount",
+            "description" : "The total amount",
             "maxLength" : 20
           },
           "limitExcess" : {
@@ -348,8 +343,7 @@
             "description" : "An indicator to show that a credit limit has been exceeded"
           },
           "riskExcess" : {
-            "type" : "string",
-            "description" : "Excess amount over and above the allowed limit."
+            "type" : "string"
           }
         }
       }

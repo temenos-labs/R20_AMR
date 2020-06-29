@@ -31,15 +31,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -70,15 +63,8 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -121,15 +107,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -158,15 +137,8 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -209,7 +181,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -225,7 +197,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -252,15 +224,14 @@
             "properties" : {
               "creditAccount" : {
                 "type" : "string",
-                "description" : "Identifier of the creditAccounts."
+                "description" : "Account Number to which the outstanding balance is to be transferred"
               },
               "balanceType" : {
                 "type" : "string",
                 "description" : "Type of balance (e.g. current balance, credit interest accrued, deferred commission, etc.) as defined in the institution's accounting schemas."
               },
               "creditCurrency" : {
-                "type" : "string",
-                "description" : "Currency of the account which funds will be transferred to."
+                "type" : "string"
               },
               "minimumBalance" : {
                 "type" : "string",
@@ -279,8 +250,7 @@
             "type" : "object",
             "properties" : {
               "debitAccount" : {
-                "type" : "string",
-                "description" : " Refers to the account which will be debited and funds moved out."
+                "type" : "string"
               },
               "balanceType" : {
                 "type" : "string",
@@ -288,7 +258,7 @@
               },
               "debitCurrency" : {
                 "type" : "string",
-                "description" : "Currency of the debit account. For example: USD, EUR etc."
+                "description" : "Indicates the currency of debit account"
               }
             }
           }
@@ -299,16 +269,16 @@
         },
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes"
+          "description" : "Name used for display or enrichment purposes"
         },
         "frequency" : {
           "type" : "string",
-          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+          "description" : "Identifies the frequency of instruction execution. It specifies the next execution date and frequency i.e. daily, weekly, fortnightly, monthly, yearly or fortnightly. "
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         }
       }
     },
@@ -320,11 +290,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -336,7 +306,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -368,15 +338,14 @@
             "properties" : {
               "creditAccount" : {
                 "type" : "string",
-                "description" : "Identifier of the creditAccounts."
+                "description" : "Account Number to which the outstanding balance is to be transferred"
               },
               "balanceType" : {
                 "type" : "string",
                 "description" : "Type of balance (e.g. current balance, credit interest accrued, deferred commission, etc.) as defined in the institution's accounting schemas."
               },
               "creditCurrency" : {
-                "type" : "string",
-                "description" : "Currency of the account which funds will be transferred to."
+                "type" : "string"
               },
               "minimumBalance" : {
                 "type" : "string",
@@ -395,8 +364,7 @@
             "type" : "object",
             "properties" : {
               "debitAccount" : {
-                "type" : "string",
-                "description" : " Refers to the account which will be debited and funds moved out."
+                "type" : "string"
               },
               "balanceType" : {
                 "type" : "string",
@@ -404,7 +372,7 @@
               },
               "debitCurrency" : {
                 "type" : "string",
-                "description" : "Currency of the debit account. For example: USD, EUR etc."
+                "description" : "Indicates the currency of debit account"
               }
             }
           }
@@ -415,16 +383,16 @@
         },
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes"
+          "description" : "Name used for display or enrichment purposes"
         },
         "frequency" : {
           "type" : "string",
-          "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+          "description" : "Identifies the frequency of instruction execution. It specifies the next execution date and frequency i.e. daily, weekly, fortnightly, monthly, yearly or fortnightly. "
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         }
       }
     },

@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "Unique reference id for customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -45,15 +45,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -94,7 +87,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "Unique reference id for customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -118,15 +111,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -167,7 +153,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "Unique reference id for customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -191,15 +177,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -240,7 +219,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "Unique reference id for customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -264,15 +243,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -323,7 +295,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -376,7 +348,7 @@
         "properties" : {
           "applicationId" : {
             "type" : "string",
-            "description" : "Contains the application id of the service that has crashed due to error."
+            "description" : "Application id."
           },
           "sanctionedAmount" : {
             "type" : "number",
@@ -384,7 +356,7 @@
           },
           "utilisedAmount" : {
             "type" : "number",
-            "description" : "The Amount utilized for the guarantees for the specific customer"
+            "description" : "Used amount details of an account"
           },
           "availableAmount" : {
             "type" : "number",
@@ -392,7 +364,7 @@
           },
           "pendingAmount" : {
             "type" : "number",
-            "description" : "Specifies the pending amount for the guarantees for the specific customer"
+            "description" : "Remaining amount details of an account"
           },
           "limit" : {
             "type" : "number",
@@ -535,7 +507,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           },
           "counterparty" : {
             "type" : "string",
@@ -589,7 +561,7 @@
           "date" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Indicates the date on which activity was performed"
+            "description" : "Date in the format YYYYMMDD. E.g. 20191231"
           },
           "counterparty" : {
             "type" : "string",
@@ -601,7 +573,7 @@
           },
           "externalReference" : {
             "type" : "string",
-            "description" : "For Export/Advising Letter of Credit this is the Issuing Bank's/Opener's reference."
+            "description" : "External users reference details"
           },
           "currencyId" : {
             "type" : "string",
@@ -617,7 +589,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           }
         }
       }
@@ -645,7 +617,7 @@
           "date" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Indicates the date on which activity was performed"
+            "description" : "Date in the format YYYYMMDD. E.g. 20191231"
           },
           "counterparty" : {
             "type" : "string",
@@ -657,7 +629,7 @@
           },
           "externalReference" : {
             "type" : "string",
-            "description" : "For Export/Advising Letter of Credit this is the Issuing Bank's/Opener's reference."
+            "description" : "External users reference details"
           },
           "currencyId" : {
             "type" : "string",
@@ -673,7 +645,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           }
         }
       }

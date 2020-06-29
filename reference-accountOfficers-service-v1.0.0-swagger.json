@@ -37,15 +37,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -84,7 +77,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -132,17 +125,16 @@
         "properties" : {
           "accountOfficerId" : {
             "type" : "string",
-            "description" : "The identifier of the department head or specific account officer responsible for the customer",
+            "description" : "The identifier of the account officer",
             "maxLength" : 4
           },
           "accountOfficerName" : {
             "type" : "string",
-            "description" : "Name of the Account/Relationship Officer attached to the Customer",
+            "description" : "The name of the account officer that is displayed",
             "maxLength" : 35
           },
           "accountOfficerArea" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }

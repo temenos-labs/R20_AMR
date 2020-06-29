@@ -32,15 +32,8 @@
             "$ref" : "#/definitions/BundleSettlementAccount"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -95,7 +88,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -111,7 +104,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -179,7 +172,6 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "maxLength" : 45
               }
             }
@@ -191,17 +183,16 @@
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
-          "description" : "It is a date on/upon which an account is considered to take effect",
           "maxLength" : 45
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "maxLength" : 45
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "maxLength" : 45
         },
         "settlement" : {
@@ -214,12 +205,10 @@
                 "properties" : {
                   "payinSettlement" : {
                     "type" : "string",
-                    "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                     "maxLength" : 15
                   },
                   "payoutSettlement" : {
                     "type" : "string",
-                    "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                     "maxLength" : 16
                   },
                   "reference" : {
@@ -249,12 +238,10 @@
                         },
                         "payoutAccount" : {
                           "type" : "string",
-                          "description" : "The account to which a settlement amount is transferred.",
                           "maxLength" : 13
                         },
                         "payoutBeneficiary" : {
                           "type" : "string",
-                          "description" : "The beneficiary that payment should be made to .",
                           "maxLength" : 17
                         },
                         "payoutPercentage" : {
@@ -278,7 +265,6 @@
                 "properties" : {
                   "payinSettlement" : {
                     "type" : "string",
-                    "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                     "maxLength" : 15
                   },
                   "payinRule" : {
@@ -343,7 +329,6 @@
                 "properties" : {
                   "payoutSettlement" : {
                     "type" : "string",
-                    "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                     "maxLength" : 16
                   },
                   "payoutSettlementActivity" : {
@@ -365,12 +350,10 @@
                         },
                         "payoutAccount" : {
                           "type" : "string",
-                          "description" : "The account to which a settlement amount is transferred.",
                           "maxLength" : 13
                         },
                         "payoutBeneficiary" : {
                           "type" : "string",
-                          "description" : "The beneficiary that payment should be made to .",
                           "maxLength" : 17
                         },
                         "payoutPOProduct" : {
@@ -397,12 +380,11 @@
             },
             "paymentType" : {
               "type" : "string",
-              "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+              "description" : "The payment type identifier",
               "maxLength" : 11
             },
             "defaultSettlementAccount" : {
               "type" : "string",
-              "description" : "Default settlement account to be used for all incoming payments and outgoing settlements when a specific settlement account is not provided for each payment type.",
               "maxLength" : 26
             }
           }
@@ -413,7 +395,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -425,7 +407,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "audit" : {
           "type" : "object",
@@ -437,7 +419,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -477,7 +459,6 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "maxLength" : 45
                   }
                 }
@@ -489,17 +470,16 @@
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
-              "description" : "It is a date on/upon which an account is considered to take effect",
               "maxLength" : 45
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "maxLength" : 45
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "maxLength" : 45
             }
           }
@@ -511,12 +491,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -537,7 +516,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -545,17 +524,15 @@
                         "T24_time" : {
                           "type" : "integer",
                           "format" : "int32",
-                          "description" : "Time taken to response by T24"
+                          "description" : "Time taken to parse the response by IRIS"
                         },
                         "requestParse_time" : {
                           "type" : "integer",
-                          "format" : "int32",
-                          "description" : "Time taken to parse the request by IRIS"
+                          "format" : "int32"
                         },
                         "responseParse_time" : {
                           "type" : "integer",
-                          "format" : "int32",
-                          "description" : "Time taken to parse the response by IRIS"
+                          "format" : "int32"
                         }
                       }
                     },
@@ -565,7 +542,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -579,12 +556,10 @@
                         "properties" : {
                           "payinSettlement" : {
                             "type" : "string",
-                            "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                             "maxLength" : 15
                           },
                           "payoutSettlement" : {
                             "type" : "string",
-                            "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                             "maxLength" : 16
                           },
                           "reference" : {
@@ -614,12 +589,10 @@
                                 },
                                 "payoutAccount" : {
                                   "type" : "string",
-                                  "description" : "The account to which a settlement amount is transferred.",
                                   "maxLength" : 13
                                 },
                                 "payoutBeneficiary" : {
                                   "type" : "string",
-                                  "description" : "The beneficiary that payment should be made to .",
                                   "maxLength" : 17
                                 },
                                 "payoutPercentage" : {
@@ -643,7 +616,6 @@
                         "properties" : {
                           "payinSettlement" : {
                             "type" : "string",
-                            "description" : "Flag to indicate whether Payin Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                             "maxLength" : 15
                           },
                           "payinRule" : {
@@ -708,7 +680,6 @@
                         "properties" : {
                           "payoutSettlement" : {
                             "type" : "string",
-                            "description" : "Flag to indicate whether Payout Settlement instruction is required or not.Valid input is Yes or No.Default value is Yes.",
                             "maxLength" : 16
                           },
                           "payoutSettlementActivity" : {
@@ -730,12 +701,10 @@
                                 },
                                 "payoutAccount" : {
                                   "type" : "string",
-                                  "description" : "The account to which a settlement amount is transferred.",
                                   "maxLength" : 13
                                 },
                                 "payoutBeneficiary" : {
                                   "type" : "string",
-                                  "description" : "The beneficiary that payment should be made to .",
                                   "maxLength" : 17
                                 },
                                 "payoutPOProduct" : {
@@ -762,12 +731,11 @@
                     },
                     "paymentType" : {
                       "type" : "string",
-                      "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+                      "description" : "The payment type identifier",
                       "maxLength" : 11
                     },
                     "defaultSettlementAccount" : {
                       "type" : "string",
-                      "description" : "Default settlement account to be used for all incoming payments and outgoing settlements when a specific settlement account is not provided for each payment type.",
                       "maxLength" : 26
                     }
                   }

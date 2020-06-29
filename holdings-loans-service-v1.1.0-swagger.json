@@ -21,21 +21,18 @@
         "parameters" : [ {
           "name" : "loanId",
           "in" : "path",
-          "description" : "Denotes the arrangement id of the loan",
           "required" : true,
           "type" : "string",
           "x-example" : "AA190799ST0V"
         }, {
           "name" : "dateFrom",
           "in" : "query",
-          "description" : "Start date of the loan",
           "required" : false,
           "type" : "string",
           "format" : "date"
         }, {
           "name" : "dateTo",
           "in" : "query",
-          "description" : "End date of the loan",
           "required" : false,
           "type" : "string",
           "format" : "date"
@@ -63,12 +60,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -115,7 +106,6 @@
         "parameters" : [ {
           "name" : "loanId",
           "in" : "path",
-          "description" : "Denotes the arrangement id of the loan",
           "required" : true,
           "type" : "string",
           "x-example" : "AA190799ST0V"
@@ -143,12 +133,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -205,7 +189,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -269,12 +253,10 @@
                   "description" : "Indicates the interest property name"
                 },
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : "Contains the property name of loan interest such as penalty Interest and principal interest."
+                  "type" : "string"
                 },
                 "compoundType" : {
-                  "type" : "string",
-                  "description" : "Contains the frequency type of compound in loan. For example, annually or monthly."
+                  "type" : "string"
                 },
                 "rateType" : {
                   "type" : "string",
@@ -306,32 +288,26 @@
               "type" : "object",
               "properties" : {
                 "paidScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the paid dates for repayment."
+                  "type" : "string"
                 },
                 "dueScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the due dates for repayment."
+                  "type" : "string"
                 },
                 "futureScheduleCount" : {
-                  "type" : "string",
-                  "description" : "Count of the future scheduled payments involving the principal and interest for a given loan"
+                  "type" : "string"
                 },
                 "schedulePaymentType" : {
                   "type" : "string",
                   "description" : "Indicates payment schedule type"
                 },
                 "schedulePaymentMethod" : {
-                  "type" : "string",
-                  "description" : "Denotes the payment schedule method of the loan such as capitalise, pay, due and maintain."
+                  "type" : "string"
                 },
                 "scheduleProperty" : {
-                  "type" : "string",
-                  "description" : "Denotes the property of the loans schedule"
+                  "type" : "string"
                 },
                 "schedulePaymentAmount" : {
-                  "type" : "number",
-                  "description" : "Contains the amount payable in the schedule"
+                  "type" : "number"
                 },
                 "schedulePaymentFrequency" : {
                   "type" : "string",
@@ -377,8 +353,7 @@
             "description" : "Indicates next payment date for the contract"
           },
           "virtualBalance" : {
-            "type" : "string",
-            "description" : "Contains the virtual balance of the collateral"
+            "type" : "string"
           },
           "lastPayment" : {
             "type" : "string",
@@ -390,8 +365,7 @@
             "description" : "Indicates the term for which the contract is booked"
           },
           "payoffRequest" : {
-            "type" : "string",
-            "description" : "Request for loans settlement"
+            "type" : "string"
           }
         }
       }
@@ -524,17 +498,14 @@
         "properties" : {
           "collateralName" : {
             "type" : "string",
-            "description" : "Contains the name of the collateral",
             "maxLength" : 3
           },
           "executionValue" : {
             "type" : "string",
-            "description" : "Denotes the value for signing the document at what is commonly referred to as the closing of the sale",
             "maxLength" : 19
           },
           "thirdPartyValue" : {
             "type" : "number",
-            "description" : "Denotes the value given by any individual who does not have a direct connection with a legal transaction but might be affected by it",
             "maximum" : 19
           },
           "netAmount" : {

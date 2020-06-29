@@ -20,7 +20,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string"
         }, {
@@ -38,15 +38,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -72,7 +65,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string"
         }, {
@@ -90,15 +83,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -141,7 +127,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -157,7 +143,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -183,8 +169,7 @@
             "type" : "object",
             "properties" : {
               "linkAccount" : {
-                "type" : "string",
-                "description" : "The account which with the source account (the cash pool key) has the sweep relationship.Depending on the rule entered , the link  will either debit or credit the source account."
+                "type" : "string"
               },
               "rule" : {
                 "type" : "string",
@@ -192,7 +177,7 @@
               },
               "frequency" : {
                 "type" : "string",
-                "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+                "description" : "Identifies the frequency of instruction execution. It specifies the next execution date and frequency i.e. daily, weekly, fortnightly, monthly, yearly or fortnightly. "
               },
               "minimumBalance" : {
                 "type" : "number",
@@ -203,16 +188,13 @@
                 "description" : "The maximum account balance allowed"
               },
               "minimumDebitsToTransfer" : {
-                "type" : "number",
-                "description" : "Used to restrict the creation of sweep amount for a small amount. The amount entered here will get validated against the sweep amount and only when the sweep amount is greater than this, sweep takes place."
+                "type" : "number"
               },
               "minimumCreditsToTransfer" : {
-                "type" : "number",
-                "description" : "Used to restrict the creation of sweep amount for a small amount.The amount entered here will get validated against the sweep amount and only when the sweep amount is greater than this, sweep takes place."
+                "type" : "number"
               },
               "schedule" : {
-                "type" : "string",
-                "description" : "Indicates where this pool may be run either online or End of the day."
+                "type" : "string"
               }
             }
           }
@@ -235,39 +217,31 @@
           "description" : "Unique ID of the group"
         },
         "mainAccount" : {
-          "type" : "string",
-          "description" : "The Account that is defined as the Main Master on AC.CP.GROUP.PARAM. This will be defaulted by the system on entering the GROUP.ID and is not user accessible."
+          "type" : "string"
         },
         "sequenceNumber" : {
-          "type" : "number",
-          "description" : " The sequence in which this cash pool record will be processed within the group. "
+          "type" : "number"
         },
         "sweepCancelDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the end date for the sweep record. The record will become inactive after this date, which means that no sweep will be executed after this date."
+          "format" : "date"
         },
         "suspensionStartDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the start date for suspending the sweep. No sweep will be done between this date and the date defined in SUSP.END.DATE."
+          "format" : "date"
         },
         "suspensionEndDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the start date for suspending the sweep. No sweep will be done between this date and the date defined in SUSP.END.DATE."
+          "format" : "date"
         },
         "suspendIndefinite" : {
-          "type" : "string",
-          "description" : "To suspending the cashpool for indefinite period."
+          "type" : "string"
         },
         "counterBookingSweepAccount" : {
-          "type" : "string",
-          "description" : "Counter Booking Account for the ID Account.This Account is used by the system to raise an equal and opposite entry posted against ID Account."
+          "type" : "string"
         },
         "counterBookingLinkAccount" : {
-          "type" : "string",
-          "description" : "Counter Booking Account for the Link Account. This Account is used by the system to raise an equal and opposite entry posted against Link Account."
+          "type" : "string"
         }
       }
     },
@@ -279,11 +253,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -295,7 +269,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -326,8 +300,7 @@
             "type" : "object",
             "properties" : {
               "linkAccount" : {
-                "type" : "string",
-                "description" : "The account which with the source account (the cash pool key) has the sweep relationship.Depending on the rule entered , the link  will either debit or credit the source account."
+                "type" : "string"
               },
               "rule" : {
                 "type" : "string",
@@ -335,7 +308,7 @@
               },
               "frequency" : {
                 "type" : "string",
-                "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+                "description" : "Identifies the frequency of instruction execution. It specifies the next execution date and frequency i.e. daily, weekly, fortnightly, monthly, yearly or fortnightly. "
               },
               "minimumBalance" : {
                 "type" : "number",
@@ -346,16 +319,13 @@
                 "description" : "The maximum account balance allowed"
               },
               "minimumDebitsToTransfer" : {
-                "type" : "number",
-                "description" : "Used to restrict the creation of sweep amount for a small amount. The amount entered here will get validated against the sweep amount and only when the sweep amount is greater than this, sweep takes place."
+                "type" : "number"
               },
               "minimumCreditsToTransfer" : {
-                "type" : "number",
-                "description" : "Used to restrict the creation of sweep amount for a small amount.The amount entered here will get validated against the sweep amount and only when the sweep amount is greater than this, sweep takes place."
+                "type" : "number"
               },
               "schedule" : {
-                "type" : "string",
-                "description" : "Indicates where this pool may be run either online or End of the day."
+                "type" : "string"
               }
             }
           }
@@ -378,39 +348,31 @@
           "description" : "Unique ID of the group"
         },
         "mainAccount" : {
-          "type" : "string",
-          "description" : "The Account that is defined as the Main Master on AC.CP.GROUP.PARAM. This will be defaulted by the system on entering the GROUP.ID and is not user accessible."
+          "type" : "string"
         },
         "sequenceNumber" : {
-          "type" : "number",
-          "description" : " The sequence in which this cash pool record will be processed within the group. "
+          "type" : "number"
         },
         "sweepCancelDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the end date for the sweep record. The record will become inactive after this date, which means that no sweep will be executed after this date."
+          "format" : "date"
         },
         "suspensionStartDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the start date for suspending the sweep. No sweep will be done between this date and the date defined in SUSP.END.DATE."
+          "format" : "date"
         },
         "suspensionEndDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Holds the start date for suspending the sweep. No sweep will be done between this date and the date defined in SUSP.END.DATE."
+          "format" : "date"
         },
         "suspendIndefinite" : {
-          "type" : "string",
-          "description" : "To suspending the cashpool for indefinite period."
+          "type" : "string"
         },
         "counterBookingSweepAccount" : {
-          "type" : "string",
-          "description" : "Counter Booking Account for the ID Account.This Account is used by the system to raise an equal and opposite entry posted against ID Account."
+          "type" : "string"
         },
         "counterBookingLinkAccount" : {
-          "type" : "string",
-          "description" : "Counter Booking Account for the Link Account. This Account is used by the system to raise an equal and opposite entry posted against Link Account."
+          "type" : "string"
         }
       }
     },

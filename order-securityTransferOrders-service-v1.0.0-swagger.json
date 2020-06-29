@@ -39,15 +39,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -106,15 +99,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -167,15 +153,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -216,19 +195,11 @@
         "parameters" : [ {
           "name" : "securityTransferOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -267,7 +238,6 @@
         "parameters" : [ {
           "name" : "securityTransferOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -285,15 +255,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -346,15 +309,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -407,15 +363,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -466,7 +415,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -572,7 +521,7 @@
           },
           "dateTime" : {
             "type" : "string",
-            "description" : "Contains the date and time separated by '-'",
+            "description" : "Date and time separated by '-'",
             "maxLength" : 15
           }
         }
@@ -761,7 +710,7 @@
           },
           "dateTime" : {
             "type" : "string",
-            "description" : "Contains the date and time separated by '-'",
+            "description" : "Date and time separated by '-'",
             "maxLength" : 15
           }
         }
@@ -783,7 +732,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -799,7 +748,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -914,7 +863,7 @@
         },
         "deliveryInstruction" : {
           "type" : "string",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "maxLength" : 30
         },
         "customerId" : {
@@ -952,7 +901,7 @@
         },
         "charges" : {
           "type" : "number",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "The charges or fees for this transaction"
         },
         "localTaxAmount" : {
           "type" : "number",
@@ -960,7 +909,6 @@
         },
         "actualCharges" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 30
         },
         "accountId" : {
@@ -1051,11 +999,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -1067,7 +1015,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1192,7 +1140,7 @@
         },
         "deliveryInstruction" : {
           "type" : "string",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "maxLength" : 30
         },
         "customerId" : {
@@ -1230,7 +1178,7 @@
         },
         "charges" : {
           "type" : "number",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "The charges or fees for this transaction"
         },
         "localTaxAmount" : {
           "type" : "number",
@@ -1238,7 +1186,6 @@
         },
         "actualCharges" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 30
         },
         "accountId" : {
@@ -1562,7 +1509,7 @@
         },
         "deliveryInstruction" : {
           "type" : "string",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "maxLength" : 30
         },
         "customerId" : {
@@ -1598,11 +1545,10 @@
         },
         "charges" : {
           "type" : "number",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "The charges or fees for this transaction"
         },
         "actualCharges" : {
-          "type" : "number",
-          "description" : ""
+          "type" : "number"
         },
         "accountId" : {
           "type" : "string",
@@ -1758,7 +1704,7 @@
         },
         "deliveryInstruction" : {
           "type" : "string",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "maxLength" : 30
         },
         "customerId" : {
@@ -1794,11 +1740,10 @@
         },
         "charges" : {
           "type" : "number",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "The charges or fees for this transaction"
         },
         "actualCharges" : {
-          "type" : "number",
-          "description" : ""
+          "type" : "number"
         },
         "accountId" : {
           "type" : "string",

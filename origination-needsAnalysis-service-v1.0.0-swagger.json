@@ -17,15 +17,8 @@
         "operationId" : "createCurrentAccountsQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -38,33 +31,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -75,15 +63,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "accountOpening" : {
                     "type" : "object",
@@ -247,15 +235,8 @@
         "operationId" : "updateCurrentAccountsQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -268,33 +249,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -305,15 +281,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "accountOpening" : {
                     "type" : "object",
@@ -477,15 +453,8 @@
         "operationId" : "createSavingsAccountsQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -498,33 +467,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -535,15 +499,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "saveMoney" : {
                     "type" : "object",
@@ -704,15 +668,8 @@
         "operationId" : "updateSavingsAccountsQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -725,33 +682,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -762,15 +714,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "saveMoney" : {
                     "type" : "object",
@@ -931,15 +883,8 @@
         "operationId" : "createShortTermLoansQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -952,33 +897,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -989,15 +929,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "shortTermFinance" : {
                     "type" : "object",
@@ -1007,8 +947,7 @@
                         "maxLength" : 35
                       },
                       "loanAmount" : {
-                        "type" : "number",
-                        "description" : "Indicates loan amount"
+                        "type" : "number"
                       },
                       "loanTerm" : {
                         "type" : "string",
@@ -1016,7 +955,6 @@
                       },
                       "loanCurrency" : {
                         "type" : "string",
-                        "description" : "Indicates the currency of the loan",
                         "maxLength" : 3
                       }
                     }
@@ -1171,15 +1109,8 @@
         "operationId" : "updateShortTermLoansQuestionnaire",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1192,33 +1123,28 @@
                 "type" : "object",
                 "properties" : {
                   "transactionStatus" : {
-                    "type" : "string",
-                    "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                    "type" : "string"
                   },
                   "aaaId" : {
                     "type" : "string"
                   },
                   "status" : {
-                    "type" : "string",
-                    "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                    "type" : "string"
                   },
                   "audit" : {
                     "type" : "object",
                     "properties" : {
                       "T24_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to response by T24"
+                        "format" : "int32"
                       },
                       "responseParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the response by IRIS"
+                        "format" : "int32"
                       },
                       "requestParse_time" : {
                         "type" : "integer",
-                        "format" : "int32",
-                        "description" : "Time taken to parse the request by IRIS"
+                        "format" : "int32"
                       }
                     }
                   }
@@ -1229,15 +1155,15 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "purposeId" : {
                     "type" : "string",
-                    "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+                    "description" : "The purpose identifier of the payment or transaction"
                   },
                   "applicationId" : {
                     "type" : "string",
-                    "description" : "Contains the application id of the service that has crashed due to error."
+                    "description" : "The identifier of the application"
                   },
                   "shortTermFinance" : {
                     "type" : "object",
@@ -1247,8 +1173,7 @@
                         "maxLength" : 35
                       },
                       "loanAmount" : {
-                        "type" : "number",
-                        "description" : "Indicates loan amount"
+                        "type" : "number"
                       },
                       "loanTerm" : {
                         "type" : "string",
@@ -1256,7 +1181,6 @@
                       },
                       "loanCurrency" : {
                         "type" : "string",
-                        "description" : "Indicates the currency of the loan",
                         "maxLength" : 3
                       }
                     }

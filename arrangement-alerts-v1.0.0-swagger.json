@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string"
         }, {
@@ -45,15 +45,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -155,12 +149,11 @@
         "properties" : {
           "eventDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "eventId" : {
             "type" : "string",
-            "description" : "Event identifier",
+            "description" : "The identifier of the event",
             "maxLength" : 35
           }
         }
@@ -207,8 +200,7 @@
       "type" : "object",
       "properties" : {
         "message" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "type" : {
           "type" : "string",

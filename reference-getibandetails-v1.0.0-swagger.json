@@ -45,12 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -104,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -159,28 +153,23 @@
             "maxLength" : 36
           },
           "countryCode" : {
-            "type" : "string",
-            "description" : "Specifies the country code of the beneficiary's address "
+            "type" : "string"
           },
           "checksum" : {
-            "type" : "string",
-            "description" : "The checksum extracted from the IBAN"
+            "type" : "string"
           },
           "bankId" : {
-            "type" : "string",
-            "description" : "Contains the identifier of the bank with which the transaction is performed"
+            "type" : "string"
           },
           "branchId" : {
-            "type" : "string",
-            "description" : "Unique and unambiguous identification of a branch of a financial institution."
+            "type" : "string"
           },
           "accountNumber" : {
             "type" : "string",
             "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
           },
           "ibanLength" : {
-            "type" : "string",
-            "description" : "The length of the IBAN as defined in IBAN structure."
+            "type" : "string"
           }
         }
       }

@@ -46,15 +46,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -93,7 +86,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -176,12 +169,10 @@
                 },
                 "code" : {
                   "type" : "string",
-                  "description" : "The identifier of the error message",
                   "maxLength" : 35
                 },
                 "city" : {
                   "type" : "string",
-                  "description" : "City address stated on driver licence or utlility bill. For example London, New York etc.",
                   "maxLength" : 35
                 },
                 "countryId" : {
@@ -199,7 +190,6 @@
               "properties" : {
                 "contactType" : {
                   "type" : "string",
-                  "description" : "Types of contacts available to users to communicate",
                   "maxLength" : 10
                 }
               }
@@ -231,7 +221,6 @@
                 },
                 "documentType" : {
                   "type" : "string",
-                  "description" : "Contains the type of the document.",
                   "maxLength" : 35
                 },
                 "issuedBy" : {
@@ -300,7 +289,6 @@
           },
           "firstName" : {
             "type" : "string",
-            "description" : "Specifies customer's first name",
             "maxLength" : 50
           },
           "middleName" : {
@@ -314,7 +302,6 @@
           },
           "alias" : {
             "type" : "string",
-            "description" : "This field forms part of an associated multi-value set to specify the details of an Account during one of Restructure events.",
             "maxLength" : 10
           },
           "dateOfBirth" : {

@@ -27,19 +27,19 @@
         }, {
           "name" : "standingOrderId",
           "in" : "query",
-          "description" : "The unique standing order identifier",
+          "description" : "Reference id for standing order payment",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "accountId",
           "in" : "query",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "Account details for specific id",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "orderingCustomerId",
           "in" : "query",
-          "description" : "Indicates the customer id for the ordering customer",
+          "description" : "Debtor customer id details",
           "required" : false,
           "type" : "string"
         }, {
@@ -63,15 +63,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -131,15 +124,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -197,15 +183,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -263,15 +242,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -316,15 +288,8 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -383,15 +348,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -442,7 +400,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -501,7 +459,7 @@
               "properties" : {
                 "displayName" : {
                   "type" : "string",
-                  "description" : "Contains the name used for display or enrichment purposes",
+                  "description" : "Name used for display or enrichment purposes",
                   "maxLength" : 35
                 }
               }
@@ -528,7 +486,7 @@
           },
           "orderType" : {
             "type" : "string",
-            "description" : "Identifies the type of the order. Possible values are Single, Ifdone, Revol, oco. Single order - only one order item may be input. If done order -  If one order gets executed, the other order is also executed immediately. Revolving order -  based on the condition specified, it will wait for both the deals to be executed simultaneously. OCO -If one order gets executed, then the other order gets cancelled.",
+            "description" : "Order type i.e.  single, if done, revolving and one cancels other.",
             "maxLength" : 5
           },
           "paymentMethod" : {
@@ -567,7 +525,7 @@
           },
           "payTo" : {
             "type" : "string",
-            "description" : "This field holds the reason for change in IB.STATUS field."
+            "description" : "Paying to account/creditor details"
           },
           "currentFrequencyDate" : {
             "type" : "string",
@@ -640,6 +598,10 @@
             "type" : "string",
             "description" : "Current number of the record",
             "maxLength" : 6
+          },
+          "accountName" : {
+            "type" : "string",
+            "description" : "Denotes the Name of the Account"
           }
         }
       }
@@ -772,7 +734,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -788,7 +750,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -810,7 +772,7 @@
       "properties" : {
         "beneficiaryNames" : {
           "type" : "array",
-          "description" : "Short title or short name of the beneficiary account account",
+          "description" : "Short title or short name of the beneficiary",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -844,7 +806,7 @@
             "properties" : {
               "displayName" : {
                 "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes",
+                "description" : "Name used for display or enrichment purposes",
                 "maxLength" : 35
               }
             }
@@ -1022,11 +984,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -1038,7 +1000,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1070,7 +1032,7 @@
       "properties" : {
         "beneficiaryNames" : {
           "type" : "array",
-          "description" : "Short title or short name of the beneficiary account account",
+          "description" : "Short title or short name of the beneficiary",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1104,7 +1066,7 @@
             "properties" : {
               "displayName" : {
                 "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes",
+                "description" : "Name used for display or enrichment purposes",
                 "maxLength" : 35
               }
             }

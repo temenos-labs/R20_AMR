@@ -21,14 +21,7 @@
         "parameters" : [ {
           "name" : "ctrId",
           "in" : "path",
-          "description" : "Currency Transaction Reference, it is a combination of customer Id and date in YYYYMMDD separated by a hyphen(-)",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -72,7 +65,6 @@
         "parameters" : [ {
           "name" : "ctrId",
           "in" : "path",
-          "description" : "Currency Transaction Reference, it is a combination of customer Id and date in YYYYMMDD separated by a hyphen(-)",
           "required" : true,
           "type" : "string"
         }, {
@@ -89,12 +81,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -145,11 +131,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -165,7 +151,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -225,7 +211,7 @@
               },
               "currency" : {
                 "type" : "string",
-                "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+                "description" : "Indicates the type of currency to which the account belongs",
                 "minLength" : 0,
                 "maxLength" : 8
               },
@@ -609,7 +595,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -625,7 +611,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -677,7 +663,7 @@
               },
               "currency" : {
                 "type" : "string",
-                "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+                "description" : "Indicates the type of currency to which the account belongs",
                 "minLength" : 0,
                 "maxLength" : 8
               },

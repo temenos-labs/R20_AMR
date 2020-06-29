@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "debitCustomerId",
           "in" : "query",
-          "description" : "Debtor customer details",
+          "description" : "Identifier of the debit customer.",
           "required" : false,
           "type" : "string"
         }, {
@@ -33,7 +33,7 @@
         }, {
           "name" : "creditAccountId",
           "in" : "query",
-          "description" : "Credit account identifier of the payment or transaction",
+          "description" : "Credit account identifier of the payment or transaction.",
           "required" : false,
           "type" : "string"
         }, {
@@ -57,15 +57,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -116,7 +109,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -186,7 +179,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           },
           "transactionType" : {
             "type" : "string",
@@ -206,7 +199,7 @@
           },
           "creditAccountName" : {
             "type" : "string",
-            "description" : "Account name details of the creditor"
+            "description" : "Identifies title of the credit account"
           }
         }
       }

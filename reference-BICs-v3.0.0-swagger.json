@@ -1,9 +1,9 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "API to validate and retrieve the Bank Identifier Code (BIC) related details. The BIC is the SWIFT Address assigned to a bank in order to send automated payments to the banks concerned. It uniquely identifies the name and country of the bank and consists of 8-11 characters. Example format AAAABBCCDDD, where AAAA: 4 character bank code, BB: 2 character country code, CC: 2 character location code, DDD: optional 3 character branch code.",
+    "description" : "Returns the status on the validity of the requested BIC along with its details",
     "version" : "v3.0.0",
-    "title" : "BICs API"
+    "title" : "Reference BICs API"
   },
   "host" : "api.server.com",
   "basePath" : "/api/v3.0.0/",
@@ -12,10 +12,10 @@
     "basicAuth" : [ ]
   } ],
   "paths" : {
-    "/reference/bankCodes/bics/{bicId}" : {
+    "/reference/BICs/{bicId}" : {
       "get" : {
-        "summary" : "Retrieves the status on the validity of the requested BIC along with its details",
-        "description" : "Retrieves the status on the validity of the requested BIC along with its details, such as institution name, address, location etc. ",
+        "summary" : "Returns the status on the validity of the requested BIC along with its details",
+        "description" : "Returns the status on the validity of the requested BIC along with its details",
         "operationId" : "getBICStatus",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -45,12 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -62,158 +56,6 @@
             "description" : "BICStatusResponse",
             "schema" : {
               "$ref" : "#/definitions/BICStatusResponse"
-            }
-          },
-          "400" : {
-            "description" : "BusinessQueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/BusinessQueryErrorResponse"
-            }
-          },
-          "500" : {
-            "description" : "SystemQueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/SystemQueryErrorResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/reference/bankCodes/bics/{bicId}/validity" : {
-      "get" : {
-        "summary" : "Retrieves the status on the validity of the BIC code",
-        "description" : "Retrieves the status on the validity of the BIC code, returns YES if BIC is valid",
-        "operationId" : "validateBIC",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "bicId",
-          "in" : "path",
-          "description" : "Bank Identifier Code (BIC) of the Beneficiary bank.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "effectiveDate",
-          "in" : "query",
-          "description" : "The date on which the principal movement is effected",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "page_size",
-          "in" : "query",
-          "description" : "The total number of records per page",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_start",
-          "in" : "query",
-          "description" : "The record from which the response should be displayed",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_token",
-          "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "BICResponse",
-            "schema" : {
-              "$ref" : "#/definitions/BICResponse"
-            }
-          },
-          "400" : {
-            "description" : "BusinessQueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/BusinessQueryErrorResponse"
-            }
-          },
-          "500" : {
-            "description" : "SystemQueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/SystemQueryErrorResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/reference/bankCodes/bics/{bicId}/lei" : {
-      "get" : {
-        "summary" : "Retrieves the Bank's legal entity identifier of the requested BIC",
-        "description" : "Retrieves the Bank's Legal Entity Identifier (LEI) of the requested BIC. The LEI is the International ISO standard 17442. LEIs are identification codes that enable consistent and accurate identification of all legal entities that are parties to financial transactions, including non-financial institutions.",
-        "operationId" : "getLEIFromBIC",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "bicId",
-          "in" : "path",
-          "description" : "Bank Identifier Code (BIC) of the Beneficiary bank.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "page_size",
-          "in" : "query",
-          "description" : "The total number of records per page",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_start",
-          "in" : "query",
-          "description" : "The record from which the response should be displayed",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page_token",
-          "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "LEIFromBICResponse",
-            "schema" : {
-              "$ref" : "#/definitions/LEIFromBICResponse"
             }
           },
           "400" : {
@@ -256,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -315,32 +157,26 @@
                   "description" : "The town and/or city component of the base address of a customer"
                 },
                 "addressLine1" : {
-                  "type" : "string",
-                  "description" : "Indicates first line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine2" : {
-                  "type" : "string",
-                  "description" : "Indicates second line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine3" : {
-                  "type" : "string",
-                  "description" : "Indicates third line of the address of the BIC"
+                  "type" : "string"
                 },
                 "addressLine4" : {
-                  "type" : "string",
-                  "description" : "Indicates fourth line of the address of the BIC"
+                  "type" : "string"
                 },
                 "postCode" : {
                   "type" : "string",
                   "description" : "Identifies the address postal code for the customer."
                 },
                 "bicLocation1" : {
-                  "type" : "string",
-                  "description" : "Indicates first line of branch location of the financial institution"
+                  "type" : "string"
                 },
                 "bicLocation2" : {
-                  "type" : "string",
-                  "description" : "Indicates second line of branch location of the financial institution"
+                  "type" : "string"
                 },
                 "countryName" : {
                   "type" : "string",
@@ -392,7 +228,6 @@
           },
           "excludedCompanies" : {
             "type" : "array",
-            "description" : "Indicates the companies that are excluded from using the Central Bank Directory for the specific BIC",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -405,7 +240,6 @@
           },
           "allowedCompanies" : {
             "type" : "array",
-            "description" : "Indicates the companies that are allowed to use the Central Bank Directory for the specific BIC",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -423,11 +257,11 @@
           },
           "isBICValid" : {
             "type" : "string",
-            "description" : "Indicates whether the BIC is valid"
+            "description" : "To check whether valid bicId inputted or not"
           },
           "institutionName" : {
             "type" : "string",
-            "description" : "Contains the name of the institution"
+            "description" : "Identifies the Financial Institution of BIC"
           },
           "branch" : {
             "type" : "string",
@@ -595,53 +429,6 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
-        }
-      }
-    },
-    "BICResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/QueryHeader"
-        },
-        "body" : {
-          "$ref" : "#/definitions/BICResponseBody"
-        }
-      },
-      "description" : "BICResponse"
-    },
-    "BICResponseBody" : {
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "isBICValid" : {
-            "type" : "string",
-            "description" : "Indicates whether the BIC is valid",
-            "maxLength" : 11
-          }
-        }
-      }
-    },
-    "LEIFromBICResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/QueryHeader"
-        },
-        "body" : {
-          "$ref" : "#/definitions/LEIFromBICResponseBody"
-        }
-      },
-      "description" : "LEIFromBICResponse"
-    },
-    "LEIFromBICResponseBody" : {
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "bankLegalEntityIdentifier" : {
-            "type" : "string",
-            "description" : "Legal entity identifier for the bank."
-          }
         }
       }
     }

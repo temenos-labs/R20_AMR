@@ -32,15 +32,9 @@
             "$ref" : "#/definitions/CurrentAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -95,11 +89,11 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
                   },
                   "code" : {
                     "type" : "string",
-                    "description" : "The identifier of the error message"
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -115,7 +109,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -177,12 +171,10 @@
             "properties" : {
               "partyId" : {
                 "type" : "string",
-                "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                 "minLength" : 0
               },
               "partyRole" : {
                 "type" : "string",
-                "description" : "Indicates the role of a customer or party, Eg: Benefial Owner, Nominee etc",
                 "minLength" : 0
               }
             }
@@ -190,27 +182,25 @@
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0
         },
         "effectiveDate" : {
           "type" : "string",
-          "description" : "The date on which the principal movement is effected",
           "minLength" : 0
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "minLength" : 0
         },
         "simulationId" : {
           "type" : "string",
-          "description" : "Indicates the Id generated during the simulation of an activity",
           "minLength" : 0
         },
         "balance" : {
@@ -228,7 +218,6 @@
                   },
                   "alternateId" : {
                     "type" : "string",
-                    "description" : "An Alternate Identification for the Deal. This can be used to retrieve the Deal for amendment.",
                     "minLength" : 0,
                     "maxLength" : 11
                   }
@@ -237,37 +226,35 @@
             },
             "accountType" : {
               "type" : "string",
-              "description" : "Groups the products based on their type, eg, Checking, Savings, CD etc,.",
               "minLength" : 0,
               "maxLength" : 11
             },
             "accountName" : {
               "type" : "string",
-              "description" : "Display name or short name of the account specified.",
+              "description" : "The name of the account that is displayed",
               "minLength" : 0,
               "maxLength" : 11
             },
             "accountId" : {
               "type" : "string",
-              "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+              "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
               "minLength" : 0,
               "maxLength" : 9
             },
             "portfolioId" : {
               "type" : "string",
-              "description" : "Id of the portfolio or security account",
+              "description" : "The identifier of the portfolio",
               "minLength" : 0,
               "maxLength" : 11
             },
             "anniversary" : {
               "type" : "string",
-              "description" : "The start or end period defined in MMDD format to indicate the period when charge rules has to be applied",
               "minLength" : 0,
               "maxLength" : 11
             },
             "customerReference" : {
               "type" : "string",
-              "description" : "The reference which is provided to the beneficiary/ creditor by the originator of payment",
+              "description" : "The reference quoted by customer of the ordering account in a payment that is to be communicated to the beneficiary when a payment takes place",
               "minLength" : 0,
               "maxLength" : 17
             }
@@ -279,7 +266,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -291,7 +278,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -307,7 +294,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -345,12 +332,10 @@
                 "properties" : {
                   "partyId" : {
                     "type" : "string",
-                    "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
                     "minLength" : 0
                   },
                   "partyRole" : {
                     "type" : "string",
-                    "description" : "Indicates the role of a customer or party, Eg: Benefial Owner, Nominee etc",
                     "minLength" : 0
                   }
                 }
@@ -358,32 +343,30 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account",
+              "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
               "minLength" : 0
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0
             },
             "effectiveDate" : {
               "type" : "string",
-              "description" : "The date on which the principal movement is effected",
               "minLength" : 0
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0
             },
             "currencyId" : {
               "type" : "string",
-              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+              "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
               "minLength" : 0
             },
             "simulationId" : {
               "type" : "string",
-              "description" : "Indicates the Id generated during the simulation of an activity",
               "minLength" : 0
             }
           }
@@ -395,12 +378,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -421,7 +403,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object"
@@ -432,7 +414,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -451,7 +433,6 @@
                           },
                           "alternateId" : {
                             "type" : "string",
-                            "description" : "An Alternate Identification for the Deal. This can be used to retrieve the Deal for amendment.",
                             "minLength" : 0,
                             "maxLength" : 11
                           }
@@ -460,37 +441,35 @@
                     },
                     "accountType" : {
                       "type" : "string",
-                      "description" : "Groups the products based on their type, eg, Checking, Savings, CD etc,.",
                       "minLength" : 0,
                       "maxLength" : 11
                     },
                     "accountName" : {
                       "type" : "string",
-                      "description" : "Display name or short name of the account specified.",
+                      "description" : "The name of the account that is displayed",
                       "minLength" : 0,
                       "maxLength" : 11
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
                       "minLength" : 0,
                       "maxLength" : 9
                     },
                     "portfolioId" : {
                       "type" : "string",
-                      "description" : "Id of the portfolio or security account",
+                      "description" : "The identifier of the portfolio",
                       "minLength" : 0,
                       "maxLength" : 11
                     },
                     "anniversary" : {
                       "type" : "string",
-                      "description" : "The start or end period defined in MMDD format to indicate the period when charge rules has to be applied",
                       "minLength" : 0,
                       "maxLength" : 11
                     },
                     "customerReference" : {
                       "type" : "string",
-                      "description" : "The reference which is provided to the beneficiary/ creditor by the originator of payment",
+                      "description" : "The reference quoted by customer of the ordering account in a payment that is to be communicated to the beneficiary when a payment takes place",
                       "minLength" : 0,
                       "maxLength" : 17
                     }
@@ -505,15 +484,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -526,15 +503,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -547,15 +522,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -568,15 +541,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -589,15 +560,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -610,15 +579,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -631,15 +598,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -652,15 +617,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -673,15 +636,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -694,15 +655,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -715,15 +674,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -736,15 +693,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -757,15 +712,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -778,15 +731,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -799,15 +750,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -820,15 +769,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -841,15 +788,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -862,15 +807,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -883,15 +826,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -904,15 +845,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -925,15 +864,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -946,15 +883,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -967,15 +902,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -988,15 +921,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1009,15 +940,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1030,15 +959,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1051,15 +978,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1072,15 +997,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1093,15 +1016,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1114,15 +1035,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1135,15 +1054,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1156,15 +1073,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1177,15 +1092,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1198,15 +1111,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1219,15 +1130,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1240,15 +1149,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1261,15 +1168,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1282,15 +1187,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1303,15 +1206,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1324,15 +1225,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1345,15 +1244,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1366,15 +1263,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1387,15 +1282,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1408,15 +1301,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1429,15 +1320,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1450,15 +1339,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1471,15 +1358,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1492,15 +1377,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1513,15 +1396,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1534,15 +1415,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1555,15 +1434,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1576,15 +1453,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1597,15 +1472,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1618,15 +1491,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1639,15 +1510,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1660,15 +1529,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1681,15 +1548,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1702,15 +1567,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1723,15 +1586,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1744,15 +1605,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1765,15 +1624,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1786,15 +1643,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1807,15 +1662,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1828,15 +1681,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1849,15 +1700,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1870,15 +1719,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1891,15 +1738,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1912,15 +1757,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1933,15 +1776,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1954,15 +1795,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1975,15 +1814,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -1996,15 +1833,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2017,15 +1852,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2038,15 +1871,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2059,15 +1890,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2080,15 +1909,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2101,15 +1928,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2122,15 +1947,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2143,15 +1966,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2164,15 +1985,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -2185,15 +2004,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }

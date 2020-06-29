@@ -20,7 +20,6 @@
         "parameters" : [ {
           "name" : "guaranteeId",
           "in" : "path",
-          "description" : "Identifier of the guarantee",
           "required" : true,
           "type" : "string"
         }, {
@@ -38,15 +37,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -89,7 +81,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -105,7 +97,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -142,7 +134,7 @@
             "properties" : {
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               }
             }
           }
@@ -153,8 +145,7 @@
             "type" : "object",
             "properties" : {
               "beneficiaryAddress" : {
-                "type" : "string",
-                "description" : "The address of the Beneficiary if the customer number of the Beneficiary is not known"
+                "type" : "string"
               }
             }
           }
@@ -174,51 +165,49 @@
         },
         "guaranteeReference" : {
           "type" : "string",
-          "description" : "Another ID for the transaction for retrieval purposes or it can be used for the bank to use a unique guarantee number rather than the system generated ID"
+          "description" : "Another ID for the transaction for retrieval purposes"
         },
         "guaranteeType" : {
           "type" : "string",
-          "description" : "Refers to the type of the contract that is being issued."
+          "description" : "Refers to the type of the contract that is being issued"
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "limitReference" : {
           "type" : "string",
-          "description" : "Identifies the credit limit reference for the underlying account."
+          "description" : "Identifies the type of limit applicable to the Account"
         },
         "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+          "type" : "string"
         },
         "amount" : {
-          "type" : "string",
-          "description" : "This is the payment amount"
+          "type" : "string"
         },
         "startDate" : {
           "type" : "string",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         },
         "maturityDate" : {
           "type" : "string",
-          "description" : "Indicates maturity date of the contract"
+          "description" : "The delivery period or maturity date of the contract transacted"
         },
         "autoExpiry" : {
           "type" : "string",
-          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not Allowed values: - YES - NO - null (default value, same as NO)"
+          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not"
         },
         "onlineMaturity" : {
           "type" : "string",
-          "description" : "Field for maturing a guarantee contract online YES or NULL."
+          "description" : "Field for maturing a guarantee contract online"
         },
         "eventsProcessing" : {
           "type" : "string",
-          "description" : "Determines whether the principal movements and raising entries will occur Online or at End of Day Allowed values: - ONLINE (default) - END.OF.DAY"
+          "description" : "Determines whether the principal movements and raising entries will occur at Online or at End of Day"
         },
         "liquidationMode" : {
           "type" : "string",
-          "description" : "Indicates the manner in which the overdue payments are handled There are three options available: AUTOMATIC - will liquidate across the charge/commission account on the contract SEMI AUTOMATIC - will liquidate the charge/commission to the account only if sufficient balance is available. Else, PD will be written MANUAL - will create a PD contract irrespective of availability of funds"
+          "description" : "Indicates the manner in which the overdue payments are handled"
         },
         "claimRegisterDate" : {
           "type" : "string",
@@ -226,11 +215,11 @@
         },
         "relatedReference" : {
           "type" : "string",
-          "description" : "An external reference id for the transaction."
+          "description" : "Field to state a non t24 Reference to identify a transaction"
         },
         "invocationStatus" : {
           "type" : "string",
-          "description" : "Indicates the status of Invocation received under a guarantee.  Allowed values: - PROCESS - EXECUTE - CANCEL"
+          "description" : "Indicaties the status of Invocation recived under a guarantee"
         },
         "invocationAmount" : {
           "type" : "string",
@@ -242,15 +231,15 @@
         },
         "debitValueDate" : {
           "type" : "string",
-          "description" : "Date on which the amount will be debited for settlement"
+          "description" : "The date on which the Invocation amount will be debited for settlement"
         },
         "exchangeRate" : {
           "type" : "string",
-          "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction."
+          "description" : "Contains the exchange rate applicable"
         },
         "lastClaimNumber" : {
           "type" : "string",
-          "description" : "System maintained field holding The number of invocation done under the guarantee"
+          "description" : "The number of invocation done under the guarantee"
         }
       }
     },
@@ -262,11 +251,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -278,7 +267,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -311,7 +300,7 @@
             "properties" : {
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               }
             }
           }
@@ -342,51 +331,49 @@
         },
         "guaranteeReference" : {
           "type" : "string",
-          "description" : "Another ID for the transaction for retrieval purposes or it can be used for the bank to use a unique guarantee number rather than the system generated ID"
+          "description" : "Another ID for the transaction for retrieval purposes"
         },
         "guaranteeType" : {
           "type" : "string",
-          "description" : "Refers to the type of the contract that is being issued."
+          "description" : "Refers to the type of the contract that is being issued"
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "limitReference" : {
           "type" : "string",
-          "description" : "Identifies the credit limit reference for the underlying account."
+          "description" : "Identifies the type of limit applicable to the Account"
         },
         "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+          "type" : "string"
         },
         "amount" : {
-          "type" : "string",
-          "description" : "This is the payment amount"
+          "type" : "string"
         },
         "startDate" : {
           "type" : "string",
-          "description" : "Contains the date on which the transaction or payment gets initiated."
+          "description" : "The start date"
         },
         "maturityDate" : {
           "type" : "string",
-          "description" : "Indicates maturity date of the contract"
+          "description" : "The delivery period or maturity date of the contract transacted"
         },
         "autoExpiry" : {
           "type" : "string",
-          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not Allowed values: - YES - NO - null (default value, same as NO)"
+          "description" : "Decision field to determine whether the contingent entries are to be reversed after the deal expiry date or not"
         },
         "onlineMaturity" : {
           "type" : "string",
-          "description" : "Field for maturing a guarantee contract online YES or NULL."
+          "description" : "Field for maturing a guarantee contract online"
         },
         "eventsProcessing" : {
           "type" : "string",
-          "description" : "Determines whether the principal movements and raising entries will occur Online or at End of Day Allowed values: - ONLINE (default) - END.OF.DAY"
+          "description" : "Determines whether the principal movements and raising entries will occur at Online or at End of Day"
         },
         "liquidationMode" : {
           "type" : "string",
-          "description" : "Indicates the manner in which the overdue payments are handled There are three options available: AUTOMATIC - will liquidate across the charge/commission account on the contract SEMI AUTOMATIC - will liquidate the charge/commission to the account only if sufficient balance is available. Else, PD will be written MANUAL - will create a PD contract irrespective of availability of funds"
+          "description" : "Indicates the manner in which the overdue payments are handled"
         },
         "claimRegisterDate" : {
           "type" : "string",
@@ -394,11 +381,11 @@
         },
         "relatedReference" : {
           "type" : "string",
-          "description" : "An external reference id for the transaction."
+          "description" : "Field to state a non t24 Reference to identify a transaction"
         },
         "invocationStatus" : {
           "type" : "string",
-          "description" : "Indicates the status of Invocation received under a guarantee.  Allowed values: - PROCESS - EXECUTE - CANCEL"
+          "description" : "Indicaties the status of Invocation recived under a guarantee"
         },
         "invocationAmount" : {
           "type" : "string",
@@ -410,15 +397,15 @@
         },
         "debitValueDate" : {
           "type" : "string",
-          "description" : "Date on which the amount will be debited for settlement"
+          "description" : "The date on which the Invocation amount will be debited for settlement"
         },
         "exchangeRate" : {
           "type" : "string",
-          "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction."
+          "description" : "Contains the exchange rate applicable"
         },
         "lastClaimNumber" : {
           "type" : "string",
-          "description" : "System maintained field holding The number of invocation done under the guarantee"
+          "description" : "The number of invocation done under the guarantee"
         }
       }
     },

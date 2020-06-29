@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100336"
@@ -44,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -91,7 +84,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -150,16 +143,15 @@
                 },
                 "carrier" : {
                   "type" : "string",
-                  "description" : "Carrier to be used for sending messages",
+                  "description" : "Carrier to be used for sending messages.",
                   "maxLength" : 10
                 },
                 "isRequired" : {
                   "type" : "boolean",
-                  "description" : "Indicates if the related delivery carrier details will be added or removed as a preferred carrier for communication"
+                  "description" : " To check all related preference details will be added or removed."
                 },
                 "address" : {
                   "type" : "string",
-                  "description" : "Communication Address of the Customer",
                   "maxLength" : 3
                 }
               }
@@ -167,7 +159,7 @@
           },
           "customerId" : {
             "type" : "number",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           }
         }
       }

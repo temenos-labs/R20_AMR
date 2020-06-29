@@ -7,14 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/reference/lookups" : {
       "get" : {
-        "description" : "Gets the lookup list",
+        "summary" : "Retrieves the list of records/attributes from system reference tables",
+        "description" : "Retrieves system reference table details",
         "operationId" : "getEbLookups",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -53,15 +54,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -70,6 +64,18 @@
             "description" : "EbLookupsResponse",
             "schema" : {
               "$ref" : "#/definitions/EbLookupsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -100,9 +106,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -153,7 +164,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "Name used for display or enrichment purposes",
             "maxLength" : 35
           },
           "lookupId" : {
@@ -178,7 +189,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -203,15 +219,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     }

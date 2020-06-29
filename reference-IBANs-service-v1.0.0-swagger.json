@@ -7,13 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/reference/IBANs/{inIBANPlusId}" : {
       "get" : {
+        "summary" : "Retrieves the IBAN details for an account",
+        "description" : "Retrieves IBANs details",
         "operationId" : "getIBANs",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -43,15 +45,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -60,6 +55,18 @@
             "description" : "IBANsResponse",
             "schema" : {
               "$ref" : "#/definitions/IBANsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -73,6 +80,8 @@
     },
     "/reference/IBANStructures/{countryId}" : {
       "get" : {
+        "summary" : "Retrieves the IBAN details for a specific country",
+        "description" : "Retrieves IBAN structures details",
         "operationId" : "getIBANStructures",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -109,15 +118,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -126,6 +128,18 @@
             "description" : "IBANStructuresResponse",
             "schema" : {
               "$ref" : "#/definitions/IBANStructuresResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -156,9 +170,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -204,6 +223,7 @@
         "properties" : {
           "institutionNames" : {
             "type" : "array",
+            "description" : "Contains the names of the institution",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -217,6 +237,7 @@
           },
           "IBANPlusId" : {
             "type" : "string",
+            "description" : "Refers to the International Bank Account number associated with the customer.",
             "maxLength" : 35
           },
           "countryName" : {
@@ -241,7 +262,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -266,15 +292,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -296,12 +378,12 @@
         "properties" : {
           "IBANCountryId" : {
             "type" : "string",
-            "description" : "Contains the country id associated with international bank account number of the beneficiary",
+            "description" : "Specifies the country of a ACCT.WITH.BANK's address.",
             "maxLength" : 35
           },
           "IBANCountryCode" : {
             "type" : "string",
-            "description" : "Specifies the country code associated with international bank account number of the beneficiary",
+            "description" : "Specifies the country of a ACCT.WITH.BANK's address.",
             "maxLength" : 35
           }
         }

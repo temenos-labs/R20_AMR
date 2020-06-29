@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -43,15 +43,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -90,7 +83,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -138,17 +131,14 @@
         "properties" : {
           "processDisplayName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "activityDisplayName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "activityStatus" : {
             "type" : "string",
-            "description" : "Business Activity Status  POSSIBLE VALUES: 0: Ready  1: Running  2: Completed successfully  3: On hold or in error",
             "maxLength" : 35
           }
         }

@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100336"
@@ -46,15 +46,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -95,13 +89,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
@@ -125,15 +119,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -174,7 +162,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100336"
@@ -199,15 +187,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -248,13 +230,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
@@ -278,15 +260,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -327,7 +303,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -351,15 +327,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -400,7 +370,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100336"
@@ -425,15 +395,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -474,38 +438,34 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100337"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productLine",
           "in" : "query",
-          "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "Indicates a group under which the products exists",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "Indicates an id or name of a product",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
           "required" : false,
           "type" : "string"
         }, {
@@ -529,15 +489,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -588,7 +542,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -602,7 +556,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -643,63 +597,51 @@
         "properties" : {
           "loanAccountId" : {
             "type" : "string",
-            "description" : "The identifier of the loan account",
             "maxLength" : 35
           },
           "loanProduct" : {
             "type" : "string",
-            "description" : "The loan account product",
             "maxLength" : 30
           },
           "loanCurrency" : {
             "type" : "string",
-            "description" : "Indicates the currency of the loan",
             "maxLength" : 3
           },
           "loanAmount" : {
-            "type" : "number",
-            "description" : "Indicates loan amount"
+            "type" : "number"
           },
           "loanBalance" : {
-            "type" : "number",
-            "description" : "Indicates the outstanding balance of the loan"
+            "type" : "number"
           },
           "loanInterestRate" : {
-            "type" : "string",
-            "description" : "Indicates the interest rate of the loan"
+            "type" : "string"
           },
           "loanInterestType" : {
-            "type" : "string",
-            "description" : "Indicates the interest rate type - Eg. Fixed, floating, periodic"
+            "type" : "string"
           },
           "loanStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the loan commencement date"
+            "format" : "date"
           },
           "loanNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the next payment date for the loan"
+            "format" : "date"
           },
           "loanEndDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the loan maturity date"
+            "format" : "date"
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "The name that is displayed for the product",
             "maxLength" : 30
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "Indicates the short name of Customer",
             "maxLength" : 10
           },
           "roleDisplayName" : {
-            "type" : "string",
-            "description" : "Indicates the type of role of a customer"
+            "type" : "string"
           }
         }
       }
@@ -823,68 +765,56 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
             "maxLength" : 17
           },
           "loanAccountId" : {
             "type" : "string",
-            "description" : "The identifier of the loan account",
             "maxLength" : 35
           },
           "loanProduct" : {
             "type" : "string",
-            "description" : "The loan account product",
             "maxLength" : 30
           },
           "loanCurrency" : {
             "type" : "string",
-            "description" : "Indicates the currency of the loan",
             "maxLength" : 3
           },
           "loanAmount" : {
-            "type" : "number",
-            "description" : "Indicates loan amount"
+            "type" : "number"
           },
           "loanBalance" : {
-            "type" : "number",
-            "description" : "Indicates the outstanding balance of the loan"
+            "type" : "number"
           },
           "loanInterestRate" : {
-            "type" : "string",
-            "description" : "Indicates the interest rate of the loan"
+            "type" : "string"
           },
           "loanInterestType" : {
-            "type" : "string",
-            "description" : "Indicates the interest rate type - Eg. Fixed, floating, periodic"
+            "type" : "string"
           },
           "loanStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the loan commencement date"
+            "format" : "date"
           },
           "loanNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the next payment date for the loan"
+            "format" : "date"
           },
           "loanEndDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the loan maturity date"
+            "format" : "date"
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "The name that is displayed for the product",
             "maxLength" : 30
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "Indicates the short name of Customer",
             "maxLength" : 10
           },
           "roleDisplayName" : {
-            "type" : "string",
-            "description" : "Indicates the type of role of a customer"
+            "type" : "string"
           }
         }
       }
@@ -921,44 +851,35 @@
           },
           "depAccountId" : {
             "type" : "string",
-            "description" : "The identifier of the deposit account",
             "maxLength" : 35
           },
           "depProduct" : {
             "type" : "string",
-            "description" : "The deposit account product ",
             "maxLength" : 30
           },
           "depCurrency" : {
             "type" : "string",
-            "description" : "Currency of the deposit account, 3-letter ISO 4217 code.",
             "maxLength" : 3
           },
           "depAmount" : {
-            "type" : "string",
-            "description" : "Indicates the total deposit amount"
+            "type" : "string"
           },
           "depInterestType" : {
-            "type" : "string",
-            "description" : "The type of interest - fixed, floating, periodic"
+            "type" : "string"
           },
           "depStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "The start date for the deposit account"
+            "format" : "date"
           },
           "depEndDate" : {
-            "type" : "string",
-            "description" : "The maturity date of the deposit agreement."
+            "type" : "string"
           },
           "depBalance" : {
-            "type" : "string",
-            "description" : "Indicates the current outstanding balance"
+            "type" : "string"
           },
           "depNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the next payment date for the deposit"
+            "format" : "date"
           }
         }
       }
@@ -995,44 +916,35 @@
           },
           "depAccountId" : {
             "type" : "string",
-            "description" : "The identifier of the deposit account",
             "maxLength" : 35
           },
           "depProduct" : {
             "type" : "string",
-            "description" : "The deposit account product ",
             "maxLength" : 30
           },
           "depCurrency" : {
             "type" : "string",
-            "description" : "Currency of the deposit account, 3-letter ISO 4217 code.",
             "maxLength" : 3
           },
           "depAmount" : {
-            "type" : "string",
-            "description" : "Indicates the total deposit amount"
+            "type" : "string"
           },
           "depInterestType" : {
-            "type" : "string",
-            "description" : "The type of interest - fixed, floating, periodic"
+            "type" : "string"
           },
           "depStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "The start date for the deposit account"
+            "format" : "date"
           },
           "depEndDate" : {
-            "type" : "string",
-            "description" : "The maturity date of the deposit agreement."
+            "type" : "string"
           },
           "depBalance" : {
-            "type" : "string",
-            "description" : "Indicates the current outstanding balance"
+            "type" : "string"
           },
           "depNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Indicates the next payment date for the deposit"
+            "format" : "date"
           },
           "depProductDescription" : {
             "type" : "string"
@@ -1064,7 +976,6 @@
               "properties" : {
                 "productLine" : {
                   "type" : "string",
-                  "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
                   "maxLength" : 35
                 },
                 "productGroupIds" : {
@@ -1074,17 +985,16 @@
                     "properties" : {
                       "productGroupId" : {
                         "type" : "string",
-                        "description" : "The group, as defined by the institution, that the product belongs to.",
+                        "description" : "The identifier of the product group",
                         "maxLength" : 30
                       },
                       "arrangementId" : {
                         "type" : "string",
-                        "description" : "Indicates an unique identifier of an account",
+                        "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
                         "maxLength" : 30
                       },
                       "customerRole" : {
                         "type" : "string",
-                        "description" : "Indicates role of a customer for an arrangement.",
                         "maxLength" : 30
                       }
                     }
@@ -1095,7 +1005,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 17
           }
         }
@@ -1119,36 +1029,31 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
             "maxLength" : 17
           },
           "customer" : {
-            "type" : "string",
-            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+            "type" : "string"
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "Indicates the short name of Customer",
             "maxLength" : 35
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "Indicates role of a customer for an arrangement.",
             "maxLength" : 30
           },
           "productLine" : {
             "type" : "string",
-            "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
             "maxLength" : 10
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "The name that is displayed for the product",
             "maxLength" : 30
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : "Indicates the description of the Product"
+            "type" : "string"
           }
         }
       }
@@ -1171,40 +1076,34 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
             "maxLength" : 17
           },
           "customer" : {
-            "type" : "string",
-            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+            "type" : "string"
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "Indicates the short name of Customer",
             "maxLength" : 35
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "Indicates role of a customer for an arrangement.",
             "maxLength" : 30
           },
           "productLine" : {
             "type" : "string",
-            "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
             "maxLength" : 10
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "The name that is displayed for the product",
             "maxLength" : 30
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : "Indicates the description of the Product"
+            "type" : "string"
           },
           "productCode" : {
-            "type" : "string",
-            "description" : "Indicate a code under which a product belongs"
+            "type" : "string"
           }
         }
       }

@@ -58,13 +58,13 @@
         }, {
           "name" : "depository",
           "in" : "query",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Indicates the type of currency to which the account belongs",
           "required" : false,
           "type" : "string"
         }, {
@@ -76,7 +76,7 @@
         }, {
           "name" : "deliveryInstruction",
           "in" : "query",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "required" : false,
           "type" : "string"
         }, {
@@ -115,12 +115,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -203,13 +197,13 @@
         }, {
           "name" : "depository",
           "in" : "query",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Indicates the type of currency to which the account belongs",
           "required" : false,
           "type" : "string"
         }, {
@@ -221,7 +215,7 @@
         }, {
           "name" : "deliveryInstruction",
           "in" : "query",
-          "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+          "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
           "required" : false,
           "type" : "string"
         }, {
@@ -260,12 +254,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -314,12 +302,6 @@
           "in" : "path",
           "description" : "Identifier of the Security Settlement",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -381,12 +363,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -432,12 +408,6 @@
           "in" : "path",
           "description" : "Identifier of the Security Settlement",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -499,12 +469,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -558,16 +522,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -635,7 +597,8 @@
                 },
                 "brokerOutstandingAmount" : {
                   "type" : "number",
-                  "description" : "The amount outstanding for the broker"
+                  "description" : "The amount outstanding for the broker",
+                  "maximum" : 19
                 },
                 "brokerOutstandingQuantity" : {
                   "type" : "string",
@@ -661,7 +624,7 @@
           },
           "depository" : {
             "type" : "string",
-            "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+            "description" : "The custodian where securities are held",
             "maxLength" : 10
           },
           "depositoryName" : {
@@ -705,7 +668,8 @@
           },
           "customerOutstandingAmount" : {
             "type" : "number",
-            "description" : "The amount outstanding from/to the customer"
+            "description" : "The amount outstanding from/to the customer",
+            "maximum" : 19
           },
           "customerOutstandingQuantity" : {
             "type" : "string",
@@ -730,13 +694,11 @@
               "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -759,7 +721,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -787,7 +749,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -815,7 +777,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -827,10 +789,69 @@
         }
       }
     },
+    "SecuritySettlementsResponseQueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        },
+        "data" : {
+          "type" : "object",
+          "properties" : {
+            "currentWorkingDay" : {
+              "type" : "string",
+              "format" : "date"
+            },
+            "settlementPeriod" : {
+              "type" : "string",
+              "format" : "date",
+              "description" : "Indicates the period of settlement"
+            }
+          }
+        }
+      }
+    },
     "SecuritySettlementsResponse" : {
       "properties" : {
         "header" : {
-          "$ref" : "#/definitions/QueryHeader"
+          "$ref" : "#/definitions/SecuritySettlementsResponseQueryHeader"
         },
         "body" : {
           "$ref" : "#/definitions/SecuritySettlementsResponseBody"
@@ -868,13 +889,13 @@
                   "description" : "Currency of the nostro account"
                 },
                 "brokerOutstandingAmount" : {
-                  "type" : "number",
+                  "type" : "string",
                   "description" : "The amount outstanding for the broker"
                 },
                 "brokerOutstandingQuantity" : {
-                  "type" : "string",
+                  "type" : "number",
                   "description" : "The quantity of the instrument outstanding for the broker",
-                  "maxLength" : 19
+                  "maximum" : 19
                 }
               }
             }
@@ -894,17 +915,16 @@
             "description" : "The name that is displayed for the instrument, taken from the Security Master"
           },
           "quantity" : {
-            "type" : "string",
-            "description" : "The nominal quantity",
-            "maxLength" : 19
+            "type" : "number",
+            "description" : "The nominal quantity"
           },
           "settled" : {
-            "type" : "number",
+            "type" : "string",
             "description" : "Flag to indicate whether a bill is settled or not"
           },
           "depository" : {
             "type" : "string",
-            "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+            "description" : "The custodian where securities are held",
             "maxLength" : 10
           },
           "depositoryName" : {
@@ -942,17 +962,17 @@
             "maxLength" : 3
           },
           "customerOutstandingAmount" : {
-            "type" : "number",
+            "type" : "string",
             "description" : "The amount outstanding from/to the customer"
           },
           "customerOutstandingQuantity" : {
-            "type" : "string",
+            "type" : "number",
             "description" : "The quantity outstanding from/to the customer",
-            "maxLength" : 19
+            "maximum" : 19
           },
           "deliveryInstruction" : {
             "type" : "string",
-            "description" : "Customer's directions to a bank as to the disposition of funds and securities in the customer's account",
+            "description" : "Type of Delivery to be made for this transaction. Allowed values: - DAP: Delivery Against Payment - FOP: Free of Payment",
             "maxLength" : 5
           },
           "matchCode" : {
@@ -976,7 +996,7 @@
           },
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "The name of the application. ",
             "maxLength" : 20
           },
           "recordStatus" : {
@@ -999,11 +1019,15 @@
                 "properties" : {
                   "id" : {
                     "type" : "string",
-                    "description" : "The identifier of the override"
+                    "description" : "The identifier of the override."
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
+                  },
+                  "code" : {
+                    "type" : "string",
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -1019,7 +1043,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -1047,66 +1071,79 @@
               "brokerId" : {
                 "type" : "string",
                 "description" : "The identifier of the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "string",
                 "description" : "Total quantity that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerOutstandingQuantity" : {
                 "type" : "string",
                 "description" : "The quantity of the instrument outstanding for the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToSettle" : {
                 "type" : "string",
                 "description" : "Quantity that has to be settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToCancel" : {
                 "type" : "string",
                 "description" : "Quantity that has to be cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "valueDate" : {
                 "type" : "string",
                 "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "string",
                 "description" : "Total amount that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerOutstandingAmount" : {
                 "type" : "string",
                 "description" : "The amount outstanding for the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountToSettle" : {
                 "type" : "string",
                 "description" : "Indicates the amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the amount was settled/ unsettled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "autoSettle" : {
                 "type" : "string",
                 "description" : "Indicates if the settlement is automatic at the Customer / Broker side",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "depositoryConfirmationKey" : {
                 "type" : "string",
                 "description" : "Contains the incoming MT544-547 Swift message reference",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "narrative" : {
                 "type" : "string",
                 "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -1120,106 +1157,127 @@
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "string",
                 "description" : "Total quantity that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "customerOutstandingQuantity" : {
                 "type" : "string",
                 "description" : "The quantity outstanding from/to the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToSettle" : {
                 "type" : "string",
                 "description" : "Quantity that has to be settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "valueDate" : {
                 "type" : "string",
                 "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "string",
                 "description" : "Total amount that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "customerOutstandingAmount" : {
                 "type" : "string",
                 "description" : "The amount outstanding from/to the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountToSettle" : {
                 "type" : "string",
                 "description" : "Indicates the amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the amount was settled/ unsettled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "nominee" : {
                 "type" : "string",
                 "description" : "Represents the Nominee Company record",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "autoSettle" : {
                 "type" : "string",
                 "description" : "Indicates if the settlement is automatic at the Customer / Broker side",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountSettled" : {
                 "type" : "string",
                 "description" : "Borrow amount that is settled till date",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountOutstanding" : {
                 "type" : "string",
                 "description" : "Borrow amount that is outstanding",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountToSettle" : {
                 "type" : "string",
                 "description" : "Borrow amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountCancelled" : {
                 "type" : "string",
                 "description" : "The Customer borrow amount that is cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the borrow amount is settled/cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountSettled" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is settled till date",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountOutstanding" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is outstanding",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountToSettle" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountCancelled" : {
                 "type" : "string",
                 "description" : "The customer lent amount that is cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the customer lent amount is settled/cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -1228,16 +1286,19 @@
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "transactionCode" : {
           "type" : "string",
           "description" : "Identifies the system internal transaction code applicable to the transaction",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depository" : {
           "type" : "string",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeDate" : {
@@ -1253,53 +1314,74 @@
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "quantity" : {
           "type" : "number",
-          "description" : "The nominal quantity"
+          "description" : "The nominal quantity",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmount" : {
           "type" : "string",
           "description" : "Net amount due to/from the broker for the transaction. Applicable only where the security transfer is made against payment.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "customerAmount" : {
           "type" : "string",
           "description" : "Total amount of cash to be debited from or credited to the customer",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "settled" : {
           "type" : "number",
-          "description" : "Flag to indicate whether a bill is settled or not"
+          "description" : "Flag to indicate whether a bill is settled or not",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToSettle" : {
           "type" : "number",
-          "description" : "Quantity that has to be settled"
+          "description" : "Quantity that has to be settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityCancelled" : {
           "type" : "number",
-          "description" : "Quantity that has been cancelled"
+          "description" : "Quantity that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToCancel" : {
           "type" : "number",
-          "description" : "Quantity that has to be cancelled"
+          "description" : "Quantity that has to be cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountSettled" : {
           "type" : "number",
-          "description" : "Customer amount that has been settled"
+          "description" : "Customer amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountCancelled" : {
           "type" : "number",
-          "description" : "Customer amount that has been cancelled"
+          "description" : "Customer amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountSettled" : {
           "type" : "number",
-          "description" : "Broker amount that has been settled"
+          "description" : "Broker amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountCancelled" : {
           "type" : "number",
-          "description" : "The broker amount that has been cancelled"
+          "description" : "The broker amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "generateInstruction" : {
           "type" : "boolean",
@@ -1315,11 +1397,15 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
         },
         "audit" : {
           "type" : "object",
@@ -1331,16 +1417,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -1369,66 +1453,79 @@
               "brokerId" : {
                 "type" : "string",
                 "description" : "The identifier of the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "string",
                 "description" : "Total quantity that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerOutstandingQuantity" : {
                 "type" : "string",
                 "description" : "The quantity of the instrument outstanding for the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToSettle" : {
                 "type" : "string",
                 "description" : "Quantity that has to be settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToCancel" : {
                 "type" : "string",
                 "description" : "Quantity that has to be cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "valueDate" : {
                 "type" : "string",
                 "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "string",
                 "description" : "Total amount that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerOutstandingAmount" : {
                 "type" : "string",
                 "description" : "The amount outstanding for the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountToSettle" : {
                 "type" : "string",
                 "description" : "Indicates the amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the amount was settled/ unsettled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "autoSettle" : {
                 "type" : "string",
                 "description" : "Indicates if the settlement is automatic at the Customer / Broker side",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "depositoryConfirmationKey" : {
                 "type" : "string",
                 "description" : "Contains the incoming MT544-547 Swift message reference",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "narrative" : {
                 "type" : "string",
                 "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -1442,106 +1539,127 @@
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "string",
                 "description" : "Total quantity that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "customerOutstandingQuantity" : {
                 "type" : "string",
                 "description" : "The quantity outstanding from/to the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantityToSettle" : {
                 "type" : "string",
                 "description" : "Quantity that has to be settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "valueDate" : {
                 "type" : "string",
                 "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "string",
                 "description" : "Total amount that is settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "customerOutstandingAmount" : {
                 "type" : "string",
                 "description" : "The amount outstanding from/to the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountToSettle" : {
                 "type" : "string",
                 "description" : "Indicates the amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the amount was settled/ unsettled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "nominee" : {
                 "type" : "string",
                 "description" : "Represents the Nominee Company record",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "autoSettle" : {
                 "type" : "string",
                 "description" : "Indicates if the settlement is automatic at the Customer / Broker side",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountSettled" : {
                 "type" : "string",
                 "description" : "Borrow amount that is settled till date",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountOutstanding" : {
                 "type" : "string",
                 "description" : "Borrow amount that is outstanding",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountToSettle" : {
                 "type" : "string",
                 "description" : "Borrow amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowAmountCancelled" : {
                 "type" : "string",
                 "description" : "The Customer borrow amount that is cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "borrowValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the borrow amount is settled/cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountSettled" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is settled till date",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountOutstanding" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is outstanding",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountToSettle" : {
                 "type" : "string",
                 "description" : "Customer lent amount that is being settled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentAmountCancelled" : {
                 "type" : "string",
                 "description" : "The customer lent amount that is cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "lentValueDate" : {
                 "type" : "string",
                 "description" : "Value date on which the customer lent amount is settled/cancelled",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -1550,16 +1668,19 @@
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "transactionCode" : {
           "type" : "string",
           "description" : "Identifies the system internal transaction code applicable to the transaction",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depository" : {
           "type" : "string",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeDate" : {
@@ -1575,53 +1696,74 @@
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "quantity" : {
           "type" : "number",
-          "description" : "The nominal quantity"
+          "description" : "The nominal quantity",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmount" : {
           "type" : "string",
           "description" : "Net amount due to/from the broker for the transaction. Applicable only where the security transfer is made against payment.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "customerAmount" : {
           "type" : "string",
           "description" : "Total amount of cash to be debited from or credited to the customer",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "settled" : {
           "type" : "number",
-          "description" : "Flag to indicate whether a bill is settled or not"
+          "description" : "Flag to indicate whether a bill is settled or not",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToSettle" : {
           "type" : "number",
-          "description" : "Quantity that has to be settled"
+          "description" : "Quantity that has to be settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityCancelled" : {
           "type" : "number",
-          "description" : "Quantity that has been cancelled"
+          "description" : "Quantity that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToCancel" : {
           "type" : "number",
-          "description" : "Quantity that has to be cancelled"
+          "description" : "Quantity that has to be cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountSettled" : {
           "type" : "number",
-          "description" : "Customer amount that has been settled"
+          "description" : "Customer amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountCancelled" : {
           "type" : "number",
-          "description" : "Customer amount that has been cancelled"
+          "description" : "Customer amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountSettled" : {
           "type" : "number",
-          "description" : "Broker amount that has been settled"
+          "description" : "Broker amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountCancelled" : {
           "type" : "number",
-          "description" : "The broker amount that has been cancelled"
+          "description" : "The broker amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "generateInstruction" : {
           "type" : "boolean",
@@ -1638,22 +1780,26 @@
             "properties" : {
               "id" : {
                 "type" : "string",
-                "description" : "The identifier of the override"
+                "description" : "The identifier of the override."
               },
               "description" : {
                 "type" : "string",
-                "description" : "The actual override message"
+                "description" : "The actual override message."
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The code related to override message."
               },
               "options" : {
                 "type" : "array",
-                "description" : "The usable options for the override",
+                "description" : "The usable options for the override.",
                 "items" : {
                   "type" : "string"
                 }
               },
               "type" : {
                 "type" : "string",
-                "description" : "The type of the override"
+                "description" : "The type of the override."
               }
             }
           }
@@ -1811,23 +1957,32 @@
               "brokerId" : {
                 "type" : "string",
                 "description" : "The identifier of the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "number",
-                "description" : "Total quantity that is settled"
+                "description" : "Total quantity that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "brokerOutstandingQuantity" : {
                 "type" : "number",
-                "description" : "The quantity of the instrument outstanding for the broker"
+                "description" : "The quantity of the instrument outstanding for the broker",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToSettle" : {
                 "type" : "number",
-                "description" : "Quantity that has to be settled"
+                "description" : "Quantity that has to be settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToCancel" : {
                 "type" : "number",
-                "description" : "Quantity that has to be cancelled"
+                "description" : "Quantity that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "valueDate" : {
                 "type" : "string",
@@ -1836,19 +1991,27 @@
               },
               "amountSettled" : {
                 "type" : "number",
-                "description" : "Total amount that is settled"
+                "description" : "Total amount that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "brokerOutstandingAmount" : {
                 "type" : "number",
-                "description" : "The amount outstanding for the broker"
+                "description" : "The amount outstanding for the broker",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToSettle" : {
                 "type" : "number",
-                "description" : "Indicates the amount that is being settled"
+                "description" : "Indicates the amount that is being settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToCancel" : {
                 "type" : "number",
-                "description" : "Amount that has to be cancelled"
+                "description" : "Amount that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
@@ -1858,11 +2021,13 @@
               "depositoryConfirmationKey" : {
                 "type" : "string",
                 "description" : "Contains the incoming MT544-547 Swift message reference",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "narrative" : {
                 "type" : "string",
                 "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -1876,28 +2041,38 @@
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "nominee" : {
                 "type" : "string",
                 "description" : "Represents the Nominee Company record",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "number",
-                "description" : "Total quantity that is settled"
+                "description" : "Total quantity that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerOutstandingQuantity" : {
                 "type" : "number",
-                "description" : "The quantity outstanding from/to the customer"
+                "description" : "The quantity outstanding from/to the customer",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToSettle" : {
                 "type" : "number",
-                "description" : "Quantity that has to be settled"
+                "description" : "Quantity that has to be settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToCancel" : {
                 "type" : "number",
-                "description" : "Quantity that has to be cancelled"
+                "description" : "Quantity that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "valueDate" : {
                 "type" : "string",
@@ -1907,23 +2082,32 @@
               "quantityDeliveryKey" : {
                 "type" : "string",
                 "description" : "Delivery reference of the incoming message that settled/unsettled the nominal",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "number",
-                "description" : "Total amount that is settled"
+                "description" : "Total amount that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerOutstandingAmount" : {
                 "type" : "number",
-                "description" : "The amount outstanding from/to the customer"
+                "description" : "The amount outstanding from/to the customer",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToSettle" : {
                 "type" : "number",
-                "description" : "Indicates the amount that is being settled"
+                "description" : "Indicates the amount that is being settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToCancel" : {
                 "type" : "number",
-                "description" : "Amount that has to be cancelled"
+                "description" : "Amount that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
@@ -1933,15 +2117,20 @@
               "amountDeliveryKey" : {
                 "type" : "string",
                 "description" : "The delivery reference of the incoming message that settled/unsettled the nominal",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountInAccountCurrency" : {
                 "type" : "number",
-                "description" : "Amount in the currency of the account"
+                "description" : "Amount in the currency of the account",
+                "minimum" : 0,
+                "maximum" : 23
               },
               "exchangeRate" : {
                 "type" : "number",
-                "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction."
+                "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction.",
+                "minimum" : 0,
+                "maximum" : 30
               }
             }
           }
@@ -1949,11 +2138,13 @@
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depository" : {
           "type" : "string",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeDate" : {
@@ -1969,51 +2160,73 @@
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "quantity" : {
           "type" : "number",
-          "description" : "The nominal quantity"
+          "description" : "The nominal quantity",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantitySettled" : {
           "type" : "number",
-          "description" : "Total quantity that is settled"
+          "description" : "Total quantity that is settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToSettle" : {
           "type" : "number",
-          "description" : "Quantity that has to be settled"
+          "description" : "Quantity that has to be settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityCancelled" : {
           "type" : "number",
-          "description" : "Quantity that has been cancelled"
+          "description" : "Quantity that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToCancel" : {
           "type" : "number",
-          "description" : "Quantity that has to be cancelled"
+          "description" : "Quantity that has to be cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "netAmount" : {
           "type" : "number",
-          "description" : "Holds the total amount"
+          "description" : "Holds the total amount",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountSettled" : {
           "type" : "number",
-          "description" : "Customer amount that has been settled"
+          "description" : "Customer amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountCancelled" : {
           "type" : "number",
-          "description" : "Customer amount that has been cancelled"
+          "description" : "Customer amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountSettled" : {
           "type" : "number",
-          "description" : "Broker amount that has been settled"
+          "description" : "Broker amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountCancelled" : {
           "type" : "number",
-          "description" : "The broker amount that has been cancelled"
+          "description" : "The broker amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "deliveryKey" : {
           "type" : "string",
           "description" : "Delivery instruction reference",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "generateInstruction" : {
@@ -2044,23 +2257,32 @@
               "brokerId" : {
                 "type" : "string",
                 "description" : "The identifier of the broker",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "number",
-                "description" : "Total quantity that is settled"
+                "description" : "Total quantity that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "brokerOutstandingQuantity" : {
                 "type" : "number",
-                "description" : "The quantity of the instrument outstanding for the broker"
+                "description" : "The quantity of the instrument outstanding for the broker",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToSettle" : {
                 "type" : "number",
-                "description" : "Quantity that has to be settled"
+                "description" : "Quantity that has to be settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToCancel" : {
                 "type" : "number",
-                "description" : "Quantity that has to be cancelled"
+                "description" : "Quantity that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "valueDate" : {
                 "type" : "string",
@@ -2069,19 +2291,27 @@
               },
               "amountSettled" : {
                 "type" : "number",
-                "description" : "Total amount that is settled"
+                "description" : "Total amount that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "brokerOutstandingAmount" : {
                 "type" : "number",
-                "description" : "The amount outstanding for the broker"
+                "description" : "The amount outstanding for the broker",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToSettle" : {
                 "type" : "number",
-                "description" : "Indicates the amount that is being settled"
+                "description" : "Indicates the amount that is being settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToCancel" : {
                 "type" : "number",
-                "description" : "Amount that has to be cancelled"
+                "description" : "Amount that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
@@ -2091,11 +2321,13 @@
               "depositoryConfirmationKey" : {
                 "type" : "string",
                 "description" : "Contains the incoming MT544-547 Swift message reference",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "narrative" : {
                 "type" : "string",
                 "description" : "The additional text printed on descriptive statements in addition to the standard narrative and/or reference",
+                "minLength" : 0,
                 "maxLength" : 30
               }
             }
@@ -2109,28 +2341,38 @@
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "nominee" : {
                 "type" : "string",
                 "description" : "Represents the Nominee Company record",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantitySettled" : {
                 "type" : "number",
-                "description" : "Total quantity that is settled"
+                "description" : "Total quantity that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerOutstandingQuantity" : {
                 "type" : "number",
-                "description" : "The quantity outstanding from/to the customer"
+                "description" : "The quantity outstanding from/to the customer",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToSettle" : {
                 "type" : "number",
-                "description" : "Quantity that has to be settled"
+                "description" : "Quantity that has to be settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "quantityToCancel" : {
                 "type" : "number",
-                "description" : "Quantity that has to be cancelled"
+                "description" : "Quantity that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "valueDate" : {
                 "type" : "string",
@@ -2140,23 +2382,32 @@
               "quantityDeliveryKey" : {
                 "type" : "string",
                 "description" : "Delivery reference of the incoming message that settled/unsettled the nominal",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountSettled" : {
                 "type" : "number",
-                "description" : "Total amount that is settled"
+                "description" : "Total amount that is settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerOutstandingAmount" : {
                 "type" : "number",
-                "description" : "The amount outstanding from/to the customer"
+                "description" : "The amount outstanding from/to the customer",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToSettle" : {
                 "type" : "number",
-                "description" : "Indicates the amount that is being settled"
+                "description" : "Indicates the amount that is being settled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountToCancel" : {
                 "type" : "number",
-                "description" : "Amount that has to be cancelled"
+                "description" : "Amount that has to be cancelled",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amountValueDate" : {
                 "type" : "string",
@@ -2166,15 +2417,20 @@
               "amountDeliveryKey" : {
                 "type" : "string",
                 "description" : "The delivery reference of the incoming message that settled/unsettled the nominal",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "amountInAccountCurrency" : {
                 "type" : "number",
-                "description" : "Amount in the currency of the account"
+                "description" : "Amount in the currency of the account",
+                "minimum" : 0,
+                "maximum" : 23
               },
               "exchangeRate" : {
                 "type" : "number",
-                "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction."
+                "description" : "Contains the exchange rate returned from the system. i.e. For entries over foreign currency accounts, this contains the rate which used to convert the currency amount to the local equivalent at the time of the originating transaction.",
+                "minimum" : 0,
+                "maximum" : 30
               }
             }
           }
@@ -2182,11 +2438,13 @@
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depository" : {
           "type" : "string",
-          "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+          "description" : "The custodian where securities are held",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeDate" : {
@@ -2202,51 +2460,73 @@
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "quantity" : {
           "type" : "number",
-          "description" : "The nominal quantity"
+          "description" : "The nominal quantity",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantitySettled" : {
           "type" : "number",
-          "description" : "Total quantity that is settled"
+          "description" : "Total quantity that is settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToSettle" : {
           "type" : "number",
-          "description" : "Quantity that has to be settled"
+          "description" : "Quantity that has to be settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityCancelled" : {
           "type" : "number",
-          "description" : "Quantity that has been cancelled"
+          "description" : "Quantity that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "quantityToCancel" : {
           "type" : "number",
-          "description" : "Quantity that has to be cancelled"
+          "description" : "Quantity that has to be cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "netAmount" : {
           "type" : "number",
-          "description" : "Holds the total amount"
+          "description" : "Holds the total amount",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountSettled" : {
           "type" : "number",
-          "description" : "Customer amount that has been settled"
+          "description" : "Customer amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "customerAmountCancelled" : {
           "type" : "number",
-          "description" : "Customer amount that has been cancelled"
+          "description" : "Customer amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountSettled" : {
           "type" : "number",
-          "description" : "Broker amount that has been settled"
+          "description" : "Broker amount that has been settled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "brokerAmountCancelled" : {
           "type" : "number",
-          "description" : "The broker amount that has been cancelled"
+          "description" : "The broker amount that has been cancelled",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "deliveryKey" : {
           "type" : "string",
           "description" : "Delivery instruction reference",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "generateInstruction" : {

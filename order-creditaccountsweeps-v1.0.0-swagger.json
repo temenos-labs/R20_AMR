@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string"
         }, {
@@ -43,15 +43,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -90,7 +83,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -143,11 +136,11 @@
               "properties" : {
                 "debitAccountId" : {
                   "type" : "string",
-                  "description" : "Indicates the debit account number of the payment or transaction."
+                  "description" : "Indicates the debit account number of the payment"
                 },
                 "debitCurrency" : {
                   "type" : "string",
-                  "description" : "Currency of the debit account. For example: USD, EUR etc."
+                  "description" : "Indicates the currency of debit account"
                 }
               }
             }
@@ -159,11 +152,10 @@
               "properties" : {
                 "creditAccountId" : {
                   "type" : "number",
-                  "description" : "Credit account identifier of the payment or transaction"
+                  "description" : "This is the account which will be credited for the instruction"
                 },
                 "creditCurrency" : {
-                  "type" : "string",
-                  "description" : "Currency of the account which funds will be transferred to."
+                  "type" : "string"
                 },
                 "minimumBalance" : {
                   "type" : "number",

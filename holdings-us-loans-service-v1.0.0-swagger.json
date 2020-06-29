@@ -45,15 +45,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,7 +97,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -167,12 +160,10 @@
           },
           "alternateAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 55
           },
           "alternateAccountType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 55
           },
           "accountStatus" : {
@@ -182,7 +173,6 @@
           },
           "branchId" : {
             "type" : "string",
-            "description" : "Unique and unambiguous identification of a branch of a financial institution.",
             "maxLength" : 20
           },
           "accountCompany" : {
@@ -242,7 +232,7 @@
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "Indicates role of a customer for an arrangement.",
+            "description" : "The customer role with drop down of standard selections",
             "maxLength" : 65
           },
           "accountTitle1" : {
@@ -307,7 +297,7 @@
           },
           "effectiveRate" : {
             "type" : "string",
-            "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value",
+            "description" : "The actual interest rate for the account at this point in time.",
             "maxLength" : 10
           },
           "paymentFrequency" : {

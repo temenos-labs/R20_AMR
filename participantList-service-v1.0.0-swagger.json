@@ -20,19 +20,17 @@
         "parameters" : [ {
           "name" : "participantId",
           "in" : "query",
-          "description" : "Process Workflow Participant ID",
+          "description" : "Participant ID",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "accountOfficer",
           "in" : "query",
-          "description" : "Identifier of Department Account Officer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "user",
           "in" : "query",
-          "description" : "The user who created the project",
           "required" : false,
           "type" : "string"
         }, {
@@ -56,15 +54,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -103,7 +94,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -151,21 +142,19 @@
         "properties" : {
           "participantId" : {
             "type" : "string",
-            "description" : "Process Workflow Participant ID",
+            "description" : "Participant ID",
             "maxLength" : 35
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           },
           "accountOfficer" : {
-            "type" : "number",
-            "description" : "Identifier of Department Account Officer"
+            "type" : "number"
           },
           "user" : {
             "type" : "string",
-            "description" : "The user who created the project",
             "maxLength" : 35
           }
         }

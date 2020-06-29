@@ -30,7 +30,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -57,7 +57,7 @@
         "parameters" : [ {
           "name" : "screenId",
           "in" : "path",
-          "description" : "",
+          "description" : "The screen identifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -82,7 +82,7 @@
         "parameters" : [ {
           "name" : "screenId",
           "in" : "path",
-          "description" : "",
+          "description" : "The screen identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -151,8 +151,9 @@
           "description" : "The total number of records present"
         },
         "page_token" : {
-          "type" : "string",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request."
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
         }
       }
     },
@@ -174,12 +175,12 @@
         "properties" : {
           "screenId" : {
             "type" : "string",
-            "description" : "",
+            "description" : "The screen identifier",
             "maxLength" : 54
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 70
           }
         }
@@ -240,11 +241,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -279,37 +280,29 @@
       "properties" : {
         "fields" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "field" : {
-                "type" : "string",
-                "description" : "Input is the valid field name for the metrics evaluation of alerts"
+                "type" : "string"
               },
               "column" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "labelLength" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "groupBy" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "explanation" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -320,12 +313,10 @@
             "type" : "object",
             "properties" : {
               "defaultField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "defaultValue" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -336,31 +327,26 @@
             "type" : "object",
             "properties" : {
               "child" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "recordsPerPage" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "fieldsPerLine" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "language" : {
-          "type" : "string",
-          "description" : "The language that the contents of the field are displayed in."
+          "type" : "string"
         },
         "requiredApprovers" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },
@@ -429,37 +415,29 @@
       "properties" : {
         "fields" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "field" : {
-                "type" : "string",
-                "description" : "Input is the valid field name for the metrics evaluation of alerts"
+                "type" : "string"
               },
               "column" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "labelLength" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "groupBy" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "explanation" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -470,12 +448,10 @@
             "type" : "object",
             "properties" : {
               "defaultField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "defaultValue" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -486,31 +462,26 @@
             "type" : "object",
             "properties" : {
               "child" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "recordsPerPage" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "fieldsPerLine" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "language" : {
-          "type" : "string",
-          "description" : "The language that the contents of the field are displayed in."
+          "type" : "string"
         },
         "requiredApprovers" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },
@@ -530,37 +501,29 @@
       "properties" : {
         "fields" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "field" : {
-                "type" : "string",
-                "description" : "Input is the valid field name for the metrics evaluation of alerts"
+                "type" : "string"
               },
               "column" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "labelLength" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "groupBy" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "explanation" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -571,12 +534,10 @@
             "type" : "object",
             "properties" : {
               "defaultField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "defaultValue" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -587,31 +548,26 @@
             "type" : "object",
             "properties" : {
               "child" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "recordsPerPage" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "fieldsPerLine" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "language" : {
-          "type" : "string",
-          "description" : "The language that the contents of the field are displayed in."
+          "type" : "string"
         },
         "requiredApprovers" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },

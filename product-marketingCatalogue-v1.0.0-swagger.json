@@ -39,15 +39,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -88,7 +81,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -118,15 +111,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -167,7 +153,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -197,15 +183,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -246,7 +225,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -258,19 +237,16 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -294,15 +270,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -343,7 +312,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -355,25 +324,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -397,15 +362,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -446,7 +404,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -458,25 +416,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -500,15 +454,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -549,7 +496,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -561,25 +508,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -603,15 +546,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -652,7 +588,7 @@
         "parameters" : [ {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -664,25 +600,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -706,15 +638,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -765,7 +690,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -818,7 +743,6 @@
         "properties" : {
           "catalogue" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -959,7 +883,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -969,22 +893,19 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "creditInterestType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditBaseRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1013,7 +934,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1023,37 +944,31 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "creditInterestType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditBaseRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "debitIntType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "drBaseIntRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "debitIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1082,7 +997,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1092,22 +1007,19 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1117,12 +1029,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1151,7 +1061,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1161,27 +1071,23 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1191,12 +1097,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1225,7 +1129,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1235,27 +1139,23 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1265,12 +1165,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1299,7 +1197,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1309,27 +1207,22 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestRateType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1358,7 +1251,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
@@ -1368,27 +1261,22 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestRateType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }

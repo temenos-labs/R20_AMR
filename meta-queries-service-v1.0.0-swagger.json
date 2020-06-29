@@ -30,7 +30,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -151,8 +151,9 @@
           "description" : "The total number of records present"
         },
         "page_token" : {
-          "type" : "string",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request."
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
         }
       }
     },
@@ -179,7 +180,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 50
           }
         }
@@ -240,11 +241,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -279,7 +280,6 @@
       "properties" : {
         "columns" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -288,40 +288,32 @@
                 "description" : "The name of the field"
               },
               "columnNumber" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "lengthMask" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "singleMulti" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "comments" : {
                 "type" : "string",
-                "description" : "Comments added by the User"
+                "description" : "Relevant comments"
               },
               "displayBreak" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "section" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "format" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "operations" : {
                 "type" : "array",
@@ -329,8 +321,7 @@
                   "type" : "object",
                   "properties" : {
                     "operation" : {
-                      "type" : "string",
-                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                      "type" : "string"
                     }
                   }
                 }
@@ -341,8 +332,7 @@
                   "type" : "object",
                   "properties" : {
                     "conversion" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -356,20 +346,16 @@
             "type" : "object",
             "properties" : {
               "selectionLabel" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionOperand" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "required" : {
-                "type" : "string",
-                "description" : "Flag to set the channel to communicate"
+                "type" : "string"
               }
             }
           }
@@ -380,8 +366,7 @@
             "type" : "object",
             "properties" : {
               "fixedSelection" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -392,23 +377,20 @@
             "type" : "object",
             "properties" : {
               "fixedSort" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "pageSize" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "table" : {
-          "type" : "string",
-          "description" : "Application in the feeder queue for which the restructuring done."
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },
@@ -477,7 +459,6 @@
       "properties" : {
         "columns" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -486,40 +467,32 @@
                 "description" : "The name of the field"
               },
               "columnNumber" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "lengthMask" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "singleMulti" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "comments" : {
                 "type" : "string",
-                "description" : "Comments added by the User"
+                "description" : "Relevant comments"
               },
               "displayBreak" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "section" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "format" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "operations" : {
                 "type" : "array",
@@ -527,8 +500,7 @@
                   "type" : "object",
                   "properties" : {
                     "operation" : {
-                      "type" : "string",
-                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                      "type" : "string"
                     }
                   }
                 }
@@ -539,8 +511,7 @@
                   "type" : "object",
                   "properties" : {
                     "conversion" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -554,20 +525,16 @@
             "type" : "object",
             "properties" : {
               "selectionLabel" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionOperand" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "required" : {
-                "type" : "string",
-                "description" : "Flag to set the channel to communicate"
+                "type" : "string"
               }
             }
           }
@@ -578,8 +545,7 @@
             "type" : "object",
             "properties" : {
               "fixedSelection" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -590,23 +556,20 @@
             "type" : "object",
             "properties" : {
               "fixedSort" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "pageSize" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "table" : {
-          "type" : "string",
-          "description" : "Application in the feeder queue for which the restructuring done."
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },
@@ -626,7 +589,6 @@
       "properties" : {
         "columns" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -635,40 +597,32 @@
                 "description" : "The name of the field"
               },
               "columnNumber" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "lengthMask" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "dataType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "singleMulti" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "label" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "comments" : {
                 "type" : "string",
-                "description" : "Comments added by the User"
+                "description" : "Relevant comments"
               },
               "displayBreak" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "section" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "format" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "operations" : {
                 "type" : "array",
@@ -676,8 +630,7 @@
                   "type" : "object",
                   "properties" : {
                     "operation" : {
-                      "type" : "string",
-                      "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
+                      "type" : "string"
                     }
                   }
                 }
@@ -688,8 +641,7 @@
                   "type" : "object",
                   "properties" : {
                     "conversion" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -703,20 +655,16 @@
             "type" : "object",
             "properties" : {
               "selectionLabel" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "selectionOperand" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "required" : {
-                "type" : "string",
-                "description" : "Flag to set the channel to communicate"
+                "type" : "string"
               }
             }
           }
@@ -727,8 +675,7 @@
             "type" : "object",
             "properties" : {
               "fixedSelection" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -739,23 +686,20 @@
             "type" : "object",
             "properties" : {
               "fixedSort" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
         },
         "pageSize" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "table" : {
-          "type" : "string",
-          "description" : "Application in the feeder queue for which the restructuring done."
+          "type" : "string"
         },
         "description" : {
           "type" : "string",
-          "description" : "Contains the description of purpose of the payment."
+          "description" : "The name used for display purposes"
         }
       }
     },

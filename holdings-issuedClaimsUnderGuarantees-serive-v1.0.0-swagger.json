@@ -46,15 +46,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -105,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -254,7 +247,8 @@
             }
           },
           "transactionReference" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Transaction reference identifier."
           },
           "customer" : {
             "type" : "string",
@@ -262,7 +256,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+            "description" : "Identifies the currency. E.g. USD, GBP etc"
           }
         }
       }

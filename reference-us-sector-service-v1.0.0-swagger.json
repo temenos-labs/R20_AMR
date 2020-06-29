@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "customerType",
           "in" : "path",
-          "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager",
           "required" : true,
           "type" : "string"
         }, {
@@ -42,12 +41,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -104,7 +97,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",

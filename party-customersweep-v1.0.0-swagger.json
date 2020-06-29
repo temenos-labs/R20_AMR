@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "190098"
@@ -44,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -91,7 +84,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -145,23 +138,23 @@
               "properties" : {
                 "accountId" : {
                   "type" : "string",
-                  "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                  "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                 },
                 "accountName" : {
                   "type" : "string",
-                  "description" : "Display name or short name of the account specified."
+                  "description" : "The name of the account that is displayed"
                 },
                 "accountCurrency" : {
                   "type" : "string",
-                  "description" : "Currency of the account. For example: USD, GBP."
+                  "description" : "The currency of the account"
                 },
                 "minimumBalance" : {
                   "type" : "string",
-                  "description" : "The minimum account balance required"
+                  "description" : "The minimum account balance required."
                 },
                 "maximumBalance" : {
                   "type" : "string",
-                  "description" : "The maximum account balance allowed"
+                  "description" : "The maximum account balance allowed."
                 }
               }
             }
@@ -174,43 +167,42 @@
               "properties" : {
                 "accountId" : {
                   "type" : "string",
-                  "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                  "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                 },
                 "accountName" : {
                   "type" : "string",
-                  "description" : "Display name or short name of the account specified."
+                  "description" : "The name of the account that is displayed"
                 },
                 "accountCurrency" : {
                   "type" : "string",
-                  "description" : "Currency of the account. For example: USD, GBP."
+                  "description" : "The currency of the account"
                 }
               }
             }
           },
           "sweepId" : {
             "type" : "string",
-            "description" : "Identifier of the Retail account sweep",
+            "description" : "Identifier of the sweep",
             "maxLength" : 35
           },
           "sweepType" : {
             "type" : "string",
-            "description" : "Sweep types defined to the user"
+            "description" : "Sweep types defined to the user."
           },
           "frequency" : {
-            "type" : "string",
-            "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+            "type" : "string"
           },
           "chargeId" : {
             "type" : "string",
-            "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+            "description" : "The identifier of the charge"
           },
           "chargeAmount" : {
             "type" : "string",
-            "description" : "Retrieves the Charge Amount after redeem"
+            "description" : "Holds the charge amount equivalent in charge account currency"
           },
           "chargeAccountId" : {
             "type" : "string",
-            "description" : "Indicates the account to which the charges has to be levied. Used when charges are to be taken from a separate account"
+            "description" : "The identifier of the charge account"
           }
         }
       }

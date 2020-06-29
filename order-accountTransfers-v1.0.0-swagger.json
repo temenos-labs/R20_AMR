@@ -12,8 +12,10 @@
     "basicAuth" : [ ]
   } ],
   "paths" : {
-    "/order/transfers" : {
+    "/order/fundsMovement" : {
       "post" : {
+        "summary" : "This API used to create an Account Transfer",
+        "description" : "This API used to create an Account Transfer record",
         "operationId" : "createAccountTransfer",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -22,7 +24,7 @@
           "description" : "body Payload",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/orderAccountTransfer"
+            "$ref" : "#/definitions/AccountTransfer"
           }
         }, {
           "name" : "validate_only",
@@ -31,15 +33,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -47,7 +42,19 @@
           "200" : {
             "description" : "AccountTransferResponse",
             "schema" : {
-              "$ref" : "#/definitions/orderAccountTransferResponse"
+              "$ref" : "#/definitions/AccountTransferResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -59,14 +66,15 @@
         }
       }
     },
-    "/order/transfers/{fundsTransferId}" : {
+    "/order/fundsMovement/{fundsTransferId}" : {
       "put" : {
+        "summary" : "This API used to update an Account Transfer record",
+        "description" : "This API used to update an Account Transfer record",
         "operationId" : "updateAccountTransfer",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "fundsTransferId",
           "in" : "path",
-          "description" : "Identifier of the Funds Transfer",
           "required" : true,
           "type" : "string"
         }, {
@@ -75,7 +83,7 @@
           "description" : "body Payload",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/orderAccountTransfer"
+            "$ref" : "#/definitions/AccountTransfer"
           }
         }, {
           "name" : "validate_only",
@@ -84,15 +92,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -100,7 +101,19 @@
           "200" : {
             "description" : "AccountTransferResponse",
             "schema" : {
-              "$ref" : "#/definitions/orderAccountTransferResponse"
+              "$ref" : "#/definitions/AccountTransferResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -112,20 +125,22 @@
         }
       }
     },
-    "/order/transfers/{debitAccountId}/{creditAccountId}" : {
+    "/order/fundsMovement/{debitAccountId}/{creditAccountId}" : {
       "get" : {
+        "summary" : "This API used to view an Account Transfer between two customer accounts",
+        "description" : "This API used to view an Account Transfer between two customer accounts",
         "operationId" : "getAccountTransfers",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "debitAccountId",
           "in" : "path",
-          "description" : "Indicates the debit account number of the payment or transaction.",
+          "description" : "Indicates the debit account number of the payment",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "creditAccountId",
           "in" : "path",
-          "description" : "Credit account identifier of the payment or transaction",
+          "description" : "This is the account which will be credited for the instruction",
           "required" : true,
           "type" : "string"
         }, {
@@ -149,15 +164,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -165,7 +173,19 @@
           "200" : {
             "description" : "AccountTransfersResponse",
             "schema" : {
-              "$ref" : "#/definitions/orderAccountTransfersResponse"
+              "$ref" : "#/definitions/AccountTransfersResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -200,7 +220,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -216,76 +236,82 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
       }
     },
-    "orderAccountTransfer" : {
+    "AccountTransfer" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/PayloadHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/orderAccountTransferBody"
+          "$ref" : "#/definitions/AccountTransferBody"
         }
       },
-      "description" : "orderAccountTransfer"
+      "description" : "AccountTransfer"
     },
-    "orderAccountTransferBody" : {
+    "AccountTransferBody" : {
       "type" : "object",
       "required" : [ "creditAccountId", "debitAccountId", "debitAmount", "debitCurrency", "transactionType" ],
       "properties" : {
         "transactionType" : {
           "type" : "string",
-          "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc."
+          "description" : "This is the type of transaction for which Beneficiary is created i.e. within bank account transfer or other bank transfer etc.",
+          "maxLength" : 45
         },
         "debitAccountId" : {
           "type" : "string",
-          "description" : "Indicates the debit account number of the payment or transaction."
+          "description" : "Indicates the debit account number of the payment",
+          "maxLength" : 45
         },
         "debitCurrency" : {
           "type" : "string",
-          "description" : "Currency of the debit account. For example: USD, EUR etc."
+          "description" : "Indicates the currency of debit account",
+          "maxLength" : 45
         },
         "debitAmount" : {
           "type" : "number",
-          "description" : "Amount to be debited in a payment transaction"
+          "description" : "The amount to be debited in a payment transaction"
         },
         "debitValueDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Date on which the amount will be debited for settlement"
+          "description" : "The date on which the Invocation amount will be debited for settlement"
         },
         "creditAccountId" : {
           "type" : "string",
-          "description" : "Credit account identifier of the payment or transaction"
+          "description" : "This is the account which will be credited for the instruction",
+          "maxLength" : 45
         },
         "creditCurrencyId" : {
           "type" : "string",
-          "description" : "Specifies the credit currency. For example: USD, EUR etc."
+          "description" : "The currency of the credit side in payment transaction. ",
+          "maxLength" : 45
         },
         "creditAmount" : {
           "type" : "number",
-          "description" : "Amount to be credited in a payment transaction"
+          "description" : "The amount to be credited in a payment transaction"
         },
         "creditValueDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference quoted by the credit account for a payment"
+          "description" : "The value date applied to the credit side of a payment"
         },
         "commissionCode" : {
           "type" : "string",
-          "description" : "These field control the allocation of Periodic commission where the field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band"
+          "description" : "These field control the allocation of Periodic commission �where the�field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band",
+          "maxLength" : 45
         },
         "commissionType" : {
           "type" : "string",
-          "description" : ""
+          "maxLength" : 45
         },
         "commissionAmount" : {
           "type" : "number",
-          "description" : "Amount of commission charged for the payment created with respect to the commission type used."
+          "description" : "The amount of commission charged"
         }
       }
     },
@@ -297,11 +323,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -313,9 +339,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -324,69 +355,75 @@
         }
       }
     },
-    "orderAccountTransferResponse" : {
+    "AccountTransferResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/ScreenHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/orderAccountTransferResponseBody"
+          "$ref" : "#/definitions/AccountTransferResponseBody"
         }
       },
-      "description" : "orderAccountTransferResponse"
+      "description" : "AccountTransferResponse"
     },
-    "orderAccountTransferResponseBody" : {
+    "AccountTransferResponseBody" : {
       "type" : "object",
       "properties" : {
         "transactionType" : {
           "type" : "string",
-          "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc."
+          "description" : "This is the type of transaction for which Beneficiary is created i.e. within bank account transfer or other bank transfer etc.",
+          "maxLength" : 45
         },
         "debitAccountId" : {
           "type" : "string",
-          "description" : "Indicates the debit account number of the payment or transaction."
+          "description" : "Indicates the debit account number of the payment",
+          "maxLength" : 45
         },
         "debitCurrency" : {
           "type" : "string",
-          "description" : "Currency of the debit account. For example: USD, EUR etc."
+          "description" : "Indicates the currency of debit account",
+          "maxLength" : 45
         },
         "debitAmount" : {
           "type" : "number",
-          "description" : "Amount to be debited in a payment transaction"
+          "description" : "The amount to be debited in a payment transaction"
         },
         "debitValueDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Date on which the amount will be debited for settlement"
+          "description" : "The date on which the Invocation amount will be debited for settlement"
         },
         "creditAccountId" : {
           "type" : "string",
-          "description" : "Credit account identifier of the payment or transaction"
+          "description" : "This is the account which will be credited for the instruction",
+          "maxLength" : 45
         },
         "creditCurrencyId" : {
           "type" : "string",
-          "description" : "Specifies the credit currency. For example: USD, EUR etc."
+          "description" : "The currency of the credit side in payment transaction. ",
+          "maxLength" : 45
         },
         "creditAmount" : {
           "type" : "number",
-          "description" : "Amount to be credited in a payment transaction"
+          "description" : "The amount to be credited in a payment transaction"
         },
         "creditValueDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference quoted by the credit account for a payment"
+          "description" : "The value date applied to the credit side of a payment"
         },
         "commissionCode" : {
           "type" : "string",
-          "description" : "These field control the allocation of Periodic commission where the field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band"
+          "description" : "These field control the allocation of Periodic commission �where the�field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band",
+          "maxLength" : 45
         },
         "commissionType" : {
           "type" : "string",
-          "description" : ""
+          "maxLength" : 45
         },
         "commissionAmount" : {
           "type" : "number",
-          "description" : "Amount of commission charged for the payment created with respect to the commission type used."
+          "description" : "The amount of commission charged"
         }
       }
     },
@@ -416,7 +453,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -439,6 +481,17 @@
               "description" : {
                 "type" : "string",
                 "description" : "The actual override message"
+              },
+              "options" : {
+                "type" : "array",
+                "description" : "The usable options for the override",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "The type of the override"
               }
             }
           }
@@ -477,14 +530,100 @@
               },
               "message" : {
                 "type" : "string",
-                "description" : "The actual t24 error message"
+                "description" : "The actual t24 error message "
               }
             }
           }
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "BusinessScreenErrorResponse"
+    },
+    "BusinessScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message for bad requests"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "SystemScreenErrorResponse"
+    },
+    "SystemScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message caused by server"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -500,9 +639,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -530,83 +674,81 @@
         }
       }
     },
-    "orderAccountTransfersResponse" : {
+    "AccountTransfersResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/QueryHeader"
         },
         "body" : {
-          "$ref" : "#/definitions/orderAccountTransfersResponseBody"
+          "$ref" : "#/definitions/AccountTransfersResponseBody"
         }
       },
-      "description" : "orderAccountTransfersResponse"
+      "description" : "AccountTransfersResponse"
     },
-    "orderAccountTransfersResponseBody" : {
+    "AccountTransfersResponseBody" : {
       "type" : "array",
       "items" : {
         "type" : "object",
         "properties" : {
           "fundsTransferId" : {
             "type" : "string",
-            "description" : "Identifier of the Funds Transfer",
             "maxLength" : 25
           },
           "transactionType" : {
             "type" : "string",
-            "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
+            "description" : "This is the type of transaction for which Beneficiary is created i.e. within bank account transfer or other bank transfer etc.",
             "maxLength" : 4
           },
           "debitAccountId" : {
             "type" : "string",
-            "description" : "Indicates the debit account number of the payment or transaction.",
+            "description" : "Indicates the debit account number of the payment",
             "maxLength" : 36
           },
           "debitCurrency" : {
             "type" : "string",
-            "description" : "Currency of the debit account. For example: USD, EUR etc.",
+            "description" : "Indicates the currency of debit account",
             "maxLength" : 3
           },
           "debitAmount" : {
             "type" : "number",
-            "description" : "Amount to be debited in a payment transaction"
+            "description" : "The amount to be debited in a payment transaction"
           },
           "debitValueDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Date on which the amount will be debited for settlement"
+            "description" : "The date on which the Invocation amount will be debited for settlement"
           },
           "creditAccountId" : {
             "type" : "string",
-            "description" : "Credit account identifier of the payment or transaction",
+            "description" : "This is the account which will be credited for the instruction",
             "maxLength" : 36
           },
           "creditCurrencyId" : {
             "type" : "string",
-            "description" : "Specifies the credit currency. For example: USD, EUR etc.",
+            "description" : "The currency of the credit side in payment transaction. ",
             "maxLength" : 3
           },
           "creditAmount" : {
             "type" : "number",
-            "description" : "Amount to be credited in a payment transaction"
+            "description" : "The amount to be credited in a payment transaction"
           },
           "creditValueDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Reference quoted by the credit account for a payment"
+            "description" : "The value date applied to the credit side of a payment"
           },
           "commissionCode" : {
             "type" : "string",
-            "description" : "These field control the allocation of Periodic commission where the field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band",
+            "description" : "These field control the allocation of Periodic commission �where the�field COMM.CODE is the trigger for periodic commission and the field CSN.CODE is a system maintained field and hold the commission amount relating to the period band",
             "maxLength" : 20
           },
           "commissionType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 11
           },
           "commissionAmount" : {
             "type" : "number",
-            "description" : "Amount of commission charged for the payment created with respect to the commission type used."
+            "description" : "The amount of commission charged"
           }
         }
       }
@@ -627,15 +769,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     }

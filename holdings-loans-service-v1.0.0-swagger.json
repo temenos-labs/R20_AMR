@@ -14,6 +14,8 @@
   "paths" : {
     "/holdings/loans/{loanId}/bills" : {
       "get" : {
+        "summary" : "Retrieves the simulation details of the contract based on the selection criteria. It returns the bill details of the loan",
+        "description" : "Retrieves loan bills details",
         "operationId" : "getLoanBills",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -57,15 +59,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -74,6 +69,18 @@
             "description" : "LoanBillsResponse",
             "schema" : {
               "$ref" : "#/definitions/LoanBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -87,6 +94,8 @@
     },
     "/holdings/loans/{loanId}" : {
       "get" : {
+        "summary" : "Retrieves the loan account details",
+        "description" : "Retrieves loan details",
         "operationId" : "getLoanDetails",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -136,15 +145,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -153,6 +155,18 @@
             "description" : "LoanDetailsResponse",
             "schema" : {
               "$ref" : "#/definitions/LoanDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -166,6 +180,8 @@
     },
     "/holdings/loans/{loanId}/collaterals" : {
       "get" : {
+        "summary" : "Retrieves the collateral details linked to the loan arrangement. The collateral right and status have to be passed within the api",
+        "description" : "Retrieves loan collateral details",
         "operationId" : "getLoanCollaterals",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -207,15 +223,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -224,6 +233,18 @@
             "description" : "LoanCollateralsResponse",
             "schema" : {
               "$ref" : "#/definitions/LoanCollateralsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -237,6 +258,8 @@
     },
     "/holdings/loans/{loanId}/schedulePaymentFrequencies" : {
       "get" : {
+        "summary" : "Retrieves the schedule payment information for paid and upcoming installments details",
+        "description" : "Retrieves payment schedules details",
         "operationId" : "getPaymentSchedules",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -267,15 +290,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -284,6 +300,18 @@
             "description" : "PaymentSchedulesResponse",
             "schema" : {
               "$ref" : "#/definitions/PaymentSchedulesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -314,9 +342,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -362,6 +395,7 @@
         "properties" : {
           "properties" : {
             "type" : "array",
+            "description" : "Id of the product property",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -379,7 +413,8 @@
           },
           "totalAmount" : {
             "type" : "number",
-            "description" : "Total amount"
+            "description" : "Total amount",
+            "maximum" : 19
           }
         }
       }
@@ -398,7 +433,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -423,15 +463,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -453,6 +549,7 @@
         "properties" : {
           "interests" : {
             "type" : "array",
+            "description" : "Interest amount",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -470,7 +567,7 @@
                 },
                 "compoundType" : {
                   "type" : "string",
-                  "description" : "Contains the frequency type of compound in loan. For example, annually or monthly."
+                  "description" : "Refers the type of the compound"
                 },
                 "rateType" : {
                   "type" : "string",
@@ -478,7 +575,7 @@
                 },
                 "effectiveRate" : {
                   "type" : "string",
-                  "description" : "Indicates the actual interest rate applied for the account after adjustment/tier calculation/based on basic or Periodic index value"
+                  "description" : "The actual interest rate for the account at this point in time."
                 },
                 "tierType" : {
                   "type" : "string",
@@ -497,6 +594,7 @@
           },
           "schedules" : {
             "type" : "array",
+            "description" : "Indicates where this pool may be run either online or End of the day.",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -614,11 +712,13 @@
           },
           "executionValue" : {
             "type" : "number",
-            "description" : "Denotes the value for signing the document at what is commonly referred to as the closing of the sale"
+            "description" : "Denotes the value for signing the document at what is commonly referred to as the closing of the sale",
+            "maximum" : 19
           },
           "thirdPartyValue" : {
             "type" : "number",
-            "description" : "Denotes the value given by any individual who does not have a direct connection with a legal transaction but might be affected by it"
+            "description" : "Denotes the value given by any individual who does not have a direct connection with a legal transaction but might be affected by it",
+            "maximum" : 19
           },
           "netAmount" : {
             "type" : "number",
@@ -626,7 +726,8 @@
           },
           "netNominal" : {
             "type" : "number",
-            "description" : "Denotes the sum of the Quantity"
+            "description" : "Denotes the sum of the Quantity",
+            "maximum" : 19
           },
           "currencyId" : {
             "type" : "string",
@@ -664,23 +765,28 @@
           },
           "totalAmount" : {
             "type" : "number",
-            "description" : "Total amount"
+            "description" : "Total amount",
+            "maximum" : 19
           },
           "chargeAmount" : {
             "type" : "number",
-            "description" : "Retrieves the Charge Amount after redeem"
+            "description" : "Retrieves the Charge Amount after redeem",
+            "maximum" : 19
           },
           "interestAmount" : {
             "type" : "number",
-            "description" : "The accrued Interest due or accrued."
+            "description" : "The accrued Interest due or accrued.",
+            "maximum" : 19
           },
           "principalAmount" : {
             "type" : "number",
-            "description" : "Indicates the Principal Amount of the loan or a deposit"
+            "description" : "Indicates the Principal Amount of the loan or a deposit",
+            "maximum" : 19
           },
           "outstandingAmount" : {
             "type" : "number",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. ",
+            "maximum" : 19
           },
           "scheduleType" : {
             "type" : "string",

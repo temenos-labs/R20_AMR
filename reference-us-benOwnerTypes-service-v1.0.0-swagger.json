@@ -39,12 +39,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -98,7 +92,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -159,17 +153,14 @@
           },
           "ownershipProng" : {
             "type" : "string",
-            "description" : "Based on the type of corporate, FinCen regulation requires ownership, control prong and certifier information are collected for customer before opening an account. Indicates if the corporate customer requires liability information along with ownership information",
             "maxLength" : 3
           },
           "controlProng" : {
             "type" : "string",
-            "description" : "Indicates if the corporate customer requires information on person who controls the corporate and will operate the corporate accounts when opened.",
             "maxLength" : 3
           },
           "certificationInfo" : {
             "type" : "string",
-            "description" : "Certifier of the ownership information for beneficiary customer Rules for corporate customer",
             "maxLength" : 3
           }
         }

@@ -25,9 +25,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "customerIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerIdMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "customerName",
           "in" : "query",
           "description" : "Name of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerNameCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerNameBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerNameMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -37,9 +67,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "streetCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "streetBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "streetMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "addressCity",
           "in" : "query",
           "description" : "The town and/or city component of the base address of a customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "addressCityCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "addressCityBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "addressCityMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -49,9 +109,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "countryIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "countryIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "countryIdMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "postCode",
           "in" : "query",
           "description" : "Identifies the address postal code for the customer.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "postCodeCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "postCodeBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "postCodeMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -61,9 +151,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "dateOfBirthCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "dateOfBirthBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "dateOfBirthMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "customerStatus",
           "in" : "query",
           "description" : "The internal bank status of a customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerStatusCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerStatusBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerStatusMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -73,9 +193,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sectorIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sectorIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sectorIdMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "accountOfficerId",
           "in" : "query",
           "description" : "The identifier of the department head or specific account officer responsible for the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "accountOfficerIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "accountOfficerIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "accountOfficerIdMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -85,9 +235,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "industryIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "industryIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "industryIdMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "nationalityId",
           "in" : "query",
           "description" : "The identifier of the nationality of a customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "nationalityIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "nationalityIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "nationalityIdMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -97,9 +277,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "residenceIdCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "residenceIdBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "residenceIdMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "lastName",
           "in" : "query",
           "description" : "The last name of an individual customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastNameCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastNameBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastNameMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -109,9 +319,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "phoneNumberCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "phoneNumberBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "phoneNumberMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "customerMnemonic",
           "in" : "query",
           "description" : "Specifies an alternative easy means of referencing the Customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerMnemonicCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerMnemonicBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerMnemonicMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -121,9 +361,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "firstNameCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstNameBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstNameMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "customerType",
           "in" : "query",
           "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerTypeCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerTypeBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerTypeMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -133,9 +403,39 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "emailCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "emailBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "emailMT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "mobilePhoneNumber",
           "in" : "query",
           "description" : "Represents the phone number of a customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "mobilePhoneNumberCT",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "mobilePhoneNumberBW",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "mobilePhoneNumberMT",
+          "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
@@ -159,15 +459,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -218,7 +511,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -368,7 +661,6 @@
                     "properties" : {
                       "addressLocation" : {
                         "type" : "string",
-                        "description" : "Identifies the nature of the postal address, like primary, secondary or office address",
                         "maxLength" : 10
                       }
                     }
@@ -541,7 +833,6 @@
           },
           "nationalityName" : {
             "type" : "string",
-            "description" : "Indicates the name of the nationality of the beneficiary",
             "maxLength" : 2
           },
           "residenceId" : {
@@ -551,15 +842,18 @@
           },
           "accountOfficerId" : {
             "type" : "number",
-            "description" : "The identifier of the department head or specific account officer responsible for the customer"
+            "description" : "The identifier of the department head or specific account officer responsible for the customer",
+            "maximum" : 4
           },
           "industryId" : {
             "type" : "number",
-            "description" : "An institution-defined identifier of the industry in which the customer is trading, operating or is associated with"
+            "description" : "An institution-defined identifier of the industry in which the customer is trading, operating or is associated with",
+            "maximum" : 4
           },
           "sectorId" : {
             "type" : "number",
-            "description" : "An institution-defined identifier of the type of customer"
+            "description" : "An institution-defined identifier of the type of customer",
+            "maximum" : 4
           },
           "lastName" : {
             "type" : "string",

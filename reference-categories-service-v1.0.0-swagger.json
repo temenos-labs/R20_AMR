@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "categoryId",
           "in" : "query",
-          "description" : "Unique identifier associated with the product name of the account or contract. For example: For customer/counterparty accounts, the identifier would be in the range 1000 to 9999. For ledger accounts, in the range 10000 to 19999.",
+          "description" : "Indicate a category code",
           "required" : false,
           "type" : "string"
         }, {
@@ -55,15 +55,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -114,7 +107,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -167,12 +160,12 @@
         "properties" : {
           "categoryId" : {
             "type" : "string",
-            "description" : "Unique identifier associated with the product name of the account or contract. For example: For customer/counterparty accounts, the identifier would be in the range 1000 to 9999. For ledger accounts, in the range 10000 to 19999.",
+            "description" : "The identifier of the category",
             "maxLength" : 6
           },
           "categoryName" : {
             "type" : "string",
-            "description" : "Name that is displayed for the product category",
+            "description" : "The name that is displayed for the category",
             "maxLength" : 35
           }
         }

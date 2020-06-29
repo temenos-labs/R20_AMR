@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -45,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,7 +96,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -187,7 +179,6 @@
           },
           "postingRestrictions" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -208,7 +199,7 @@
           },
           "amlResult" : {
             "type" : "string",
-            "description" : "Describe the results of Anti Money Laundering."
+            "description" : "Holds the result of legal controls that is required by institutions to prevent or report Anti Money Laundering activities."
           }
         }
       }

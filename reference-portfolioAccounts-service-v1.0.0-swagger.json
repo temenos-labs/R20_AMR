@@ -26,7 +26,7 @@
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -50,15 +50,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -97,7 +90,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -145,17 +138,17 @@
         "properties" : {
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
             "maxLength" : 16
           },
           "accountName" : {
             "type" : "string",
-            "description" : "Display name or short name of the account specified.",
+            "description" : "The name of the account ",
             "maxLength" : 35
           },
           "accountCurrency" : {
             "type" : "string",
-            "description" : "Currency of the account. For example: USD, GBP.",
+            "description" : "The currency of the account",
             "maxLength" : 3
           },
           "workingBalance" : {

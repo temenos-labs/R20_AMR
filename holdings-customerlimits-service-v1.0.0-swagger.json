@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "190137"
@@ -46,15 +46,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -105,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -158,7 +151,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "customerName" : {
             "type" : "string",
@@ -180,11 +173,11 @@
           },
           "limitAmount" : {
             "type" : "number",
-            "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+            "description" : "The Limit amount that is actually available for use.?The system limit checks are preformed against the online limit"
           },
           "outstandingAmount" : {
             "type" : "number",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. "
           },
           "availableOrExcess" : {
             "type" : "number",

@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "deliveryReference",
           "in" : "query",
-          "description" : "Indicates the delivery reference Id generated for the activity",
           "required" : false,
           "type" : "string"
         }, {
@@ -45,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -94,7 +86,7 @@
         "parameters" : [ {
           "name" : "messageId",
           "in" : "query",
-          "description" : "The holds the record key of the message ID.",
+          "description" : "Reference id for the message initiated by user",
           "required" : false,
           "type" : "string"
         }, {
@@ -118,15 +110,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -191,15 +176,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -264,15 +242,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -313,7 +284,7 @@
         "parameters" : [ {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
+          "description" : "Reference details of the transaction initiated by user",
           "required" : false,
           "type" : "string"
         }, {
@@ -337,15 +308,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -396,7 +360,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -450,7 +414,7 @@
           "date" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Indicates the date on which activity was performed"
+            "description" : "Date in the format YYYYMMDD. E.g. 20191231"
           },
           "messageId" : {
             "type" : "string",
@@ -459,7 +423,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes"
+            "description" : "Name used for display or enrichment purposes"
           },
           "deliveryId" : {
             "type" : "string",
@@ -598,7 +562,7 @@
         "properties" : {
           "messageText" : {
             "type" : "string",
-            "description" : "Reference id for the message initiated by user"
+            "description" : "Specifies the delivery message for letter of credit"
           }
         }
       }
@@ -621,7 +585,7 @@
         "properties" : {
           "messageText" : {
             "type" : "string",
-            "description" : "Reference id for the message initiated by user",
+            "description" : "Specifies the delivery message for letter of credit",
             "maxLength" : 132
           }
         }
@@ -645,7 +609,7 @@
         "properties" : {
           "messageText" : {
             "type" : "string",
-            "description" : "Reference id for the message initiated by user"
+            "description" : "Specifies the delivery message for letter of credit"
           }
         }
       }
@@ -672,7 +636,7 @@
           },
           "applicationId" : {
             "type" : "string",
-            "description" : "Contains the application id of the service that has crashed due to error."
+            "description" : "Application id."
           },
           "deliveryId" : {
             "type" : "string",
@@ -689,7 +653,7 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : ""
+            "description" : "Transaction reference identifier."
           },
           "category" : {
             "type" : "string",

@@ -40,11 +40,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -98,11 +93,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -170,11 +160,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -228,11 +213,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -295,11 +275,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -360,11 +335,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -416,7 +386,7 @@
           "description" : "body Payload",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/PSD2StandingOrderInitiation"
+            "$ref" : "#/definitions/PSD2StandingOrderInitiationDelete"
           }
         }, {
           "name" : "validate_only",
@@ -424,11 +394,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -491,11 +456,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -557,11 +517,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -610,14 +565,12 @@
         }, {
           "name" : "subResourceType",
           "in" : "query",
-          "description" : "Indicates if the sub resource is created for authorization or cancellation of the PSD2 payment. Can contain values 'AUTH' or 'CANC' which indicates authorization and cancellation respectively.",
           "required" : false,
           "type" : "string",
           "x-example" : "AUTH"
         }, {
           "name" : "subResourceId",
           "in" : "query",
-          "description" : "Contains the sub resource identifier which is constructed of the payment Id, status of the payment and sequence number during authorisation or deletion of a payment. Applies to both implicit & explicit payment workflows. For example: FT0003003-AUTH-1",
           "required" : false,
           "type" : "string"
         }, {
@@ -638,11 +591,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -697,7 +645,7 @@
           "description" : "body Payload",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/PaymentInitiation"
+            "$ref" : "#/definitions/PaymentInitiationDelete"
           }
         }, {
           "name" : "validate_only",
@@ -705,11 +653,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -847,78 +790,99 @@
             "properties" : {
               "subResourceId" : {
                 "type" : "string",
-                "description" : "Contains the sub resource identifier which is constructed of the payment Id, status of the payment and sequence number during authorisation or deletion of a payment. Applies to both implicit & explicit payment workflows. For example: FT0003003-AUTH-1"
+                "description" : "Contains the sub resource identifier which is constructed of the payment Id, status of the payment and sequence number during authorisation or deletion of a payment. Applies to both implicit & explicit payment workflows. For example: FT0003003-AUTH-1",
+                "maxLength" : 25
               },
               "subResourceScaStatus" : {
                 "type" : "string",
-                "description" : "Contains the SCA(Strong Customer Authentication) status of a sub resource linked to a payment transaction. For example: received,started,finalised,exempted,psuIdentified etc."
+                "description" : "Contains the SCA(Strong Customer Authentication) status of a sub resource linked to a payment transaction. For example: received,started,finalised,exempted,psuIdentified etc.",
+                "maxLength" : 25
               },
               "subResourceCaptureMethod" : {
                 "type" : "string",
-                "description" : "Specifies whether the payment was automatically created by the system (AUTO / Implicit) or based on a TPP (third party provider) request (TPP / Explicit)  "
+                "description" : "Specifies whether the payment was automatically created by the system (AUTO / Implicit) or based on a TPP (third party provider) request (TPP / Explicit)  ",
+                "maxLength" : 25
               },
               "subResourceRequestId" : {
                 "type" : "string",
-                "description" : "Specifes if the sub-resource is created by a TPP (third party provider), this contains the incoming X-Request-ID which created it."
+                "description" : "Specifes if the sub-resource is created by a TPP (third party provider), this contains the incoming X-Request-ID which created it.",
+                "maxLength" : 25
               }
             }
           }
         },
         "globalURN" : {
           "type" : "string",
-          "description" : "globalURNSpecifies the GLOBAL.URN reference of the TPP (third party provider). This will be retrieved from the request and should match a GLOBAL.URN from a record within the Open Banking Directory."
+          "description" : "globalURNSpecifies the GLOBAL.URN reference of the TPP (third party provider). This will be retrieved from the request and should match a GLOBAL.URN from a record within the Open Banking Directory.",
+          "maxLength" : 25
+        },
+        "thirdpartyprovider" : {
+          "type" : "string",
+          "description" : "Contains the TPP (third party provider) name or text of the TPP reference",
+          "maxLength" : 125
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "Identifier of the customer",
+          "maxLength" : 25
         },
         "scaHint" : {
           "type" : "string",
-          "description" : "Specifies whether the SCA (strong customer authentication) is required or not. For example: scaRequired, scaNotRequired."
+          "description" : "Specifies whether the SCA (strong customer authentication) is required or not. For example: scaRequired, scaNotRequired.",
+          "maxLength" : 25
         },
         "paymentStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent.",
+          "maxLength" : 25
         },
         "scaStatus" : {
           "type" : "string",
-          "description" : "Contains the status of the strong customer authentication process for the payment or consent. Valid values are received, psuIdentified, scaMethodSelected, started, finalised or failed"
+          "description" : "Contains the status of the strong customer authentication process for the payment or consent. Valid values are received, psuIdentified, scaMethodSelected, started, finalised or failed",
+          "maxLength" : 25
         },
         "defaultRedirectURL" : {
           "type" : "string",
-          "description" : "Default redirection URL provided by the TPP (third party provider)."
+          "description" : "Default redirection URL provided by the TPP (third party provider).",
+          "maxLength" : 25
         },
         "successRedirectURL" : {
           "type" : "string",
-          "description" : "successRedirectURL"
+          "description" : "successRedirectURL",
+          "maxLength" : 25
         },
         "failureRedirectURL" : {
           "type" : "string",
-          "description" : "Contains the default redirection URL provided by the TPP (third party provider) for a failed or cancelled payment in the case where TPP specifies different URLs for different payment outcomes."
+          "description" : "Contains the default redirection URL provided by the TPP (third party provider) for a failed or cancelled payment in the case where TPP specifies different URLs for different payment outcomes.",
+          "maxLength" : 25
         },
         "externalPaymentStatus" : {
           "type" : "string",
-          "description" : "Status of the payment when the payment processing system is external"
+          "description" : "Status of the payment when the payment processing system is external",
+          "maxLength" : 25
         },
         "externalStatusReason" : {
           "type" : "string",
-          "description" : "Status reason of the payment when the payment processing system is external"
+          "description" : "Status reason of the payment when the payment processing system is external",
+          "maxLength" : 25
         },
         "trustedBeneficiary" : {
           "type" : "string",
-          "description" : "Indicator to determine whether the credit account number belongs to one of the customer's trusted beneficiaries. Contains TRUE/FALSE."
+          "description" : "Indicator to determine whether the credit account number belongs to one of the customer's trusted beneficiaries. Contains TRUE/FALSE.",
+          "maxLength" : 25
         },
         "scaExempt" : {
           "type" : "string",
-          "description" : "Indicates actual SCA(Strong Customer Authentication) status of the payment. Possible values YES or NO."
+          "description" : "Indicates actual SCA(Strong Customer Authentication) status of the payment. Possible values YES or NO.",
+          "maxLength" : 25
         },
         "authorisationKey" : {
           "type" : "string",
-          "description" : "Holds SCA authorisation for the corresponding payment"
+          "maxLength" : 25
         },
         "certificate" : {
           "type" : "string",
-          "description" : "Holds corresponding certificate for authorisation key"
+          "maxLength" : 25
         }
       }
     },
@@ -948,7 +912,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -978,78 +947,99 @@
             "properties" : {
               "subResourceId" : {
                 "type" : "string",
-                "description" : "Contains the sub resource identifier which is constructed of the payment Id, status of the payment and sequence number during authorisation or deletion of a payment. Applies to both implicit & explicit payment workflows. For example: FT0003003-AUTH-1"
+                "description" : "Contains the sub resource identifier which is constructed of the payment Id, status of the payment and sequence number during authorisation or deletion of a payment. Applies to both implicit & explicit payment workflows. For example: FT0003003-AUTH-1",
+                "maxLength" : 25
               },
               "subResourceScaStatus" : {
                 "type" : "string",
-                "description" : "Contains the SCA(Strong Customer Authentication) status of a sub resource linked to a payment transaction. For example: received,started,finalised,exempted,psuIdentified etc."
+                "description" : "Contains the SCA(Strong Customer Authentication) status of a sub resource linked to a payment transaction. For example: received,started,finalised,exempted,psuIdentified etc.",
+                "maxLength" : 25
               },
               "subResourceCaptureMethod" : {
                 "type" : "string",
-                "description" : "Specifies whether the payment was automatically created by the system (AUTO / Implicit) or based on a TPP (third party provider) request (TPP / Explicit)  "
+                "description" : "Specifies whether the payment was automatically created by the system (AUTO / Implicit) or based on a TPP (third party provider) request (TPP / Explicit)  ",
+                "maxLength" : 25
               },
               "subResourceRequestId" : {
                 "type" : "string",
-                "description" : "Specifes if the sub-resource is created by a TPP (third party provider), this contains the incoming X-Request-ID which created it."
+                "description" : "Specifes if the sub-resource is created by a TPP (third party provider), this contains the incoming X-Request-ID which created it.",
+                "maxLength" : 25
               }
             }
           }
         },
         "globalURN" : {
           "type" : "string",
-          "description" : "globalURNSpecifies the GLOBAL.URN reference of the TPP (third party provider). This will be retrieved from the request and should match a GLOBAL.URN from a record within the Open Banking Directory."
+          "description" : "globalURNSpecifies the GLOBAL.URN reference of the TPP (third party provider). This will be retrieved from the request and should match a GLOBAL.URN from a record within the Open Banking Directory.",
+          "maxLength" : 25
+        },
+        "thirdpartyprovider" : {
+          "type" : "string",
+          "description" : "Contains the TPP (third party provider) name or text of the TPP reference",
+          "maxLength" : 125
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "Identifier of the customer",
+          "maxLength" : 25
         },
         "scaHint" : {
           "type" : "string",
-          "description" : "Specifies whether the SCA (strong customer authentication) is required or not. For example: scaRequired, scaNotRequired."
+          "description" : "Specifies whether the SCA (strong customer authentication) is required or not. For example: scaRequired, scaNotRequired.",
+          "maxLength" : 25
         },
         "paymentStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent.",
+          "maxLength" : 25
         },
         "scaStatus" : {
           "type" : "string",
-          "description" : "Contains the status of the strong customer authentication process for the payment or consent. Valid values are received, psuIdentified, scaMethodSelected, started, finalised or failed"
+          "description" : "Contains the status of the strong customer authentication process for the payment or consent. Valid values are received, psuIdentified, scaMethodSelected, started, finalised or failed",
+          "maxLength" : 25
         },
         "defaultRedirectURL" : {
           "type" : "string",
-          "description" : "Default redirection URL provided by the TPP (third party provider)."
+          "description" : "Default redirection URL provided by the TPP (third party provider).",
+          "maxLength" : 25
         },
         "successRedirectURL" : {
           "type" : "string",
-          "description" : "successRedirectURL"
+          "description" : "successRedirectURL",
+          "maxLength" : 25
         },
         "failureRedirectURL" : {
           "type" : "string",
-          "description" : "Contains the default redirection URL provided by the TPP (third party provider) for a failed or cancelled payment in the case where TPP specifies different URLs for different payment outcomes."
+          "description" : "Contains the default redirection URL provided by the TPP (third party provider) for a failed or cancelled payment in the case where TPP specifies different URLs for different payment outcomes.",
+          "maxLength" : 25
         },
         "externalPaymentStatus" : {
           "type" : "string",
-          "description" : "Status of the payment when the payment processing system is external"
+          "description" : "Status of the payment when the payment processing system is external",
+          "maxLength" : 25
         },
         "externalStatusReason" : {
           "type" : "string",
-          "description" : "Status reason of the payment when the payment processing system is external"
+          "description" : "Status reason of the payment when the payment processing system is external",
+          "maxLength" : 25
         },
         "trustedBeneficiary" : {
           "type" : "string",
-          "description" : "Indicator to determine whether the credit account number belongs to one of the customer's trusted beneficiaries. Contains TRUE/FALSE."
+          "description" : "Indicator to determine whether the credit account number belongs to one of the customer's trusted beneficiaries. Contains TRUE/FALSE.",
+          "maxLength" : 25
         },
         "scaExempt" : {
           "type" : "string",
-          "description" : "Indicates actual SCA(Strong Customer Authentication) status of the payment. Possible values YES or NO."
+          "description" : "Indicates actual SCA(Strong Customer Authentication) status of the payment. Possible values YES or NO.",
+          "maxLength" : 25
         },
         "authorisationKey" : {
           "type" : "string",
-          "description" : "Holds SCA authorisation for the corresponding payment"
+          "maxLength" : 25
         },
         "certificate" : {
           "type" : "string",
-          "description" : "Holds corresponding certificate for authorisation key"
+          "maxLength" : 25
         }
       }
     },
@@ -1079,7 +1069,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -1260,7 +1255,130 @@
       "description" : "PaymentInitiation"
     },
     "PaymentInitiationBody" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "benName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "debitAccountId" : {
+                "type" : "string",
+                "description" : "Indicates the debit account number of the payment or transaction.",
+                "maxLength" : 55
+              },
+              "beneficiaryName" : {
+                "type" : "string",
+                "description" : "Short title or short name of the beneficiary account account",
+                "maxLength" : 55
+              },
+              "beneficiaryAccountId" : {
+                "type" : "string",
+                "description" : "Unique account identifier of the beneficiary account number.",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "benAddressLine" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "beneficiaryIBAN" : {
+                "type" : "string",
+                "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                "maxLength" : 55
+              },
+              "beneficiaryAddressLine1" : {
+                "type" : "string",
+                "description" : "Address of the beneficiary or credit account.",
+                "maxLength" : 55
+              },
+              "beneficiaryCountryId" : {
+                "type" : "string",
+                "description" : "Country of the beneficiary account number. For example: US, IN, EU",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "benTown" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "beneficiaryAddressCity" : {
+                "type" : "string",
+                "description" : "City of the beneficiary account. For example: London, Dallas etc.",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "acctWithBk" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "creditorAgentBIC" : {
+                "type" : "string",
+                "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                "maxLength" : 55
+              },
+              "creditorAgentNationalCode" : {
+                "type" : "string",
+                "description" : "National code of the creditor account. For example: EU, US etc.",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "remittanceInformation" : {
+          "type" : "array",
+          "description" : "Indicates the remittance information that is supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "creditReference" : {
+                "type" : "string",
+                "description" : "Reference quoted by the credit account for a payment",
+                "maxLength" : 55
+              },
+              "paymentDetail" : {
+                "type" : "string",
+                "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+                "maxLength" : 55
+              },
+              "chargeBearer" : {
+                "type" : "string",
+                "description" : "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "creditCurrencyId" : {
+          "type" : "string",
+          "description" : "Specifies the credit currency. For example: USD, EUR etc.",
+          "maxLength" : 55
+        },
+        "creditAmount" : {
+          "type" : "string",
+          "description" : "Amount to be credited in a payment transaction",
+          "maxLength" : 55
+        },
+        "executionDate" : {
+          "type" : "string",
+          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+          "maxLength" : 55
+        },
+        "debitReference" : {
+          "type" : "string",
+          "description" : "Reference for debit party of a payment transaction",
+          "maxLength" : 55
+        }
+      }
     },
     "PaymentInitiationResponse" : {
       "properties" : {
@@ -1283,15 +1401,18 @@
             "properties" : {
               "debitAccountId" : {
                 "type" : "string",
-                "description" : "Indicates the debit account number of the payment or transaction."
+                "description" : "Indicates the debit account number of the payment or transaction.",
+                "maxLength" : 55
               },
               "beneficiaryName" : {
                 "type" : "string",
-                "description" : "Short title or short name of the beneficiary account account"
+                "description" : "Short title or short name of the beneficiary account account",
+                "maxLength" : 55
               },
               "beneficiaryAccountId" : {
                 "type" : "string",
-                "description" : "Unique account identifier of the beneficiary account number."
+                "description" : "Unique account identifier of the beneficiary account number.",
+                "maxLength" : 55
               }
             }
           }
@@ -1303,15 +1424,18 @@
             "properties" : {
               "beneficiaryIBAN" : {
                 "type" : "string",
-                "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+                "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                "maxLength" : 55
               },
               "beneficiaryAddressLine1" : {
                 "type" : "string",
-                "description" : "Address of the beneficiary or credit account."
+                "description" : "Address of the beneficiary or credit account.",
+                "maxLength" : 55
               },
               "beneficiaryCountryId" : {
                 "type" : "string",
-                "description" : "Country of the beneficiary account number. For example: US, IN, EU"
+                "description" : "Country of the beneficiary account number. For example: US, IN, EU",
+                "maxLength" : 55
               }
             }
           }
@@ -1323,7 +1447,8 @@
             "properties" : {
               "beneficiaryAddressCity" : {
                 "type" : "string",
-                "description" : "City of the beneficiary account. For example: London, Dallas etc."
+                "description" : "City of the beneficiary account. For example: London, Dallas etc.",
+                "maxLength" : 55
               }
             }
           }
@@ -1335,11 +1460,13 @@
             "properties" : {
               "creditorAgentBIC" : {
                 "type" : "string",
-                "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX"
+                "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                "maxLength" : 55
               },
               "creditorAgentNationalCode" : {
                 "type" : "string",
-                "description" : "National code of the creditor account. For example: EU, US etc."
+                "description" : "National code of the creditor account. For example: EU, US etc.",
+                "maxLength" : 55
               }
             }
           }
@@ -1352,35 +1479,41 @@
             "properties" : {
               "creditReference" : {
                 "type" : "string",
-                "description" : "Reference quoted by the credit account for a payment"
+                "description" : "Reference quoted by the credit account for a payment",
+                "maxLength" : 55
               },
               "paymentDetail" : {
                 "type" : "string",
-                "description" : "Indicates the payment details for the beneficiary to apply the payment."
+                "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+                "maxLength" : 55
               },
               "chargeBearer" : {
                 "type" : "string",
-                "description" : "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)"
+                "description" : "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                "maxLength" : 55
               }
             }
           }
         },
         "creditCurrencyId" : {
           "type" : "string",
-          "description" : "Specifies the credit currency. For example: USD, EUR etc."
+          "description" : "Specifies the credit currency. For example: USD, EUR etc.",
+          "maxLength" : 55
         },
         "creditAmount" : {
-          "type" : "number",
-          "description" : "Amount to be credited in a payment transaction"
+          "type" : "string",
+          "description" : "Amount to be credited in a payment transaction",
+          "maxLength" : 55
         },
         "executionDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction."
+          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+          "maxLength" : 55
         },
         "debitReference" : {
           "type" : "string",
-          "description" : "Reference for debit party of a payment transaction"
+          "description" : "Reference for debit party of a payment transaction",
+          "maxLength" : 55
         }
       }
     },
@@ -1398,7 +1531,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -1540,7 +1678,7 @@
           },
           "chargeAmount" : {
             "type" : "string",
-            "description" : "Charge amount equivalent in currency of the charge account"
+            "description" : "Retrieves the Charge Amount after redeem"
           },
           "chargeCurrency" : {
             "type" : "string",
@@ -1601,6 +1739,10 @@
           "frequency" : {
             "type" : "string",
             "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction."
+          },
+          "tppName" : {
+            "type" : "string",
+            "description" : "Indicates the name of the third party provider."
           }
         }
       }
@@ -1743,63 +1885,76 @@
             "properties" : {
               "creditorAddress" : {
                 "type" : "string",
-                "description" : "Address of the creditor or beneficiary account"
+                "description" : "Address of the creditor or beneficiary account",
+                "maxLength" : 55
               }
             }
           }
         },
         "endToEndReference" : {
           "type" : "string",
-          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment."
+          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+          "maxLength" : 55
         },
         "debitAccountId" : {
           "type" : "string",
-          "description" : "Indicates the debit account number of the payment or transaction."
+          "description" : "Indicates the debit account number of the payment or transaction.",
+          "maxLength" : 55
         },
         "creditAmount" : {
-          "type" : "number",
-          "description" : "Amount to be credited in a payment transaction"
+          "type" : "string",
+          "description" : "Amount to be credited in a payment transaction",
+          "maxLength" : 55
         },
         "creditCurrencyId" : {
           "type" : "string",
-          "description" : "Specifies the credit currency. For example: USD, EUR etc."
+          "description" : "Specifies the credit currency. For example: USD, EUR etc.",
+          "maxLength" : 55
         },
         "creditAccountId" : {
           "type" : "string",
-          "description" : "Credit account identifier of the payment or transaction"
+          "description" : "Credit account identifier of the payment or transaction",
+          "maxLength" : 55
         },
         "creditorName" : {
           "type" : "string",
-          "description" : "Name or short title of the credit account"
+          "description" : "Name or short title of the credit account",
+          "maxLength" : 55
         },
         "creditorAgentBIC" : {
           "type" : "string",
-          "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX"
+          "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+          "maxLength" : 55
         },
         "purpose" : {
           "type" : "string",
-          "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+          "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general.",
+          "maxLength" : 55
         },
         "chargeType" : {
           "type" : "string",
-          "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG"
+          "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+          "maxLength" : 55
         },
         "chargeAmount" : {
-          "type" : "number",
-          "description" : "Charge amount equivalent in currency of the charge account"
+          "type" : "string",
+          "description" : "Retrieves the Charge Amount after redeem",
+          "maxLength" : 55
         },
         "paymentDetail" : {
           "type" : "string",
-          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
         },
         "structuredCreditorReference" : {
           "type" : "string",
-          "description" : "Contains description of the credit account reference"
+          "description" : "Contains description of the credit account reference",
+          "maxLength" : 55
         },
         "executionDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction."
+          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+          "maxLength" : 55
         }
       }
     },
@@ -1825,63 +1980,76 @@
             "properties" : {
               "creditorAddress" : {
                 "type" : "string",
-                "description" : "Address of the creditor or beneficiary account"
+                "description" : "Address of the creditor or beneficiary account",
+                "maxLength" : 55
               }
             }
           }
         },
         "endToEndReference" : {
           "type" : "string",
-          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment."
+          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+          "maxLength" : 55
         },
         "debitAccountId" : {
           "type" : "string",
-          "description" : "Indicates the debit account number of the payment or transaction."
+          "description" : "Indicates the debit account number of the payment or transaction.",
+          "maxLength" : 55
         },
         "creditAmount" : {
-          "type" : "number",
-          "description" : "Amount to be credited in a payment transaction"
+          "type" : "string",
+          "description" : "Amount to be credited in a payment transaction",
+          "maxLength" : 55
         },
         "creditCurrencyId" : {
           "type" : "string",
-          "description" : "Specifies the credit currency. For example: USD, EUR etc."
+          "description" : "Specifies the credit currency. For example: USD, EUR etc.",
+          "maxLength" : 55
         },
         "creditAccountId" : {
           "type" : "string",
-          "description" : "Credit account identifier of the payment or transaction"
+          "description" : "Credit account identifier of the payment or transaction",
+          "maxLength" : 55
         },
         "creditorName" : {
           "type" : "string",
-          "description" : "Name or short title of the credit account"
+          "description" : "Name or short title of the credit account",
+          "maxLength" : 55
         },
         "creditorAgentBIC" : {
           "type" : "string",
-          "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX"
+          "description" : "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+          "maxLength" : 55
         },
         "purpose" : {
           "type" : "string",
-          "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general."
+          "description" : "Purpose identifier of the payment or transaction, for SEPA payments in general.",
+          "maxLength" : 55
         },
         "chargeType" : {
           "type" : "string",
-          "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG"
+          "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+          "maxLength" : 55
         },
         "chargeAmount" : {
-          "type" : "number",
-          "description" : "Charge amount equivalent in currency of the charge account"
+          "type" : "string",
+          "description" : "Retrieves the Charge Amount after redeem",
+          "maxLength" : 55
         },
         "paymentDetail" : {
           "type" : "string",
-          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
         },
         "structuredCreditorReference" : {
           "type" : "string",
-          "description" : "Contains description of the credit account reference"
+          "description" : "Contains description of the credit account reference",
+          "maxLength" : 55
         },
         "executionDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction."
+          "description" : "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+          "maxLength" : 55
         }
       }
     },
@@ -1937,56 +2105,66 @@
             "properties" : {
               "beneficiaryAddress" : {
                 "type" : "string",
-                "description" : "The address of the Beneficiary if the customer number of the Beneficiary is not known"
+                "description" : "The address of the Beneficiary if the customer number of the Beneficiary is not known",
+                "maxLength" : 55
               }
             }
           }
         },
         "endToEndReference" : {
           "type" : "string",
-          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment."
+          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+          "maxLength" : 55
         },
         "beneficiaryIBAN" : {
           "type" : "string",
-          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+          "maxLength" : 55
         },
         "BIC" : {
           "type" : "string",
-          "description" : "The BIC code of the Beneficiary bank"
+          "description" : "The BIC code of the Beneficiary bank",
+          "maxLength" : 55
         },
         "ultimateCreditor" : {
           "type" : "string",
-          "description" : "Contains the actual creditor account number"
+          "description" : "Contains the actual creditor account number",
+          "maxLength" : 55
         },
         "instructionIdReference" : {
           "type" : "string",
-          "description" : "Indicates the SEPA purpose of the SEPA Payment"
+          "description" : "Indicates the SEPA purpose of the SEPA Payment",
+          "maxLength" : 55
         },
         "paymentDetail" : {
           "type" : "string",
-          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
         },
         "currentFrequencyDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Indicates the date based on current frequency"
+          "description" : "Indicates the date based on current frequency",
+          "maxLength" : 55
         },
         "currentEndDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+          "maxLength" : 55
         },
         "debitCurrency" : {
           "type" : "string",
-          "description" : "Currency of the debit account. For example: USD, EUR etc."
+          "description" : "Currency of the debit account. For example: USD, EUR etc.",
+          "maxLength" : 55
         },
         "currentAmountBalance" : {
-          "type" : "number",
-          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+          "type" : "string",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account.",
+          "maxLength" : 55
         },
         "beneficiaryOurCharges" : {
           "type" : "string",
-          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)"
+          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+          "maxLength" : 55
         }
       }
     },
@@ -2012,56 +2190,66 @@
             "properties" : {
               "beneficiaryAddress" : {
                 "type" : "string",
-                "description" : "The address of the Beneficiary if the customer number of the Beneficiary is not known"
+                "description" : "The address of the Beneficiary if the customer number of the Beneficiary is not known",
+                "maxLength" : 55
               }
             }
           }
         },
         "endToEndReference" : {
           "type" : "string",
-          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment."
+          "description" : "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+          "maxLength" : 55
         },
         "beneficiaryIBAN" : {
           "type" : "string",
-          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+          "maxLength" : 55
         },
         "BIC" : {
           "type" : "string",
-          "description" : "The BIC code of the Beneficiary bank"
+          "description" : "The BIC code of the Beneficiary bank",
+          "maxLength" : 55
         },
         "ultimateCreditor" : {
           "type" : "string",
-          "description" : "Contains the actual creditor account number"
+          "description" : "Contains the actual creditor account number",
+          "maxLength" : 55
         },
         "instructionIdReference" : {
           "type" : "string",
-          "description" : "Indicates the SEPA purpose of the SEPA Payment"
+          "description" : "Indicates the SEPA purpose of the SEPA Payment",
+          "maxLength" : 55
         },
         "paymentDetail" : {
           "type" : "string",
-          "description" : "Indicates the payment details for the beneficiary to apply the payment."
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
         },
         "currentFrequencyDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Indicates the date based on current frequency"
+          "description" : "Indicates the date based on current frequency",
+          "maxLength" : 55
         },
         "currentEndDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+          "maxLength" : 55
         },
         "debitCurrency" : {
           "type" : "string",
-          "description" : "Currency of the debit account. For example: USD, EUR etc."
+          "description" : "Currency of the debit account. For example: USD, EUR etc.",
+          "maxLength" : 55
         },
         "currentAmountBalance" : {
-          "type" : "number",
-          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account."
+          "type" : "string",
+          "description" : "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account.",
+          "maxLength" : 55
         },
         "beneficiaryOurCharges" : {
           "type" : "string",
-          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)"
+          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+          "maxLength" : 55
         }
       }
     },
@@ -2077,7 +2265,83 @@
       "description" : "PSD2StandingOrderInitiation"
     },
     "PSD2StandingOrderInitiationBody" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "creditorAddresses" : {
+          "type" : "array",
+          "description" : "Address of the creditor or beneficiary account",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "creditorAddress" : {
+                "type" : "string",
+                "description" : "Address of the creditor or beneficiary account",
+                "maxLength" : 55
+              }
+            }
+          }
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
+          "maxLength" : 55
+        },
+        "instructedAmount" : {
+          "type" : "string",
+          "description" : "Specifies the amount which is allocated or instructed for the account reference included in the selection for a specific transaction.",
+          "maxLength" : 55
+        },
+        "currentFrequencyDate" : {
+          "type" : "string",
+          "description" : "Indicates the date based on current frequency",
+          "maxLength" : 55
+        },
+        "dateAdjustment" : {
+          "type" : "string",
+          "description" : "Defines the behavior when recurring payment dates falls on a weekend or bank holiday. The payment is then executed either the 'preceding' or 'following' working day. ASPSP might reject the request due to the communicated value, if rules in Online-Banking are not supporting this execution rule.",
+          "maxLength" : 55
+        },
+        "currentEndDate" : {
+          "type" : "string",
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+          "maxLength" : 55
+        },
+        "creditorName" : {
+          "type" : "string",
+          "description" : "Name or short title of the credit account",
+          "maxLength" : 55
+        },
+        "beneficiaryAccountId" : {
+          "type" : "string",
+          "description" : "Unique account identifier of the beneficiary account number.",
+          "maxLength" : 55
+        },
+        "creditAccountId" : {
+          "type" : "string",
+          "description" : "Credit account identifier of the payment or transaction",
+          "maxLength" : 55
+        },
+        "creditorAgent" : {
+          "type" : "string",
+          "description" : "Available balance of account",
+          "maxLength" : 55
+        },
+        "beneficiaryOurCharges" : {
+          "type" : "string",
+          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+          "maxLength" : 55
+        },
+        "beneficiaryIBAN" : {
+          "type" : "string",
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+          "maxLength" : 55
+        },
+        "paymentDetail" : {
+          "type" : "string",
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
+        }
+      }
     },
     "PSD2StandingOrderInitiationResponse" : {
       "properties" : {
@@ -2101,73 +2365,81 @@
             "properties" : {
               "creditorAddress" : {
                 "type" : "string",
-                "description" : "Address of the creditor or beneficiary account"
+                "description" : "Address of the creditor or beneficiary account",
+                "maxLength" : 55
               }
             }
           }
         },
         "currency" : {
           "type" : "string",
-          "description" : "Identifies the currency. E.g. USD, GBP etc"
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
+          "maxLength" : 55
         },
         "instructedAmount" : {
-          "type" : "number",
-          "description" : "Specifies the amount which is allocated or instructed for the account reference included in the selection for a specific transaction."
+          "type" : "string",
+          "description" : "Specifies the amount which is allocated or instructed for the account reference included in the selection for a specific transaction.",
+          "maxLength" : 55
         },
         "currentFrequencyDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Indicates the date based on current frequency"
+          "description" : "Indicates the date based on current frequency",
+          "maxLength" : 55
         },
         "dateAdjustment" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Defines the behavior when recurring payment dates falls on a weekend or bank holiday. The payment is then executed either the 'preceding' or 'following' working day. ASPSP might reject the request due to the communicated value, if rules in Online-Banking are not supporting this execution rule."
+          "description" : "Defines the behavior when recurring payment dates falls on a weekend or bank holiday. The payment is then executed either the 'preceding' or 'following' working day. ASPSP might reject the request due to the communicated value, if rules in Online-Banking are not supporting this execution rule.",
+          "maxLength" : 55
         },
         "currentEndDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed."
+          "description" : "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+          "maxLength" : 55
         },
         "creditorName" : {
           "type" : "string",
-          "description" : "Name or short title of the credit account"
+          "description" : "Name or short title of the credit account",
+          "maxLength" : 55
         },
         "beneficiaryAccountId" : {
           "type" : "string",
-          "description" : "Unique account identifier of the beneficiary account number."
+          "description" : "Unique account identifier of the beneficiary account number.",
+          "maxLength" : 55
         },
         "creditAccountId" : {
           "type" : "string",
-          "description" : "Credit account identifier of the payment or transaction"
+          "description" : "Credit account identifier of the payment or transaction",
+          "maxLength" : 55
         },
         "creditorAgent" : {
           "type" : "string",
-          "description" : "Available balance of account"
+          "description" : "Available balance of account",
+          "maxLength" : 55
         },
         "beneficiaryOurCharges" : {
           "type" : "string",
-          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)"
+          "description" : "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+          "maxLength" : 55
         },
         "beneficiaryIBAN" : {
           "type" : "string",
-          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189"
+          "description" : "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+          "maxLength" : 55
         },
         "paymentDetail" : {
           "type" : "string",
-          "description" : "Indicates the payment details for the beneficiary to apply the payment."
-        },
-        "createExternally" : {
-          "type" : "string"
-        },
-        "chkTransparency" : {
-          "type" : "string",
-          "description" : "Specifies if PSD transparency checks are executed. YES or NO"
-        },
-        "reqSentTime" : {
-          "type" : "string"
+          "description" : "Indicates the payment details for the beneficiary to apply the payment.",
+          "maxLength" : 55
         }
       }
+    },
+    "PSD2StandingOrderInitiationDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "PSD2StandingOrderInitiationDelete"
     },
     "PSD2StandingOrderInitiationResponse1" : {
       "properties" : {
@@ -2241,7 +2513,17 @@
       }
     },
     "PaymentBody" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "authorisationId" : {
+          "type" : "string",
+          "maxLength" : 35
+        },
+        "exemptFromSca" : {
+          "type" : "string",
+          "maxLength" : 35
+        }
+      }
     },
     "PaymentResponse" : {
       "properties" : {
@@ -2255,7 +2537,17 @@
       "description" : "PaymentResponse"
     },
     "PaymentResponseBody" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "authorisationId" : {
+          "type" : "string",
+          "maxLength" : 35
+        },
+        "exemptFromSca" : {
+          "type" : "string",
+          "maxLength" : 35
+        }
+      }
     },
     "SubResourcesResponse" : {
       "properties" : {
@@ -2300,6 +2592,14 @@
           }
         }
       }
+    },
+    "PaymentInitiationDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "PaymentInitiationDelete"
     },
     "PaymentInitiationResponse1" : {
       "properties" : {

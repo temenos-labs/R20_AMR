@@ -16,7 +16,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string",
           "x-example" : "23779"
@@ -42,7 +42,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string",
           "x-example" : "23779"
@@ -82,7 +82,7 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string",
           "x-example" : "23779"
@@ -124,19 +124,19 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "query",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "stopTypeId",
           "in" : "query",
-          "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. ",
+          "description" : "The payment stop identifier code",
           "required" : false,
           "type" : "string"
         }, {
@@ -208,42 +208,42 @@
             "properties" : {
               "stopTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. "
+                "description" : "The payment stop identifier code"
               },
               "firstChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the first cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the first chequeId in a range or, if lastChequeId is not entered, then only chequeId which is being stopped. "
               },
               "lastChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the last cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the last chequeId in a range that is being stopped. "
               },
               "chequeTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the type of Cheques for which payment stop instruction is effective"
+                "description" : "The identifier of the cheque type"
               },
               "stopDate" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Indicates the date on which the Payment Stop is placed"
+                "description" : "The date on which the Payment Stop is placed"
               },
               "amountFrom" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount From which the Payment Stop instruction is effective."
+                "description" : "Specifies the amount from used in selection"
               },
               "amountTo" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount up To which the Payment Stop instruction is effective."
+                "description" : "Specific the amount to used in selection"
               },
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               },
               "waiveCharge" : {
                 "type" : "string",
-                "description" : "Indicates if the charges are to be waived for the instruction"
+                "description" : "Defines whether charges are to be collected or waived"
               },
               "charges" : {
                 "type" : "array",
@@ -252,11 +252,11 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+                      "description" : "The identifier of the charge"
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                     }
                   }
                 }
@@ -266,7 +266,7 @@
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
         }
       }
     },
@@ -278,11 +278,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -322,42 +322,42 @@
             "properties" : {
               "stopTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. "
+                "description" : "The payment stop identifier code"
               },
               "firstChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the first cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the first chequeId in a range or, if lastChequeId is not entered, then only chequeId which is being stopped. "
               },
               "lastChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the last cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the last chequeId in a range that is being stopped. "
               },
               "chequeTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the type of Cheques for which payment stop instruction is effective"
+                "description" : "The identifier of the cheque type"
               },
               "stopDate" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Indicates the date on which the Payment Stop is placed"
+                "description" : "The date on which the Payment Stop is placed"
               },
               "amountFrom" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount From which the Payment Stop instruction is effective."
+                "description" : "Specifies the amount from used in selection"
               },
               "amountTo" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount up To which the Payment Stop instruction is effective."
+                "description" : "Specific the amount to used in selection"
               },
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               },
               "waiveCharge" : {
                 "type" : "string",
-                "description" : "Indicates if the charges are to be waived for the instruction"
+                "description" : "Defines whether charges are to be collected or waived"
               },
               "charges" : {
                 "type" : "array",
@@ -366,11 +366,11 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+                      "description" : "The identifier of the charge"
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                     }
                   }
                 }
@@ -380,7 +380,7 @@
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
         }
       }
     },
@@ -476,42 +476,42 @@
             "properties" : {
               "stopTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. "
+                "description" : "The payment stop identifier code"
               },
               "firstChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the first cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the first chequeId in a range or, if lastChequeId is not entered, then only chequeId which is being stopped. "
               },
               "lastChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the last cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the last chequeId in a range that is being stopped. "
               },
               "chequeTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the type of Cheques for which payment stop instruction is effective"
+                "description" : "The identifier of the cheque type"
               },
               "stopDate" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Indicates the date on which the Payment Stop is placed"
+                "description" : "The date on which the Payment Stop is placed"
               },
               "amountFrom" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount From which the Payment Stop instruction is effective."
+                "description" : "Specifies the amount from used in selection"
               },
               "amountTo" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount up To which the Payment Stop instruction is effective."
+                "description" : "Specific the amount to used in selection"
               },
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               },
               "waiveCharge" : {
                 "type" : "string",
-                "description" : "Indicates if the charges are to be waived for the instruction"
+                "description" : "Defines whether charges are to be collected or waived"
               },
               "charges" : {
                 "type" : "array",
@@ -520,11 +520,11 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+                      "description" : "The identifier of the charge"
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                     }
                   }
                 }
@@ -534,7 +534,7 @@
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
         }
       }
     },
@@ -692,17 +692,17 @@
           },
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
             "maxLength" : 36
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "currencyId" : {
             "type" : "string",
-            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
             "maxLength" : 3
           }
         }
@@ -757,42 +757,42 @@
             "properties" : {
               "stopTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. "
+                "description" : "The payment stop identifier code"
               },
               "firstChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the first cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the first chequeId in a range or, if lastChequeId is not entered, then only chequeId which is being stopped. "
               },
               "lastChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the last cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the last chequeId in a range that is being stopped. "
               },
               "chequeTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the type of Cheques for which payment stop instruction is effective"
+                "description" : "The identifier of the cheque type"
               },
               "stopDate" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Indicates the date on which the Payment Stop is placed"
+                "description" : "The date on which the Payment Stop is placed"
               },
               "amountFrom" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount From which the Payment Stop instruction is effective."
+                "description" : "Specifies the amount from used in selection"
               },
               "amountTo" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount up To which the Payment Stop instruction is effective."
+                "description" : "Specific the amount to used in selection"
               },
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               },
               "waiveCharge" : {
                 "type" : "string",
-                "description" : "Indicates if the charges are to be waived for the instruction"
+                "description" : "Defines whether charges are to be collected or waived"
               },
               "charges" : {
                 "type" : "array",
@@ -801,11 +801,11 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+                      "description" : "The identifier of the charge"
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                     }
                   }
                 }
@@ -815,7 +815,7 @@
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
         }
       }
     },
@@ -840,42 +840,42 @@
             "properties" : {
               "stopTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. "
+                "description" : "The payment stop identifier code"
               },
               "firstChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the first cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the first chequeId in a range or, if lastChequeId is not entered, then only chequeId which is being stopped. "
               },
               "lastChequeId" : {
                 "type" : "string",
-                "description" : "It is possible to stop a range of cheques in one instruction. This indicates the last cheque number in the range for which payment stop instruction is effective"
+                "description" : "Identifies the last chequeId in a range that is being stopped. "
               },
               "chequeTypeId" : {
                 "type" : "string",
-                "description" : "Indicates the type of Cheques for which payment stop instruction is effective"
+                "description" : "The identifier of the cheque type"
               },
               "stopDate" : {
                 "type" : "string",
                 "format" : "date",
-                "description" : "Indicates the date on which the Payment Stop is placed"
+                "description" : "The date on which the Payment Stop is placed"
               },
               "amountFrom" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount From which the Payment Stop instruction is effective."
+                "description" : "Specifies the amount from used in selection"
               },
               "amountTo" : {
                 "type" : "number",
                 "format" : "int64",
-                "description" : "Specifies the Amount up To which the Payment Stop instruction is effective."
+                "description" : "Specific the amount to used in selection"
               },
               "beneficiaryId" : {
                 "type" : "string",
-                "description" : "Indicates the Id of beneficiary when beneficiary details are stored"
+                "description" : "The identifier of the beneficiary"
               },
               "waiveCharge" : {
                 "type" : "string",
-                "description" : "Indicates if the charges are to be waived for the instruction"
+                "description" : "Defines whether charges are to be collected or waived"
               },
               "charges" : {
                 "type" : "array",
@@ -884,11 +884,11 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. "
+                      "description" : "The identifier of the charge"
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                      "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
                     }
                   }
                 }
@@ -898,7 +898,7 @@
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
         }
       }
     },

@@ -33,12 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -82,14 +76,7 @@
         "parameters" : [ {
           "name" : "securityOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -133,7 +120,6 @@
         "parameters" : [ {
           "name" : "securityOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -150,12 +136,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -214,7 +194,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -230,7 +210,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -259,6 +239,7 @@
               "broker" : {
                 "type" : "string",
                 "description" : "Specifies the counterparty with whom the trade is to be effected.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "dateToBroker" : {
@@ -268,7 +249,9 @@
               },
               "amountToBroker" : {
                 "type" : "number",
-                "description" : "Specifies the particular amount of an order which has been placed with the previously defined Broker"
+                "description" : "Specifies the particular amount of an order which has been placed with the previously defined Broker",
+                "minimum" : 0,
+                "maximum" : 30
               }
             }
           }
@@ -282,112 +265,140 @@
               "customerId" : {
                 "type" : "string",
                 "description" : "Identifier of the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "depository" : {
                 "type" : "string",
-                "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+                "description" : "The custodian where securities are held",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "accountId" : {
                 "type" : "string",
                 "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantity" : {
                 "type" : "number",
-                "description" : "The nominal quantity"
+                "description" : "The nominal quantity",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amount" : {
                 "type" : "number",
-                "description" : "This is the payment amount"
+                "description" : "This is the payment amount",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "percentage" : {
                 "type" : "number",
-                "description" : "The percentage of holdings redeemed/subscribed"
+                "description" : "The percentage of holdings redeemed/subscribed",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "price" : {
                 "type" : "string",
                 "description" : "The Price at which the nominal amount of the Security is to be valued for the transaction.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "calculateCharges" : {
                 "type" : "string",
                 "description" : "Indicates whether charges will be calculated.  Allowed values: - YES - null (default)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "chargesGrossOrNet" : {
                 "type" : "string",
                 "description" : "Indicates whether the cash amount is to include charges (NET) or have charges applied in addition to the trade consideration (GROSS). Allowed values: - NET - GROSS",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "rounding" : {
                 "type" : "string",
                 "description" : "Defines the rounding type for the amount calculated or input",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "adjustCommission" : {
                 "type" : "string",
                 "description" : "Determine whether to reduce the commission in order to make the total trade match the cash amount exactly.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "settlementCurrency" : {
                 "type" : "string",
                 "description" : "The currency of the trade settlement",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerCommission" : {
                 "type" : "string",
                 "description" : "Amount of broker commission charged to the customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "foreignFee" : {
                 "type" : "string",
                 "description" : "This field Records the Foreign Fee amount charged to the Customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "commission" : {
                 "type" : "number",
-                "description" : "The bank fees or commission charged for the transaction"
+                "description" : "The bank fees or commission charged for the transaction",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerCommissionTax" : {
                 "type" : "string",
                 "description" : "Specifies the tax amount based on the commission charged",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "stampTax" : {
                 "type" : "string",
                 "description" : "The Stamp Tax amount charged to the Customer for the trade",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "EBVFee" : {
                 "type" : "string",
                 "description" : "This field Records the amount of EBV Fees charged to the Customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "miscellaneousFees" : {
                 "type" : "string",
                 "description" : "The amount of miscellaneous fees charged to the Customer for the trade",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "incomeAccount" : {
                 "type" : "string",
                 "description" : "The customer account to which income or expenses are debited/credited",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "incomeAccountCurrency" : {
                 "type" : "string",
                 "description" : "The currency of the customer's income account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "orderAmount" : {
                 "type" : "number",
-                "description" : "The amount of the order"
+                "description" : "The amount of the order",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "instructions" : {
                 "type" : "array",
@@ -397,6 +408,7 @@
                     "customerInstructions" : {
                       "type" : "string",
                       "description" : "Instructions given by the customer",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -410,6 +422,7 @@
                     "customerWitholdingTax" : {
                       "type" : "string",
                       "description" : "Specifies the amount of Tax on the Securities up to the Value Date of the trade",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -423,6 +436,7 @@
                     "buyingPower" : {
                       "type" : "string",
                       "description" : "Indicates the buying power of the portfolio on placement of order",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -436,15 +450,19 @@
                     "customerChargeTaxType" : {
                       "type" : "string",
                       "description" : "The type of charge or tax to be paid by the customer",
+                      "minLength" : 0,
                       "maxLength" : 30
                     },
                     "customerChargeTaxAmount" : {
                       "type" : "number",
-                      "description" : "The amount of charges or taxes to be paid by customer"
+                      "description" : "The amount of charges or taxes to be paid by customer",
+                      "minimum" : 0,
+                      "maximum" : 30
                     },
                     "customerChargeTaxCode" : {
                       "type" : "string",
                       "description" : "The Charge or tax identifier",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -456,26 +474,31 @@
         "transactionChannel" : {
           "type" : "string",
           "description" : "The channel through which the transaction has been placed",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "stockExchange" : {
           "type" : "string",
           "description" : "The stock exchange identifier",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "transactionType" : {
           "type" : "string",
           "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderDate" : {
@@ -491,55 +514,73 @@
         "orderedAt" : {
           "type" : "string",
           "description" : "The time at which the order has been transacted",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderType" : {
           "type" : "string",
           "description" : "Identifies the type of the order. Possible values are Single, Ifdone, Revol, oco. Single order - only one order item may be input. If done order -  If one order gets executed, the other order is also executed immediately. Revolving order -  based on the condition specified, it will wait for both the deals to be executed simultaneously. OCO -If one order gets executed, then the other order gets cancelled.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeType" : {
           "type" : "string",
           "description" : "The trade type",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "switchMethod" : {
           "type" : "string",
           "description" : "If the switch is within same fund house(intra) or between fund houses",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "switchSpecification" : {
           "type" : "string",
           "description" : "Mode of the switch order (Unit / Percentage / Amount)",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "masterOrderOfSwitch" : {
           "type" : "string",
           "description" : "Indicates if this is the Master Order for Switch orders",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "commonSwitchRef" : {
           "type" : "string",
           "description" : "The field will hold a common reference to link a set of switch orders.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "noOfSwitchOrder" : {
           "type" : "string",
           "description" : "Number of Orders in a Switch Order combination",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "threadKey" : {
           "type" : "string",
           "description" : "The thread key for an order created by a service",
+          "minLength" : 0,
           "maxLength" : 30
+        },
+        "marketPrice" : {
+          "type" : "number",
+          "description" : "Current Market Price of the Security",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "limitPrice" : {
           "type" : "number",
-          "description" : "The Price at which the shares are to be bought or sold"
+          "description" : "The Price at which the shares are to be bought or sold",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "limitType" : {
           "type" : "string",
           "description" : "Defines the limit type for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "limitExpiryDate" : {
@@ -550,40 +591,49 @@
         "fractionalOrder" : {
           "type" : "string",
           "description" : "Indicate If this is an odd lot order",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depositoryId" : {
           "type" : "string",
           "description" : "Id of the securities depository.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "frontOfficeInstructions" : {
           "type" : "string",
           "description" : "Optional free text field to capture any narrative for the account officer.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "approximateSettlementAmount" : {
           "type" : "number",
-          "description" : "The order value (Nominal x Price ) for each customer in the security currency. If a limit price is input and transaction code is debit, lower price among market and limit price is used for sell and higher price is used for buy. If transaction code is credit, then lowest is used."
+          "description" : "The order value (Nominal x Price ) for each customer in the security currency. If a limit price is input and transaction code is debit, lower price among market and limit price is used for sell and higher price is used for buy. If transaction code is credit, then lowest is used.",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "parent" : {
           "type" : "string",
           "description" : "This Field is to determine whether the order is a parent order, Allowed value is YES",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "parentReference" : {
           "type" : "string",
           "description" : "The parent reference that is common for both parent and child orders and will serve as a link.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "dealStatus" : {
           "type" : "string",
           "description" : "The status of the deal",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderStatus" : {
           "type" : "string",
           "description" : "Status of the order.",
+          "minLength" : 0,
           "maxLength" : 30
         }
       }
@@ -596,11 +646,15 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
         },
         "audit" : {
           "type" : "object",
@@ -612,16 +666,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -651,6 +703,7 @@
               "broker" : {
                 "type" : "string",
                 "description" : "Specifies the counterparty with whom the trade is to be effected.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "dateToBroker" : {
@@ -660,7 +713,9 @@
               },
               "amountToBroker" : {
                 "type" : "number",
-                "description" : "Specifies the particular amount of an order which has been placed with the previously defined Broker"
+                "description" : "Specifies the particular amount of an order which has been placed with the previously defined Broker",
+                "minimum" : 0,
+                "maximum" : 30
               }
             }
           }
@@ -674,112 +729,140 @@
               "customerId" : {
                 "type" : "string",
                 "description" : "Identifier of the customer",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "portfolioId" : {
                 "type" : "string",
                 "description" : "Id of the portfolio or security account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "depository" : {
                 "type" : "string",
-                "description" : "Person designated as depository by the company in or pursuant to this Indenture, and, unless otherwise provided with respect to any security, any successor to such person",
+                "description" : "The custodian where securities are held",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "accountId" : {
                 "type" : "string",
                 "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "quantity" : {
                 "type" : "number",
-                "description" : "The nominal quantity"
+                "description" : "The nominal quantity",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "amount" : {
                 "type" : "number",
-                "description" : "This is the payment amount"
+                "description" : "This is the payment amount",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "percentage" : {
                 "type" : "number",
-                "description" : "The percentage of holdings redeemed/subscribed"
+                "description" : "The percentage of holdings redeemed/subscribed",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "price" : {
                 "type" : "string",
                 "description" : "The Price at which the nominal amount of the Security is to be valued for the transaction.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "calculateCharges" : {
                 "type" : "string",
                 "description" : "Indicates whether charges will be calculated.  Allowed values: - YES - null (default)",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "chargesGrossOrNet" : {
                 "type" : "string",
                 "description" : "Indicates whether the cash amount is to include charges (NET) or have charges applied in addition to the trade consideration (GROSS). Allowed values: - NET - GROSS",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "rounding" : {
                 "type" : "string",
                 "description" : "Defines the rounding type for the amount calculated or input",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "adjustCommission" : {
                 "type" : "string",
                 "description" : "Determine whether to reduce the commission in order to make the total trade match the cash amount exactly.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "settlementCurrency" : {
                 "type" : "string",
                 "description" : "The currency of the trade settlement",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "brokerCommission" : {
                 "type" : "string",
                 "description" : "Amount of broker commission charged to the customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "foreignFee" : {
                 "type" : "string",
                 "description" : "This field Records the Foreign Fee amount charged to the Customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "commission" : {
                 "type" : "number",
-                "description" : "The bank fees or commission charged for the transaction"
+                "description" : "The bank fees or commission charged for the transaction",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "customerCommissionTax" : {
                 "type" : "string",
                 "description" : "Specifies the tax amount based on the commission charged",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "stampTax" : {
                 "type" : "string",
                 "description" : "The Stamp Tax amount charged to the Customer for the trade",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "EBVFee" : {
                 "type" : "string",
                 "description" : "This field Records the amount of EBV Fees charged to the Customer for the trade.",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "miscellaneousFees" : {
                 "type" : "string",
                 "description" : "The amount of miscellaneous fees charged to the Customer for the trade",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "incomeAccount" : {
                 "type" : "string",
                 "description" : "The customer account to which income or expenses are debited/credited",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "incomeAccountCurrency" : {
                 "type" : "string",
                 "description" : "The currency of the customer's income account",
+                "minLength" : 0,
                 "maxLength" : 30
               },
               "orderAmount" : {
                 "type" : "number",
-                "description" : "The amount of the order"
+                "description" : "The amount of the order",
+                "minimum" : 0,
+                "maximum" : 30
               },
               "instructions" : {
                 "type" : "array",
@@ -789,6 +872,7 @@
                     "customerInstructions" : {
                       "type" : "string",
                       "description" : "Instructions given by the customer",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -802,6 +886,7 @@
                     "customerWitholdingTax" : {
                       "type" : "string",
                       "description" : "Specifies the amount of Tax on the Securities up to the Value Date of the trade",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -815,6 +900,7 @@
                     "buyingPower" : {
                       "type" : "string",
                       "description" : "Indicates the buying power of the portfolio on placement of order",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -828,15 +914,19 @@
                     "customerChargeTaxType" : {
                       "type" : "string",
                       "description" : "The type of charge or tax to be paid by the customer",
+                      "minLength" : 0,
                       "maxLength" : 30
                     },
                     "customerChargeTaxAmount" : {
                       "type" : "number",
-                      "description" : "The amount of charges or taxes to be paid by customer"
+                      "description" : "The amount of charges or taxes to be paid by customer",
+                      "minimum" : 0,
+                      "maximum" : 30
                     },
                     "customerChargeTaxCode" : {
                       "type" : "string",
                       "description" : "The Charge or tax identifier",
+                      "minLength" : 0,
                       "maxLength" : 30
                     }
                   }
@@ -848,26 +938,31 @@
         "transactionChannel" : {
           "type" : "string",
           "description" : "The channel through which the transaction has been placed",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "instrumentId" : {
           "type" : "string",
           "description" : "The identifier of the instrument",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeCurrency" : {
           "type" : "string",
           "description" : "The trade currency is the settlement currency for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "stockExchange" : {
           "type" : "string",
           "description" : "The stock exchange identifier",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "transactionType" : {
           "type" : "string",
           "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderDate" : {
@@ -883,55 +978,73 @@
         "orderedAt" : {
           "type" : "string",
           "description" : "The time at which the order has been transacted",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderType" : {
           "type" : "string",
           "description" : "Identifies the type of the order. Possible values are Single, Ifdone, Revol, oco. Single order - only one order item may be input. If done order -  If one order gets executed, the other order is also executed immediately. Revolving order -  based on the condition specified, it will wait for both the deals to be executed simultaneously. OCO -If one order gets executed, then the other order gets cancelled.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "tradeType" : {
           "type" : "string",
           "description" : "The trade type",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "switchMethod" : {
           "type" : "string",
           "description" : "If the switch is within same fund house(intra) or between fund houses",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "switchSpecification" : {
           "type" : "string",
           "description" : "Mode of the switch order (Unit / Percentage / Amount)",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "masterOrderOfSwitch" : {
           "type" : "string",
           "description" : "Indicates if this is the Master Order for Switch orders",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "commonSwitchRef" : {
           "type" : "string",
           "description" : "The field will hold a common reference to link a set of switch orders.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "noOfSwitchOrder" : {
           "type" : "string",
           "description" : "Number of Orders in a Switch Order combination",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "threadKey" : {
           "type" : "string",
           "description" : "The thread key for an order created by a service",
+          "minLength" : 0,
           "maxLength" : 30
+        },
+        "marketPrice" : {
+          "type" : "number",
+          "description" : "Current Market Price of the Security",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "limitPrice" : {
           "type" : "number",
-          "description" : "The Price at which the shares are to be bought or sold"
+          "description" : "The Price at which the shares are to be bought or sold",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "limitType" : {
           "type" : "string",
           "description" : "Defines the limit type for the trade",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "limitExpiryDate" : {
@@ -942,40 +1055,49 @@
         "fractionalOrder" : {
           "type" : "string",
           "description" : "Indicate If this is an odd lot order",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "depositoryId" : {
           "type" : "string",
           "description" : "Id of the securities depository.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "frontOfficeInstructions" : {
           "type" : "string",
           "description" : "Optional free text field to capture any narrative for the account officer.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "approximateSettlementAmount" : {
           "type" : "number",
-          "description" : "The order value (Nominal x Price ) for each customer in the security currency. If a limit price is input and transaction code is debit, lower price among market and limit price is used for sell and higher price is used for buy. If transaction code is credit, then lowest is used."
+          "description" : "The order value (Nominal x Price ) for each customer in the security currency. If a limit price is input and transaction code is debit, lower price among market and limit price is used for sell and higher price is used for buy. If transaction code is credit, then lowest is used.",
+          "minimum" : 0,
+          "maximum" : 30
         },
         "parent" : {
           "type" : "string",
           "description" : "This Field is to determine whether the order is a parent order, Allowed value is YES",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "parentReference" : {
           "type" : "string",
           "description" : "The parent reference that is common for both parent and child orders and will serve as a link.",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "dealStatus" : {
           "type" : "string",
           "description" : "The status of the deal",
+          "minLength" : 0,
           "maxLength" : 30
         },
         "orderStatus" : {
           "type" : "string",
           "description" : "Status of the order.",
+          "minLength" : 0,
           "maxLength" : 30
         }
       }
@@ -994,6 +1116,10 @@
           "type" : "string",
           "description" : "The status of the transaction"
         },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
+        },
         "audit" : {
           "type" : "object",
           "properties" : {
@@ -1007,13 +1133,11 @@
               "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }

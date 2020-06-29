@@ -33,12 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
@@ -82,14 +76,8 @@
         "parameters" : [ {
           "name" : "dataRightsId",
           "in" : "path",
-          "description" : "",
+          "description" : "Indicates the resource id of data rights request.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -135,7 +123,7 @@
         "parameters" : [ {
           "name" : "dataRightsId",
           "in" : "path",
-          "description" : "",
+          "description" : "Indicates the resource id of data rights request.",
           "required" : true,
           "type" : "string"
         }, {
@@ -152,12 +140,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -202,7 +184,7 @@
         "parameters" : [ {
           "name" : "dataRightsId",
           "in" : "query",
-          "description" : "",
+          "description" : "Indicates the resource id of data rights request.",
           "required" : false,
           "type" : "string"
         }, {
@@ -220,7 +202,7 @@
         }, {
           "name" : "currExpiryDate",
           "in" : "query",
-          "description" : "Contains the current expiry date",
+          "description" : "Contains the current expiry date.",
           "required" : false,
           "type" : "string"
         }, {
@@ -247,12 +229,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -313,7 +289,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -329,7 +305,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -351,7 +327,6 @@
       "properties" : {
         "purposeDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -372,13 +347,13 @@
         },
         "partyType" : {
           "type" : "string",
-          "description" : "Indicates the type of customer which is part of the relationship. It may be Customer, Person or Entity.",
+          "description" : "Defines the application id, to which the party id belongs to. Example, CUSTOMER/PERSON.ENTITY.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "requestType" : {
           "type" : "string",
-          "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+          "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
           "minLength" : 0,
           "maxLength" : 11
         },
@@ -426,19 +401,19 @@
         },
         "applicationName" : {
           "type" : "string",
-          "description" : "The name of the application.",
+          "description" : "The name of the application. ",
           "minLength" : 0,
           "maxLength" : 19
         },
         "contractId" : {
           "type" : "string",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "minLength" : 0,
           "maxLength" : 10
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
           "minLength" : 0,
           "maxLength" : 19
         }
@@ -452,11 +427,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -472,7 +447,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -502,7 +477,6 @@
       "properties" : {
         "purposeDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -523,13 +497,13 @@
         },
         "partyType" : {
           "type" : "string",
-          "description" : "Indicates the type of customer which is part of the relationship. It may be Customer, Person or Entity.",
+          "description" : "Defines the application id, to which the party id belongs to. Example, CUSTOMER/PERSON.ENTITY.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "requestType" : {
           "type" : "string",
-          "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+          "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
           "minLength" : 0,
           "maxLength" : 11
         },
@@ -577,19 +551,19 @@
         },
         "applicationName" : {
           "type" : "string",
-          "description" : "The name of the application.",
+          "description" : "The name of the application. ",
           "minLength" : 0,
           "maxLength" : 19
         },
         "contractId" : {
           "type" : "string",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "minLength" : 0,
           "maxLength" : 10
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
           "minLength" : 0,
           "maxLength" : 19
         }
@@ -813,7 +787,6 @@
       "properties" : {
         "purposeDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -834,13 +807,13 @@
         },
         "partyType" : {
           "type" : "string",
-          "description" : "Indicates the type of customer which is part of the relationship. It may be Customer, Person or Entity.",
+          "description" : "Defines the application id, to which the party id belongs to. Example, CUSTOMER/PERSON.ENTITY.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "requestType" : {
           "type" : "string",
-          "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+          "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
           "minLength" : 0,
           "maxLength" : 11
         },
@@ -888,19 +861,19 @@
         },
         "applicationName" : {
           "type" : "string",
-          "description" : "The name of the application.",
+          "description" : "The name of the application. ",
           "minLength" : 0,
           "maxLength" : 19
         },
         "contractId" : {
           "type" : "string",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "minLength" : 0,
           "maxLength" : 10
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
           "minLength" : 0,
           "maxLength" : 19
         }
@@ -922,7 +895,6 @@
       "properties" : {
         "purposeDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -943,13 +915,13 @@
         },
         "partyType" : {
           "type" : "string",
-          "description" : "Indicates the type of customer which is part of the relationship. It may be Customer, Person or Entity.",
+          "description" : "Defines the application id, to which the party id belongs to. Example, CUSTOMER/PERSON.ENTITY.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "requestType" : {
           "type" : "string",
-          "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+          "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
           "minLength" : 0,
           "maxLength" : 11
         },
@@ -1009,19 +981,19 @@
         },
         "applicationName" : {
           "type" : "string",
-          "description" : "The name of the application.",
+          "description" : "The name of the application. ",
           "minLength" : 0,
           "maxLength" : 19
         },
         "contractId" : {
           "type" : "string",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "minLength" : 0,
           "maxLength" : 10
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
           "minLength" : 0,
           "maxLength" : 19
         }
@@ -1043,7 +1015,6 @@
       "properties" : {
         "purposeDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1064,13 +1035,13 @@
         },
         "partyType" : {
           "type" : "string",
-          "description" : "Indicates the type of customer which is part of the relationship. It may be Customer, Person or Entity.",
+          "description" : "Defines the application id, to which the party id belongs to. Example, CUSTOMER/PERSON.ENTITY.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "requestType" : {
           "type" : "string",
-          "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+          "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
           "minLength" : 0,
           "maxLength" : 11
         },
@@ -1130,19 +1101,19 @@
         },
         "applicationName" : {
           "type" : "string",
-          "description" : "The name of the application.",
+          "description" : "The name of the application. ",
           "minLength" : 0,
           "maxLength" : 19
         },
         "contractId" : {
           "type" : "string",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "minLength" : 0,
           "maxLength" : 10
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
           "minLength" : 0,
           "maxLength" : 19
         }
@@ -1160,7 +1131,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1211,7 +1182,6 @@
         "properties" : {
           "purposeDetails" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1230,18 +1200,18 @@
           },
           "dataRightsId" : {
             "type" : "string",
-            "description" : "",
+            "description" : "Indicates the resource id of data rights request.",
             "maxLength" : 16
           },
           "requestType" : {
             "type" : "string",
-            "description" : "This field will have the value as INTERNAL/EXTERNAL type of record",
+            "description" : "Contains customer data rights request type. Example: ERASURE/DATAPORTABILITY.",
             "maxLength" : 20
           },
           "originalExpiryDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Specifies whether the request is complete or not."
+            "description" : "Contains the original expiry date."
           },
           "creationDate" : {
             "type" : "string",
@@ -1288,27 +1258,27 @@
           },
           "systemStatus" : {
             "type" : "string",
-            "description" : "Indicates the current status of the order in payment system",
+            "description" : "Contains status of request in the system. Examples are INITIATED, ERROR, COMPLETED.",
             "maxLength" : 20
           },
           "currExpiryDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Contains the current expiry date"
+            "description" : "Contains the current expiry date."
           },
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "The name of the application. ",
             "maxLength" : 35
           },
           "contractId" : {
             "type" : "string",
-            "description" : "Identifies the unique identifier of the transaction or contract.",
+            "description" : "The identifier of the contract",
             "maxLength" : 35
           },
           "companyId" : {
             "type" : "string",
-            "description" : "The identifier of the underlying Entity/Company/Branch.",
+            "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001",
             "maxLength" : 9
           }
         }

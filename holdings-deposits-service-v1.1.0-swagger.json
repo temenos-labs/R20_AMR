@@ -51,15 +51,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -110,7 +103,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -214,17 +207,14 @@
                   "description" : "Indicates the payment frequency associated with the charge"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 }
               }
             }
@@ -362,37 +352,31 @@
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }

@@ -32,15 +32,8 @@
             "$ref" : "#/definitions/Consent"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -81,7 +74,6 @@
         "parameters" : [ {
           "name" : "consentId",
           "in" : "path",
-          "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
           "required" : true,
           "type" : "string"
         }, {
@@ -98,15 +90,8 @@
             "$ref" : "#/definitions/Consent"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -145,7 +130,6 @@
         "parameters" : [ {
           "name" : "consentId",
           "in" : "path",
-          "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
           "required" : true,
           "type" : "string"
         }, {
@@ -155,15 +139,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -204,7 +181,6 @@
         "parameters" : [ {
           "name" : "consentId",
           "in" : "path",
-          "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
           "required" : true,
           "type" : "string"
         }, {
@@ -221,15 +197,8 @@
             "$ref" : "#/definitions/Consent"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -295,15 +264,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -342,7 +304,6 @@
         "parameters" : [ {
           "name" : "consentId",
           "in" : "path",
-          "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
           "required" : true,
           "type" : "string",
           "x-example" : "AAACT19107S8SJRXN9"
@@ -360,15 +321,8 @@
             "$ref" : "#/definitions/Consent1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -434,15 +388,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -519,15 +466,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -582,7 +522,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -598,7 +538,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -681,12 +621,12 @@
         },
         "product" : {
           "type" : "string",
-          "description" : "Indicates an id or name of a product"
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "It is a date on/upon which an account is considered to take effect"
+          "description" : "Date from which the arrangement activity is effective"
         },
         "activity" : {
           "type" : "string",
@@ -724,7 +664,7 @@
                   },
                   "isConsentGiven" : {
                     "type" : "string",
-                    "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                    "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise."
                   },
                   "accountBlock" : {
                     "type" : "string",
@@ -740,7 +680,7 @@
                   },
                   "blockNotes" : {
                     "type" : "string",
-                    "description" : "Indicates the reason for which the consent is blocked."
+                    "description" : "Reason for blocking the account in the consent."
                   },
                   "consentSubTypes" : {
                     "type" : "array",
@@ -749,7 +689,7 @@
                       "properties" : {
                         "consentSubType" : {
                           "type" : "string",
-                          "description" : "Indicates the consent sub type linked to corresponding consent type."
+                          "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent."
                         }
                       }
                     }
@@ -827,7 +767,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -839,7 +779,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "audit" : {
           "type" : "object",
@@ -851,7 +791,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -889,12 +829,12 @@
             },
             "product" : {
               "type" : "string",
-              "description" : "Indicates an id or name of a product"
+              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
               "format" : "date",
-              "description" : "It is a date on/upon which an account is considered to take effect"
+              "description" : "Date from which the arrangement activity is effective"
             },
             "activity" : {
               "type" : "string",
@@ -913,12 +853,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -938,15 +877,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -959,15 +896,13 @@
                   "type" : "object",
                   "properties" : {
                     "transactionStatus" : {
-                      "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "type" : "string"
                     },
                     "id" : {
                       "type" : "string"
                     },
                     "status" : {
-                      "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "type" : "string"
                     }
                   }
                 }
@@ -981,7 +916,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -999,7 +934,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1031,7 +966,7 @@
                           },
                           "isConsentGiven" : {
                             "type" : "string",
-                            "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                            "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise."
                           },
                           "accountBlock" : {
                             "type" : "string",
@@ -1047,7 +982,7 @@
                           },
                           "blockNotes" : {
                             "type" : "string",
-                            "description" : "Indicates the reason for which the consent is blocked."
+                            "description" : "Reason for blocking the account in the consent."
                           },
                           "consentSubTypes" : {
                             "type" : "array",
@@ -1056,7 +991,7 @@
                               "properties" : {
                                 "consentSubType" : {
                                   "type" : "string",
-                                  "description" : "Indicates the consent sub type linked to corresponding consent type."
+                                  "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent."
                                 }
                               }
                             }
@@ -1330,12 +1265,12 @@
         },
         "product" : {
           "type" : "string",
-          "description" : "Indicates an id or name of a product"
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
         },
         "arrangementEffectiveDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "It is a date on/upon which an account is considered to take effect"
+          "description" : "Date from which the arrangement activity is effective"
         },
         "activity" : {
           "type" : "string",
@@ -1373,7 +1308,7 @@
                   },
                   "isConsentGiven" : {
                     "type" : "string",
-                    "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                    "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise."
                   },
                   "accountBlock" : {
                     "type" : "string",
@@ -1389,7 +1324,7 @@
                   },
                   "blockNotes" : {
                     "type" : "string",
-                    "description" : "Indicates the reason for which the consent is blocked."
+                    "description" : "Reason for blocking the account in the consent."
                   },
                   "consentSubTypes" : {
                     "type" : "array",
@@ -1398,7 +1333,7 @@
                       "properties" : {
                         "consentSubType" : {
                           "type" : "string",
-                          "description" : "Indicates the consent sub type linked to corresponding consent type."
+                          "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent."
                         }
                       }
                     }
@@ -1499,12 +1434,12 @@
             },
             "product" : {
               "type" : "string",
-              "description" : "Indicates an id or name of a product"
+              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
             },
             "arrangementEffectiveDate" : {
               "type" : "string",
               "format" : "date",
-              "description" : "It is a date on/upon which an account is considered to take effect"
+              "description" : "Date from which the arrangement activity is effective"
             },
             "activity" : {
               "type" : "string",
@@ -1523,12 +1458,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1549,7 +1483,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -1567,7 +1501,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1599,7 +1533,7 @@
                           },
                           "isConsentGiven" : {
                             "type" : "string",
-                            "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                            "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise."
                           },
                           "accountBlock" : {
                             "type" : "string",
@@ -1615,7 +1549,7 @@
                           },
                           "blockNotes" : {
                             "type" : "string",
-                            "description" : "Indicates the reason for which the consent is blocked."
+                            "description" : "Reason for blocking the account in the consent."
                           },
                           "consentSubTypes" : {
                             "type" : "array",
@@ -1624,7 +1558,7 @@
                               "properties" : {
                                 "consentSubType" : {
                                   "type" : "string",
-                                  "description" : "Indicates the consent sub type linked to corresponding consent type."
+                                  "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent."
                                 }
                               }
                             }
@@ -1714,7 +1648,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -1966,11 +1900,11 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "Identifier of the arrangement"
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+            "description" : "Identifies the currency. E.g. USD, GBP etc"
           },
           "category" : {
             "type" : "string",
@@ -1978,7 +1912,7 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product"
+            "description" : "Description of the product"
           },
           "availableBalance" : {
             "type" : "string",
@@ -2027,7 +1961,7 @@
                 },
                 "isConsentGiven" : {
                   "type" : "string",
-                  "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                  "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise."
                 },
                 "accountBlock" : {
                   "type" : "string",
@@ -2043,7 +1977,7 @@
                 },
                 "blockNotes" : {
                   "type" : "string",
-                  "description" : "Indicates the reason for which the consent is blocked."
+                  "description" : "Reason for blocking the account in the consent."
                 },
                 "categoryId" : {
                   "type" : "string",
@@ -2112,7 +2046,7 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "Identifier of the arrangement"
           },
           "imagePath" : {
             "type" : "string",

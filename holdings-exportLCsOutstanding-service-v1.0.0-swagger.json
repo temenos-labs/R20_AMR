@@ -28,37 +28,31 @@
         }, {
           "name" : "issuingBankId",
           "in" : "query",
-          "description" : "Identifies the Issuing bank ID under the LC, who issues the LC under when a bank is advising the Letter of Credit",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "lcCurrency",
           "in" : "query",
-          "description" : "Denote the currency of the Letter of Credit.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "lcAmount",
           "in" : "query",
-          "description" : "This field indicates the amount of the Letter of Credit that will always be expressed in the currency of Letter of Credit.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "beneficiaryCustomerId",
           "in" : "query",
-          "description" : "Identifies the Customer who is to be the ultimate receiver of the funds transferred by the sending bank when this Beneficiary is not a bank.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "expiryDate",
           "in" : "query",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "liabilityReversalDate",
           "in" : "query",
-          "description" : "Date on which the contingent entries and the limits raised on the LC will be reversed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -82,15 +76,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -141,7 +128,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -207,6 +194,7 @@
           },
           "transactionReference" : {
             "type" : "string",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 14
           },
           "advisingReference" : {
@@ -236,7 +224,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 3
           },
           "amount" : {
@@ -245,7 +233,7 @@
           },
           "outstandingAmount" : {
             "type" : "string",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. "
           },
           "liabilityAmount" : {
             "type" : "string",

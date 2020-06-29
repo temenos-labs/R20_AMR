@@ -21,31 +21,28 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "Indicates a group under which the products exists",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "Indicates an id or name of a product",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
           "required" : false,
           "type" : "string"
         }, {
@@ -69,15 +66,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -118,7 +109,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -142,15 +133,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -191,31 +176,31 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productGroupId",
           "in" : "query",
-          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "description" : "The identifier of the product group",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currencyId",
           "in" : "query",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "required" : false,
           "type" : "string"
         }, {
@@ -239,15 +224,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -288,13 +267,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
@@ -318,15 +297,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -377,7 +350,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -391,7 +364,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -432,29 +405,26 @@
         "properties" : {
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string."
           },
           "account" : {
             "type" : "string",
-            "description" : "Identifies the unique account Id of the payment entered.",
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : "Indicates the description of the Product"
+            "type" : "string"
           },
           "customer" : {
-            "type" : "string",
-            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+            "type" : "string"
           },
           "customerName" : {
             "type" : "string",
-            "description" : "Name of the customer",
+            "description" : "The name that is displayed for the customer",
             "maxLength" : 35
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+            "description" : "The status of the arrangement",
             "maxLength" : 15
           }
         }
@@ -584,12 +554,10 @@
               "properties" : {
                 "customerShortName" : {
                   "type" : "string",
-                  "description" : "Indicates the short name of Customer",
                   "maxLength" : 35
                 },
                 "roleDisplayName" : {
                   "type" : "string",
-                  "description" : "Indicates the type of role of a customer",
                   "maxLength" : 30
                 }
               }
@@ -597,40 +565,40 @@
           },
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
             "maxLength" : 35
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 30
           },
           "cardNumber" : {
             "type" : "string",
-            "description" : "Cards issued are defined with an identifier consisting of three elements. The card type, a full stop and the card number. The card number may be any alphanumeric construction, commonly a 16 numeric number is used. VISA.5332870296579001. The id must be in the form of:  CCCC.AAAAAAAAAAAAAAAA  Where CCCC is the card type and AAAAAAAAAAAAAAAA is a unique identifier.  Examples:   VISA.1234567887654321   GC.1111222233334444   AB21.1111111122222222",
+            "description" : "The cardType and number of the card. Card issues are defined with an ID consisting of three elements. The card type, a full stop and the card number. The card type must be a valid cardType. The card number may be any alphanumeric construction, e.g. VISA.1234567887654321 GC.1111222233334444 AB21.1111111122222222",
             "maxLength" : 18
           },
           "currencyId" : {
             "type" : "string",
-            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
             "maxLength" : 3
           },
           "onlineActualBalance" : {
             "type" : "number",
-            "description" : "Real-time balance including all authorised transactions posted against the account, excluding any entries with a future processing date."
+            "description" : "Balance of the account that represents total of transactions posted against the account excluding any entries with the processing date in the future."
           },
           "onlineClearedBalance" : {
             "type" : "number",
-            "description" : "Indicates the available balance allowed to use"
+            "description" : "The total of cleared funds booked against the account. Same as onlineActualBalance with the exception of credit or reversed debit entries with the exposure date in the future."
           },
           "lockedAmount" : {
             "type" : "number",
-            "description" : "Shows reserved amount for the underlying account for a given balance reservation event.",
+            "description" : "The amount of funds that have been blocked (reserved) for specific purposes",
             "maximum" : 19
           },
           "availableLimit" : {
             "type" : "number",
-            "description" : "The portion of an allocated credit limit that is available for the nominated customer",
+            "description" : "The amount of an allocated credit limit that is available for the nomniated customer to utilise",
             "maximum" : 19
           },
           "leadCurrency" : {
@@ -663,7 +631,7 @@
               "properties" : {
                 "productName" : {
                   "type" : "string",
-                  "description" : "Product name of the bank for this account, proprietary definition."
+                  "description" : "The name that is displayed for the product"
                 }
               }
             }
@@ -675,11 +643,11 @@
               "properties" : {
                 "customerId" : {
                   "type" : "string",
-                  "description" : "Identifier of the customer"
+                  "description" : "The identifier of the customer"
                 },
                 "customerName" : {
                   "type" : "string",
-                  "description" : "Name of the customer",
+                  "description" : "The name that is displayed for the customer",
                   "maxLength" : 35
                 }
               }
@@ -687,11 +655,11 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string."
           },
           "balanceAmount" : {
             "type" : "number",
-            "description" : "Amount of the balance"
+            "description" : "The amount of the balance, typically linked to a balance type"
           }
         }
       }
@@ -719,27 +687,24 @@
               "properties" : {
                 "productName" : {
                   "type" : "string",
-                  "description" : "Product name of the bank for this account, proprietary definition.",
+                  "description" : "The name that is displayed for the product",
                   "maxLength" : 25
                 },
                 "currencyId" : {
                   "type" : "string",
-                  "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+                  "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
                   "maxLength" : 3
                 },
                 "interest" : {
                   "type" : "string",
-                  "description" : "Interest amount",
                   "maxLength" : 25
                 },
                 "bonus" : {
                   "type" : "string",
-                  "description" : "Indicates the bonus amount applicable for an account",
                   "maxLength" : 25
                 },
                 "charge" : {
                   "type" : "string",
-                  "description" : "Indicates the charge property.",
                   "maxLength" : 25
                 }
               }
@@ -747,16 +712,14 @@
           },
           "priceProductName" : {
             "type" : "string",
-            "description" : "Indicates a product in which pricing condition is attached",
             "maxLength" : 25
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string."
           },
           "variation" : {
             "type" : "string",
-            "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically",
             "maxLength" : 12
           }
         }

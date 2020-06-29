@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "languageId",
           "in" : "query",
@@ -48,12 +49,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -100,7 +95,6 @@
         "parameters" : [ {
           "name" : "advertId",
           "in" : "path",
-          "description" : "Contains the identifier associated to the advertisement respective to the customer of the account",
           "required" : true,
           "type" : "string"
         }, {
@@ -117,12 +111,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -179,12 +167,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -238,7 +220,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -295,35 +277,35 @@
               "properties" : {
                 "opportunityProductId" : {
                   "type" : "string",
-                  "description" : "Contains the identifier of the product in the opportunity"
+                  "description" : "Refers to the ID of the Product in the Opportunity."
                 },
                 "opportunityDirection" : {
                   "type" : "string",
-                  "description" : "Contains the direction of the product in the opportunity"
+                  "description" : "Refers to the Direction of the Product in the Opportunity."
                 },
                 "opportunityGeneratorId" : {
                   "type" : "string",
-                  "description" : "Contains the identifier of the generator in the opportunity"
+                  "description" : "Refers to the ID of the Generator in the Opportunity."
                 },
                 "opportunityTemplateId" : {
                   "type" : "string",
-                  "description" : "Contains the identifier of the opportunity template"
+                  "description" : "Refers to the ID of the Template in the Opportunity."
                 },
                 "opportunityTemplateDisplayName" : {
                   "type" : "string",
-                  "description" : "Contains the display name of the opportunity template"
+                  "description" : "Refers to the Display name of the Template in the Opportunity."
                 },
                 "opportunityStatus" : {
                   "type" : "string",
-                  "description" : "Contains the status of the opportunity"
+                  "description" : "Refers to the Status in the Opportunity."
                 },
                 "opportunityProbabilitySuccess" : {
                   "type" : "string",
-                  "description" : "Denotes the probability of success in opportunity"
+                  "description" : "Refers to the Probability Success in the Opportunity."
                 },
                 "opportunityDisplayName" : {
                   "type" : "string",
-                  "description" : "Contains the display name of the opportunity"
+                  "description" : "Refers to the Display Name in the Opportunity."
                 }
               }
             }
@@ -336,19 +318,19 @@
               "properties" : {
                 "advertDocImageId" : {
                   "type" : "string",
-                  "description" : "Contains the identifier for the image of the document of the advertisement"
+                  "description" : "Refers to the ID of the Image of the Document of the Advertisement."
                 },
                 "advertDocImageType" : {
                   "type" : "string",
-                  "description" : "Types of the image documents of the advertisement"
+                  "description" : "Refers to the type of the Image of the Document of the Advertisement."
                 },
                 "advertDocImageMediaType" : {
                   "type" : "string",
-                  "description" : "Types of the image document media in the advertisement"
+                  "description" : "Refers to the type of the Image of the Document Media of the Advertisement."
                 },
                 "advertDocImageName" : {
                   "type" : "string",
-                  "description" : "Contains the name for the image of the document in the advertisement"
+                  "description" : "Refers to the Name of the Image of the Document of the Advertisement."
                 }
               }
             }
@@ -361,19 +343,19 @@
               "properties" : {
                 "advertDetailDocImageId" : {
                   "type" : "string",
-                  "description" : "Contains the identifier of the detailed image of the document in the advertisement"
+                  "description" : "Refers to the ID of the Detailed Image of the Document of the Advertisement."
                 },
                 "advertDetailDocImageType" : {
                   "type" : "string",
-                  "description" : "Contains the type of the detailed image of the document in the advertisement"
+                  "description" : "Refers to the type of the Detailed Image of the Document of the Advertisement."
                 },
                 "advertDetailDocImageMediaType" : {
                   "type" : "string",
-                  "description" : "Contains the types of the detailed image of the document media in the advertisement"
+                  "description" : "Refers to the type of the Detailed Image of the Document Media of the Advertisement."
                 },
                 "advertDetailDocImageName" : {
                   "type" : "string",
-                  "description" : "Contains the name of the detailed image of the document of the advertisement"
+                  "description" : "Refers to the Name of the Detailed Image of the Document of the Advertisement."
                 }
               }
             }
@@ -536,7 +518,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -552,7 +534,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -567,7 +549,19 @@
           "$ref" : "#/definitions/AdvertBody"
         }
       },
-      "description" : "Advert"
+      "description" : "Advert",
+      "example" : {
+        "header" : {
+          "“audit”" : {
+            "“versionNumber”" : "“3”"
+          }
+        },
+        "body" : {
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED"
+        }
+      }
     },
     "AdvertBody" : {
       "type" : "object",
@@ -580,19 +574,19 @@
         },
         "opportunityProductId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the product in the opportunity",
+          "description" : "Refers to the ID of the Product in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
         "opportunityDirection" : {
           "type" : "string",
-          "description" : "Contains the direction of the product in the opportunity",
+          "description" : "Refers to the Direction of the Product in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "opportunityTemplateId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the opportunity template",
+          "description" : "Refers to the ID of the Template in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -603,13 +597,13 @@
         },
         "opportunityStatus" : {
           "type" : "string",
-          "description" : "Contains the status of the opportunity",
+          "description" : "Refers to the Status in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
         "transactionApplication" : {
           "type" : "string",
-          "description" : "Denotes the transaction that has taken place or will take place",
+          "description" : "Refers to the Transaction that has taken place or will take place.",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -629,11 +623,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -649,7 +643,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -685,19 +679,19 @@
         },
         "opportunityProductId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the product in the opportunity",
+          "description" : "Refers to the ID of the Product in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
         "opportunityDirection" : {
           "type" : "string",
-          "description" : "Contains the direction of the product in the opportunity",
+          "description" : "Refers to the Direction of the Product in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "opportunityTemplateId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the opportunity template",
+          "description" : "Refers to the ID of the Template in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -708,13 +702,13 @@
         },
         "opportunityStatus" : {
           "type" : "string",
-          "description" : "Contains the status of the opportunity",
+          "description" : "Refers to the Status in the Opportunity.",
           "minLength" : 0,
           "maxLength" : 35
         },
         "transactionApplication" : {
           "type" : "string",
-          "description" : "Denotes the transaction that has taken place or will take place",
+          "description" : "Refers to the Transaction that has taken place or will take place.",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -883,6 +877,29 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "updateAdvert" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AdvertBody"
+        }
+      },
+      "description" : "Advert",
+      "example" : {
+        "header" : {
+          "“audit”" : {
+            "“versionNumber”" : "“3”"
+          }
+        },
+        "body" : {
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED"
         }
       }
     }

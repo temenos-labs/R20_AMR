@@ -28,43 +28,36 @@
         }, {
           "name" : "beneficiary",
           "in" : "query",
-          "description" : "Identifies the Beneficiary name and address of the Standing Order",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "debitAccountId",
           "in" : "query",
-          "description" : "Indicates the debit account number of the payment or transaction.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "creditAccountId",
           "in" : "query",
-          "description" : "Credit account identifier of the payment or transaction",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "amount",
           "in" : "query",
-          "description" : "This is the payment amount",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "debitValueDate",
           "in" : "query",
-          "description" : "Date on which the amount will be debited for settlement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "creditValueDate",
           "in" : "query",
-          "description" : "Reference quoted by the credit account for a payment",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "correspondentBank",
           "in" : "query",
-          "description" : "Correspondent bank, where our nostro account is held.",
           "required" : false,
           "type" : "string"
         }, {
@@ -88,15 +81,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -147,7 +133,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -295,6 +281,7 @@
           },
           "transactionReference" : {
             "type" : "string",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 16
           },
           "invocationStatus" : {

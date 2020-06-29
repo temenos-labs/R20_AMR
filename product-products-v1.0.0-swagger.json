@@ -21,13 +21,13 @@
         "parameters" : [ {
           "name" : "productLineId",
           "in" : "path",
-          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "description" : "The identifier of the product line",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "productGroupId",
           "in" : "path",
-          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "description" : "The identifier of the product group",
           "required" : true,
           "type" : "string"
         }, {
@@ -51,15 +51,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -100,7 +94,7 @@
         "parameters" : [ {
           "name" : "productLineId",
           "in" : "path",
-          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "description" : "The identifier of the product line",
           "required" : true,
           "type" : "string"
         }, {
@@ -124,15 +118,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -173,7 +161,7 @@
         "parameters" : [ {
           "name" : "productLineId",
           "in" : "path",
-          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "description" : "The identifier of the product line",
           "required" : true,
           "type" : "string"
         }, {
@@ -197,15 +185,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -264,15 +246,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -331,15 +307,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -380,7 +350,6 @@
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
           "required" : true,
           "type" : "string"
         }, {
@@ -404,15 +373,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -471,15 +434,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -538,15 +495,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -587,13 +538,12 @@
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
           "required" : true,
           "type" : "string"
         }, {
@@ -617,15 +567,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -684,15 +628,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -733,20 +671,14 @@
         "parameters" : [ {
           "name" : "interestConditionId",
           "in" : "path",
-          "description" : "The identifier of the product condition used to define the interest rate",
+          "description" : "This field represents the key to the product level conditions for defining interest rate. ",
           "required" : true,
           "type" : "string",
           "x-example" : "CORP.AR.OVERDRAFT-USD--20100825"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -785,7 +717,7 @@
         "parameters" : [ {
           "name" : "interestConditionId",
           "in" : "path",
-          "description" : "The identifier of the product condition used to define the interest rate",
+          "description" : "This field represents the key to the product level conditions for defining interest rate. ",
           "required" : true,
           "type" : "string",
           "x-example" : "CORP.AR.OVERDRAFT-USD--20100825"
@@ -804,15 +736,9 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -851,7 +777,7 @@
         "parameters" : [ {
           "name" : "interestConditionId",
           "in" : "path",
-          "description" : "The identifier of the product condition used to define the interest rate",
+          "description" : "This field represents the key to the product level conditions for defining interest rate. ",
           "required" : true,
           "type" : "string",
           "x-example" : "CORP.AR.OVERDRAFT-USD--20100825"
@@ -870,15 +796,9 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -937,15 +857,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1004,15 +918,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1071,15 +979,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -1130,7 +1032,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1144,7 +1046,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -1190,7 +1092,7 @@
               "properties" : {
                 "currencyId" : {
                   "type" : "string",
-                  "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+                  "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency."
                 },
                 "currencyName" : {
                   "type" : "string",
@@ -1205,48 +1107,46 @@
               "type" : "object",
               "properties" : {
                 "minimumTerm" : {
-                  "type" : "string",
-                  "description" : "Refers to the minimum term associated with the loan process."
+                  "type" : "string"
                 },
                 "maximumTerm" : {
-                  "type" : "string",
-                  "description" : "Refers to the maximum term associated with the loan process."
+                  "type" : "string"
                 }
               }
             }
           },
           "productLineId" : {
             "type" : "string",
-            "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
+            "description" : "The identifier of the product line"
           },
           "productLineName" : {
             "type" : "string",
-            "description" : "Description of the product line, e.g. Client Consent for product line CONSENT."
+            "description" : "The name that is displayed for the product line"
           },
           "productGroupId" : {
             "type" : "string",
-            "description" : "The group, as defined by the institution, that the product belongs to.",
+            "description" : "The identifier of the product group",
             "maxLength" : 35
           },
           "productGroupName" : {
             "type" : "string",
-            "description" : "Description of the product group",
+            "description" : "The name that is displayed for the product group",
             "maxLength" : 35
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "description" : "The identifier of the product",
             "maxLength" : 30
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "The name that is displayed for the product",
             "maxLength" : 35
           },
           "availableFromDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "The date the product is available in the catalogue for sale to customers"
+            "description" : "The date when the product is available for creating arrangements"
           }
         }
       }
@@ -1370,17 +1270,17 @@
         "properties" : {
           "productGroupId" : {
             "type" : "string",
-            "description" : "The group, as defined by the institution, that the product belongs to.",
+            "description" : "The identifier of the product group",
             "maxLength" : 30
           },
           "productLineId" : {
             "type" : "string",
-            "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+            "description" : "The identifier of the product line",
             "maxLength" : 20
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           }
         }
@@ -1404,12 +1304,12 @@
         "properties" : {
           "activityClassId" : {
             "type" : "string",
-            "description" : "Id of an activity class, e.g. ACCOUNTS-ACCRUE-CHARGE or LENDING-CAPITALISE-INTEREST.",
+            "description" : "The identifier of the activity class",
             "maxLength" : 65
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           }
         }
@@ -1433,12 +1333,11 @@
         "properties" : {
           "productLine" : {
             "type" : "string",
-            "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
             "maxLength" : 20
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           }
         }
@@ -1468,7 +1367,7 @@
               "properties" : {
                 "displayName" : {
                   "type" : "string",
-                  "description" : "Contains the name used for display or enrichment purposes",
+                  "description" : "The name used for display purposes",
                   "maxLength" : 50
                 }
               }
@@ -1476,12 +1375,12 @@
           },
           "propertyClassId" : {
             "type" : "string",
-            "description" : "The identifier of a condition that is used to build a product",
+            "description" : "The identifier of the property class",
             "maxLength" : 29
           },
           "propertyClassName" : {
             "type" : "string",
-            "description" : "The name of the condition that is used to build a product",
+            "description" : "The name that is displayed for the property class",
             "maxLength" : 35
           }
         }
@@ -1510,7 +1409,6 @@
               "properties" : {
                 "currency" : {
                   "type" : "string",
-                  "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
                   "maxLength" : 20
                 },
                 "creditInterest" : {
@@ -1559,17 +1457,14 @@
                 },
                 "minimumAmount" : {
                   "type" : "string",
-                  "description" : "The minimum account balance required.",
                   "maxLength" : 30
                 },
                 "maximumAmount" : {
                   "type" : "string",
-                  "description" : "The maximum account balance allowed.",
                   "maxLength" : 40
                 },
                 "amount" : {
                   "type" : "string",
-                  "description" : "This is the payment amount",
                   "maxLength" : 40
                 },
                 "noticePeriod" : {
@@ -1578,17 +1473,15 @@
                 },
                 "term" : {
                   "type" : "string",
-                  "description" : "Indicates the term for which the contract is booked",
+                  "description" : "The period to which the rate applies",
                   "maxLength" : 10
                 },
                 "minimumTerm" : {
                   "type" : "string",
-                  "description" : "Refers to the minimum term associated with the loan process.",
                   "maxLength" : 10
                 },
                 "maximumTerm" : {
                   "type" : "string",
-                  "description" : "Refers to the maximum term associated with the loan process.",
                   "maxLength" : 10
                 },
                 "interestRates" : {
@@ -1634,7 +1527,7 @@
                       },
                       "feeAmount" : {
                         "type" : "string",
-                        "description" : "Indicates the fee amount which is applied for the payment instruction",
+                        "description" : "Holds the charge amount equivalent in fee currency",
                         "maxLength" : 40
                       },
                       "feeFrequency" : {
@@ -1649,21 +1542,19 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+            "description" : "The identifier of the product"
           },
           "productGroupId" : {
             "type" : "string",
-            "description" : "The group, as defined by the institution, that the product belongs to.",
+            "description" : "The identifier of the product group",
             "maxLength" : 20
           },
           "productLine" : {
             "type" : "string",
-            "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc.",
             "maxLength" : 5
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
             "maxLength" : 60
           }
         }
@@ -1687,12 +1578,12 @@
         "properties" : {
           "interestConditionId" : {
             "type" : "string",
-            "description" : "The identifier of the product condition used to define the interest rate",
+            "description" : "This field represents the key to the product level conditions for defining interest rate. ",
             "maxLength" : 80
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           }
         }
@@ -1706,11 +1597,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -1726,7 +1617,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1761,55 +1652,55 @@
             "properties" : {
               "fixedRate" : {
                 "type" : "string",
-                "description" : "Numeric value for the interest rate entered manually.",
+                "description" : "A fixed rate is directly entered by the user specifying the Defined Property and is not defined by an index table.Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. ",
                 "minLength" : 0,
                 "maxLength" : 9
               },
               "floatingRate" : {
                 "type" : "string",
-                "description" : "The interest rate is chosen from a selection of values which represent different interest types and rates.",
+                "description" : "Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. Each of these interest types can include one or more margins and can be specified in a tiered structure.A floating interest rate is tied to a variable base rate (i.e. BASIC.INTEREST). ",
                 "minLength" : 0,
                 "maxLength" : 12
               },
               "linkedRateIndicator" : {
                 "type" : "string",
-                "description" : "The interest rate for the tier can be linked to that of another account, YES/NO indicator",
+                "description" : "Defines whether the rate for a given tier is Linked",
                 "minLength" : 0,
                 "maxLength" : 19
               },
               "customRateIndicator" : {
                 "type" : "string",
-                "description" : "A custom rate can be calculated and applied to an account, flag set to Yes for this to be invoked otherwise No.",
+                "description" : "This is a Yes or No flag field; if this field is set to yes then Interest rate would allow input of data required for calculation for the respective Arrangements'. ",
                 "minLength" : 0,
                 "maxLength" : 19
               },
               "minimumTierRate" : {
                 "type" : "string",
-                "description" : "A minimum interest rate can be applied at each tier.",
+                "description" : "In this field for each tier defined, a user can specify a minimum rate for the tier. This is applicable for variable and periodic rates and allows the tier rate to be controlled.",
                 "minLength" : 0,
                 "maxLength" : 15
               },
               "maximumTierRate" : {
                 "type" : "string",
-                "description" : "The maximum rate that can be applied at each tier.",
+                "description" : "The maximum rate for the tier",
                 "minLength" : 0,
                 "maxLength" : 15
               },
               "tierAmount" : {
                 "type" : "string",
-                "description" : "The monetary amount for the tier.",
+                "description" : "The applicable tier amount",
                 "minLength" : 0,
                 "maxLength" : 10
               },
               "tierNegativeRate" : {
                 "type" : "string",
-                "description" : "A negative interest rate can be applied at each tier, select Yes, No, Block margin",
+                "description" : "Defines whether a tier rate can be negative",
                 "minLength" : 0,
                 "maxLength" : 16
               },
               "tierPercent" : {
                 "type" : "string",
-                "description" : "Applicable tier percentage (between 0 and 100) for interest calculations based on amount bands",
+                "description" : "The applicable tier percentage",
                 "minLength" : 0,
                 "maxLength" : 11
               },
@@ -1820,19 +1711,19 @@
                   "properties" : {
                     "marginType" : {
                       "type" : "string",
-                      "description" : "Defines whether there are single or multiple margins to be considered while arriving at the applicable interest rate  Allowed values:  null (default): multiple margins may be defined SINGLE: only a single margin is allowed",
+                      "description" : "Defines whether there are single or multiple margins to be considered while arriving at the applicable interest rate",
                       "minLength" : 0,
                       "maxLength" : 10
                     },
                     "marginOperand" : {
                       "type" : "string",
-                      "description" : "This is the operand which determines if a  margin is added or subtracted from the interest rate.  Options are ADD or SUB.",
+                      "description" : " Defines whether the marginRate should be added or subtracted from the Floating or Periodic Rate. The options are ADD or SUB. ",
                       "minLength" : 0,
                       "maxLength" : 13
                     },
                     "marginRate" : {
                       "type" : "string",
-                      "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                      "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                       "minLength" : 0,
                       "maxLength" : 10
                     }
@@ -1850,7 +1741,7 @@
             "properties" : {
               "displayName" : {
                 "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes",
+                "description" : "The name used for display purposes",
                 "minLength" : 0,
                 "maxLength" : 11
               }
@@ -1859,13 +1750,13 @@
         },
         "rateTierType" : {
           "type" : "string",
-          "description" : "Different interest rates can be applied for tiers determined by monetary amounts.  Standard selection to choose from - Single, Level, Banded",
+          "description" : "Defines the interest or tax rate tier type e.g. Single, Level, Banded etc",
           "minLength" : 0,
           "maxLength" : 18
         },
         "linkedArrangement" : {
           "type" : "string",
-          "description" : "The account which is linked for calculating interest that should be applied to this account",
+          "description" : "The Arrangement to be linked for calculating the Interest Rate",
           "minLength" : 0,
           "maxLength" : 18
         },
@@ -2043,11 +1934,11 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
                   },
                   "code" : {
                     "type" : "string",
-                    "description" : "The identifier of the error message"
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -2063,7 +1954,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -2090,55 +1981,55 @@
             "properties" : {
               "fixedRate" : {
                 "type" : "string",
-                "description" : "Numeric value for the interest rate entered manually.",
+                "description" : "A fixed rate is directly entered by the user specifying the Defined Property and is not defined by an index table.Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. ",
                 "minLength" : 0,
                 "maxLength" : 9
               },
               "floatingRate" : {
                 "type" : "string",
-                "description" : "The interest rate is chosen from a selection of values which represent different interest types and rates.",
+                "description" : "Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. Each of these interest types can include one or more margins and can be specified in a tiered structure.A floating interest rate is tied to a variable base rate (i.e. BASIC.INTEREST). ",
                 "minLength" : 0,
                 "maxLength" : 12
               },
               "linkedRateIndicator" : {
                 "type" : "string",
-                "description" : "The interest rate for the tier can be linked to that of another account, YES/NO indicator",
+                "description" : "Defines whether the rate for a given tier is Linked",
                 "minLength" : 0,
                 "maxLength" : 19
               },
               "customRateIndicator" : {
                 "type" : "string",
-                "description" : "A custom rate can be calculated and applied to an account, flag set to Yes for this to be invoked otherwise No.",
+                "description" : "This is a Yes or No flag field; if this field is set to yes then Interest rate would allow input of data required for calculation for the respective Arrangements'. ",
                 "minLength" : 0,
                 "maxLength" : 19
               },
               "minimumTierRate" : {
                 "type" : "string",
-                "description" : "A minimum interest rate can be applied at each tier.",
+                "description" : "In this field for each tier defined, a user can specify a minimum rate for the tier. This is applicable for variable and periodic rates and allows the tier rate to be controlled.",
                 "minLength" : 0,
                 "maxLength" : 15
               },
               "maximumTierRate" : {
                 "type" : "string",
-                "description" : "The maximum rate that can be applied at each tier.",
+                "description" : "The maximum rate for the tier",
                 "minLength" : 0,
                 "maxLength" : 15
               },
               "tierAmount" : {
                 "type" : "string",
-                "description" : "The monetary amount for the tier.",
+                "description" : "The applicable tier amount",
                 "minLength" : 0,
                 "maxLength" : 10
               },
               "tierNegativeRate" : {
                 "type" : "string",
-                "description" : "A negative interest rate can be applied at each tier, select Yes, No, Block margin",
+                "description" : "Defines whether a tier rate can be negative",
                 "minLength" : 0,
                 "maxLength" : 16
               },
               "tierPercent" : {
                 "type" : "string",
-                "description" : "Applicable tier percentage (between 0 and 100) for interest calculations based on amount bands",
+                "description" : "The applicable tier percentage",
                 "minLength" : 0,
                 "maxLength" : 11
               },
@@ -2149,19 +2040,19 @@
                   "properties" : {
                     "marginType" : {
                       "type" : "string",
-                      "description" : "Defines whether there are single or multiple margins to be considered while arriving at the applicable interest rate  Allowed values:  null (default): multiple margins may be defined SINGLE: only a single margin is allowed",
+                      "description" : "Defines whether there are single or multiple margins to be considered while arriving at the applicable interest rate",
                       "minLength" : 0,
                       "maxLength" : 10
                     },
                     "marginOperand" : {
                       "type" : "string",
-                      "description" : "This is the operand which determines if a  margin is added or subtracted from the interest rate.  Options are ADD or SUB.",
+                      "description" : " Defines whether the marginRate should be added or subtracted from the Floating or Periodic Rate. The options are ADD or SUB. ",
                       "minLength" : 0,
                       "maxLength" : 13
                     },
                     "marginRate" : {
                       "type" : "string",
-                      "description" : "This is the rate applied over the default interest rate or commission rate to achieve the actual rate.",
+                      "description" : "The margin rate used to adjust the specified rate of interest and to appropriately reflect any rate profit realized. The result is the nominal rate of interest.  ",
                       "minLength" : 0,
                       "maxLength" : 10
                     }
@@ -2179,7 +2070,7 @@
             "properties" : {
               "displayName" : {
                 "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes",
+                "description" : "The name used for display purposes",
                 "minLength" : 0,
                 "maxLength" : 11
               }
@@ -2188,13 +2079,13 @@
         },
         "rateTierType" : {
           "type" : "string",
-          "description" : "Different interest rates can be applied for tiers determined by monetary amounts.  Standard selection to choose from - Single, Level, Banded",
+          "description" : "Defines the interest or tax rate tier type e.g. Single, Level, Banded etc",
           "minLength" : 0,
           "maxLength" : 18
         },
         "linkedArrangement" : {
           "type" : "string",
-          "description" : "The account which is linked for calculating interest that should be applied to this account",
+          "description" : "The Arrangement to be linked for calculating the Interest Rate",
           "minLength" : 0,
           "maxLength" : 18
         },
@@ -2228,7 +2119,7 @@
           },
           "productConditionName" : {
             "type" : "string",
-            "description" : "Free text description of the product condition",
+            "description" : "The name that is displayed for the product condition",
             "maxLength" : 35
           }
         }
@@ -2252,22 +2143,21 @@
         "properties" : {
           "propertyId" : {
             "type" : "string",
-            "description" : "The identifier of the product condition",
+            "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
             "maxLength" : 30
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 50
           },
           "propertyClass" : {
             "type" : "string",
-            "description" : "Condition that is used to build a product",
             "maxLength" : 30
           },
           "propertyType" : {
             "type" : "string",
-            "description" : "Values selected to determine action on condition e.g. accounting rules only changed at product level. Standard set of values to select from.",
+            "description" : "The property type of the arrangement e.g. Forward.dated, product.only, credit etc.",
             "maxLength" : 25
           }
         }
@@ -2291,17 +2181,16 @@
         "properties" : {
           "displayId" : {
             "type" : "string",
-            "description" : "Display Id",
+            "description" : "The identifier to be displayed",
             "maxLength" : 35
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           },
           "user" : {
             "type" : "string",
-            "description" : "The user who created the project",
             "maxLength" : 35
           }
         }

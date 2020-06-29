@@ -19,7 +19,6 @@
         "parameters" : [ {
           "name" : "processId",
           "in" : "path",
-          "description" : "Contains the process identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -37,15 +36,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -70,7 +62,6 @@
         "parameters" : [ {
           "name" : "processId",
           "in" : "path",
-          "description" : "Contains the process identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -88,15 +79,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -123,7 +107,6 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
           "required" : true,
           "type" : "string"
         }, {
@@ -141,15 +124,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -174,7 +150,6 @@
         "parameters" : [ {
           "name" : "serviceId",
           "in" : "path",
-          "description" : "Contains the identifier name of the service that has to be executed.",
           "required" : true,
           "type" : "string"
         }, {
@@ -192,15 +167,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -227,7 +195,7 @@
         "parameters" : [ {
           "name" : "workProfileId",
           "in" : "path",
-          "description" : "Contains the reference to the record in service workload profiles for services.",
+          "description" : "resource for workload profile URL",
           "required" : true,
           "type" : "string"
         }, {
@@ -245,15 +213,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -278,7 +239,7 @@
         "parameters" : [ {
           "name" : "workProfileId",
           "in" : "path",
-          "description" : "Contains the reference to the record in service workload profiles for services.",
+          "description" : "resource for workload profile URL",
           "required" : true,
           "type" : "string"
         }, {
@@ -296,15 +257,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -347,7 +301,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -363,7 +317,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -385,75 +339,74 @@
       "properties" : {
         "batchStage" : {
           "type" : "string",
-          "description" : "Environment where the process will run. Typically this should be set to F"
+          "description" : "Indicates which Stage of the  Batch and in which sequence number the service will run"
         },
         "batchEnvironment" : {
           "type" : "string",
-          "description" : "Environment where the process run.  Allowed values: F: Foreground - Run directly on the user's terminal. B: Background - Run as a background task.",
+          "description" : "Indicates whether service should run as a background process or a foreground process",
           "enum" : [ "B", "F" ]
         },
         "jobId" : {
           "type" : "string",
-          "description" : "Contains the job identifier."
+          "description" : "The identifier of the job"
         },
         "verificationJobId" : {
           "type" : "string",
-          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed."
+          "description" : "Same as jobID, but functionally it does the verififcation as to whether a job is completed before the jobID is executed"
         },
         "jobFrequency" : {
           "type" : "string",
-          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered."
+          "description" : "Defines the frequency at which the job is processed next."
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "data" : {
           "type" : "string",
-          "description" : "Contains any input parameters/data required for the job"
+          "description" : "Used to pass any data values which may be required by the job when it is being run."
         },
         "userId" : {
           "type" : "string",
-          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+          "description" : "The unique user identifier"
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+          "description" : "The status of the record processed"
         },
         "currNo" : {
           "type" : "string",
-          "description" : "Current Number which indicates how many times the record is modified."
+          "description" : "Current Number which indicates how many times the record is modified"
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction"
+          "description" : "This shows the user who entered the transaction"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction."
+          "description" : "This indicates the user who authorised the transaction"
         },
         "dateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date"
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch."
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001"
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized."
+          "description" : "This indicates the department code where the transaction was authorised"
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code."
+          "description" : "This indicates the auditor code"
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     },
@@ -465,11 +418,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -481,7 +434,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -508,75 +461,74 @@
       "properties" : {
         "batchStage" : {
           "type" : "string",
-          "description" : "Environment where the process will run. Typically this should be set to F"
+          "description" : "Indicates which Stage of the  Batch and in which sequence number the service will run"
         },
         "batchEnvironment" : {
           "type" : "string",
-          "description" : "Environment where the process run.  Allowed values: F: Foreground - Run directly on the user's terminal. B: Background - Run as a background task.",
+          "description" : "Indicates whether service should run as a background process or a foreground process",
           "enum" : [ "B", "F" ]
         },
         "jobId" : {
           "type" : "string",
-          "description" : "Contains the job identifier."
+          "description" : "The identifier of the job"
         },
         "verificationJobId" : {
           "type" : "string",
-          "description" : "Contains the verification job identifier.Typically used to control whether a job is completed before the current jobId is executed."
+          "description" : "Same as jobID, but functionally it does the verififcation as to whether a job is completed before the jobID is executed"
         },
         "jobFrequency" : {
           "type" : "string",
-          "description" : "Contains the frequency on which the job is next processed. POSSIBLE VALUES:- D: Every working day. Dnn: Every nn'th working day. W: Weekly every Friday. - M: Last working day of every month. - Mnn: nn represents the offset added to the first day of every month to arrive at Next Run date. When the resultant date is a holiday, previous Working day is considered."
+          "description" : "Defines the frequency at which the job is processed next."
         },
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "data" : {
           "type" : "string",
-          "description" : "Contains any input parameters/data required for the job"
+          "description" : "Used to pass any data values which may be required by the job when it is being run."
         },
         "userId" : {
           "type" : "string",
-          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+          "description" : "The unique user identifier"
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+          "description" : "The status of the record processed"
         },
         "currNo" : {
           "type" : "string",
-          "description" : "Current Number which indicates how many times the record is modified."
+          "description" : "Current Number which indicates how many times the record is modified"
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction"
+          "description" : "This shows the user who entered the transaction"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction."
+          "description" : "This indicates the user who authorised the transaction"
         },
         "dateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date"
         },
         "companyId" : {
           "type" : "string",
-          "description" : "The identifier of the underlying Entity/Company/Branch."
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001"
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized."
+          "description" : "This indicates the department code where the transaction was authorised"
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code."
+          "description" : "This indicates the auditor code"
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     },
@@ -699,71 +651,69 @@
             "properties" : {
               "jobProfileId" : {
                 "type" : "string",
-                "description" : ""
+                "description" : "Reference to the record in TSA.WORKLOAD.PROFILE"
               },
               "serverName" : {
                 "type" : "string",
-                "description" : "Contains the name of the Server on which the service will run."
+                "description" : "Hostname of the Server on which the service will run"
               },
               "jobServerStatus" : {
                 "type" : "string",
-                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive"
+                "description" : "Status of Server"
               }
             }
           }
         },
         "serviceDescription" : {
           "type" : "string",
-          "description" : "Contains the description of the Service"
+          "description" : "Description of the Service"
         },
         "userId" : {
           "type" : "string",
-          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+          "description" : "The unique user identifier"
         },
         "jobOperation" : {
           "type" : "string",
-          "description" : "The control which user be exercise upon the current service.   Allowed values: - START: to start the current service.  - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
           "enum" : [ "START", "STOP", "AUTO" ]
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "description" : "The status of the record processed",
           "enum" : [ "Status of record -authorised/on hold/unauth etc" ]
         },
         "currNo" : {
           "type" : "string",
-          "description" : "Current Number which indicates how many times the record is modified.",
+          "description" : "Current Number which indicates how many times the record is modified",
           "enum" : [ "No of times record has been changed" ]
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction",
+          "description" : "This shows the user who entered the transaction",
           "enum" : [ "User who has input or changed the record" ]
         },
         "dateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction.",
+          "description" : "This indicates the user who authorised the transaction",
           "enum" : [ "User who has authorised the input or change" ]
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized.",
+          "description" : "This indicates the department code where the transaction was authorised",
           "enum" : [ "Department handling the record" ]
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code.",
+          "description" : "This indicates the auditor code",
           "enum" : [ "Code of Auditor who has audited the record" ]
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     },
@@ -788,71 +738,69 @@
             "properties" : {
               "jobProfileId" : {
                 "type" : "string",
-                "description" : ""
+                "description" : "Reference to the record in TSA.WORKLOAD.PROFILE"
               },
               "serverName" : {
                 "type" : "string",
-                "description" : "Contains the name of the Server on which the service will run."
+                "description" : "Hostname of the Server on which the service will run"
               },
               "jobServerStatus" : {
                 "type" : "string",
-                "description" : "Contains the Status of Server. POSSIBLE VALUES: ACTIVE: To set the server as active INACTIVE: To set the server as inactive"
+                "description" : "Status of Server"
               }
             }
           }
         },
         "serviceDescription" : {
           "type" : "string",
-          "description" : "Contains the description of the Service"
+          "description" : "Description of the Service"
         },
         "userId" : {
           "type" : "string",
-          "description" : "The user name to be loaded for reporting jobs during Close of Business If no user name is entered in this field then the default profile for the user 'operator' is used."
+          "description" : "The unique user identifier"
         },
         "jobOperation" : {
           "type" : "string",
-          "description" : "The control which user be exercise upon the current service.   Allowed values: - START: to start the current service.  - STOP: to stop the current service - AUTO: to start the current service automatically and stop at the end of the process.",
           "enum" : [ "START", "STOP", "AUTO" ]
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "description" : "The status of the record processed",
           "enum" : [ "Status of record -authorised/on hold/unauth etc" ]
         },
         "currNo" : {
           "type" : "string",
-          "description" : "Current Number which indicates how many times the record is modified.",
+          "description" : "Current Number which indicates how many times the record is modified",
           "enum" : [ "No of times record has been changed" ]
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction",
+          "description" : "This shows the user who entered the transaction",
           "enum" : [ "User who has input or changed the record" ]
         },
         "dateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction.",
+          "description" : "This indicates the user who authorised the transaction",
           "enum" : [ "User who has authorised the input or change" ]
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized.",
+          "description" : "This indicates the department code where the transaction was authorised",
           "enum" : [ "Department handling the record" ]
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code.",
+          "description" : "This indicates the auditor code",
           "enum" : [ "Code of Auditor who has audited the record" ]
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     },
@@ -872,53 +820,51 @@
       "properties" : {
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes"
+          "description" : "The name used for display purposes"
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started"
+          "description" : "Indicates start time"
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required"
+          "description" : "Indicates the number of agents required"
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+          "description" : "The status of the record processed"
         },
         "CurrNo" : {
           "type" : "number",
-          "description" : "Current Number which indicates how many times the record is modified."
+          "description" : "Current Number which indicates how many times the record is modified"
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction"
+          "description" : "This shows the user who entered the transaction"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction."
+          "description" : "This indicates the user who authorised the transaction"
         },
         "datetime" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date-time"
         },
         "coCode" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized."
+          "description" : "This indicates the department code where the transaction was authorised"
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code."
+          "description" : "This indicates the auditor code"
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     },
@@ -938,53 +884,51 @@
       "properties" : {
         "displayName" : {
           "type" : "string",
-          "description" : "Contains the name used for display or enrichment purposes"
+          "description" : "The name used for display purposes"
         },
         "startTime" : {
           "type" : "string",
-          "description" : "Contains the time job was started"
+          "description" : "Indicates start time"
         },
         "agentsRequired" : {
           "type" : "string",
-          "description" : "Contains the number of agents required"
+          "description" : "Indicates the number of agents required"
         },
         "recordStatus" : {
           "type" : "string",
-          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
+          "description" : "The status of the record processed"
         },
         "CurrNo" : {
           "type" : "number",
-          "description" : "Current Number which indicates how many times the record is modified."
+          "description" : "Current Number which indicates how many times the record is modified"
         },
         "inputter" : {
           "type" : "string",
-          "description" : "The user identifier who input the transaction"
+          "description" : "This shows the user who entered the transaction"
         },
         "authoriser" : {
           "type" : "string",
-          "description" : "This indicates the user who authorized the transaction."
+          "description" : "This indicates the user who authorised the transaction"
         },
         "datetime" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Contains the date and time separated by '-'"
+          "format" : "date-time"
         },
         "coCode" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "deptCode" : {
           "type" : "string",
-          "description" : "The department code where the transaction was authorized."
+          "description" : "This indicates the department code where the transaction was authorised"
         },
         "auditorCode" : {
           "type" : "string",
-          "description" : "Reference to the auditor code."
+          "description" : "This indicates the auditor code"
         },
         "auditTimeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Reference to the audit date and time."
+          "description" : "This indicates the audit date time"
         }
       }
     }

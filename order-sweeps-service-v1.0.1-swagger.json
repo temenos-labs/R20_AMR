@@ -21,13 +21,13 @@
         "parameters" : [ {
           "name" : "toAccountId",
           "in" : "query",
-          "description" : "Account number of the Payee or Beneficiary of the transaction",
+          "description" : "Creditor unique account id detail",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "fromAccountId",
           "in" : "query",
-          "description" : "For surplus this refers to the account which will be credited and for maintenance this account from where the funds are debited.",
+          "description" : "Debitor unique account id detail",
           "required" : false,
           "type" : "string"
         }, {
@@ -51,15 +51,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -110,15 +103,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -163,15 +149,8 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -228,15 +207,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -293,15 +265,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -360,15 +325,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -413,15 +371,8 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -476,7 +427,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -492,7 +443,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -567,7 +518,7 @@
               },
               "minimumRequiredBalance" : {
                 "type" : "number",
-                "description" : "Maximum required balance details for sweep record"
+                "description" : "Minimum required balance details for sweep record"
               }
             }
           }
@@ -604,7 +555,7 @@
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "recordStatus" : {
           "type" : "string",
@@ -621,11 +572,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -637,7 +588,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -722,7 +673,7 @@
               },
               "minimumRequiredBalance" : {
                 "type" : "number",
-                "description" : "Maximum required balance details for sweep record"
+                "description" : "Minimum required balance details for sweep record"
               }
             }
           }
@@ -759,7 +710,7 @@
         "nextRunDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains bank date on which the job is to be next run"
+          "description" : "Specifies bank date on which the job is to be next run"
         },
         "recordStatus" : {
           "type" : "string",
@@ -988,7 +939,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -1124,7 +1075,7 @@
           "nextRunDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Contains bank date on which the job is to be next run"
+            "description" : "Specifies bank date on which the job is to be next run"
           },
           "frequency" : {
             "type" : "string",

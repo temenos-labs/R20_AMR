@@ -7,13 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/holdings/cards" : {
       "get" : {
+        "summary" : "Retrieves the issued cards details for a customer",
+        "description" : "Retrieves card Issue details",
         "operationId" : "getCardIssues",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -69,15 +71,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -86,6 +81,18 @@
             "description" : "CardIssuesResponse",
             "schema" : {
               "$ref" : "#/definitions/CardIssuesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -99,6 +106,8 @@
     },
     "/holdings/cards/{cardIssueId}" : {
       "post" : {
+        "summary" : "Creates a new card request for a customer",
+        "description" : "Create a card",
         "operationId" : "createCardIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -122,15 +131,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -139,6 +141,18 @@
             "description" : "CardIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/CardIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -150,6 +164,8 @@
         }
       },
       "put" : {
+        "summary" : "Updates an existing card status for a customer",
+        "description" : "Update a card details",
         "operationId" : "updateCardIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -173,15 +189,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -190,6 +199,18 @@
             "description" : "CardIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/CardIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -201,6 +222,8 @@
         }
       },
       "delete" : {
+        "summary" : "Removes an existing card for a customer",
+        "description" : "Delete a card",
         "operationId" : "deleteCardIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -210,15 +233,22 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
           "required" : false,
-          "type" : "string"
+          "schema" : {
+            "$ref" : "#/definitions/CardIssueDelete"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
         }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -227,6 +257,18 @@
             "description" : "CardIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/CardIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -257,9 +299,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -305,7 +352,7 @@
         "properties" : {
           "accountIds" : {
             "type" : "array",
-            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -319,7 +366,7 @@
           },
           "cardNames" : {
             "type" : "array",
-            "description" : "The name that is displayed for the card",
+            "description" : "Name of the Cardholder/Customer",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -346,7 +393,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes"
+            "description" : "Name used for display or enrichment purposes"
           },
           "currencyId" : {
             "type" : "string",
@@ -385,7 +432,7 @@
           "versionNumber" : {
             "type" : "string",
             "description" : "Current number of the record",
-            "maxLength" : 4
+            "maxLength" : 6
           }
         }
       }
@@ -404,7 +451,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -429,15 +481,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -457,7 +565,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -473,7 +581,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -504,26 +612,30 @@
       "properties" : {
         "accountIds" : {
           "type" : "array",
-          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "items" : {
             "type" : "object",
             "properties" : {
               "accountId" : {
                 "type" : "string",
-                "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                "minLength" : 0,
+                "maxLength" : 16
               }
             }
           }
         },
         "cardNames" : {
           "type" : "array",
-          "description" : "The name that is displayed for the card",
+          "description" : "Name of the Cardholder/Customer",
           "items" : {
             "type" : "object",
             "properties" : {
               "cardName" : {
                 "type" : "string",
-                "description" : "Name of the Cardholder/Customer"
+                "description" : "Name of the Cardholder/Customer",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
@@ -535,18 +647,24 @@
             "properties" : {
               "note" : {
                 "type" : "string",
-                "description" : "Notes to facilitate the use of the function"
+                "description" : "Notes to facilitate the use of the Function.",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
         },
         "cardStatus" : {
           "type" : "string",
-          "description" : "Current status of the Card and following are the possible statuses are  - CARD.ISSUED - CARD.RETURNED - CARD.SCRAP - CARD.CANCEL - NOT.ACTIVATED - NOT.RECEIVED - ACTIVE - BLOCKED - EXPIRED"
+          "description" : "Current status of the Card and following are the possible statuses are  - CARD.ISSUED - CARD.RETURNED - CARD.SCRAP - CARD.CANCEL - NOT.ACTIVATED - NOT.RECEIVED - ACTIVE - BLOCKED - EXPIRED",
+          "minLength" : 0,
+          "maxLength" : 10
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "minLength" : 0,
+          "maxLength" : 10
         },
         "issueDate" : {
           "type" : "string",
@@ -570,7 +688,9 @@
         },
         "cancellationReason" : {
           "type" : "string",
-          "description" : "The reason for the cancellation"
+          "description" : "The reason for the cancellation",
+          "minLength" : 0,
+          "maxLength" : 18
         }
       }
     },
@@ -582,11 +702,15 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
         },
         "audit" : {
           "type" : "object",
@@ -598,9 +722,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -625,26 +754,30 @@
       "properties" : {
         "accountIds" : {
           "type" : "array",
-          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
+          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "items" : {
             "type" : "object",
             "properties" : {
               "accountId" : {
                 "type" : "string",
-                "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                "minLength" : 0,
+                "maxLength" : 16
               }
             }
           }
         },
         "cardNames" : {
           "type" : "array",
-          "description" : "The name that is displayed for the card",
+          "description" : "Name of the Cardholder/Customer",
           "items" : {
             "type" : "object",
             "properties" : {
               "cardName" : {
                 "type" : "string",
-                "description" : "Name of the Cardholder/Customer"
+                "description" : "Name of the Cardholder/Customer",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
@@ -656,18 +789,24 @@
             "properties" : {
               "note" : {
                 "type" : "string",
-                "description" : "Notes to facilitate the use of the function"
+                "description" : "Notes to facilitate the use of the Function.",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
         },
         "cardStatus" : {
           "type" : "string",
-          "description" : "Current status of the Card and following are the possible statuses are  - CARD.ISSUED - CARD.RETURNED - CARD.SCRAP - CARD.CANCEL - NOT.ACTIVATED - NOT.RECEIVED - ACTIVE - BLOCKED - EXPIRED"
+          "description" : "Current status of the Card and following are the possible statuses are  - CARD.ISSUED - CARD.RETURNED - CARD.SCRAP - CARD.CANCEL - NOT.ACTIVATED - NOT.RECEIVED - ACTIVE - BLOCKED - EXPIRED",
+          "minLength" : 0,
+          "maxLength" : 10
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "minLength" : 0,
+          "maxLength" : 10
         },
         "issueDate" : {
           "type" : "string",
@@ -682,7 +821,7 @@
         "pinIssueDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Contains the date of issue of the pin"
+          "description" : "Refers the date of issue of the pin"
         },
         "cancellationDate" : {
           "type" : "string",
@@ -691,7 +830,9 @@
         },
         "cancellationReason" : {
           "type" : "string",
-          "description" : "The reason for the cancellation"
+          "description" : "The reason for the cancellation",
+          "minLength" : 0,
+          "maxLength" : 18
         }
       }
     },
@@ -709,6 +850,17 @@
               "description" : {
                 "type" : "string",
                 "description" : "The actual override message"
+              },
+              "options" : {
+                "type" : "array",
+                "description" : "The usable options for the override",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "The type of the override"
               }
             }
           }
@@ -747,18 +899,132 @@
               },
               "message" : {
                 "type" : "string",
-                "description" : "The actual t24 error message"
+                "description" : "The actual t24 error message "
               }
             }
           }
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
         }
       }
     },
+    "BusinessScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "BusinessScreenErrorResponse"
+    },
+    "BusinessScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message for bad requests"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "SystemScreenErrorResponse"
+    },
+    "SystemScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message caused by server"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "CardIssueDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "CardIssueDelete"
+    },
     "updateCardIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/CardIssueBody"
+        }
+      },
+      "description" : "CardIssue",
+      "example" : {
+        "cardNames" : [ {
+          "cardName" : "ROLF GEEEdsNG"
+        } ],
+        "header" : { },
+        "body" : {
+          "expiryDate" : "2020-03-29"
+        }
+      }
+    },
+    "deleteCardIssue" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/PayloadHeader"

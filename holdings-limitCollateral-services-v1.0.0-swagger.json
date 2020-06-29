@@ -45,15 +45,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,7 +97,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -162,7 +155,7 @@
           },
           "limitNumber" : {
             "type" : "string",
-            "description" : "",
+            "description" : "A sequence reference for the limit, which when used together with other fields such as Liability Number and/or Limit Reference, provides a unique identifier for a credit line",
             "maxLength" : 2
           },
           "limitCurrency" : {
@@ -172,20 +165,20 @@
           },
           "onlineLimit" : {
             "type" : "number",
-            "description" : ""
+            "description" : "The Limit amount that is actually available for use.The system limit checks are performed against the online limit"
           },
           "fixedOrVariable" : {
             "type" : "string",
-            "description" : "",
+            "description" : "Indicates the secured nature of limit that has been covered by a customer collateral. When FIXED the limit amount sanctioned will not have impact on changing value of collateral whereas when VARIABLE limit amount will change based on the collateral amount changes",
             "maxLength" : 10
           },
           "securedAmount" : {
             "type" : "number",
-            "description" : ""
+            "description" : "The total amount that has been covered by the collateral underlying the credit facility"
           },
           "outstandingAmount" : {
             "type" : "number",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans"
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. "
           },
           "availableOrExcess" : {
             "type" : "number",

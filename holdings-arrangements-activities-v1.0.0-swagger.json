@@ -64,12 +64,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -153,12 +147,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -248,12 +236,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -340,12 +322,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -411,12 +387,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -505,12 +475,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -554,20 +518,20 @@
         "parameters" : [ {
           "name" : "accountId",
           "in" : "path",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
           "type" : "string",
           "x-example" : "11509"
         }, {
           "name" : "startDate",
           "in" : "query",
-          "description" : "Contains the date on which the transaction or payment gets initiated.",
+          "description" : "The start date",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "endDate",
           "in" : "query",
-          "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned",
+          "description" : "The date an agreement or contract ceases - the opposite of start date",
           "required" : false,
           "type" : "string"
         }, {
@@ -591,15 +555,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -640,13 +598,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "activityId",
           "in" : "query",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "required" : false,
           "type" : "string"
         }, {
@@ -670,15 +628,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -719,43 +671,40 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "activity",
           "in" : "query",
-          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "Indicates an id or name of a product",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "contractId",
           "in" : "query",
-          "description" : "Identifies the unique identifier of the transaction or contract.",
+          "description" : "The identifier of the contract",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "transactionAmount",
           "in" : "query",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+          "description" : "The transaction amount",
           "required" : false,
           "type" : "string"
         }, {
@@ -766,13 +715,13 @@
         }, {
           "name" : "applicationId",
           "in" : "query",
-          "description" : "Contains the application id of the service that has crashed due to error.",
+          "description" : "The identifier of the application",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "inputter",
           "in" : "query",
-          "description" : "The user identifier who input the transaction",
+          "description" : "This shows the user who entered the transaction",
           "required" : false,
           "type" : "string"
         }, {
@@ -796,15 +745,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -855,7 +798,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -869,7 +812,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -1196,7 +1139,7 @@
           },
           "activityName" : {
             "type" : "string",
-            "description" : "Id of the selected activity",
+            "description" : "The name of the activity that is displayed",
             "maxLength" : 80
           },
           "activityType" : {
@@ -1273,7 +1216,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1287,7 +1230,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -1313,20 +1256,18 @@
           "properties" : {
             "accountId" : {
               "type" : "string",
-              "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+              "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
             },
             "accountTitle" : {
               "type" : "string",
-              "description" : "Short title on an account",
               "maxLength" : 25
             },
             "accountCurrency" : {
               "type" : "string",
-              "description" : "Currency of the account. For example: USD, GBP."
+              "description" : "The currency of the account"
             },
             "closingBalance" : {
-              "type" : "string",
-              "description" : "Closing balance of the arrangement"
+              "type" : "string"
             }
           }
         }
@@ -1350,36 +1291,33 @@
         "properties" : {
           "bookingDate" : {
             "type" : "string",
-            "description" : "Business date on which the accounting entry was generated.",
+            "description" : "The date on which the entry was generated. Normally, but not necessarily, the actual date at the time the entry is generated, e.g. if the previous day's business is still being processed after midnight, the actual date changes, but the run date is still the previous day.",
             "maxLength" : 11
           },
           "transactionReference" : {
             "type" : "string",
+            "description" : "The transaction reference identifier",
             "maxLength" : 60
           },
           "transactionDescription" : {
             "type" : "string",
-            "description" : "Indicates the description based on the transaction type",
             "maxLength" : 34
           },
           "valueDate" : {
             "type" : "string",
-            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)",
+            "description" : "The applicable value date",
             "maxLength" : 11
           },
           "debit" : {
             "type" : "string",
-            "description" : "Debit value of the transaction ",
             "maxLength" : 19
           },
           "credit" : {
             "type" : "string",
-            "description" : "Credit value of the transaction",
             "maxLength" : 19
           },
           "closingBalance" : {
             "type" : "string",
-            "description" : "Closing balance of the arrangement",
             "maxLength" : 19
           }
         }
@@ -1403,11 +1341,11 @@
         "properties" : {
           "propertyClassName" : {
             "type" : "string",
-            "description" : "The name of the condition that is used to build a product"
+            "description" : "The name that is displayed for the property class"
           },
           "activityName" : {
             "type" : "string",
-            "description" : "Id of the selected activity"
+            "description" : "The name of the activity that is displayed"
           }
         }
       }
@@ -1430,66 +1368,60 @@
         "properties" : {
           "customer" : {
             "type" : "string",
-            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
             "maxLength" : 10
           },
           "customerName" : {
             "type" : "string",
-            "description" : "Name of the customer",
+            "description" : "The name that is displayed for the customer",
             "maxLength" : 19
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
             "maxLength" : 20
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
             "maxLength" : 40
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
             "maxLength" : 3
           },
           "transactionAmount" : {
             "type" : "string",
-            "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+            "description" : "The transaction amount",
             "maxLength" : 19
           },
           "arrangementActivity" : {
             "type" : "string",
-            "description" : "The arrangement activity being performed on the arrangement",
             "maxLength" : 40
           },
           "activityName" : {
             "type" : "string",
-            "description" : "Id of the selected activity",
+            "description" : "The name of the activity that is displayed",
             "maxLength" : 40
           },
           "transactionType" : {
             "type" : "string",
-            "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc.",
             "maxLength" : 6
           },
           "transactionId" : {
             "type" : "string",
-            "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc."
+            "description" : "The unique transaction identifier"
           },
           "inputter" : {
             "type" : "string",
-            "description" : "The user identifier who input the transaction",
+            "description" : "This shows the user who entered the transaction",
             "maxLength" : 40
           },
           "date" : {
             "type" : "string",
-            "description" : "Indicates the date on which activity was performed",
             "maxLength" : 10
           },
           "status" : {
             "type" : "string",
-            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+            "description" : "The status identifier",
             "maxLength" : 4
           }
         }

@@ -19,14 +19,14 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100282"
         }, {
           "name" : "directDebitId",
           "in" : "query",
-          "description" : "The unique identifier of the direct debit mandate. ",
+          "description" : "The identifier of the direct debit mandate. Format is 'D-accountId.sequenceNumber', e.g. D-123456.1",
           "required" : false,
           "type" : "string"
         }, {
@@ -50,15 +50,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -97,7 +90,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -145,12 +138,12 @@
         "properties" : {
           "directDebitId" : {
             "type" : "string",
-            "description" : "The unique identifier of the direct debit mandate. ",
+            "description" : "The identifier of the direct debit mandate. Format is 'D-accountId.sequenceNumber', e.g. D-123456.1",
             "maxLength" : 25
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "customerMnemonic" : {
@@ -160,61 +153,57 @@
           },
           "creditAccountId" : {
             "type" : "string",
-            "description" : "Credit account identifier of the payment or transaction",
+            "description" : "The identifier of the credit account",
             "maxLength" : 35
           },
           "creditorName" : {
             "type" : "string",
-            "description" : "Name or short title of the credit account",
+            "description" : "The name of the creditor",
             "maxLength" : 70
           },
           "sortCode" : {
             "type" : "string",
-            "description" : "Contains bank sort code or iban branch identifier for the account",
+            "description" : "The bank identifier code which identifies both the bank and the branch where the account is held",
             "maxLength" : 35
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           },
           "direction" : {
             "type" : "string",
-            "description" : "Indicates the direction of the Direct debit claim for which mandate is received. The claim can be 'Outward' i.e. Claim is sent to the other bank or 'Inward'  i.e. other bank submit their claim to debit our customer's account. ",
+            "description" : "Specify the direction of the Direct debit claim for which mandate is received.The Claim can be 'Outward' ie. Claim is sent to the Customer's Bank or Inward Claim ie. other Bank submit their claim.Currently the Outward claim processing is supported through DD module & for Inward claim has to be handled through local interface.Mandatory field-Value allowed 'OUTWARD'",
             "maxLength" : 10
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
             "maxLength" : 3
           },
           "standAloneDdi" : {
             "type" : "string",
-            "description" : "Defines whether the direct debit mandate is for stand-alone purpose i.e. one-off instruction",
+            "description" : "Defines whether the direct debit mandate is for stand-alone purpose",
             "maxLength" : 1
           },
           "amount" : {
             "type" : "string",
-            "description" : "This is the payment amount",
             "maxLength" : 19
           },
           "status" : {
             "type" : "string",
-            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+            "description" : "Get a detail status of the specified service/services",
             "maxLength" : 35
           },
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+            "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId."
           },
           "frequency" : {
             "type" : "string",
-            "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction.",
             "maxLength" : 19
           },
           "nextPaymentDate" : {
             "type" : "string",
-            "description" : "Indicates next payment date for the contract",
             "maxLength" : 25
           }
         }

@@ -1,768 +1,752 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "Import external products ",
-    "version" : "v1.0.0",
-    "title" : "Import External Products APIs"
+  "swagger": "2.0",
+  "info": {
+    "description": "API to create, update and retrieve details of external products that are imported",
+    "version": "v1.0.0",
+    "title": "Import of external products"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http", "https" ],
-  "security" : [ {
-    "basicAuth" : [ ]
-  } ],
-  "paths" : {
-    "/product/loans/mortgages/externalProducts/{productId}" : {
-      "get" : {
-        "operationId" : "getExternalMortgageProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalMortgageProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalMortgageProductResponse"
+  "host": "api.server.com",
+  "basePath": "/api/v1.0.0/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "paths": {
+    "/product/loans/mortgages/externalProducts/{productId}": {
+      "get": {
+        "operationId": "getExternalMortgageProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalMortgageProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalMortgageProductResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "post" : {
-        "operationId" : "createExternalMortgageProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalMortgageProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalMortgageProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalMortgageProductResponse"
+      "post": {
+        "operationId": "createExternalMortgageProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalMortgageProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalMortgageProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalMortgageProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "put" : {
-        "operationId" : "updateExternalMortgageProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalMortgageProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalMortgageProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalMortgageProductResponse"
+      "put": {
+        "operationId": "updateExternalMortgageProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalMortgageProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalMortgageProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalMortgageProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     },
-    "/product/accounts/currentAccounts/externalProducts/{productId}" : {
-      "get" : {
-        "operationId" : "getExternalCurrentAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalCurrentAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalCurrentAccountProductResponse"
+    "/product/accounts/currentAccounts/externalProducts/{productId}": {
+      "get": {
+        "operationId": "getExternalCurrentAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalCurrentAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalCurrentAccountProductResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "post" : {
-        "operationId" : "createExternalCurrentAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalCurrentAccountProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalCurrentAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalCurrentAccountProductResponse"
+      "post": {
+        "operationId": "createExternalCurrentAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalCurrentAccountProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalCurrentAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalCurrentAccountProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "put" : {
-        "operationId" : "updateExternalCurrentAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalCurrentAccountProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalCurrentAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalCurrentAccountProductResponse"
+      "put": {
+        "operationId": "updateExternalCurrentAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalCurrentAccountProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalCurrentAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalCurrentAccountProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     },
-    "/product/accounts/savingsAccounts/externalProducts/{productId}" : {
-      "get" : {
-        "operationId" : "getExternalSavingsAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalSavingsAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalSavingsAccountProductResponse"
+    "/product/accounts/savingsAccounts/externalProducts/{productId}": {
+      "get": {
+        "operationId": "getExternalSavingsAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalSavingsAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalSavingsAccountProductResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "post" : {
-        "operationId" : "createExternalSavingsAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalSavingsAccountProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalSavingsAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalSavingsAccountProductResponse"
+      "post": {
+        "operationId": "createExternalSavingsAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalSavingsAccountProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalSavingsAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalSavingsAccountProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "put" : {
-        "operationId" : "updateExternalSavingsAccountProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalSavingsAccountProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalSavingsAccountProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalSavingsAccountProductResponse"
+      "put": {
+        "operationId": "updateExternalSavingsAccountProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalSavingsAccountProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalSavingsAccountProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalSavingsAccountProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     },
-    "/product/deposits/termDeposits/externalProducts/{productId}" : {
-      "post" : {
-        "operationId" : "createExternalDepositProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalDepositProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalDepositProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalDepositProductResponse"
+    "/product/deposits/termDeposits/externalProducts/{productId}": {
+      "post": {
+        "operationId": "createExternalDepositProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalDepositProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalDepositProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalDepositProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       },
-      "put" : {
-        "operationId" : "updateExternalDepositProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/ExternalDepositProduct"
-          }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalDepositProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalDepositProductResponse"
+      "put": {
+        "operationId": "updateExternalDepositProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExternalDepositProduct"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalDepositProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalDepositProductResponse"
+            }
+          },
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     },
-    "/product/deposits/termDepsoits/externalProducts/{productId}" : {
-      "get" : {
-        "operationId" : "getExternalDepositProduct",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "productId",
-          "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ExternalDepositProductResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ExternalDepositProductResponse"
+    "/product/deposits/termDepsoits/externalProducts/{productId}": {
+      "get": {
+        "operationId": "getExternalDepositProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExternalDepositProductResponse",
+            "schema": {
+              "$ref": "#/definitions/ExternalDepositProductResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     }
   },
-  "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
     }
   },
-  "definitions" : {
-    "PayloadHeader" : {
-      "properties" : {
-        "override" : {
-          "type" : "object",
-          "properties" : {
-            "overrideDetails" : {
-              "type" : "array",
-              "items" : {
-                "type" : "object",
-                "properties" : {
-                  "id" : {
-                    "type" : "string",
-                    "description" : "The identifier of the override"
+  "definitions": {
+    "PayloadHeader": {
+      "properties": {
+        "override": {
+          "type": "object",
+          "properties": {
+            "overrideDetails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The identifier of the override"
                   },
-                  "description" : {
-                    "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                  "description": {
+                    "type": "string",
+                    "description": "The actual override message"
                   },
-                  "responseCode" : {
-                    "type" : "string",
-                    "description" : "The user input to accept/reject the override."
+                  "responseCode": {
+                    "type": "string",
+                    "description": "The user input to accept/reject the override."
                   }
                 }
               }
             }
           }
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "Current number of the record"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             }
           }
         }
       }
     },
-    "ExternalMortgageProduct" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/PayloadHeader"
+    "ExternalMortgageProduct": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/PayloadHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalMortgageProductBody"
+        "body": {
+          "$ref": "#/definitions/ExternalMortgageProductBody"
         }
       },
-      "description" : "ExternalMortgageProduct"
+      "description": "ExternalMortgageProduct"
     },
-    "ExternalMortgageProductBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalMortgageProductBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "principals" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fixedRate" : {
-                "type" : "string",
-                "description" : "Numeric value for the interest rate entered manually."
+        "principals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fixedRate": {
+                "type": "string",
+                "description": "A fixed rate is directly entered by the user specifying the Defined Property and is not defined by an index table.Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. "
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepPaymentMethod" : {
-                "type" : "string",
-                "description" : ""
+              "schedulepPaymentMethod": {
+                "type": "string"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
               },
-              "scheduleDates" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleStartDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+              "scheduleDates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleStartDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleEndDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+                    "scheduleEndDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleActualAmt" : {
-                      "type" : "string",
-                      "description" : ""
+                    "scheduleActualAmt": {
+                      "type": "string"
                     }
                   }
                 }
@@ -770,251 +754,225 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "commitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTerm": {
+          "type": "string"
         },
-        "commitmentCancelPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCancelPeriod": {
+          "type": "string"
         },
-        "commitmentCoolingPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCoolingPeriod": {
+          "type": "string"
         },
-        "minCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "minCommitmentTerm": {
+          "type": "string"
         },
-        "maxCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "maxCommitmentTerm": {
+          "type": "string"
         },
-        "newarrfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "newarrfeeFixedAmount": {
+          "type": "number"
         },
-        "payofffeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payofffeeFixedAmount": {
+          "type": "number"
         },
-        "renewalChangeDateType" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : ""
+        "renewalChangeDateType": {
+          "type": "string",
+          "format": "date"
         },
-        "renewalChangePeriod" : {
-          "type" : "string",
-          "description" : ""
+        "renewalChangePeriod": {
+          "type": "string"
         }
       }
     },
-    "ScreenHeader" : {
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "description" : "The Identifier of the record created"
+    "ScreenHeader": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Identifier of the record created"
         },
-        "status" : {
-          "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        "status": {
+          "type": "string",
+          "description": "The status of the record"
         },
-        "transactionStatus" : {
-          "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        "transactionStatus": {
+          "type": "string",
+          "description": "The status of the transaction"
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "T24_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to response by T24"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "T24_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to response by T24"
             },
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "Current number of the record"
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the response by IRIS"
+            "parse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the response by IRIS"
             }
           }
         }
       }
     },
-    "ExternalMortgageProductResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ScreenHeader"
+    "ExternalMortgageProductResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ScreenHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalMortgageProductResponseBody"
+        "body": {
+          "$ref": "#/definitions/ExternalMortgageProductResponseBody"
         }
       },
-      "description" : "ExternalMortgageProductResponse"
+      "description": "ExternalMortgageProductResponse"
     },
-    "ExternalMortgageProductResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalMortgageProductResponseBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "principals" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fixedRate" : {
-                "type" : "string",
-                "description" : "Numeric value for the interest rate entered manually."
+        "principals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fixedRate": {
+                "type": "string",
+                "description": "A fixed rate is directly entered by the user specifying the Defined Property and is not defined by an index table.Three basic types of interest are supported by T24; Fixed, Floating, and Periodic. "
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepPaymentMethod" : {
-                "type" : "string",
-                "description" : ""
+              "schedulepPaymentMethod": {
+                "type": "string"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
               },
-              "scheduleDates" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleStartDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+              "scheduleDates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleStartDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleEndDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+                    "scheduleEndDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleActualAmt" : {
-                      "type" : "string",
-                      "description" : ""
+                    "scheduleActualAmt": {
+                      "type": "string"
                     }
                   }
                 }
@@ -1022,724 +980,643 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "commitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTerm": {
+          "type": "string"
         },
-        "commitmentCancelPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCancelPeriod": {
+          "type": "string"
         },
-        "commitmentCoolingPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCoolingPeriod": {
+          "type": "string"
         },
-        "minCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "minCommitmentTerm": {
+          "type": "string"
         },
-        "maxCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "maxCommitmentTerm": {
+          "type": "string"
         },
-        "newarrfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "newarrfeeFixedAmount": {
+          "type": "number"
         },
-        "payofffeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payofffeeFixedAmount": {
+          "type": "number"
         },
-        "renewalChangeDateType" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : ""
+        "renewalChangeDateType": {
+          "type": "string",
+          "format": "date"
         },
-        "renewalChangePeriod" : {
-          "type" : "string",
-          "description" : ""
+        "renewalChangePeriod": {
+          "type": "string"
         }
       }
     },
-    "ErrorHeader" : {
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "description" : "The Identifier of the record created"
+    "ErrorHeader": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Identifier of the record created"
         },
-        "status" : {
-          "type" : "string",
-          "description" : "The status of the record"
+        "status": {
+          "type": "string",
+          "description": "The status of the record"
         },
-        "transactionStatus" : {
-          "type" : "string",
-          "description" : "The status of the transaction"
+        "transactionStatus": {
+          "type": "string",
+          "description": "The status of the transaction"
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "T24_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to response by T24"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "T24_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to response by T24"
             },
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "The CURR.NO. of the record"
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the response by IRIS"
+            "parse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the response by IRIS"
             }
           }
         }
       }
     },
-    "overrideBody" : {
-      "properties" : {
-        "overrideDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "id" : {
-                "type" : "string",
-                "description" : "The identifier of the override"
+    "overrideBody": {
+      "properties": {
+        "overrideDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The identifier of the override"
               },
-              "description" : {
-                "type" : "string",
-                "description" : "The actual override message"
+              "description": {
+                "type": "string",
+                "description": "The actual override message"
               }
             }
           }
         }
       }
     },
-    "ScreenErrorResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ErrorHeader"
+    "ScreenErrorResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ErrorHeader"
         },
-        "error" : {
-          "$ref" : "#/definitions/ScreenErrorResponseBody"
+        "error": {
+          "$ref": "#/definitions/ScreenErrorResponseBody"
         },
-        "override" : {
-          "$ref" : "#/definitions/overrideBody"
+        "override": {
+          "$ref": "#/definitions/overrideBody"
         }
       },
-      "description" : "ScreenErrorResponse"
+      "description": "ScreenErrorResponse"
     },
-    "ScreenErrorResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "errorDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fieldName" : {
-                "type" : "string",
-                "description" : "The name of the field"
+    "ScreenErrorResponseBody": {
+      "type": "object",
+      "properties": {
+        "errorDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "description": "The name of the field"
               },
-              "code" : {
-                "type" : "string",
-                "description" : "The identifier of the error message"
+              "code": {
+                "type": "string",
+                "description": "The identifier of the error message"
               },
-              "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message"
+              "message": {
+                "type": "string",
+                "description": "The actual t24 error message"
               }
             }
           }
         },
-        "type" : {
-          "type" : "string",
-          "description" : "The identifier of error type"
+        "type": {
+          "type": "string",
+          "description": "The identifier of error type"
         }
       }
     },
-    "ExternalCurrentAccountProduct" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/PayloadHeader"
+    "ExternalCurrentAccountProduct": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/PayloadHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalCurrentAccountProductBody"
+        "body": {
+          "$ref": "#/definitions/ExternalCurrentAccountProductBody"
         }
       },
-      "description" : "ExternalCurrentAccountProduct"
+      "description": "ExternalCurrentAccountProduct"
     },
-    "ExternalCurrentAccountProductBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalCurrentAccountProductBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineofBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineofBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "creditInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "creditInterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "creditInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "creditInterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "debitInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "debitInterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "debitInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "debitInterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               }
             }
           }
         },
-        "periodiccharges" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "periodicchargeCurrency" : {
-                "type" : "string",
-                "description" : ""
+        "periodiccharges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "periodicchargeCurrency": {
+                "type": "string"
               },
-              "periodicchargeMaxChgAmount" : {
-                "type" : "number",
-                "description" : ""
+              "periodicchargeMaxChgAmount": {
+                "type": "number"
               },
-              "periodicchargeMinChgAmount" : {
-                "type" : "number",
-                "description" : ""
+              "periodicchargeMinChgAmount": {
+                "type": "number"
               }
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "chequewdFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "chequewdFixedAmount": {
+          "type": "number"
         },
-        "highestdebitFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "highestdebitFixedAmount": {
+          "type": "number"
         },
-        "balanceAvailabilityCreditCheck" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityCreditCheck": {
+          "type": "string"
         },
-        "balanceAvailabilityAvailBalanceUpdate" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityAvailBalanceUpdate": {
+          "type": "string"
         },
-        "balanceAvailabilityOverdraftProcessing" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityOverdraftProcessing": {
+          "type": "string"
         },
-        "mgmtfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeeFixedAmount": {
+          "type": "number"
         },
-        "cardissuefeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "cardissuefeeFixedAmount": {
+          "type": "number"
         },
-        "limitfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "limitfeesFixedAmount": {
+          "type": "number"
         },
-        "payfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payfeesFixedAmount": {
+          "type": "number"
         },
-        "returnfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "returnfeesFixedAmount": {
+          "type": "number"
         },
-        "nsfreversalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "nsfreversalfeeFixedAmount": {
+          "type": "number"
         }
       }
     },
-    "ExternalCurrentAccountProductResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ScreenHeader"
+    "ExternalCurrentAccountProductResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ScreenHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalCurrentAccountProductResponseBody"
+        "body": {
+          "$ref": "#/definitions/ExternalCurrentAccountProductResponseBody"
         }
       },
-      "description" : "ExternalCurrentAccountProductResponse"
+      "description": "ExternalCurrentAccountProductResponse"
     },
-    "ExternalCurrentAccountProductResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalCurrentAccountProductResponseBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineofBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineofBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "creditInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "creditInterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "creditInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "creditInterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "debitInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "debitInterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "debitInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "debitInterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               }
             }
           }
         },
-        "periodiccharges" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "periodicchargeCurrency" : {
-                "type" : "string",
-                "description" : ""
+        "periodiccharges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "periodicchargeCurrency": {
+                "type": "string"
               },
-              "periodicchargeMaxChgAmount" : {
-                "type" : "number",
-                "description" : ""
+              "periodicchargeMaxChgAmount": {
+                "type": "number"
               },
-              "periodicchargeMinChgAmount" : {
-                "type" : "number",
-                "description" : ""
+              "periodicchargeMinChgAmount": {
+                "type": "number"
               }
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "chequewdFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "chequewdFixedAmount": {
+          "type": "number"
         },
-        "highestdebitFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "highestdebitFixedAmount": {
+          "type": "number"
         },
-        "balanceAvailabilityCreditCheck" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityCreditCheck": {
+          "type": "string"
         },
-        "balanceAvailabilityAvailBalanceUpdate" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityAvailBalanceUpdate": {
+          "type": "string"
         },
-        "balanceAvailabilityOverdraftProcessing" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityOverdraftProcessing": {
+          "type": "string"
         },
-        "mgmtfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeeFixedAmount": {
+          "type": "number"
         },
-        "cardissuefeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "cardissuefeeFixedAmount": {
+          "type": "number"
         },
-        "limitfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "limitfeesFixedAmount": {
+          "type": "number"
         },
-        "payfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payfeesFixedAmount": {
+          "type": "number"
         },
-        "returnfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "returnfeesFixedAmount": {
+          "type": "number"
         },
-        "nsfreversalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "nsfreversalfeeFixedAmount": {
+          "type": "number"
         }
       }
     },
-    "ExternalSavingsAccountProduct" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/PayloadHeader"
+    "ExternalSavingsAccountProduct": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/PayloadHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalSavingsAccountProductBody"
+        "body": {
+          "$ref": "#/definitions/ExternalSavingsAccountProductBody"
         }
       },
-      "description" : "ExternalSavingsAccountProduct"
+      "description": "ExternalSavingsAccountProduct"
     },
-    "ExternalSavingsAccountProductBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalSavingsAccountProductBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "creditInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "crinterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "creditInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "crinterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
@@ -1747,185 +1624,163 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "balanceAvailabilityCreditCheck" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityCreditCheck": {
+          "type": "string"
         },
-        "balanceAvailabilityAvailBalanceUpdate" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityAvailBalanceUpdate": {
+          "type": "string"
         },
-        "mgmtfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeeFixedAmount": {
+          "type": "number"
         },
-        "limitfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "limitfeesFixedAmount": {
+          "type": "number"
         },
-        "payfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payfeesFixedAmount": {
+          "type": "number"
         },
-        "returnfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "returnfeesFixedAmount": {
+          "type": "number"
         },
-        "nsfreversalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "nsfreversalfeeFixedAmount": {
+          "type": "number"
         },
-        "minbalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "minbalfeeFixedAmount": {
+          "type": "number"
         }
       }
     },
-    "ExternalSavingsAccountProductResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ScreenHeader"
+    "ExternalSavingsAccountProductResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ScreenHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalSavingsAccountProductResponseBody"
+        "body": {
+          "$ref": "#/definitions/ExternalSavingsAccountProductResponseBody"
         }
       },
-      "description" : "ExternalSavingsAccountProductResponse"
+      "description": "ExternalSavingsAccountProductResponse"
     },
-    "ExternalSavingsAccountProductResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalSavingsAccountProductResponseBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "creditInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "crinterestFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "creditInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "crinterestFixedRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
@@ -1933,215 +1788,188 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "balanceAvailabilityCreditCheck" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityCreditCheck": {
+          "type": "string"
         },
-        "balanceAvailabilityAvailBalanceUpdate" : {
-          "type" : "string",
-          "description" : ""
+        "balanceAvailabilityAvailBalanceUpdate": {
+          "type": "string"
         },
-        "mgmtfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeeFixedAmount": {
+          "type": "number"
         },
-        "limitfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "limitfeesFixedAmount": {
+          "type": "number"
         },
-        "payfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "payfeesFixedAmount": {
+          "type": "number"
         },
-        "returnfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "returnfeesFixedAmount": {
+          "type": "number"
         },
-        "nsfreversalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "nsfreversalfeeFixedAmount": {
+          "type": "number"
         },
-        "minbalfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "minbalfeeFixedAmount": {
+          "type": "number"
         }
       }
     },
-    "ExternalDepositProduct" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/PayloadHeader"
+    "ExternalDepositProduct": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/PayloadHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalDepositProductBody"
+        "body": {
+          "$ref": "#/definitions/ExternalDepositProductBody"
         }
       },
-      "description" : "ExternalDepositProduct"
+      "description": "ExternalDepositProduct"
     },
-    "ExternalDepositProductBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalDepositProductBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "depositInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "depositintFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "depositInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "depositintFixedRate": {
+                "type": "string"
               },
-              "depositintTierNegativeRate" : {
-                "type" : "string",
-                "description" : ""
+              "depositintTierNegativeRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepPaymentMethod" : {
-                "type" : "string",
-                "description" : ""
+              "schedulepPaymentMethod": {
+                "type": "string"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
               },
-              "scheduleDates" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleStartDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+              "scheduleDates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleStartDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleEndDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+                    "scheduleEndDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleActualAmt" : {
-                      "type" : "string",
-                      "description" : ""
+                    "scheduleActualAmt": {
+                      "type": "string"
                     }
                   }
                 }
@@ -2149,232 +1977,201 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "commitmentAmount" : {
-          "type" : "number",
-          "description" : "Indicates the total amount which will be lent or deposited for the term"
+        "commitmentAmount": {
+          "type": "number"
         },
-        "commitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTerm": {
+          "type": "string"
         },
-        "commitmentTermTolDays" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTermTolDays": {
+          "type": "string"
         },
-        "commitmentCancelPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCancelPeriod": {
+          "type": "string"
         },
-        "commitmentCoolingPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCoolingPeriod": {
+          "type": "string"
         },
-        "minCommitmentAmount" : {
-          "type" : "number",
-          "description" : ""
+        "minCommitmentAmount": {
+          "type": "number"
         },
-        "maxCommitmentAmount" : {
-          "type" : "number",
-          "description" : ""
+        "maxCommitmentAmount": {
+          "type": "number"
         },
-        "maxCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "maxCommitmentTerm": {
+          "type": "string"
         },
-        "mgmtfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeesFixedAmount": {
+          "type": "number"
         },
-        "redemptionfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "redemptionfeeFixedAmount": {
+          "type": "number"
         },
-        "renewalChangeDateType" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : ""
+        "renewalChangeDateType": {
+          "type": "string",
+          "format": "date"
         },
-        "renewalChangePeriod" : {
-          "type" : "string",
-          "description" : ""
+        "renewalChangePeriod": {
+          "type": "string"
         }
       }
     },
-    "ExternalDepositProductResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ScreenHeader"
+    "ExternalDepositProductResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ScreenHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ExternalDepositProductResponseBody"
+        "body": {
+          "$ref": "#/definitions/ExternalDepositProductResponseBody"
         }
       },
-      "description" : "ExternalDepositProductResponse"
+      "description": "ExternalDepositProductResponse"
     },
-    "ExternalDepositProductResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "displayNames" : {
-          "type" : "array",
-          "description" : "The name used for display purposes",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "displayName" : {
-                "type" : "string",
-                "description" : "Contains the name used for display or enrichment purposes"
+    "ExternalDepositProductResponseBody": {
+      "type": "object",
+      "properties": {
+        "displayNames": {
+          "type": "array",
+          "description": "The name used for display purposes",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The name used for display purposes"
               }
             }
           }
         },
-        "organizations" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "organizationLevel" : {
-                "type" : "string",
-                "description" : ""
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationLevel": {
+                "type": "string"
               },
-              "organizationCode" : {
-                "type" : "string",
-                "description" : ""
+              "organizationCode": {
+                "type": "string"
               },
-              "organizationExclude" : {
-                "type" : "string",
-                "description" : ""
+              "organizationExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "lineOfBusinesses" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "lineOfBusiness" : {
-                "type" : "string",
-                "description" : ""
+        "lineOfBusinesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineOfBusiness": {
+                "type": "string"
               },
-              "lineOfBusinessExclude" : {
-                "type" : "string",
-                "description" : ""
+              "lineOfBusinessExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "channels" : {
-          "type" : "array",
-          "description" : "",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "channel" : {
-                "type" : "string",
-                "description" : "The ID of the Channel"
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string"
               },
-              "channelExclude" : {
-                "type" : "string",
-                "description" : ""
+              "channelExclude": {
+                "type": "string"
               }
             }
           }
         },
-        "depositInterests" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "depositintFixedRate" : {
-                "type" : "string",
-                "description" : ""
+        "depositInterests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "depositintFixedRate": {
+                "type": "string"
               },
-              "depositintTierNegativeRate" : {
-                "type" : "string",
-                "description" : ""
+              "depositintTierNegativeRate": {
+                "type": "string"
               }
             }
           }
         },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "schedulePaymentType" : {
-                "type" : "string",
-                "description" : "Indicates payment schedule type"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedulePaymentType": {
+                "type": "string",
+                "description": "The payment schedule type"
               },
-              "schedulepPaymentMethod" : {
-                "type" : "string",
-                "description" : ""
+              "schedulepPaymentMethod": {
+                "type": "string"
               },
-              "schedulepaymentFrequency" : {
-                "type" : "string",
-                "description" : "Indicates the frequency associated - Eg. Pay to customer or paid by bank"
+              "schedulepaymentFrequency": {
+                "type": "string",
+                "description": "The frequency of the payment schedule"
               },
-              "scheduleProperties" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleProperty" : {
-                      "type" : "string",
-                      "description" : "Denotes the property of the loans schedule"
+              "scheduleProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleProperty": {
+                      "type": "string",
+                      "description": "The payment schedule property"
                     }
                   }
                 }
               },
-              "scheduleDates" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "scheduleStartDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+              "scheduleDates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleStartDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleEndDate" : {
-                      "type" : "string",
-                      "format" : "date",
-                      "description" : ""
+                    "scheduleEndDate": {
+                      "type": "string",
+                      "format": "date"
                     },
-                    "scheduleActualAmt" : {
-                      "type" : "string",
-                      "description" : ""
+                    "scheduleActualAmt": {
+                      "type": "string"
                     }
                   }
                 }
@@ -2382,85 +2179,69 @@
             }
           }
         },
-        "optionDescription" : {
-          "type" : "string",
-          "description" : "The description of the Option"
+        "optionDescription": {
+          "type": "string",
+          "description": "The description of the Option"
         },
-        "product" : {
-          "type" : "string",
-          "description" : "Indicates an id or name of a product"
+        "product": {
+          "type": "string"
         },
-        "availableFromDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date the product is available in the catalogue for sale to customers"
+        "availableFromDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the product is available for creating arrangements"
         },
-        "expiryDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date an agreement such as a credit facility or limit is due to expire"
         },
-        "effectiveDate" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
         },
-        "currency" : {
-          "type" : "string",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+        "currency": {
+          "type": "string"
         },
-        "variation" : {
-          "type" : "string",
-          "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically"
+        "variation": {
+          "type": "string"
         },
-        "commitmentAmount" : {
-          "type" : "number",
-          "description" : "Indicates the total amount which will be lent or deposited for the term"
+        "commitmentAmount": {
+          "type": "number"
         },
-        "commitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTerm": {
+          "type": "string"
         },
-        "commitmentTermTolDays" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentTermTolDays": {
+          "type": "string"
         },
-        "commitmentCancelPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCancelPeriod": {
+          "type": "string"
         },
-        "commitmentCoolingPeriod" : {
-          "type" : "string",
-          "description" : ""
+        "commitmentCoolingPeriod": {
+          "type": "string"
         },
-        "minCommitmentAmount" : {
-          "type" : "number",
-          "description" : ""
+        "minCommitmentAmount": {
+          "type": "number"
         },
-        "maxCommitmentAmount" : {
-          "type" : "number",
-          "description" : ""
+        "maxCommitmentAmount": {
+          "type": "number"
         },
-        "maxCommitmentTerm" : {
-          "type" : "string",
-          "description" : ""
+        "maxCommitmentTerm": {
+          "type": "string"
         },
-        "mgmtfeesFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "mgmtfeesFixedAmount": {
+          "type": "number"
         },
-        "redemptionfeeFixedAmount" : {
-          "type" : "number",
-          "description" : ""
+        "redemptionfeeFixedAmount": {
+          "type": "number"
         },
-        "renewalChangeDateType" : {
-          "type" : "string",
-          "format" : "date",
-          "description" : ""
+        "renewalChangeDateType": {
+          "type": "string",
+          "format": "date"
         },
-        "renewalChangePeriod" : {
-          "type" : "string",
-          "description" : ""
+        "renewalChangePeriod": {
+          "type": "string"
         }
       }
     }

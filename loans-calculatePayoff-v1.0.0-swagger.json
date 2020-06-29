@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -38,15 +37,9 @@
             "$ref" : "#/definitions/PayoffHomeLoans"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -87,7 +80,6 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -104,15 +96,9 @@
             "$ref" : "#/definitions/PayoffCreditLines"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -153,7 +139,6 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -170,15 +155,9 @@
             "$ref" : "#/definitions/PayoffPersonalLoans"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -219,7 +198,6 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -236,15 +214,9 @@
             "$ref" : "#/definitions/PayoffBusinessLoans"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -299,11 +271,11 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
                   },
                   "code" : {
                     "type" : "string",
-                    "description" : "The identifier of the error message"
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -319,7 +291,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -347,7 +319,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer",
+                "description" : "The identifier of the customer",
                 "minLength" : 0,
                 "maxLength" : 10
               }
@@ -356,13 +328,12 @@
         },
         "properties" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "propertyId" : {
                 "type" : "string",
-                "description" : "The identifier of the product condition",
+                "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                 "minLength" : 0,
                 "maxLength" : 30
               },
@@ -379,7 +350,6 @@
                     },
                     "fieldValue" : {
                       "type" : "string",
-                      "description" : "Value of the field",
                       "minLength" : 0,
                       "maxLength" : 100
                     }
@@ -397,7 +367,7 @@
             "properties" : {
               "override" : {
                 "type" : "string",
-                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                "description" : "Records the override messages generated during processing of an activity. ",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -406,42 +376,39 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 30
         },
         "masterArrangementId" : {
           "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "minLength" : 0,
           "maxLength" : 20
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "effectiveDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+          "format" : "date"
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 80
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+          "description" : "The transaction amount",
           "minimum" : 0,
           "maximum" : 17
         },
@@ -450,13 +417,11 @@
           "properties" : {
             "expiryDays" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
             "settleDues" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -468,13 +433,11 @@
             },
             "fixedAmount" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 22
             },
             "Action" : {
               "type" : "string",
-              "description" : "Refers to view or cancel options.",
               "minLength" : 0,
               "maxLength" : 6
             }
@@ -486,7 +449,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -498,7 +461,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -514,7 +477,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -553,7 +516,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer",
+                    "description" : "The identifier of the customer",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -562,13 +525,12 @@
             },
             "properties" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
                   "propertyId" : {
                     "type" : "string",
-                    "description" : "The identifier of the product condition",
+                    "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                     "minLength" : 0,
                     "maxLength" : 30
                   },
@@ -585,7 +547,6 @@
                         },
                         "fieldValue" : {
                           "type" : "string",
-                          "description" : "Value of the field",
                           "minLength" : 0,
                           "maxLength" : 100
                         }
@@ -603,7 +564,7 @@
                 "properties" : {
                   "override" : {
                     "type" : "string",
-                    "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                    "description" : "Records the override messages generated during processing of an activity. ",
                     "minLength" : 0,
                     "maxLength" : 35
                   }
@@ -612,48 +573,45 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account",
+              "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 30
             },
             "masterArrangementId" : {
               "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
             "currencyId" : {
               "type" : "string",
-              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+              "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
               "minLength" : 0,
               "maxLength" : 10
             },
             "effectiveDate" : {
               "type" : "string",
-              "format" : "date",
-              "description" : "The date on which the principal movement is effected"
+              "format" : "date"
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 80
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+              "description" : "The transaction amount",
               "minimum" : 0,
               "maximum" : 17
             }
@@ -666,12 +624,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -692,11 +649,10 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
-                      "type" : "object",
-                      "properties" : { }
+                      "type" : "object"
                     },
                     "id" : {
                       "type" : "string",
@@ -704,7 +660,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -713,13 +669,11 @@
                   "properties" : {
                     "expiryDays" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
                     "settleDues" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
@@ -731,13 +685,11 @@
                     },
                     "fixedAmount" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 22
                     },
                     "Action" : {
                       "type" : "string",
-                      "description" : "Refers to view or cancel options.",
                       "minLength" : 0,
                       "maxLength" : 6
                     }
@@ -811,12 +763,10 @@
                 "description" : "The name of the field"
               },
               "message" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "property" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -858,8 +808,7 @@
                 "description" : "for bad requests"
               },
               "property" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -901,8 +850,7 @@
                 "description" : "caused by server"
               },
               "property" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -935,7 +883,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer",
+                "description" : "The identifier of the customer",
                 "minLength" : 0,
                 "maxLength" : 10
               }
@@ -944,13 +892,12 @@
         },
         "properties" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "propertyId" : {
                 "type" : "string",
-                "description" : "The identifier of the product condition",
+                "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                 "minLength" : 0,
                 "maxLength" : 30
               },
@@ -967,7 +914,6 @@
                     },
                     "fieldValue" : {
                       "type" : "string",
-                      "description" : "Value of the field",
                       "minLength" : 0,
                       "maxLength" : 100
                     }
@@ -985,7 +931,7 @@
             "properties" : {
               "override" : {
                 "type" : "string",
-                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                "description" : "Records the override messages generated during processing of an activity. ",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -994,42 +940,39 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 30
         },
         "masterArrangementId" : {
           "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "minLength" : 0,
           "maxLength" : 20
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "effectiveDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+          "format" : "date"
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 80
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+          "description" : "The transaction amount",
           "minimum" : 0,
           "maximum" : 17
         },
@@ -1038,13 +981,11 @@
           "properties" : {
             "expiryDays" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
             "settleDues" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -1056,13 +997,11 @@
             },
             "fixedAmount" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 22
             },
             "Action" : {
               "type" : "string",
-              "description" : "Refers to view or cancel options.",
               "minLength" : 0,
               "maxLength" : 6
             }
@@ -1095,7 +1034,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer",
+                    "description" : "The identifier of the customer",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -1104,13 +1043,12 @@
             },
             "properties" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
                   "propertyId" : {
                     "type" : "string",
-                    "description" : "The identifier of the product condition",
+                    "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                     "minLength" : 0,
                     "maxLength" : 30
                   },
@@ -1127,7 +1065,6 @@
                         },
                         "fieldValue" : {
                           "type" : "string",
-                          "description" : "Value of the field",
                           "minLength" : 0,
                           "maxLength" : 100
                         }
@@ -1145,7 +1082,7 @@
                 "properties" : {
                   "override" : {
                     "type" : "string",
-                    "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                    "description" : "Records the override messages generated during processing of an activity. ",
                     "minLength" : 0,
                     "maxLength" : 35
                   }
@@ -1154,48 +1091,45 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account",
+              "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 30
             },
             "masterArrangementId" : {
               "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
             "currencyId" : {
               "type" : "string",
-              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+              "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
               "minLength" : 0,
               "maxLength" : 10
             },
             "effectiveDate" : {
               "type" : "string",
-              "format" : "date",
-              "description" : "The date on which the principal movement is effected"
+              "format" : "date"
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 80
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+              "description" : "The transaction amount",
               "minimum" : 0,
               "maximum" : 17
             }
@@ -1208,12 +1142,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1234,11 +1167,10 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
-                      "type" : "object",
-                      "properties" : { }
+                      "type" : "object"
                     },
                     "id" : {
                       "type" : "string",
@@ -1246,7 +1178,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1255,13 +1187,11 @@
                   "properties" : {
                     "expiryDays" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
                     "settleDues" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
@@ -1273,13 +1203,11 @@
                     },
                     "fixedAmount" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 22
                     },
                     "Action" : {
                       "type" : "string",
-                      "description" : "Refers to view or cancel options.",
                       "minLength" : 0,
                       "maxLength" : 6
                     }
@@ -1313,7 +1241,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer",
+                "description" : "The identifier of the customer",
                 "minLength" : 0,
                 "maxLength" : 10
               }
@@ -1322,13 +1250,12 @@
         },
         "properties" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "propertyId" : {
                 "type" : "string",
-                "description" : "The identifier of the product condition",
+                "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                 "minLength" : 0,
                 "maxLength" : 30
               },
@@ -1345,7 +1272,6 @@
                     },
                     "fieldValue" : {
                       "type" : "string",
-                      "description" : "Value of the field",
                       "minLength" : 0,
                       "maxLength" : 100
                     }
@@ -1363,7 +1289,7 @@
             "properties" : {
               "override" : {
                 "type" : "string",
-                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                "description" : "Records the override messages generated during processing of an activity. ",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1372,42 +1298,39 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 30
         },
         "masterArrangementId" : {
           "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "minLength" : 0,
           "maxLength" : 20
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "effectiveDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+          "format" : "date"
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 80
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+          "description" : "The transaction amount",
           "minimum" : 0,
           "maximum" : 17
         },
@@ -1416,13 +1339,11 @@
           "properties" : {
             "expiryDays" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
             "settleDues" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -1434,13 +1355,11 @@
             },
             "fixedAmount" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 22
             },
             "Action" : {
               "type" : "string",
-              "description" : "Refers to view or cancel options.",
               "minLength" : 0,
               "maxLength" : 6
             }
@@ -1473,7 +1392,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer",
+                    "description" : "The identifier of the customer",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -1482,13 +1401,12 @@
             },
             "properties" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
                   "propertyId" : {
                     "type" : "string",
-                    "description" : "The identifier of the product condition",
+                    "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                     "minLength" : 0,
                     "maxLength" : 30
                   },
@@ -1505,7 +1423,6 @@
                         },
                         "fieldValue" : {
                           "type" : "string",
-                          "description" : "Value of the field",
                           "minLength" : 0,
                           "maxLength" : 100
                         }
@@ -1523,7 +1440,7 @@
                 "properties" : {
                   "override" : {
                     "type" : "string",
-                    "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                    "description" : "Records the override messages generated during processing of an activity. ",
                     "minLength" : 0,
                     "maxLength" : 35
                   }
@@ -1532,48 +1449,45 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account",
+              "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 30
             },
             "masterArrangementId" : {
               "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
             "currencyId" : {
               "type" : "string",
-              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+              "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
               "minLength" : 0,
               "maxLength" : 10
             },
             "effectiveDate" : {
               "type" : "string",
-              "format" : "date",
-              "description" : "The date on which the principal movement is effected"
+              "format" : "date"
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 80
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+              "description" : "The transaction amount",
               "minimum" : 0,
               "maximum" : 17
             }
@@ -1586,12 +1500,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1612,11 +1525,10 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
-                      "type" : "object",
-                      "properties" : { }
+                      "type" : "object"
                     },
                     "id" : {
                       "type" : "string",
@@ -1624,7 +1536,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1633,13 +1545,11 @@
                   "properties" : {
                     "expiryDays" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
                     "settleDues" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
@@ -1651,13 +1561,11 @@
                     },
                     "fixedAmount" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 22
                     },
                     "Action" : {
                       "type" : "string",
-                      "description" : "Refers to view or cancel options.",
                       "minLength" : 0,
                       "maxLength" : 6
                     }
@@ -1691,7 +1599,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer",
+                "description" : "The identifier of the customer",
                 "minLength" : 0,
                 "maxLength" : 10
               }
@@ -1700,13 +1608,12 @@
         },
         "properties" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "propertyId" : {
                 "type" : "string",
-                "description" : "The identifier of the product condition",
+                "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                 "minLength" : 0,
                 "maxLength" : 30
               },
@@ -1723,7 +1630,6 @@
                     },
                     "fieldValue" : {
                       "type" : "string",
-                      "description" : "Value of the field",
                       "minLength" : 0,
                       "maxLength" : 100
                     }
@@ -1741,7 +1647,7 @@
             "properties" : {
               "override" : {
                 "type" : "string",
-                "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                "description" : "Records the override messages generated during processing of an activity. ",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1750,42 +1656,39 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "The identifier of the product",
           "minLength" : 0,
           "maxLength" : 30
         },
         "masterArrangementId" : {
           "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "minLength" : 0,
           "maxLength" : 20
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "currencyId" : {
           "type" : "string",
-          "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+          "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "effectiveDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "The date on which the principal movement is effected"
+          "format" : "date"
         },
         "activityId" : {
           "type" : "string",
-          "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+          "description" : "The identifier of the activity",
           "minLength" : 0,
           "maxLength" : 80
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+          "description" : "The transaction amount",
           "minimum" : 0,
           "maximum" : 17
         },
@@ -1794,13 +1697,11 @@
           "properties" : {
             "expiryDays" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
             "settleDues" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -1812,13 +1713,11 @@
             },
             "fixedAmount" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 22
             },
             "Action" : {
               "type" : "string",
-              "description" : "Refers to view or cancel options.",
               "minLength" : 0,
               "maxLength" : 6
             }
@@ -1851,7 +1750,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer",
+                    "description" : "The identifier of the customer",
                     "minLength" : 0,
                     "maxLength" : 10
                   }
@@ -1860,13 +1759,12 @@
             },
             "properties" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
                   "propertyId" : {
                     "type" : "string",
-                    "description" : "The identifier of the product condition",
+                    "description" : "The identifier of the property, being an instances of a property class, e.g. Interest is property class and Debit Interest is property",
                     "minLength" : 0,
                     "maxLength" : 30
                   },
@@ -1883,7 +1781,6 @@
                         },
                         "fieldValue" : {
                           "type" : "string",
-                          "description" : "Value of the field",
                           "minLength" : 0,
                           "maxLength" : 100
                         }
@@ -1901,7 +1798,7 @@
                 "properties" : {
                   "override" : {
                     "type" : "string",
-                    "description" : "The override message is captured  that was generated at the time of commitment of the transaction to the database.",
+                    "description" : "Records the override messages generated during processing of an activity. ",
                     "minLength" : 0,
                     "maxLength" : 35
                   }
@@ -1910,48 +1807,45 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account",
+              "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+              "description" : "The identifier of the product",
               "minLength" : 0,
               "maxLength" : 30
             },
             "masterArrangementId" : {
               "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
               "minLength" : 0,
               "maxLength" : 20
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
             "currencyId" : {
               "type" : "string",
-              "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+              "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
               "minLength" : 0,
               "maxLength" : 10
             },
             "effectiveDate" : {
               "type" : "string",
-              "format" : "date",
-              "description" : "The date on which the principal movement is effected"
+              "format" : "date"
             },
             "activityId" : {
               "type" : "string",
-              "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE",
+              "description" : "The identifier of the activity",
               "minLength" : 0,
               "maxLength" : 80
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
+              "description" : "The transaction amount",
               "minimum" : 0,
               "maximum" : 17
             }
@@ -1964,12 +1858,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1990,11 +1883,10 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
-                      "type" : "object",
-                      "properties" : { }
+                      "type" : "object"
                     },
                     "id" : {
                       "type" : "string",
@@ -2002,7 +1894,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2011,13 +1903,11 @@
                   "properties" : {
                     "expiryDays" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
                     "settleDues" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 12
                     },
@@ -2029,13 +1919,11 @@
                     },
                     "fixedAmount" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 22
                     },
                     "Action" : {
                       "type" : "string",
-                      "description" : "Refers to view or cancel options.",
                       "minLength" : 0,
                       "maxLength" : 6
                     }

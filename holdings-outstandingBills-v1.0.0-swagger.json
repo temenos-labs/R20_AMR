@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA19077ZCR4G"
@@ -33,109 +33,94 @@
         }, {
           "name" : "simulationReference",
           "in" : "query",
-          "description" : "Indicates the Reference ID for simulation activity",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentDate",
           "in" : "query",
-          "description" : "The date on which a payment is due",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "deferDate",
           "in" : "query",
-          "description" : "Date that the payment has been deferred to",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billedAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "outstandingAmount",
           "in" : "query",
-          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. ",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "delinquentAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "property",
           "in" : "query",
-          "description" : "The corresponding property",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billStatus",
           "in" : "query",
-          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "settlementStatus",
           "in" : "query",
-          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "agingStatus",
           "in" : "query",
-          "description" : "Indicates the ageing status of a bill",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "settled",
           "in" : "query",
-          "description" : "Flag to indicate whether a bill is settled or not",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentType",
           "in" : "query",
-          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "description" : "The payment type identifier",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billDate",
           "in" : "query",
-          "description" : "Indicates a date on which a bill has been raised",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billType",
           "in" : "query",
-          "description" : "The type of payment obligation generated",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentMethod",
           "in" : "query",
-          "description" : "Method chosen to make the payment",
+          "description" : "The type of method used for the payment",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "infoPayType",
           "in" : "query",
-          "description" : "Indicates a bill which is raised when a loan is paid off",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "advancePayment",
           "in" : "query",
-          "description" : "Indicates whether advance payment made is set on an account",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentIndicator",
           "in" : "query",
-          "description" : "Indicates whether its a credit/debit type of bill",
           "required" : false,
           "type" : "string"
         }, {
@@ -159,15 +144,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -208,7 +187,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA1907957KC1"
@@ -220,103 +199,89 @@
         }, {
           "name" : "simulationReference",
           "in" : "query",
-          "description" : "Indicates the Reference ID for simulation activity",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentDate",
           "in" : "query",
-          "description" : "The date on which a payment is due",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "deferDate",
           "in" : "query",
-          "description" : "Date that the payment has been deferred to",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billedAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "outstandingAmount",
           "in" : "query",
-          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. ",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "delinquentAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "property",
           "in" : "query",
-          "description" : "The corresponding property",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billStatus",
           "in" : "query",
-          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "settlementStatus",
           "in" : "query",
-          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "agingStatus",
           "in" : "query",
-          "description" : "Indicates the ageing status of a bill",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentType",
           "in" : "query",
-          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "description" : "The payment type identifier",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billDate",
           "in" : "query",
-          "description" : "Indicates a date on which a bill has been raised",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billType",
           "in" : "query",
-          "description" : "The type of payment obligation generated",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentMethod",
           "in" : "query",
-          "description" : "Method chosen to make the payment",
+          "description" : "The type of method used for the payment",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "infoPayType",
           "in" : "query",
-          "description" : "Indicates a bill which is raised when a loan is paid off",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "advancePayment",
           "in" : "query",
-          "description" : "Indicates whether advance payment made is set on an account",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentIndicator",
           "in" : "query",
-          "description" : "Indicates whether its a credit/debit type of bill",
           "required" : false,
           "type" : "string"
         }, {
@@ -340,15 +305,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -389,14 +348,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA19079RZ823"
         }, {
           "name" : "simulationReference",
           "in" : "query",
-          "description" : "Indicates the Reference ID for simulation activity",
           "required" : false,
           "type" : "string"
         }, {
@@ -420,15 +378,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -469,7 +421,7 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA19079RZ823"
@@ -481,109 +433,94 @@
         }, {
           "name" : "simulationReference",
           "in" : "query",
-          "description" : "Indicates the Reference ID for simulation activity",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentDate",
           "in" : "query",
-          "description" : "The date on which a payment is due",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "deferDate",
           "in" : "query",
-          "description" : "Date that the payment has been deferred to",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billedAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "outstandingAmount",
           "in" : "query",
-          "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+          "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. ",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "delinquentAmount",
           "in" : "query",
-          "description" : "Indicates the bill amount during the ageing status(Bill which crossed the due date)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "property",
           "in" : "query",
-          "description" : "The corresponding property",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billStatus",
           "in" : "query",
-          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "settlementStatus",
           "in" : "query",
-          "description" : "Defines the status of the settlement for the incoming MT548 swift message.The values allowed are: Waiting : pending to receive settlement status update meaning pending to receive MT548 swift message,  Action required : awaiting action to be performed to get the final update on settlement status.Matched : transactions whose nominals have matched with the depository position",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "agingStatus",
           "in" : "query",
-          "description" : "Indicates the ageing status of a bill",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "settled",
           "in" : "query",
-          "description" : "Flag to indicate whether a bill is settled or not",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentType",
           "in" : "query",
-          "description" : "Indicates if the payment is Customer (C) type or Bank (B) type",
+          "description" : "The payment type identifier",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billDate",
           "in" : "query",
-          "description" : "Indicates a date on which a bill has been raised",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "billType",
           "in" : "query",
-          "description" : "The type of payment obligation generated",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentMethod",
           "in" : "query",
-          "description" : "Method chosen to make the payment",
+          "description" : "The type of method used for the payment",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "infoPayType",
           "in" : "query",
-          "description" : "Indicates a bill which is raised when a loan is paid off",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "advancePayment",
           "in" : "query",
-          "description" : "Indicates whether advance payment made is set on an account",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "paymentIndicator",
           "in" : "query",
-          "description" : "Indicates whether its a credit/debit type of bill",
           "required" : false,
           "type" : "string"
         }, {
@@ -607,15 +544,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -656,14 +587,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA1907957KC1"
         }, {
           "name" : "billStatus",
           "in" : "query",
-          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
           "required" : false,
           "type" : "string"
         }, {
@@ -687,15 +617,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -736,14 +660,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
           "type" : "string",
           "x-example" : "AA19079RZ823"
         }, {
           "name" : "billStatus",
           "in" : "query",
-          "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
           "required" : false,
           "type" : "string"
         }, {
@@ -767,15 +690,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
           "required" : false,
           "type" : "string"
         } ],
@@ -784,6 +701,150 @@
             "description" : "WriteoffBillsResponse",
             "schema" : {
               "$ref" : "#/definitions/WriteoffBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/{arrangementId}/payOffBills" : {
+      "get" : {
+        "summary" : "Retrieves the Payoff Details of an account",
+        "description" : "Retrieves the Payoff Details of an account",
+        "operationId" : "getPayoffDetails",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "PayoffDetailsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/PayoffDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/accounts/writeOff/{arrangementId}/activities" : {
+      "get" : {
+        "summary" : "Retrieves the details of write off bills based on activities",
+        "description" : "Retrieves the details of write off bills based on activities",
+        "operationId" : "getWriteOffActivitiesDetails",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "fileVersion",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "simulationReference",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "WriteOffActivitiesDetailsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/WriteOffActivitiesDetailsResponse"
             }
           },
           "400" : {
@@ -826,16 +887,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -878,31 +937,30 @@
         "type" : "object",
         "properties" : {
           "billDate" : {
-            "type" : "string",
-            "description" : "Indicates a date on which a bill has been raised"
+            "type" : "string"
           },
           "billType" : {
-            "type" : "string",
-            "description" : "The type of payment obligation generated"
+            "type" : "string"
           },
           "billed" : {
             "type" : "string",
-            "description" : "Indicates the total billed amount of a bill",
             "maxLength" : 19
           },
           "outstanding" : {
             "type" : "string",
-            "description" : "The remaining monetary amount on a loan",
             "maxLength" : 19
           },
           "status" : {
             "type" : "string",
-            "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+            "description" : "The status identifier"
           },
           "billStatus" : {
             "type" : "string",
-            "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)",
             "maxLength" : 15
+          },
+          "billId" : {
+            "type" : "string",
+            "maxLength" : 35
           }
         }
       }
@@ -922,13 +980,11 @@
               "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -949,13 +1005,8 @@
     "QueryErrorResponseBody" : {
       "type" : "object",
       "properties" : {
-        "code" : {
-          "type" : "string",
-          "description" : "The identifier of the error message "
-        },
         "message" : {
-          "type" : "string",
-          "description" : "The actual t24 error message "
+          "type" : "string"
         },
         "type" : {
           "type" : "string",
@@ -977,13 +1028,9 @@
     "BusinessQueryErrorResponseBody" : {
       "type" : "object",
       "properties" : {
-        "code" : {
-          "type" : "string",
-          "description" : "The identifier of the error message "
-        },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message for bad requests"
+          "description" : "for bad requests"
         },
         "type" : {
           "type" : "string",
@@ -1005,13 +1052,9 @@
     "SystemQueryErrorResponseBody" : {
       "type" : "object",
       "properties" : {
-        "code" : {
-          "type" : "string",
-          "description" : "The identifier of the error message "
-        },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message caused by server"
+          "description" : "caused by server"
         },
         "type" : {
           "type" : "string",
@@ -1036,27 +1079,26 @@
         "type" : "object",
         "properties" : {
           "billdate" : {
-            "type" : "string",
-            "description" : "Indicates a date on which a bill has been raised"
+            "type" : "string"
           },
           "billType" : {
-            "type" : "string",
-            "description" : "The type of payment obligation generated"
+            "type" : "string"
           },
           "originalAmount" : {
             "type" : "string",
-            "description" : "Indicates the original amount of the bill",
             "maxLength" : 19
           },
           "currentOutstanding" : {
             "type" : "string",
-            "description" : "Indicates the current outstanding amount of the bill",
             "maxLength" : 19
           },
           "deferredTill" : {
             "type" : "string",
-            "description" : "Indicates the date until the bill was deferred.",
             "maxLength" : 11
+          },
+          "billId" : {
+            "type" : "string",
+            "maxLength" : 35
           }
         }
       }
@@ -1077,18 +1119,19 @@
       "items" : {
         "type" : "object",
         "properties" : {
+          "billId" : {
+            "type" : "string",
+            "maxLength" : 35
+          },
           "dueDate" : {
             "type" : "string",
-            "description" : "Identifies the date on which the activity is due.",
             "maxLength" : 30
           },
           "infoCharge" : {
-            "type" : "string",
-            "description" : "Indicates the kind of charge which was billed."
+            "type" : "string"
           },
           "billedAmount" : {
             "type" : "string",
-            "description" : "Indicates the bill amount",
             "maxLength" : 19
           }
         }
@@ -1111,26 +1154,26 @@
         "type" : "object",
         "properties" : {
           "billDate" : {
-            "type" : "string",
-            "description" : "Indicates a date on which a bill has been raised"
+            "type" : "string"
           },
           "billType" : {
-            "type" : "string",
-            "description" : "The type of payment obligation generated"
+            "type" : "string"
           },
           "billedAmount" : {
             "type" : "string",
-            "description" : "Indicates the bill amount",
             "maxLength" : 19
           },
           "outstandingAmount" : {
             "type" : "string",
-            "description" : "Contains the aggregate outstanding principal amount thereof after giving effect to any borrowings and prepayments or repayments of Committed Loans",
+            "description" : "Identifies the total outstanding amount for the corresponding Liability number and Limit reference. ",
             "maxLength" : 19
           },
           "billStatus" : {
+            "type" : "string"
+          },
+          "billId" : {
             "type" : "string",
-            "description" : "Indicates the status of a bill(Issued,Due,Ageing,Settled)"
+            "maxLength" : 35
           }
         }
       }
@@ -1152,32 +1195,30 @@
         "type" : "object",
         "properties" : {
           "billDate" : {
-            "type" : "string",
-            "description" : "Indicates a date on which a bill has been raised"
+            "type" : "string"
           },
           "billType" : {
-            "type" : "string",
-            "description" : "The type of payment obligation generated"
+            "type" : "string"
           },
           "originalAmount" : {
             "type" : "string",
-            "description" : "Indicates the original amount of the bill",
             "maxLength" : 19
           },
           "repaidAmount" : {
             "type" : "string",
-            "description" : "Indicates the amount which was repaid from the customer",
             "maxLength" : 19
           },
           "remainingAmount" : {
             "type" : "string",
-            "description" : "Indicates the remaining amount which need to be paid by the customer",
             "maxLength" : 19
           },
           "settledOn" : {
             "type" : "string",
-            "description" : "IIndiactes the date on which the bill was settled.",
             "maxLength" : 11
+          },
+          "billId" : {
+            "type" : "string",
+            "maxLength" : 35
           }
         }
       }
@@ -1199,22 +1240,174 @@
         "type" : "object",
         "properties" : {
           "paymentDate" : {
-            "type" : "string",
-            "description" : "The date on which a payment is due"
+            "type" : "string"
           },
           "billType" : {
-            "type" : "string",
-            "description" : "The type of payment obligation generated"
+            "type" : "string"
           },
           "totAdjustAmount" : {
             "type" : "string",
-            "description" : "Indicates the adjusted amount which is writtenoff from the bill",
             "maxLength" : 19
           },
           "writtenOffOn" : {
             "type" : "string",
-            "description" : "Indicates the date on which the bill is writtenoff",
             "maxLength" : 11
+          },
+          "billId" : {
+            "type" : "string",
+            "maxLength" : 35
+          }
+        }
+      }
+    },
+    "PayoffDetailsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PayoffDetailsResponseBody"
+        }
+      },
+      "description" : "PayoffDetailsResponse"
+    },
+    "PayoffDetailsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "payoffs" : {
+            "type" : "array",
+            "description" : "The Loan payoff",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "payoffDate" : {
+                  "type" : "string"
+                },
+                "totPayoffAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                },
+                "interestAmount" : {
+                  "type" : "string",
+                  "description" : "The accrued Interest due or accrued.",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "infoPayments" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "infoPayDate" : {
+                  "type" : "string"
+                },
+                "totPayAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                },
+                "totInterestAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "properties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "propertyName" : {
+                  "type" : "string",
+                  "description" : "The name that is displayed for the property"
+                },
+                "propertyAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                },
+                "unallocatedAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "payments" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "paymentType" : {
+                  "type" : "string",
+                  "description" : "The payment type identifier",
+                  "maxLength" : 19
+                },
+                "paymentAmount" : {
+                  "type" : "string",
+                  "maxLength" : 19
+                }
+              }
+            }
+          },
+          "arrangementId" : {
+            "type" : "string",
+            "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string."
+          }
+        }
+      }
+    },
+    "WriteOffActivitiesDetailsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/WriteOffActivitiesDetailsResponseBody"
+        }
+      },
+      "description" : "WriteOffActivitiesDetailsResponse"
+    },
+    "WriteOffActivitiesDetailsResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "properties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "propertyName" : {
+                  "type" : "string",
+                  "description" : "The name that is displayed for the property",
+                  "maxLength" : 35
+                },
+                "propertyBalance" : {
+                  "type" : "string"
+                },
+                "propertyAmount" : {
+                  "type" : "string",
+                  "maxLength" : 20
+                }
+              }
+            }
+          },
+          "activityDate" : {
+            "type" : "string",
+            "maxLength" : 11
+          },
+          "activityName" : {
+            "type" : "string",
+            "description" : "The name of the activity that is displayed"
+          },
+          "totalAmount" : {
+            "type" : "string",
+            "description" : "The total amount",
+            "maxLength" : 20
           }
         }
       }

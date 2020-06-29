@@ -75,12 +75,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -124,14 +118,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -175,7 +162,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -192,12 +178,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -242,14 +222,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -293,7 +266,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -310,12 +282,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -381,12 +347,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -463,12 +423,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -542,12 +496,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -615,12 +563,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -664,14 +606,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -715,7 +650,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -732,12 +666,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -782,14 +710,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -833,7 +754,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -850,12 +770,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -900,7 +814,6 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -917,12 +830,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -967,7 +874,6 @@
         "parameters" : [ {
           "name" : "addressReference",
           "in" : "path",
-          "description" : "Reference Id of address record",
           "required" : true,
           "type" : "string"
         }, {
@@ -984,12 +890,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1052,12 +952,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1112,12 +1006,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1174,12 +1062,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1225,12 +1107,6 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -1292,12 +1168,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1357,12 +1227,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1416,7 +1280,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1487,7 +1351,6 @@
                 },
                 "middleName" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
@@ -1641,14 +1504,12 @@
               "properties" : {
                 "addressLine1" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
                 },
                 "addressLine2" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
@@ -1819,11 +1680,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -1839,7 +1700,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1929,7 +1790,6 @@
         },
         "relationship" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1952,7 +1812,6 @@
                   "properties" : {
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -2021,13 +1880,11 @@
         },
         "communicationDevice" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "communicationDevice" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25,
                 "enum" : [ "HOME PHONE", "WORK PHONE", "MOBILE PHONE", "EMAIL", "FAX" ]
@@ -2055,7 +1912,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 21
               }
@@ -2214,13 +2070,11 @@
         },
         "taxType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 18
         },
         "customerRating" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -2253,14 +2107,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 1,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -2396,7 +2248,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -2506,7 +2357,7 @@
         "statusChangeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Identifies the effective date of change of status"
+          "description" : "Identifies the effective date of change of Fatca status"
         },
         "ctrExempt" : {
           "type" : "string",
@@ -2680,7 +2531,6 @@
         },
         "prospectId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27,
           "enum" : [ "ACTIVE", " PROSPECT" ]
@@ -2922,7 +2772,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -2938,7 +2788,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -3020,7 +2870,6 @@
         },
         "relationship" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -3043,7 +2892,6 @@
                   "properties" : {
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -3112,13 +2960,11 @@
         },
         "communicationDevice" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "communicationDevice" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25,
                 "enum" : [ "HOME PHONE", "WORK PHONE", "MOBILE PHONE", "EMAIL", "FAX" ]
@@ -3146,7 +2992,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 21
               }
@@ -3305,13 +3150,11 @@
         },
         "taxType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 18
         },
         "customerRating" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -3344,14 +3187,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 1,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -3487,7 +3328,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -3597,7 +3437,7 @@
         "statusChangeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Identifies the effective date of change of status"
+          "description" : "Identifies the effective date of change of Fatca status"
         },
         "ctrExempt" : {
           "type" : "string",
@@ -3764,7 +3604,6 @@
         },
         "prospectId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27,
           "enum" : [ "ACTIVE", " PROSPECT" ]
@@ -3898,7 +3737,6 @@
             "properties" : {
               "employmentStatus" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 24
               },
@@ -3916,7 +3754,6 @@
               },
               "jobTitle" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 26
               },
@@ -3946,7 +3783,6 @@
               },
               "annualBonus" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 24
               },
@@ -3961,7 +3797,6 @@
         },
         "creditScore" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -3972,7 +3807,6 @@
               },
               "creditScore" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 14
               },
@@ -4018,7 +3852,6 @@
                     },
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -4130,13 +3963,11 @@
         },
         "communicationDevice" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "communicationDevice" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25,
                 "enum" : [ "HOME PHONE", "WORK PHONE", "MOBILE PHONE", "EMAIL", "FAX" ]
@@ -4164,7 +3995,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 21
               }
@@ -4304,7 +4134,6 @@
         },
         "middleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 10,
           "enum" : [ "Specifies the Middle Name" ]
@@ -4364,14 +4193,12 @@
         },
         "customerRating" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 23,
           "enum" : [ "Customer's rating" ]
         },
         "taxType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 17
         },
@@ -4405,14 +4232,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 1,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -4548,7 +4373,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -4621,7 +4445,7 @@
         "statusChangeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Identifies the effective date of change of status"
+          "description" : "Identifies the effective date of change of Fatca status"
         },
         "ctrExempt" : {
           "type" : "string",
@@ -4783,7 +4607,6 @@
         },
         "prospectId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27,
           "enum" : [ "ACTIVE", " PROSPECT" ]
@@ -4916,7 +4739,6 @@
             "properties" : {
               "employmentStatus" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 24
               },
@@ -4934,7 +4756,6 @@
               },
               "jobTitle" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 26
               },
@@ -4964,7 +4785,6 @@
               },
               "annualBonus" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 24
               },
@@ -4979,7 +4799,6 @@
         },
         "creditScore" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -4990,7 +4809,6 @@
               },
               "creditScore" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 14
               },
@@ -5036,7 +4854,6 @@
                     },
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -5148,13 +4965,11 @@
         },
         "communicationDevice" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "communicationDevice" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25,
                 "enum" : [ "HOME PHONE", "WORK PHONE", "MOBILE PHONE", "EMAIL", "FAX" ]
@@ -5182,7 +4997,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 21
               }
@@ -5322,7 +5136,6 @@
         },
         "middleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 10,
           "enum" : [ "Specifies the Middle Name" ]
@@ -5382,14 +5195,12 @@
         },
         "customerRating" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 23,
           "enum" : [ "Customer's rating" ]
         },
         "taxType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 17
         },
@@ -5423,14 +5234,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 1,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -5566,7 +5375,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -5644,7 +5452,7 @@
         "statusChangeDate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "Identifies the effective date of change of status"
+          "description" : "Identifies the effective date of change of Fatca status"
         },
         "ctrExempt" : {
           "type" : "string",
@@ -5813,7 +5621,6 @@
         },
         "prospectId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27,
           "enum" : [ "ACTIVE", " PROSPECT" ]
@@ -5900,12 +5707,10 @@
             "description" : "Reference Id of address record"
           },
           "addressLine1" : {
-            "type" : "string",
-            "description" : "Indicates first line of the address of the BIC"
+            "type" : "string"
           },
           "addressLine2" : {
-            "type" : "string",
-            "description" : "Indicates second line of the address of the BIC"
+            "type" : "string"
           },
           "city" : {
             "type" : "string",
@@ -5964,8 +5769,7 @@
             "maxLength" : 30
           },
           "creditScore" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           }
         }
       }
@@ -5988,7 +5792,7 @@
         "properties" : {
           "referenceNumber" : {
             "type" : "string",
-            "description" : "Specifies the reference for the document, if any.",
+            "description" : "Reference Numbers",
             "maxLength" : 35
           },
           "documentId" : {
@@ -6009,12 +5813,11 @@
           "statusChangeDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Identifies the effective date of change of status"
+            "description" : "Identifies the effective date of change of Fatca status"
           },
           "signatureDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "stateId" : {
             "type" : "string",
@@ -6085,7 +5888,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 9
               }
@@ -6241,7 +6043,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -6309,7 +6110,6 @@
             "properties" : {
               "riskLevel" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 9
               }
@@ -6465,7 +6265,6 @@
         },
         "fatcaStatusCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 45
         },
@@ -6528,7 +6327,6 @@
       "properties" : {
         "Contact" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -6594,14 +6392,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -6722,7 +6518,6 @@
       "properties" : {
         "Contact" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -6788,14 +6583,12 @@
         },
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the first line of Customer's address." ]
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Specifies the second line of Customer's address." ]
@@ -6916,7 +6709,6 @@
       "properties" : {
         "relationship" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -6939,7 +6731,6 @@
                   "properties" : {
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -7023,7 +6814,6 @@
       "properties" : {
         "relationship" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -7046,7 +6836,6 @@
                   "properties" : {
                     "role" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -7130,13 +6919,11 @@
       "properties" : {
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -7227,13 +7014,11 @@
       "properties" : {
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -7324,13 +7109,11 @@
       "properties" : {
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -7427,13 +7210,11 @@
       "properties" : {
         "addressLine1" : {
           "type" : "string",
-          "description" : "Indicates first line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
         "addressLine2" : {
           "type" : "string",
-          "description" : "Indicates second line of the address of the BIC",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -7535,13 +7316,11 @@
             "properties" : {
               "periodFrom" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 12
               },
               "periodTo" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 9
               }
@@ -7583,13 +7362,11 @@
             "properties" : {
               "periodFrom" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 12
               },
               "periodTo" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 9
               }

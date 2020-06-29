@@ -33,25 +33,21 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "amount",
           "in" : "query",
-          "description" : "This is the payment amount",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maturityDate",
           "in" : "query",
-          "description" : "Indicates maturity date of the contract",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "gteeReturnDate",
           "in" : "query",
-          "description" : "Date on which the original Guarantee will be returned by the customer to the Bank that issued it",
           "required" : false,
           "type" : "string"
         }, {
@@ -75,15 +71,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -134,7 +123,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -187,6 +176,7 @@
         "properties" : {
           "transactionReference" : {
             "type" : "string",
+            "description" : "Transaction reference identifier.",
             "maxLength" : 17
           },
           "customer" : {
@@ -201,7 +191,7 @@
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 3
           },
           "amount" : {

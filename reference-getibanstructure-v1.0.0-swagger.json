@@ -21,7 +21,6 @@
         "parameters" : [ {
           "name" : "countryCode",
           "in" : "path",
-          "description" : "Specifies the country code of the beneficiary's address ",
           "required" : true,
           "type" : "string"
         }, {
@@ -42,12 +41,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -104,7 +97,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -154,66 +147,51 @@
         "type" : "object",
         "properties" : {
           "countryCodePosition" : {
-            "type" : "string",
-            "description" : "Start position of the country code in the IBAN"
+            "type" : "string"
           },
           "countryCodeLength" : {
-            "type" : "string",
-            "description" : "Number of characters of the country code in the IBAN"
+            "type" : "string"
           },
           "checkDigitsPosition" : {
-            "type" : "string",
-            "description" : "Start position of check digits in the IBAN"
+            "type" : "string"
           },
           "checkDigitsLength" : {
-            "type" : "string",
-            "description" : "Number of check digits in the IBAN"
+            "type" : "string"
           },
           "bankIdentifierPosition" : {
-            "type" : "string",
-            "description" : "Start position of bank identifier in the IBAN"
+            "type" : "string"
           },
           "bankIdentifierLength" : {
-            "type" : "string",
-            "description" : "Number of characters of bank identifier in the IBAN"
+            "type" : "string"
           },
           "branchIdentifierPosition" : {
-            "type" : "string",
-            "description" : "Start position of the branch identifier in the IBAN (value is empty if the branch identifier is not applied in the country's IBAN format)."
+            "type" : "string"
           },
           "branchIdentifierLength" : {
-            "type" : "string",
-            "description" : "Number of characters of the branch identifier in the IBAN (value is 0 if the branch identifier is not applied in the country's IBAN format)"
+            "type" : "string"
           },
           "nationalIdLength" : {
-            "type" : "string",
-            "description" : "Number of significant characters of the National ID value that are used by SWIFT to populate the IBAN NATIONAL ID and that are sufficient to derive the IBAN BIC correctly."
+            "type" : "string"
           },
           "accountNumberPosition" : {
-            "type" : "string",
-            "description" : "Start position of the account number in the IBAN"
+            "type" : "string"
           },
           "accountNumberLength" : {
-            "type" : "string",
-            "description" : "Number of characters of the account number in the IBAN"
+            "type" : "string"
           },
           "totalLength" : {
-            "type" : "string",
-            "description" : "Indicates the total number of characters in the IBAN"
+            "type" : "string"
           },
           "sepa" : {
-            "type" : "string",
-            "description" : "Indicates whether the IBAN is used in one of the SEPA schemes, Y - if it does; N - if it does not"
+            "type" : "string"
           },
           "optionalCommenceDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "The date from which the IBAN can start being used in customer credit payments, in the format YYYYMMDD"
+            "format" : "date"
           },
           "mandatoryCommenceDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "The date from which the IBAN must be used in customer credit payments, in the format YYYYMMDD"
+            "format" : "date"
           }
         }
       }

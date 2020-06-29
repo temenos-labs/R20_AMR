@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "133133"
@@ -44,15 +44,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -91,7 +84,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -144,37 +137,37 @@
               "properties" : {
                 "employStatus" : {
                   "type" : "string",
-                  "description" : "Employment status of the customer",
+                  "description" : "Employment status of the customer.",
                   "maxLength" : 35
                 },
                 "occupation" : {
                   "type" : "string",
-                  "description" : "Occupation of the customer",
+                  "description" : "Occupation of the customer.",
                   "maxLength" : 35
                 },
                 "employJobTitle" : {
                   "type" : "string",
-                  "description" : "Employment Job Title of the Customer",
+                  "description" : " Job Title of the customers.",
                   "maxLength" : 10
                 },
                 "employerName" : {
                   "type" : "string",
-                  "description" : "Name of the customer's employer",
+                  "description" : "Name of the customer's employer.",
                   "maxLength" : 35
                 },
                 "employStartDate" : {
                   "type" : "string",
                   "format" : "date",
-                  "description" : "Starting date of the customer's employment"
+                  "description" : "Starting date of the customer's employment."
                 },
                 "salaryCurrency" : {
                   "type" : "string",
-                  "description" : "Currency in which the Salary information of the customer is maintained",
+                  "description" : "Salary currency of the customer.",
                   "maxLength" : 3
                 },
                 "salaryAmount" : {
                   "type" : "number",
-                  "description" : "Gross Salary details of the customer"
+                  "description" : "Gross salary of the customer."
                 },
                 "employerBusiness" : {
                   "type" : "string",
@@ -182,7 +175,8 @@
                   "maxLength" : 35
                 },
                 "annualBonus" : {
-                  "type" : "number"
+                  "type" : "number",
+                  "description" : "annual bonus Annual the individual"
                 },
                 "salaryFrequency" : {
                   "type" : "string",
@@ -223,21 +217,21 @@
               "properties" : {
                 "residenceStatus" : {
                   "type" : "string",
-                  "description" : "Residence Status of the Customer for CRM purpose like Owner, Tenant, Householder, Nester etc.",
+                  "description" : "The residential status",
                   "maxLength" : 35
                 },
                 "residenceType" : {
                   "type" : "string",
-                  "description" : "Residence type of the customer like Farmhouse, Independent house, Residential Apartment, Serviced Apartments",
+                  "description" : "Residence type of the customer.Type should be one of Farmhouse, Independent house, Residential Apartment, Serviced Apartments",
                   "maxLength" : 35
                 },
                 "residenceValue" : {
                   "type" : "number",
-                  "description" : "Market Value of the customer's residence"
+                  "description" : "Price of the residence."
                 },
                 "residenceMortgageValue" : {
                   "type" : "number",
-                  "description" : "Mortgage value of the residence property of the customer"
+                  "description" : "Mortgage amount on property."
                 },
                 "residenceSince" : {
                   "type" : "string",
@@ -255,12 +249,12 @@
               "properties" : {
                 "communicationType" : {
                   "type" : "string",
-                  "description" : "Communication type to the customer, as defined by the institution. E.g. Proposal, Alert, Campaign, New Product Update, Robinson List, Statement.",
+                  "description" : "Communication type to the customer.Type should be one of Proposals, Alert, Compaign, New Product Update,Robinsons List, Statements.",
                   "maxLength" : 35
                 },
                 "preferredChannel" : {
                   "type" : "string",
-                  "description" : "Preferred method of contact to the customer",
+                  "description" : "Preferred method of contact to the customer.",
                   "maxLength" : 20
                 }
               }
@@ -268,16 +262,16 @@
           },
           "customerId" : {
             "type" : "number",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "customerName" : {
             "type" : "string",
-            "description" : "Name of the customer",
+            "description" : "The name that is displayed for the customer",
             "maxLength" : 35
           },
           "isSecureMessage" : {
             "type" : "boolean",
-            "description" : "If 'Yes', then the customer will receive a SECURE message."
+            "description" : "To identify whether the customer will receive a SECURE message or not. "
           },
           "isInternetBankingService" : {
             "type" : "boolean",
@@ -303,15 +297,15 @@
           },
           "assetCurrency" : {
             "type" : "string",
-            "description" : "Currency of the asset."
+            "description" : "Asset Currency"
           },
           "assetAmount" : {
             "type" : "number",
-            "description" : "The asset amount."
+            "description" : "Asset Amount"
           },
           "customerLiability" : {
             "type" : "string",
-            "description" : "Indicates the customer consolidation number for credit grouping purposes, within the same branch/country."
+            "description" : "Indicates the customer consolidation number for credit grouping purposes,within the same branch/country."
           }
         }
       }

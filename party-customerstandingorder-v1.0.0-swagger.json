@@ -20,20 +20,20 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "100335"
         }, {
           "name" : "accountId",
           "in" : "query",
-          "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+          "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "orderingCustomerId",
           "in" : "query",
-          "description" : "Indicates the customer id for the ordering customer",
+          "description" : "The identifier of the ordering customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -57,15 +57,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,7 +97,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -157,31 +150,29 @@
           },
           "orderType" : {
             "type" : "string",
-            "description" : "Identifies the type of the order. Possible values are Single, Ifdone, Revol, oco. Single order - only one order item may be input. If done order -  If one order gets executed, the other order is also executed immediately. Revolving order -  based on the condition specified, it will wait for both the deals to be executed simultaneously. OCO -If one order gets executed, then the other order gets cancelled.",
+            "description" : "Defines the order type of the transaction",
             "maxLength" : 5
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 35
           },
           "paymentMethod" : {
             "type" : "string",
-            "description" : "Method chosen to make the payment",
+            "description" : "The type of method used for the payment",
             "maxLength" : 4
           },
           "currencyId" : {
             "type" : "string",
-            "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
+            "description" : "The identifier of the curreny. The is the 3 letter ISO 4217 code of the currency.",
             "maxLength" : 3
           },
           "amount" : {
-            "type" : "number",
-            "description" : "This is the payment amount"
+            "type" : "number"
           },
           "frequency" : {
             "type" : "string",
-            "description" : "Specifies the frequency in which the payment application(periodic payments) execute the payment instruction.",
             "maxLength" : 50
           },
           "counterPartyAccountId" : {
@@ -191,12 +182,11 @@
           },
           "beneficiaryId" : {
             "type" : "string",
-            "description" : "Indicates the Id of beneficiary when beneficiary details are stored",
+            "description" : "The identifier of the beneficiary",
             "maxLength" : 17
           },
           "percentageOverCurrentBalance" : {
             "type" : "string",
-            "description" : "This is used to specify a percentage value, which would be applied on the accounts excess amount(Accounts cleared balance - CURRENT.AMOUNT) to arrive at ",
             "maxLength" : 6
           }
         }

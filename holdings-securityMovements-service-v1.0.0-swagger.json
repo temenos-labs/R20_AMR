@@ -28,7 +28,7 @@
         }, {
           "name" : "referenceNumber",
           "in" : "query",
-          "description" : "Specifies the reference for the document, if any.",
+          "description" : "Reference Numbers",
           "required" : false,
           "type" : "string"
         }, {
@@ -58,15 +58,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -105,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -176,15 +169,15 @@
           "valueDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Indicates the value date on which the underlying accounting entry is to be given value (for interest purposes)"
+            "description" : "Shows the date on which the underlying accounting entry is to be given value (for interest purposes)."
           },
           "referenceNumber" : {
             "type" : "string",
-            "description" : "Specifies the reference for the document, if any."
+            "description" : "Reference Numbers"
           },
           "currentStatus" : {
             "type" : "string",
-            "description" : "This indicates the current status of payment order",
+            "description" : "Indicates the Status of the record,U - If it is Unauthorised,D - If it is Deleted,R - If it is Reversed",
             "maxLength" : 1
           },
           "transactionName" : {

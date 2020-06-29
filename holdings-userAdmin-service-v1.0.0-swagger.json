@@ -19,13 +19,13 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -41,7 +41,6 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
@@ -53,19 +52,18 @@
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
@@ -89,15 +87,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -145,15 +136,8 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -192,13 +176,11 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -215,15 +197,8 @@
             "$ref" : "#/definitions/OnlineService1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -262,7 +237,6 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
@@ -279,15 +253,8 @@
             "$ref" : "#/definitions/OnlineService1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -324,7 +291,6 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
@@ -334,15 +300,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -381,13 +340,11 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -404,15 +361,8 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -451,7 +401,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -475,7 +425,7 @@
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
@@ -504,15 +454,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -551,7 +494,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -574,7 +517,7 @@
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
@@ -604,15 +547,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -651,13 +587,12 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "subArrangementId",
           "in" : "query",
-          "description" : "The subset of Master arrangement.",
           "required" : false,
           "type" : "string"
         }, {
@@ -691,15 +626,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -738,31 +666,21 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "status",
           "in" : "query",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-          "description" : "The unique identifier of an arrangement activity.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -801,31 +719,21 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "status",
           "in" : "query",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -864,31 +772,21 @@
         "parameters" : [ {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "status",
           "in" : "query",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-          "description" : "The unique identifier of an arrangement activity.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -927,31 +825,21 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "status",
           "in" : "query",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -990,13 +878,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
@@ -1012,19 +900,18 @@
         }, {
           "name" : "masterArrangementId",
           "in" : "query",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productId",
           "in" : "query",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementStatus",
           "in" : "query",
-          "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+          "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
           "required" : false,
           "type" : "string"
         }, {
@@ -1036,13 +923,11 @@
         }, {
           "name" : "subArrangementName",
           "in" : "query",
-          "description" : "The name of the sub arrangement that is displayed.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "inputterId",
           "in" : "query",
-          "description" : "The user identifier Id who input the transaction",
           "required" : false,
           "type" : "string"
         }, {
@@ -1066,15 +951,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1113,13 +991,11 @@
         "parameters" : [ {
           "name" : "arrangementActivityId",
           "in" : "path",
-          "description" : "The unique identifier of an arrangement activity.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "path",
-          "description" : "Indicates an unique identifier of an account",
           "required" : true,
           "type" : "string"
         }, {
@@ -1136,15 +1012,8 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1199,7 +1068,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -1215,7 +1084,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -1243,7 +1112,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer"
+                "description" : "The identifier of the customer"
               }
             }
           }
@@ -1268,8 +1137,7 @@
                       "description" : "The name of the field"
                     },
                     "fieldValue" : {
-                      "type" : "string",
-                      "description" : "Value of the field"
+                      "type" : "string"
                     }
                   }
                 }
@@ -1292,15 +1160,13 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+          "description" : "Id of the product."
         },
         "masterArrangementId" : {
-          "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+          "type" : "string"
         },
         "subArrangementName" : {
-          "type" : "string",
-          "description" : "The name of the sub arrangement that is displayed."
+          "type" : "string"
         },
         "currencyId" : {
           "type" : "string",
@@ -1317,7 +1183,7 @@
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+          "description" : "The transaction amount"
         },
         "customer" : {
           "type" : "object",
@@ -1330,23 +1196,20 @@
                 "properties" : {
                   "customer" : {
                     "type" : "string",
-                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                    "description" : "The customer number"
                   },
                   "customerRole" : {
                     "type" : "string",
-                    "description" : "Indicates role of a customer for an arrangement."
+                    "description" : "The customer role with drop down of standard selections"
                   },
                   "taxLiabilityPercentage" : {
-                    "type" : "number",
-                    "description" : "Tax liability percentage of the customer"
+                    "type" : "number"
                   },
                   "limitAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : "Indicates percentage of limit allocated to the customer out of overall limit"
+                    "type" : "number"
                   },
                   "GLAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : "Indicates GL allocation percentage of the customer"
+                    "type" : "number"
                   }
                 }
               }
@@ -1366,12 +1229,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedCustomer" : {
-                    "type" : "string",
-                    "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                    "type" : "string"
                   },
                   "definedCustomerSel" : {
-                    "type" : "boolean",
-                    "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                    "type" : "boolean"
                   },
                   "definedCompanies" : {
                     "type" : "array",
@@ -1379,8 +1240,7 @@
                       "type" : "object",
                       "properties" : {
                         "definedCompany" : {
-                          "type" : "string",
-                          "description" : "Allowed company for the defined customer"
+                          "type" : "string"
                         }
                       }
                     }
@@ -1394,12 +1254,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedProductGroups" : {
-                    "type" : "string",
-                    "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                    "type" : "string"
                   },
                   "definedProductGroupSel" : {
-                    "type" : "string",
-                    "description" : "Level of permission defined for the product group"
+                    "type" : "string"
                   }
                 }
               }
@@ -1411,16 +1269,14 @@
                 "type" : "object",
                 "properties" : {
                   "relationCustomer" : {
-                    "type" : "string",
-                    "description" : "Customers linked or related to the arrangement owner"
+                    "type" : "string"
                   },
                   "productGroups" : {
                     "type" : "string",
                     "description" : "The group, as defined by the institution, that the product belongs to."
                   },
                   "productGroupSel" : {
-                    "type" : "string",
-                    "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                    "type" : "string"
                   },
                   "products" : {
                     "type" : "array",
@@ -1429,11 +1285,10 @@
                       "properties" : {
                         "product" : {
                           "type" : "string",
-                          "description" : "Indicates an id or name of a product"
+                          "description" : "The product for which the pricing plan is applicable"
                         },
                         "productSel" : {
-                          "type" : "string",
-                          "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                          "type" : "string"
                         }
                       }
                     }
@@ -1442,8 +1297,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -1458,11 +1312,10 @@
                 "properties" : {
                   "serviceId" : {
                     "type" : "string",
-                    "description" : "Contains the identifier name of the service that has to be executed."
+                    "description" : "Provides the id of the service that has to be run."
                   },
                   "serviceActive" : {
-                    "type" : "boolean",
-                    "description" : "Indicate whether service is active or not."
+                    "type" : "boolean"
                   },
                   "operations" : {
                     "type" : "array",
@@ -1470,12 +1323,10 @@
                       "type" : "object",
                       "properties" : {
                         "operationId" : {
-                          "type" : "string",
-                          "description" : "ID of the operation which Identifies the required operation to be executed for a Trade Finance contract."
+                          "type" : "string"
                         },
                         "operationActive" : {
-                          "type" : "boolean",
-                          "description" : "Indiciate whether operation is active or not"
+                          "type" : "boolean"
                         }
                       }
                     }
@@ -1484,8 +1335,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -1498,12 +1348,10 @@
                 "type" : "object",
                 "properties" : {
                   "dayName" : {
-                    "type" : "string",
-                    "description" : "Day name of the week"
+                    "type" : "string"
                   },
                   "daySelect" : {
-                    "type" : "boolean",
-                    "description" : "Allowed days to access Internet Banking"
+                    "type" : "boolean"
                   },
                   "time" : {
                     "type" : "array",
@@ -1512,11 +1360,11 @@
                       "properties" : {
                         "startTime" : {
                           "type" : "string",
-                          "description" : "Contains the time job was started"
+                          "description" : "The time job was started"
                         },
                         "endTime" : {
                           "type" : "string",
-                          "description" : "Contains the time the job  ended."
+                          "description" : "The time the job was ended.  "
                         }
                       }
                     }
@@ -1525,8 +1373,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -1535,7 +1382,6 @@
           "properties" : {
             "system" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -1550,7 +1396,7 @@
                       "properties" : {
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Contains the application id of the service that has crashed due to error."
+                          "description" : "Application id."
                         }
                       }
                     }
@@ -1560,7 +1406,6 @@
             },
             "transaction" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -1578,8 +1423,7 @@
                 "type" : "object",
                 "properties" : {
                   "allowedCurrency" : {
-                    "type" : "string",
-                    "description" : "Available currencies for the product"
+                    "type" : "string"
                   }
                 }
               }
@@ -1590,15 +1434,13 @@
                 "type" : "object",
                 "properties" : {
                   "benRiskRate" : {
-                    "type" : "string",
-                    "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                    "type" : "string"
                   }
                 }
               }
             },
             "timeOfDay" : {
-              "type" : "string",
-              "description" : "Time of Day"
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -1606,7 +1448,7 @@
             },
             "limitAmount" : {
               "type" : "number",
-              "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+              "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
             }
           }
         },
@@ -1614,12 +1456,10 @@
           "type" : "object",
           "properties" : {
             "noOfUsers" : {
-              "type" : "string",
-              "description" : "The maximum number of users that can be linked to a master arrangement or its roles"
+              "type" : "string"
             },
             "noOfRoles" : {
-              "type" : "string",
-              "description" : "The maximum number of roles that can be linked to the master arrangement"
+              "type" : "string"
             }
           }
         }
@@ -1629,7 +1469,7 @@
       "properties" : {
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "aaaId" : {
           "type" : "string",
@@ -1641,7 +1481,7 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "audit" : {
           "type" : "object",
@@ -1653,7 +1493,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -1689,7 +1529,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   }
                 }
               }
@@ -1714,8 +1554,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : "Value of the field"
+                          "type" : "string"
                         }
                       }
                     }
@@ -1738,19 +1577,17 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account"
+              "description" : "The identifier of the arrangement"
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : "The name of the sub arrangement that is displayed."
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -1767,7 +1604,7 @@
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+              "description" : "The transaction amount"
             }
           }
         },
@@ -1778,12 +1615,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -1804,7 +1640,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -1822,7 +1658,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1837,23 +1673,20 @@
                         "properties" : {
                           "customer" : {
                             "type" : "string",
-                            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                            "description" : "The customer number"
                           },
                           "customerRole" : {
                             "type" : "string",
-                            "description" : "Indicates role of a customer for an arrangement."
+                            "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : "Tax liability percentage of the customer"
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates percentage of limit allocated to the customer out of overall limit"
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates GL allocation percentage of the customer"
+                            "type" : "number"
                           }
                         }
                       }
@@ -1874,7 +1707,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -1892,7 +1725,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -1905,12 +1738,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -1918,8 +1749,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : "Allowed company for the defined customer"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -1933,12 +1763,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission defined for the product group"
+                            "type" : "string"
                           }
                         }
                       }
@@ -1950,16 +1778,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : "Customers linked or related to the arrangement owner"
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -1968,11 +1794,10 @@
                               "properties" : {
                                 "product" : {
                                   "type" : "string",
-                                  "description" : "Indicates an id or name of a product"
+                                  "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -1981,8 +1806,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -1996,7 +1820,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -2014,7 +1838,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2029,11 +1853,10 @@
                         "properties" : {
                           "serviceId" : {
                             "type" : "string",
-                            "description" : "Contains the identifier name of the service that has to be executed."
+                            "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : "Indicate whether service is active or not."
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -2041,12 +1864,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : "ID of the operation which Identifies the required operation to be executed for a Trade Finance contract."
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : "Indiciate whether operation is active or not"
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -2055,8 +1876,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -2070,7 +1890,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -2088,7 +1908,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2101,12 +1921,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : "Day name of the week"
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : "Allowed days to access Internet Banking"
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -2115,11 +1933,11 @@
                               "properties" : {
                                 "startTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time job was started"
+                                  "description" : "The time job was started"
                                 },
                                 "endTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time the job  ended."
+                                  "description" : "The time the job was ended.  "
                                 }
                               }
                             }
@@ -2128,8 +1946,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -2143,7 +1960,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -2161,7 +1978,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2170,7 +1987,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -2185,7 +2001,7 @@
                               "properties" : {
                                 "applicationId" : {
                                   "type" : "string",
-                                  "description" : "Contains the application id of the service that has crashed due to error."
+                                  "description" : "Application id."
                                 }
                               }
                             }
@@ -2195,7 +2011,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -2213,8 +2028,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : "Available currencies for the product"
+                            "type" : "string"
                           }
                         }
                       }
@@ -2225,15 +2039,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : "Time of Day"
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -2241,7 +2053,7 @@
                     },
                     "limitAmount" : {
                       "type" : "number",
-                      "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+                      "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
                     }
                   }
                 }
@@ -2255,7 +2067,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -2273,7 +2085,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -2281,12 +2093,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : "The maximum number of users that can be linked to a master arrangement or its roles"
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : "The maximum number of roles that can be linked to the master arrangement"
+                      "type" : "string"
                     }
                   }
                 }
@@ -2479,7 +2289,7 @@
             "properties" : {
               "customerId" : {
                 "type" : "string",
-                "description" : "Identifier of the customer"
+                "description" : "The identifier of the customer"
               }
             }
           }
@@ -2504,8 +2314,7 @@
                       "description" : "The name of the field"
                     },
                     "fieldValue" : {
-                      "type" : "string",
-                      "description" : "Value of the field"
+                      "type" : "string"
                     }
                   }
                 }
@@ -2528,15 +2337,13 @@
         },
         "productId" : {
           "type" : "string",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+          "description" : "Id of the product."
         },
         "masterArrangementId" : {
-          "type" : "string",
-          "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+          "type" : "string"
         },
         "subArrangementName" : {
-          "type" : "string",
-          "description" : "The name of the sub arrangement that is displayed."
+          "type" : "string"
         },
         "currencyId" : {
           "type" : "string",
@@ -2553,7 +2360,7 @@
         },
         "transactionAmount" : {
           "type" : "number",
-          "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+          "description" : "The transaction amount"
         },
         "customer" : {
           "type" : "object",
@@ -2566,23 +2373,20 @@
                 "properties" : {
                   "customer" : {
                     "type" : "string",
-                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                    "description" : "The customer number"
                   },
                   "customerRole" : {
                     "type" : "string",
-                    "description" : "Indicates role of a customer for an arrangement."
+                    "description" : "The customer role with drop down of standard selections"
                   },
                   "taxLiabilityPercentage" : {
-                    "type" : "number",
-                    "description" : "Tax liability percentage of the customer"
+                    "type" : "number"
                   },
                   "limitAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : "Indicates percentage of limit allocated to the customer out of overall limit"
+                    "type" : "number"
                   },
                   "GLAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : "Indicates GL allocation percentage of the customer"
+                    "type" : "number"
                   }
                 }
               }
@@ -2602,12 +2406,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedCustomer" : {
-                    "type" : "string",
-                    "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                    "type" : "string"
                   },
                   "definedCustomerSel" : {
-                    "type" : "boolean",
-                    "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                    "type" : "boolean"
                   },
                   "definedCompanies" : {
                     "type" : "array",
@@ -2615,8 +2417,7 @@
                       "type" : "object",
                       "properties" : {
                         "definedCompany" : {
-                          "type" : "string",
-                          "description" : "Allowed company for the defined customer"
+                          "type" : "string"
                         }
                       }
                     }
@@ -2630,12 +2431,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedProductGroups" : {
-                    "type" : "string",
-                    "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                    "type" : "string"
                   },
                   "definedProductGroupSel" : {
-                    "type" : "string",
-                    "description" : "Level of permission defined for the product group"
+                    "type" : "string"
                   }
                 }
               }
@@ -2647,16 +2446,14 @@
                 "type" : "object",
                 "properties" : {
                   "relationCustomer" : {
-                    "type" : "string",
-                    "description" : "Customers linked or related to the arrangement owner"
+                    "type" : "string"
                   },
                   "productGroups" : {
                     "type" : "string",
                     "description" : "The group, as defined by the institution, that the product belongs to."
                   },
                   "productGroupSel" : {
-                    "type" : "string",
-                    "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                    "type" : "string"
                   },
                   "products" : {
                     "type" : "array",
@@ -2665,11 +2462,10 @@
                       "properties" : {
                         "product" : {
                           "type" : "string",
-                          "description" : "Indicates an id or name of a product"
+                          "description" : "The product for which the pricing plan is applicable"
                         },
                         "productSel" : {
-                          "type" : "string",
-                          "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                          "type" : "string"
                         }
                       }
                     }
@@ -2678,8 +2474,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -2694,11 +2489,10 @@
                 "properties" : {
                   "serviceId" : {
                     "type" : "string",
-                    "description" : "Contains the identifier name of the service that has to be executed."
+                    "description" : "Provides the id of the service that has to be run."
                   },
                   "serviceActive" : {
-                    "type" : "boolean",
-                    "description" : "Indicate whether service is active or not."
+                    "type" : "boolean"
                   },
                   "operations" : {
                     "type" : "array",
@@ -2706,12 +2500,10 @@
                       "type" : "object",
                       "properties" : {
                         "operationId" : {
-                          "type" : "string",
-                          "description" : "ID of the operation which Identifies the required operation to be executed for a Trade Finance contract."
+                          "type" : "string"
                         },
                         "operationActive" : {
-                          "type" : "boolean",
-                          "description" : "Indiciate whether operation is active or not"
+                          "type" : "boolean"
                         }
                       }
                     }
@@ -2720,8 +2512,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -2734,12 +2525,10 @@
                 "type" : "object",
                 "properties" : {
                   "dayName" : {
-                    "type" : "string",
-                    "description" : "Day name of the week"
+                    "type" : "string"
                   },
                   "daySelect" : {
-                    "type" : "boolean",
-                    "description" : "Allowed days to access Internet Banking"
+                    "type" : "boolean"
                   },
                   "time" : {
                     "type" : "array",
@@ -2748,11 +2537,11 @@
                       "properties" : {
                         "startTime" : {
                           "type" : "string",
-                          "description" : "Contains the time job was started"
+                          "description" : "The time job was started"
                         },
                         "endTime" : {
                           "type" : "string",
-                          "description" : "Contains the time the job  ended."
+                          "description" : "The time the job was ended.  "
                         }
                       }
                     }
@@ -2761,8 +2550,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : "Marker to identify whether changes made at Master Arrangement level"
+              "type" : "string"
             }
           }
         },
@@ -2771,7 +2559,6 @@
           "properties" : {
             "system" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -2786,7 +2573,7 @@
                       "properties" : {
                         "applicationId" : {
                           "type" : "string",
-                          "description" : "Contains the application id of the service that has crashed due to error."
+                          "description" : "Application id."
                         }
                       }
                     }
@@ -2796,7 +2583,6 @@
             },
             "transaction" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -2814,8 +2600,7 @@
                 "type" : "object",
                 "properties" : {
                   "allowedCurrency" : {
-                    "type" : "string",
-                    "description" : "Available currencies for the product"
+                    "type" : "string"
                   }
                 }
               }
@@ -2826,15 +2611,13 @@
                 "type" : "object",
                 "properties" : {
                   "benRiskRate" : {
-                    "type" : "string",
-                    "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                    "type" : "string"
                   }
                 }
               }
             },
             "timeOfDay" : {
-              "type" : "string",
-              "description" : "Time of Day"
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -2842,7 +2625,7 @@
             },
             "limitAmount" : {
               "type" : "number",
-              "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+              "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
             }
           }
         },
@@ -2850,12 +2633,10 @@
           "type" : "object",
           "properties" : {
             "noOfUsers" : {
-              "type" : "string",
-              "description" : "The maximum number of users that can be linked to a master arrangement or its roles"
+              "type" : "string"
             },
             "noOfRoles" : {
-              "type" : "string",
-              "description" : "The maximum number of roles that can be linked to the master arrangement"
+              "type" : "string"
             }
           }
         }
@@ -2886,7 +2667,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   }
                 }
               }
@@ -2911,8 +2692,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : "Value of the field"
+                          "type" : "string"
                         }
                       }
                     }
@@ -2935,19 +2715,17 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account"
+              "description" : "The identifier of the arrangement"
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : "The name of the sub arrangement that is displayed."
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -2964,7 +2742,7 @@
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+              "description" : "The transaction amount"
             }
           }
         },
@@ -2975,12 +2753,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -3001,7 +2778,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3019,7 +2796,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3034,23 +2811,20 @@
                         "properties" : {
                           "customer" : {
                             "type" : "string",
-                            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                            "description" : "The customer number"
                           },
                           "customerRole" : {
                             "type" : "string",
-                            "description" : "Indicates role of a customer for an arrangement."
+                            "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : "Tax liability percentage of the customer"
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates percentage of limit allocated to the customer out of overall limit"
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates GL allocation percentage of the customer"
+                            "type" : "number"
                           }
                         }
                       }
@@ -3071,7 +2845,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3089,7 +2863,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3102,12 +2876,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -3115,8 +2887,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : "Allowed company for the defined customer"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -3130,12 +2901,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission defined for the product group"
+                            "type" : "string"
                           }
                         }
                       }
@@ -3147,16 +2916,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : "Customers linked or related to the arrangement owner"
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -3165,11 +2932,10 @@
                               "properties" : {
                                 "product" : {
                                   "type" : "string",
-                                  "description" : "Indicates an id or name of a product"
+                                  "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -3178,8 +2944,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -3193,7 +2958,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3211,7 +2976,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3226,11 +2991,10 @@
                         "properties" : {
                           "serviceId" : {
                             "type" : "string",
-                            "description" : "Contains the identifier name of the service that has to be executed."
+                            "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : "Indicate whether service is active or not."
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -3238,12 +3002,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : "ID of the operation which Identifies the required operation to be executed for a Trade Finance contract."
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : "Indiciate whether operation is active or not"
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -3252,8 +3014,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -3267,7 +3028,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3285,7 +3046,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3298,12 +3059,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : "Day name of the week"
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : "Allowed days to access Internet Banking"
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -3312,11 +3071,11 @@
                               "properties" : {
                                 "startTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time job was started"
+                                  "description" : "The time job was started"
                                 },
                                 "endTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time the job  ended."
+                                  "description" : "The time the job was ended.  "
                                 }
                               }
                             }
@@ -3325,8 +3084,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -3340,7 +3098,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3358,7 +3116,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3367,7 +3125,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -3382,7 +3139,7 @@
                               "properties" : {
                                 "applicationId" : {
                                   "type" : "string",
-                                  "description" : "Contains the application id of the service that has crashed due to error."
+                                  "description" : "Application id."
                                 }
                               }
                             }
@@ -3392,7 +3149,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -3410,8 +3166,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : "Available currencies for the product"
+                            "type" : "string"
                           }
                         }
                       }
@@ -3422,15 +3177,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : "Time of Day"
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -3438,7 +3191,7 @@
                     },
                     "limitAmount" : {
                       "type" : "number",
-                      "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+                      "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
                     }
                   }
                 }
@@ -3452,7 +3205,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -3470,7 +3223,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -3478,12 +3231,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : "The maximum number of users that can be linked to a master arrangement or its roles"
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : "The maximum number of roles that can be linked to the master arrangement"
+                      "type" : "string"
                     }
                   }
                 }
@@ -3505,7 +3256,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -3559,11 +3310,11 @@
               "properties" : {
                 "productId" : {
                   "type" : "string",
-                  "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                  "description" : "Id of the product."
                 },
                 "currency" : {
                   "type" : "string",
-                  "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                  "description" : "Identifies the underlying currency used for the transaction."
                 }
               }
             }
@@ -3573,8 +3324,7 @@
             "description" : "Description of the product group"
           },
           "productPermission" : {
-            "type" : "string",
-            "description" : "Type of permission applicable for products"
+            "type" : "string"
           },
           "productGroupId" : {
             "type" : "string",
@@ -3714,12 +3464,10 @@
               "properties" : {
                 "linkedSubArrangementId" : {
                   "type" : "string",
-                  "description" : "Unique identification number for the Sub-arrangement (Role)",
                   "maxLength" : 20
                 },
                 "linkedSubArrangementName" : {
                   "type" : "string",
-                  "description" : "Name of the sub Arrangement or Role",
                   "maxLength" : 35
                 }
               }
@@ -3741,16 +3489,13 @@
                     "type" : "object",
                     "properties" : {
                       "inputterId" : {
-                        "type" : "string",
-                        "description" : "The user identifier Id who input the transaction"
+                        "type" : "string"
                       },
                       "inputterName" : {
-                        "type" : "string",
-                        "description" : "The user identifier name who input the transaction"
+                        "type" : "string"
                       },
                       "externalInputterName" : {
-                        "type" : "string",
-                        "description" : "Name of the external user"
+                        "type" : "string"
                       }
                     }
                   }
@@ -3760,17 +3505,16 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The identifier of the arrangement",
             "maxLength" : 17
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc.",
+            "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure",
             "maxLength" : 15
           },
           "subArrangementName" : {
             "type" : "string",
-            "description" : "The name of the sub arrangement that is displayed.",
             "maxLength" : 35
           },
           "productGroupId" : {
@@ -3785,17 +3529,17 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "description" : "Id of the product.",
             "maxLength" : 30
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition.",
+            "description" : "Name of the product, which is also its Id.",
             "maxLength" : 30
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "customerName" : {
@@ -3805,7 +3549,6 @@
           },
           "masterArrangementId" : {
             "type" : "string",
-            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created.",
             "maxLength" : 20
           },
           "activityId" : {
@@ -3813,8 +3556,7 @@
             "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
           },
           "pendingActivityId" : {
-            "type" : "string",
-            "description" : "ID of the arrangement activity which is pending to be authorised"
+            "type" : "string"
           }
         }
       }
@@ -3837,11 +3579,11 @@
         "properties" : {
           "externalUserId" : {
             "type" : "string",
-            "description" : "Contains the external user identifier for which the consent is created."
+            "description" : "The identifier of the external user"
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "externalUserName" : {
             "type" : "string",
@@ -3849,17 +3591,15 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account",
+            "description" : "The identifier of the arrangement",
             "maxLength" : 30
           },
           "subArrangementId" : {
             "type" : "string",
-            "description" : "The subset of Master arrangement.",
             "maxLength" : 30
           },
           "subArrangementName" : {
-            "type" : "string",
-            "description" : "The name of the sub arrangement that is displayed."
+            "type" : "string"
           },
           "externalUserStatus" : {
             "type" : "string",
@@ -3867,28 +3607,23 @@
           },
           "usersCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : "Number of External Users assigned based on the given parameter"
+            "format" : "int32"
           },
           "usersTotalCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : "Number of External Users for the entire arrangement, regardless of their role allocation"
+            "format" : "int32"
           },
           "userLicensesCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : "Maximum allowed number of users based on the Licensing property class"
+            "format" : "int32"
           },
           "subArrangementsCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : "Number of roles attached to the Master Arrangement"
+            "format" : "int32"
           },
           "subArrangementLicensesCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : "Maximum allowed number of roles based on the Licensing property class"
+            "format" : "int32"
           }
         }
       }
@@ -3918,7 +3653,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   },
                   "customerName" : {
                     "type" : "string",
@@ -3926,7 +3661,7 @@
                   },
                   "customerRole" : {
                     "type" : "string",
-                    "description" : "Indicates role of a customer for an arrangement."
+                    "description" : "The customer role with drop down of standard selections"
                   }
                 }
               }
@@ -3942,8 +3677,7 @@
                       "type" : "object",
                       "properties" : {
                         "subArrangementId" : {
-                          "type" : "string",
-                          "description" : "The subset of Master arrangement."
+                          "type" : "string"
                         }
                       }
                     }
@@ -3966,11 +3700,11 @@
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              "description" : "Id of the product."
             },
             "productName" : {
               "type" : "string",
-              "description" : "Product name of the bank for this account, proprietary definition."
+              "description" : "Name of the product, which is also its Id."
             },
             "productGroupId" : {
               "type" : "string",
@@ -3986,19 +3720,17 @@
             },
             "productLineName" : {
               "type" : "string",
-              "description" : "Description of the product line, e.g. Client Consent for product line CONSENT."
+              "description" : "\"Description of the product line, e.g. \"\"Client Consent\"\" for product line CONSENT.\""
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : "The name of the sub arrangement that is displayed."
+              "type" : "string"
             },
             "arrangementStatus" : {
               "type" : "string",
-              "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+              "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure"
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+              "type" : "string"
             }
           }
         },
@@ -4009,12 +3741,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -4035,7 +3766,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4053,7 +3784,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4068,23 +3799,20 @@
                         "properties" : {
                           "customer" : {
                             "type" : "string",
-                            "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                            "description" : "The customer number"
                           },
                           "customerRole" : {
                             "type" : "string",
-                            "description" : "Indicates role of a customer for an arrangement."
+                            "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : "Tax liability percentage of the customer"
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates percentage of limit allocated to the customer out of overall limit"
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : "Indicates GL allocation percentage of the customer"
+                            "type" : "number"
                           }
                         }
                       }
@@ -4105,7 +3833,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4123,7 +3851,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4136,12 +3864,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -4149,8 +3875,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : "Allowed company for the defined customer"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -4164,12 +3889,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission defined for the product group"
+                            "type" : "string"
                           }
                         }
                       }
@@ -4181,16 +3904,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : "Customers linked or related to the arrangement owner"
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -4199,11 +3920,10 @@
                               "properties" : {
                                 "product" : {
                                   "type" : "string",
-                                  "description" : "Indicates an id or name of a product"
+                                  "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -4212,8 +3932,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4227,7 +3946,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4245,7 +3964,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4260,11 +3979,10 @@
                         "properties" : {
                           "serviceId" : {
                             "type" : "string",
-                            "description" : "Contains the identifier name of the service that has to be executed."
+                            "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : "Indicate whether service is active or not."
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -4272,12 +3990,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : "ID of the operation which Identifies the required operation to be executed for a Trade Finance contract."
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : "Indiciate whether operation is active or not"
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -4286,8 +4002,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4301,7 +4016,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4319,7 +4034,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4332,12 +4047,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : "Day name of the week"
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : "Allowed days to access Internet Banking"
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -4346,11 +4059,11 @@
                               "properties" : {
                                 "startTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time job was started"
+                                  "description" : "The time job was started"
                                 },
                                 "endTime" : {
                                   "type" : "string",
-                                  "description" : "Contains the time the job  ended."
+                                  "description" : "The time the job was ended.  "
                                 }
                               }
                             }
@@ -4359,8 +4072,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4374,7 +4086,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4392,7 +4104,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4401,7 +4113,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -4416,7 +4127,7 @@
                               "properties" : {
                                 "applicationId" : {
                                   "type" : "string",
-                                  "description" : "Contains the application id of the service that has crashed due to error."
+                                  "description" : "Application id."
                                 }
                               }
                             }
@@ -4426,7 +4137,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -4444,8 +4154,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : "Available currencies for the product"
+                            "type" : "string"
                           }
                         }
                       }
@@ -4456,15 +4165,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : "Time of Day"
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -4472,7 +4179,7 @@
                     },
                     "limitAmount" : {
                       "type" : "number",
-                      "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+                      "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
                     }
                   }
                 }
@@ -4486,7 +4193,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4504,7 +4211,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4512,12 +4219,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : "The maximum number of users that can be linked to a master arrangement or its roles"
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : "The maximum number of roles that can be linked to the master arrangement"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4549,12 +4254,10 @@
               "type" : "object",
               "properties" : {
                 "linkedSubArrangementId" : {
-                  "type" : "string",
-                  "description" : "Unique identification number for the Sub-arrangement (Role)"
+                  "type" : "string"
                 },
                 "linkedSubArrangementName" : {
-                  "type" : "string",
-                  "description" : "Name of the sub Arrangement or Role"
+                  "type" : "string"
                 }
               }
             }
@@ -4575,16 +4278,13 @@
                     "type" : "object",
                     "properties" : {
                       "inputterId" : {
-                        "type" : "string",
-                        "description" : "The user identifier Id who input the transaction"
+                        "type" : "string"
                       },
                       "inputterName" : {
-                        "type" : "string",
-                        "description" : "The user identifier name who input the transaction"
+                        "type" : "string"
                       },
                       "externalInputterName" : {
-                        "type" : "string",
-                        "description" : "Name of the external user"
+                        "type" : "string"
                       }
                     }
                   }
@@ -4594,15 +4294,14 @@
           },
           "arrangementId" : {
             "type" : "string",
-            "description" : "Indicates an unique identifier of an account"
+            "description" : "The identifier of the arrangement"
           },
           "arrangementStatus" : {
             "type" : "string",
-            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+            "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure"
           },
           "subArrangementName" : {
-            "type" : "string",
-            "description" : "The name of the sub arrangement that is displayed."
+            "type" : "string"
           },
           "productGroupId" : {
             "type" : "string",
@@ -4614,15 +4313,15 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+            "description" : "Id of the product."
           },
           "productName" : {
             "type" : "string",
-            "description" : "Product name of the bank for this account, proprietary definition."
+            "description" : "Name of the product, which is also its Id."
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "customerName" : {
             "type" : "string",
@@ -4631,19 +4330,17 @@
           "startDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Contains the date on which the transaction or payment gets initiated."
+            "description" : "Specifies the start date when the instruction will be made active"
           },
           "masterArrangementId" : {
-            "type" : "string",
-            "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+            "type" : "string"
           },
           "activityId" : {
             "type" : "string",
             "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
           },
           "pendingActivityId" : {
-            "type" : "string",
-            "description" : "ID of the arrangement activity which is pending to be authorised"
+            "type" : "string"
           }
         }
       }
@@ -4673,7 +4370,7 @@
                 "properties" : {
                   "customerId" : {
                     "type" : "string",
-                    "description" : "Identifier of the customer"
+                    "description" : "The identifier of the customer"
                   }
                 }
               }
@@ -4698,8 +4395,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : "Value of the field"
+                          "type" : "string"
                         }
                       }
                     }
@@ -4722,19 +4418,17 @@
             },
             "arrangementId" : {
               "type" : "string",
-              "description" : "Indicates an unique identifier of an account"
+              "description" : "The identifier of the arrangement"
             },
             "productId" : {
               "type" : "string",
-              "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : "The unique identifier to specify an arrangement reference which is act as a Master for the arrangement being created."
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : "The name of the sub arrangement that is displayed."
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -4751,7 +4445,7 @@
             },
             "transactionAmount" : {
               "type" : "number",
-              "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency"
+              "description" : "The transaction amount"
             }
           }
         },
@@ -4762,12 +4456,11 @@
               "type" : "object",
               "properties" : {
                 "activity" : {
-                  "type" : "string",
-                  "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+                  "type" : "string"
                 },
                 "transactionStatus" : {
                   "type" : "string",
-                  "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                  "description" : "The status of the transaction"
                 },
                 "id" : {
                   "type" : "string",
@@ -4788,7 +4481,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4806,7 +4499,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4815,28 +4508,23 @@
                   "properties" : {
                     "Customer" : {
                       "type" : "string",
-                      "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed."
+                      "description" : "The customer number"
                     },
                     "taxLiabilityPerc1" : {
-                      "type" : "string",
-                      "description" : "Tax liability percentage of the customer"
+                      "type" : "string"
                     },
                     "limitAllocPerc1" : {
-                      "type" : "string",
-                      "description" : "Percentage of limit allocated to the customer out of overall limit"
+                      "type" : "string"
                     },
                     "glAllocPerc1" : {
-                      "type" : "string",
-                      "description" : "GL allocation percentage of the customer"
+                      "type" : "string"
                     },
                     "jsLiable" : {
                       "type" : "string",
-                      "description" : "Joint & Severally Liable",
                       "enum" : [ "Joint & Severally Liable" ]
                     },
                     "includeInCraOf" : {
                       "type" : "string",
-                      "description" : "CRA of the customer",
                       "enum" : [ "Include in CRA of" ]
                     }
                   }
@@ -4851,7 +4539,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4869,7 +4557,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4877,48 +4565,39 @@
                   "type" : "object",
                   "properties" : {
                     "definedCustomer" : {
-                      "type" : "string",
-                      "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking"
+                      "type" : "string"
                     },
                     "definedCompany" : {
-                      "type" : "string",
-                      "description" : "Allowed company for the defined customer"
+                      "type" : "string"
                     },
                     "definedCustomerSel" : {
-                      "type" : "string",
-                      "description" : "Available accounts for the allowed customer will be displayed if this field is set as Yes .If set as No, accounts will not be available"
+                      "type" : "string"
                     },
                     "definedProductGroups" : {
-                      "type" : "string",
-                      "description" : "Product groups that can be accessed by external users via a specific Online Services product"
+                      "type" : "string"
                     },
                     "definedProductGroupSel" : {
-                      "type" : "string",
-                      "description" : "Level of permission defined for the product group"
+                      "type" : "string"
                     },
                     "relCustomer" : {
-                      "type" : "string",
-                      "description" : "Customers linked or related to the arrangement owner"
+                      "type" : "string"
                     },
                     "productGroups" : {
                       "type" : "string",
                       "description" : "The group, as defined by the institution, that the product belongs to."
                     },
                     "productGroupSel" : {
-                      "type" : "string",
-                      "description" : "Level of permission applicable for the associated Product groups; Possible values: Exclude, See, Transact"
+                      "type" : "string"
                     },
                     "Product" : {
                       "type" : "string",
-                      "description" : "Indicates an id or name of a product"
+                      "description" : "The product for which the pricing plan is applicable"
                     },
                     "productSel" : {
-                      "type" : "string",
-                      "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+                      "type" : "string"
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4932,7 +4611,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -4950,7 +4629,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -4958,24 +4637,20 @@
                   "type" : "object",
                   "properties" : {
                     "Service" : {
-                      "type" : "string",
-                      "description" : "Unique id of the service"
+                      "type" : "string"
                     },
                     "serviceActive" : {
-                      "type" : "string",
-                      "description" : "Indicate whether service is active or not."
+                      "type" : "string"
                     },
                     "Operation" : {
                       "type" : "string",
                       "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
                     },
                     "operationActive" : {
-                      "type" : "string",
-                      "description" : "Indiciate whether operation is active or not"
+                      "type" : "string"
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -4989,7 +4664,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -5007,7 +4682,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -5015,24 +4690,21 @@
                   "type" : "object",
                   "properties" : {
                     "DayName" : {
-                      "type" : "string",
-                      "description" : "Day name of the week"
+                      "type" : "string"
                     },
                     "DaySelect" : {
-                      "type" : "string",
-                      "description" : "Allowed days to access Internet Banking"
+                      "type" : "string"
                     },
                     "StartTime" : {
                       "type" : "string",
-                      "description" : "Contains the time job was started"
+                      "description" : "The time job was started"
                     },
                     "EndTime" : {
                       "type" : "string",
-                      "description" : "Contains the time the job  ended."
+                      "description" : "The time the job was ended.  "
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : "Marker to identify whether changes made at Master Arrangement level"
+                      "type" : "string"
                     }
                   }
                 }
@@ -5046,7 +4718,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -5064,7 +4736,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -5076,32 +4748,28 @@
                       "description" : "The system application identifier from which the entry was generated"
                     },
                     "Application" : {
-                      "type" : "string",
-                      "description" : "Name of the application or virtual table"
+                      "type" : "string"
                     },
                     "transactionType" : {
                       "type" : "string",
-                      "description" : "Identifies the transaction type applicable to the transaction being processed, i.e. outward or inward payment. For example: ACPX, OTPX etc."
+                      "description" : "This is the type of transaction for which Beneficiary is created i.e. within bank account transfer or other bank transfer etc."
                     },
                     "allowedCcy" : {
-                      "type" : "string",
-                      "description" : "Available currencies for the product"
+                      "type" : "string"
                     },
                     "benRiskRate" : {
-                      "type" : "string",
-                      "description" : "List of Beneficiary risk rate that the protection limit applies to"
+                      "type" : "string"
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : "Time of Day"
+                      "type" : "string"
                     },
                     "Currency" : {
                       "type" : "string",
-                      "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates"
+                      "description" : "Identifies the underlying currency used for the transaction."
                     },
                     "limitAmount" : {
                       "type" : "number",
-                      "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+                      "description" : "The Limit amount that is actually available for use.�The system limit checks are preformed against the online limit"
                     }
                   }
                 }
@@ -5115,7 +4783,7 @@
                   "properties" : {
                     "transactionStatus" : {
                       "type" : "string",
-                      "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+                      "description" : "The status of the transaction"
                     },
                     "audit" : {
                       "type" : "object",
@@ -5133,7 +4801,7 @@
                     },
                     "status" : {
                       "type" : "string",
-                      "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+                      "description" : "The status of the record"
                     }
                   }
                 },
@@ -5141,12 +4809,10 @@
                   "type" : "object",
                   "properties" : {
                     "numberOfUsers" : {
-                      "type" : "string",
-                      "description" : "Number of External Users assigned based on the master arrangement"
+                      "type" : "string"
                     },
                     "numberOfRoles" : {
-                      "type" : "string",
-                      "description" : "Number of roles attached to the Master Arrangement"
+                      "type" : "string"
                     }
                   }
                 }

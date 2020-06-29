@@ -31,15 +31,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -78,7 +71,7 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "query",
-          "description" : "Contains the external user identifier for which the consent is created.",
+          "description" : "The identifier of the external user",
           "required" : false,
           "type" : "string"
         }, {
@@ -90,13 +83,13 @@
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "subArrangementId",
           "in" : "query",
-          "description" : "The subset of Master arrangement.",
+          "description" : "The identifier of the subarrangement",
           "required" : false,
           "type" : "string"
         }, {
@@ -114,7 +107,7 @@
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -138,15 +131,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -195,15 +181,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -242,7 +221,7 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
+          "description" : "The identifier of the external user",
           "required" : true,
           "type" : "string"
         }, {
@@ -266,15 +245,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -311,7 +283,6 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
           "type" : "string"
         }, {
@@ -329,15 +300,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -374,7 +338,6 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
           "type" : "string"
         }, {
@@ -384,15 +347,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -443,15 +399,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -490,7 +439,6 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
           "type" : "string"
         }, {
@@ -508,15 +456,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -555,19 +496,11 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -604,7 +537,6 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
           "type" : "string"
         }, {
@@ -614,15 +546,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -661,7 +586,6 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
           "type" : "string"
         }, {
@@ -671,15 +595,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -724,7 +641,6 @@
         }, {
           "name" : "userSignOnName",
           "in" : "query",
-          "description" : "This is the name entered by the User to sign on to the System. It is used by the System as an alternative key to access User details",
           "required" : false,
           "type" : "string"
         }, {
@@ -748,15 +664,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -795,7 +704,7 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "query",
-          "description" : "Contains the external user identifier for which the consent is created.",
+          "description" : "The identifier of the external user",
           "required" : false,
           "type" : "string"
         }, {
@@ -807,19 +716,18 @@
         }, {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "subArrangementId",
           "in" : "query",
-          "description" : "The subset of Master arrangement.",
           "required" : false,
           "type" : "string"
         }, {
@@ -855,15 +763,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -902,13 +803,13 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "externalUserId",
           "in" : "query",
-          "description" : "Contains the external user identifier for which the consent is created.",
+          "description" : "The identifier of the external user",
           "required" : false,
           "type" : "string"
         }, {
@@ -920,7 +821,7 @@
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "description" : "Indicates an unique identifier of an account",
+          "description" : "The identifier of the arrangement",
           "required" : false,
           "type" : "string"
         }, {
@@ -956,15 +857,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1003,19 +897,17 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "relationType",
           "in" : "query",
-          "description" : "The type of relation that is used between customers",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "excludeCustomerType",
           "in" : "query",
-          "description" : "The type of the customer to be excluded from the related customers list",
           "required" : false,
           "type" : "string"
         }, {
@@ -1039,15 +931,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1086,7 +971,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : true,
           "type" : "string",
           "x-example" : "190218"
@@ -1111,15 +996,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1158,7 +1036,7 @@
         "parameters" : [ {
           "name" : "customerId",
           "in" : "query",
-          "description" : "Identifier of the customer",
+          "description" : "The identifier of the customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -1176,7 +1054,6 @@
         }, {
           "name" : "firstName",
           "in" : "query",
-          "description" : "Specifies customer's first name",
           "required" : false,
           "type" : "string"
         }, {
@@ -1188,7 +1065,7 @@
         }, {
           "name" : "street",
           "in" : "query",
-          "description" : "Contains the first line of customer's base address, example building number, street number etc.",
+          "description" : "The first line of the base address of a customer or prospect",
           "required" : false,
           "type" : "string"
         }, {
@@ -1200,13 +1077,13 @@
         }, {
           "name" : "postCode",
           "in" : "query",
-          "description" : "Identifies the address postal code for the customer.",
+          "description" : "The postal code of the customer or prospect",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "country",
           "in" : "query",
-          "description" : "Identifies the country of the customer.",
+          "description" : "The country component of the base address of a customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -1230,13 +1107,11 @@
         }, {
           "name" : "mobilePhoneNumber",
           "in" : "query",
-          "description" : "Represents the phone number of a customer",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "customerType",
           "in" : "query",
-          "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager",
           "required" : false,
           "type" : "string"
         }, {
@@ -1272,7 +1147,7 @@
         }, {
           "name" : "accountOfficerId",
           "in" : "query",
-          "description" : "The identifier of the department head or specific account officer responsible for the customer",
+          "description" : "The identifier of the�department head or specific account officer responsible for the customer",
           "required" : false,
           "type" : "string"
         }, {
@@ -1296,15 +1171,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1343,19 +1211,11 @@
         "parameters" : [ {
           "name" : "externalUserId",
           "in" : "path",
-          "description" : "Contains the external user identifier for which the consent is created.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1410,7 +1270,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -1426,7 +1286,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -1478,16 +1338,14 @@
             "type" : "object",
             "properties" : {
               "documentName" : {
-                "type" : "string",
-                "description" : "The accepted forms of identification taken by the bank when enrolling a Customer"
+                "type" : "string"
               },
               "documentId" : {
                 "type" : "string",
                 "description" : "Based on documentCode, the field defaults the required document codes"
               },
               "holderName" : {
-                "type" : "string",
-                "description" : "Identifies the Name of the  joint, substantial or beneficial owner"
+                "type" : "string"
               },
               "issueDate" : {
                 "type" : "string",
@@ -1511,7 +1369,7 @@
             "properties" : {
               "street" : {
                 "type" : "string",
-                "description" : "Contains the first line of customer's base address, example building number, street number etc."
+                "description" : "The first line of the base address of a customer or prospect"
               }
             }
           }
@@ -1524,7 +1382,7 @@
             "properties" : {
               "postCode" : {
                 "type" : "string",
-                "description" : "Identifies the address postal code for the customer."
+                "description" : "The postal code of the customer or prospect"
               }
             }
           }
@@ -1550,7 +1408,7 @@
             "properties" : {
               "country" : {
                 "type" : "string",
-                "description" : "Identifies the country of the customer."
+                "description" : "The country component of the base address of a customer"
               }
             }
           }
@@ -1561,12 +1419,10 @@
             "type" : "object",
             "properties" : {
               "relationCode" : {
-                "type" : "string",
-                "description" : "Identifies the inter-relationship between Customer records and enables a link to be formed for the purpose of evaluating the overall Customer position"
+                "type" : "string"
               },
               "relatedCustomerId" : {
-                "type" : "string",
-                "description" : "Identifies the Customer id details of the Related Customer"
+                "type" : "string"
               }
             },
             "required" : [ "relationCode" ]
@@ -1590,8 +1446,7 @@
           "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
         },
         "givenName" : {
-          "type" : "string",
-          "description" : "Customer's given name"
+          "type" : "string"
         },
         "lastName" : {
           "type" : "string",
@@ -1636,11 +1491,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -1652,7 +1507,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -1708,16 +1563,14 @@
             "type" : "object",
             "properties" : {
               "documentName" : {
-                "type" : "string",
-                "description" : "The accepted forms of identification taken by the bank when enrolling a Customer"
+                "type" : "string"
               },
               "documentId" : {
                 "type" : "string",
                 "description" : "Based on documentCode, the field defaults the required document codes"
               },
               "holderName" : {
-                "type" : "string",
-                "description" : "Identifies the Name of the  joint, substantial or beneficial owner"
+                "type" : "string"
               },
               "issueDate" : {
                 "type" : "string",
@@ -1740,7 +1593,7 @@
             "properties" : {
               "street" : {
                 "type" : "string",
-                "description" : "Contains the first line of customer's base address, example building number, street number etc."
+                "description" : "The first line of the base address of a customer or prospect"
               }
             }
           }
@@ -1753,7 +1606,7 @@
             "properties" : {
               "postCode" : {
                 "type" : "string",
-                "description" : "Identifies the address postal code for the customer."
+                "description" : "The postal code of the customer or prospect"
               }
             }
           }
@@ -1779,7 +1632,7 @@
             "properties" : {
               "country" : {
                 "type" : "string",
-                "description" : "Identifies the country of the customer."
+                "description" : "The country component of the base address of a customer"
               }
             }
           }
@@ -1790,8 +1643,7 @@
             "type" : "object",
             "properties" : {
               "customerShortName" : {
-                "type" : "string",
-                "description" : "Indicates the short name of Customer"
+                "type" : "string"
               }
             }
           }
@@ -1814,12 +1666,10 @@
             "type" : "object",
             "properties" : {
               "relationCode" : {
-                "type" : "string",
-                "description" : "Identifies the inter-relationship between Customer records and enables a link to be formed for the purpose of evaluating the overall Customer position"
+                "type" : "string"
               },
               "relatedCustomerId" : {
-                "type" : "string",
-                "description" : "Identifies the Customer id details of the Related Customer"
+                "type" : "string"
               }
             }
           }
@@ -1842,8 +1692,7 @@
           "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
         },
         "givenName" : {
-          "type" : "string",
-          "description" : "Customer's given name"
+          "type" : "string"
         },
         "lastName" : {
           "type" : "string",
@@ -1875,12 +1724,10 @@
           "description" : "Specifies an alternative easy means of referencing the Customer"
         },
         "internetBankingService" : {
-          "type" : "boolean",
-          "description" : "Internet banking service enabled for customer or not"
+          "type" : "boolean"
         },
         "customerType" : {
-          "type" : "string",
-          "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager"
+          "type" : "string"
         },
         "sectorId" : {
           "type" : "string",
@@ -2105,8 +1952,7 @@
                 "description" : "External User Access status. Can be Active,  Inactive, Barred, Initiated"
               },
               "statusChangeReason" : {
-                "type" : "string",
-                "description" : "Customer status update with respective reasons"
+                "type" : "string"
               },
               "productLineId" : {
                 "type" : "string",
@@ -2114,11 +1960,10 @@
               },
               "arrangementId" : {
                 "type" : "string",
-                "description" : "Indicates an unique identifier of an account"
+                "description" : "The identifier of the arrangement"
               },
               "subArrangementId" : {
-                "type" : "string",
-                "description" : "The subset of Master arrangement."
+                "type" : "string"
               },
               "termsAccepted" : {
                 "type" : "boolean",
@@ -2126,7 +1971,7 @@
               },
               "userType" : {
                 "type" : "string",
-                "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,PERSONAL"
+                "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,�PERSONAL"
               },
               "loginMethod" : {
                 "type" : "string",
@@ -2140,11 +1985,11 @@
                     "startDate" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Contains the date on which the transaction or payment gets initiated."
+                      "description" : "Specifies the start date when the instruction will be made active"
                     },
                     "startTime" : {
                       "type" : "string",
-                      "description" : "Contains the time job was started"
+                      "description" : "The time job was started"
                     }
                   }
                 }
@@ -2157,11 +2002,11 @@
                     "endDate" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
+                      "description" : "This is the final payment date in  the payment schedule."
                     },
                     "endTime" : {
                       "type" : "string",
-                      "description" : "Contains the time the job  ended."
+                      "description" : "The time the job was ended.  "
                     }
                   }
                 }
@@ -2176,19 +2021,17 @@
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "companyId" : {
           "type" : "string",
           "description" : "The identifier of the underlying Entity/Company/Branch."
         },
         "authenticationServerUpdate" : {
-          "type" : "boolean",
-          "description" : "Authenticate on customer login update"
+          "type" : "boolean"
         },
         "externalUserSignMethod" : {
-          "type" : "string",
-          "description" : "External user sign in channels details"
+          "type" : "string"
         },
         "languageId" : {
           "type" : "string",
@@ -2196,8 +2039,7 @@
         },
         "dateFormat" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Used for deciding in which format the dates are to be displayed for a user / for a language"
+          "format" : "date"
         },
         "override" : {
           "type" : "string",
@@ -2234,8 +2076,7 @@
                 "description" : "External User Access status. Can be Active,  Inactive, Barred, Initiated"
               },
               "statusChangeReason" : {
-                "type" : "string",
-                "description" : "Customer status update with respective reasons"
+                "type" : "string"
               },
               "productLineId" : {
                 "type" : "string",
@@ -2243,11 +2084,10 @@
               },
               "arrangementId" : {
                 "type" : "string",
-                "description" : "Indicates an unique identifier of an account"
+                "description" : "The identifier of the arrangement"
               },
               "subArrangementId" : {
-                "type" : "string",
-                "description" : "The subset of Master arrangement."
+                "type" : "string"
               },
               "termsAccepted" : {
                 "type" : "boolean",
@@ -2255,7 +2095,7 @@
               },
               "userType" : {
                 "type" : "string",
-                "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,PERSONAL"
+                "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,�PERSONAL"
               },
               "loginMethod" : {
                 "type" : "string",
@@ -2269,11 +2109,11 @@
                     "startDate" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Contains the date on which the transaction or payment gets initiated."
+                      "description" : "Specifies the start date when the instruction will be made active"
                     },
                     "startTime" : {
                       "type" : "string",
-                      "description" : "Contains the time job was started"
+                      "description" : "The time job was started"
                     }
                   }
                 }
@@ -2286,11 +2126,11 @@
                     "endDate" : {
                       "type" : "string",
                       "format" : "date",
-                      "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
+                      "description" : "This is the final payment date in  the payment schedule."
                     },
                     "endTime" : {
                       "type" : "string",
-                      "description" : "Contains the time the job  ended."
+                      "description" : "The time the job was ended.  "
                     }
                   }
                 }
@@ -2304,19 +2144,17 @@
         },
         "customerId" : {
           "type" : "string",
-          "description" : "Identifier of the customer"
+          "description" : "The identifier of the customer"
         },
         "companyId" : {
           "type" : "string",
           "description" : "The identifier of the underlying Entity/Company/Branch."
         },
         "authenticationServerUpdate" : {
-          "type" : "boolean",
-          "description" : "Authenticate on customer login update"
+          "type" : "boolean"
         },
         "externalUserSignMethod" : {
-          "type" : "string",
-          "description" : "External user sign in channels details"
+          "type" : "string"
         },
         "languageId" : {
           "type" : "string",
@@ -2324,8 +2162,7 @@
         },
         "dateFormat" : {
           "type" : "string",
-          "format" : "date",
-          "description" : "Used for deciding in which format the dates are to be displayed for a user / for a language"
+          "format" : "date"
         },
         "override" : {
           "type" : "string",
@@ -2345,7 +2182,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -2398,12 +2235,10 @@
           },
           "userName" : {
             "type" : "string",
-            "description" : "Specifies the name by which the User is known and can be used for reporting purposes",
             "maxLength" : 35
           },
           "userSignOnName" : {
             "type" : "string",
-            "description" : "This is the name entered by the User to sign on to the System. It is used by the System as an alternative key to access User details",
             "maxLength" : 16
           },
           "dateLastUsed" : {
@@ -2413,12 +2248,11 @@
           },
           "timeLastUsed" : {
             "type" : "string",
-            "description" : "Indicates the time stamp at which the transaction history for the account is retrieved",
+            "description" : "Last time the system was used by the user",
             "maxLength" : 8
           },
           "dateFormat" : {
             "type" : "string",
-            "description" : "Used for deciding in which format the dates are to be displayed for a user / for a language",
             "maxLength" : 1
           },
           "languageId" : {
@@ -2552,7 +2386,6 @@
                 },
                 "statusChangeReason" : {
                   "type" : "string",
-                  "description" : "Customer status update with respective reasons",
                   "maxLength" : 100
                 },
                 "productLineId" : {
@@ -2562,12 +2395,11 @@
                 },
                 "arrangementId" : {
                   "type" : "string",
-                  "description" : "Indicates an unique identifier of an account",
+                  "description" : "The identifier of the arrangement",
                   "maxLength" : 35
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "The subset of Master arrangement.",
                   "maxLength" : 35
                 },
                 "termsAccepted" : {
@@ -2576,7 +2408,7 @@
                 },
                 "userType" : {
                   "type" : "string",
-                  "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,PERSONAL",
+                  "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,�PERSONAL",
                   "maxLength" : 12
                 },
                 "loginMethod" : {
@@ -2592,11 +2424,11 @@
                       "startDate" : {
                         "type" : "string",
                         "format" : "date",
-                        "description" : "Contains the date on which the transaction or payment gets initiated."
+                        "description" : "Specifies the start date when the instruction will be made active"
                       },
                       "startTime" : {
                         "type" : "string",
-                        "description" : "Contains the time job was started",
+                        "description" : "The time job was started",
                         "pattern" : "^([0-1]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)$"
                       }
                     }
@@ -2610,11 +2442,11 @@
                       "endDate" : {
                         "type" : "string",
                         "format" : "date",
-                        "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
+                        "description" : "This is the final payment date in  the payment schedule."
                       },
                       "endTime" : {
                         "type" : "string",
-                        "description" : "Contains the time the job  ended.",
+                        "description" : "The time the job was ended.  ",
                         "pattern" : "^([0-1]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)$"
                       }
                     }
@@ -2630,7 +2462,6 @@
               "properties" : {
                 "versionNumber" : {
                   "type" : "string",
-                  "description" : "Current number of the record",
                   "maxLength" : 4
                 },
                 "recordStatus" : {
@@ -2640,23 +2471,20 @@
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "The user identifier Id who input the transaction",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : "The user identifier name who input the transaction"
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : "Name of the external user"
+                  "type" : "string"
                 }
               }
             }
           },
           "externalUserId" : {
             "type" : "string",
-            "description" : "Contains the external user identifier for which the consent is created.",
+            "description" : "The identifier of the external user",
             "maxLength" : 70
           },
           "externalUserName" : {
@@ -2666,7 +2494,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "companyId" : {
@@ -2675,12 +2503,10 @@
             "maxLength" : 11
           },
           "authenticationServerUpdate" : {
-            "type" : "boolean",
-            "description" : "Authenticate on customer login update"
+            "type" : "boolean"
           },
           "externalUserSignMethod" : {
             "type" : "string",
-            "description" : "External user sign in channels details",
             "maxLength" : 35
           },
           "languageId" : {
@@ -2690,7 +2516,6 @@
           },
           "dateFormat" : {
             "type" : "string",
-            "description" : "Used for deciding in which format the dates are to be displayed for a user / for a language",
             "maxLength" : 1
           },
           "override" : {
@@ -2725,27 +2550,25 @@
               "properties" : {
                 "arrangementId" : {
                   "type" : "string",
-                  "description" : "Indicates an unique identifier of an account",
+                  "description" : "The identifier of the arrangement",
                   "maxLength" : 35
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "The subset of Master arrangement.",
                   "maxLength" : 35
                 },
                 "subArrangementName" : {
                   "type" : "string",
-                  "description" : "The name of the sub arrangement that is displayed.",
                   "maxLength" : 35
                 },
                 "productId" : {
                   "type" : "string",
-                  "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+                  "description" : "Id of the product.",
                   "maxLength" : 35
                 },
                 "productName" : {
                   "type" : "string",
-                  "description" : "Product name of the bank for this account, proprietary definition."
+                  "description" : "Name of the product, which is also its Id."
                 },
                 "channelId" : {
                   "type" : "string",
@@ -2772,28 +2595,24 @@
                 },
                 "currentNumber" : {
                   "type" : "string",
-                  "description" : "To get the version record details",
                   "maxLength" : 4
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "The user identifier Id who input the transaction",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : "The user identifier name who input the transaction"
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : "Name of the external user"
+                  "type" : "string"
                 }
               }
             }
           },
           "externalUserId" : {
             "type" : "string",
-            "description" : "Contains the external user identifier for which the consent is created.",
+            "description" : "The identifier of the external user",
             "maxLength" : 70
           },
           "externalUserName" : {
@@ -2803,7 +2622,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "customerName" : {
@@ -2842,25 +2661,23 @@
               "properties" : {
                 "arrangementId" : {
                   "type" : "string",
-                  "description" : "Indicates an unique identifier of an account",
+                  "description" : "The identifier of the arrangement",
                   "maxLength" : 35
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "The subset of Master arrangement.",
                   "maxLength" : 35
                 },
                 "subArrangementName" : {
-                  "type" : "string",
-                  "description" : "The name of the sub arrangement that is displayed."
+                  "type" : "string"
                 },
                 "productId" : {
                   "type" : "string",
-                  "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                  "description" : "Id of the product."
                 },
                 "productName" : {
                   "type" : "string",
-                  "description" : "Product name of the bank for this account, proprietary definition."
+                  "description" : "Name of the product, which is also its Id."
                 },
                 "channelId" : {
                   "type" : "string",
@@ -2874,7 +2691,7 @@
                 },
                 "userType" : {
                   "type" : "string",
-                  "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,PERSONAL",
+                  "description" : "The type of the user. Can be CORPORATE, INTERMEDIARY,�PERSONAL",
                   "maxLength" : 12
                 },
                 "loginMethod" : {
@@ -2899,7 +2716,7 @@
                       "timeLastUsed" : {
                         "type" : "string",
                         "format" : "date-time",
-                        "description" : "Indicates the time stamp at which the transaction history for the account is retrieved"
+                        "description" : "Last time the system was used by the user"
                       }
                     }
                   }
@@ -2932,28 +2749,24 @@
                 },
                 "currentNumber" : {
                   "type" : "string",
-                  "description" : "To get the version record details",
                   "maxLength" : 4
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "The user identifier Id who input the transaction",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : "The user identifier name who input the transaction"
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : "Name of the external user"
+                  "type" : "string"
                 }
               }
             }
           },
           "externalUserId" : {
             "type" : "string",
-            "description" : "Contains the external user identifier for which the consent is created.",
+            "description" : "The identifier of the external user",
             "maxLength" : 70
           },
           "externalUserName" : {
@@ -2963,7 +2776,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer",
+            "description" : "The identifier of the customer",
             "maxLength" : 10
           },
           "customerName" : {
@@ -2972,7 +2785,6 @@
           },
           "txnSign" : {
             "type" : "string",
-            "description" : "Flag to authenticate the transactions",
             "maxLength" : 35
           },
           "languageId" : {
@@ -3004,20 +2816,18 @@
         "type" : "object",
         "properties" : {
           "relatedCustomerId" : {
-            "type" : "string",
-            "description" : "Identifies the Customer id details of the Related Customer"
+            "type" : "string"
           },
           "title" : {
             "type" : "string",
             "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
           },
           "relatedCustomerName" : {
-            "type" : "string",
-            "description" : "Level of permission applicable for the associated Products; Possible values: Exclude, See, Transact"
+            "type" : "string"
           },
           "street" : {
             "type" : "string",
-            "description" : "Contains the first line of customer's base address, example building number, street number etc."
+            "description" : "The first line of the base address of a customer or prospect"
           },
           "townCountry" : {
             "type" : "string",
@@ -3025,36 +2835,30 @@
           },
           "country" : {
             "type" : "string",
-            "description" : "Identifies the country of the customer."
+            "description" : "The country component of the base address of a customer"
           },
           "postCode" : {
             "type" : "string",
-            "description" : "Identifies the address postal code for the customer."
+            "description" : "The postal code of the customer or prospect"
           },
           "relationCodeId" : {
-            "type" : "string",
-            "description" : "Identifies the inter-relationship id details of customer relationship with other customers"
+            "type" : "string"
           },
           "relationCodeName" : {
-            "type" : "string",
-            "description" : "Identifies the inter-relationship name details of customer relationship with other customers"
+            "type" : "string"
           },
           "reverseRelationCodeId" : {
-            "type" : "string",
-            "description" : "Identifies the Relationship code id details for the Related Customer"
+            "type" : "string"
           },
           "reverseRelationCodeName" : {
-            "type" : "string",
-            "description" : "Identifies the Relationship code name details for the Related Customer"
+            "type" : "string"
           },
           "relationType" : {
             "type" : "string",
-            "description" : "The type of relation that is used between customers",
             "maxLength" : 35
           },
           "excludeCustomerType" : {
             "type" : "string",
-            "description" : "The type of the customer to be excluded from the related customers list",
             "maxLength" : 35
           }
         }
@@ -3084,7 +2888,7 @@
               "properties" : {
                 "street" : {
                   "type" : "string",
-                  "description" : "Contains the first line of customer's base address, example building number, street number etc."
+                  "description" : "The first line of the base address of a customer or prospect"
                 },
                 "addressCity" : {
                   "type" : "string",
@@ -3092,11 +2896,11 @@
                 },
                 "postCode" : {
                   "type" : "string",
-                  "description" : "Identifies the address postal code for the customer."
+                  "description" : "The postal code of the customer or prospect"
                 },
                 "country" : {
                   "type" : "string",
-                  "description" : "Identifies the country of the customer."
+                  "description" : "The country component of the base address of a customer"
                 },
                 "addressDetails" : {
                   "type" : "array",
@@ -3105,7 +2909,7 @@
                     "properties" : {
                       "addressDetail" : {
                         "type" : "string",
-                        "description" : "Additional address information, e.g. Contact Person. Building, Floor, Apartment, Street Number, Street Name, Town, Area, Code"
+                        "description" : "Holds unstructured address information, e.g. Contact Person. Building, Floor, Apartment, Street Number, Street Name, Town, Area, Code"
                       }
                     }
                   }
@@ -3125,8 +2929,7 @@
                     "type" : "object",
                     "properties" : {
                       "contactType" : {
-                        "type" : "string",
-                        "description" : "Types of contacts available to users to communicate"
+                        "type" : "string"
                       }
                     }
                   }
@@ -3161,8 +2964,7 @@
                     "type" : "object",
                     "properties" : {
                       "mobilePhoneNumber" : {
-                        "type" : "string",
-                        "description" : "Represents the phone number of a customer"
+                        "type" : "string"
                       }
                     }
                   }
@@ -3202,7 +3004,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "title" : {
             "type" : "string",
@@ -3221,8 +3023,7 @@
             "description" : "Name of the customer"
           },
           "firstName" : {
-            "type" : "string",
-            "description" : "Specifies customer's first name"
+            "type" : "string"
           },
           "lastName" : {
             "type" : "string",
@@ -3255,7 +3056,7 @@
           },
           "accountOfficerId" : {
             "type" : "string",
-            "description" : "The identifier of the department head or specific account officer responsible for the customer"
+            "description" : "The identifier of the�department head or specific account officer responsible for the customer"
           },
           "accountOfficerName" : {
             "type" : "string",
@@ -3274,8 +3075,7 @@
             "description" : "An institution-defined identifier of the type of customer"
           },
           "sectorName" : {
-            "type" : "string",
-            "description" : "An institution-defined identifier of the type of customer"
+            "type" : "string"
           },
           "languageId" : {
             "type" : "string",
@@ -3291,16 +3091,13 @@
             "description" : "Specifies how the Customer is considered by the bank and how he fits in with the Account Officer's overall marketing strategy"
           },
           "targetName" : {
-            "type" : "string",
-            "description" : "Describes the target in an abbreviated form which can be used for reporting when space is limited.This can be expanded to allow the User to enter a short description of the Target code in various languages. "
+            "type" : "string"
           },
           "customerType" : {
-            "type" : "string",
-            "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager"
+            "type" : "string"
           },
           "versionNumber" : {
-            "type" : "string",
-            "description" : "Current number of the record"
+            "type" : "string"
           }
         }
       }
@@ -3329,7 +3126,7 @@
               "properties" : {
                 "street" : {
                   "type" : "string",
-                  "description" : "Contains the first line of customer's base address, example building number, street number etc."
+                  "description" : "The first line of the base address of a customer or prospect"
                 },
                 "addressCity" : {
                   "type" : "string",
@@ -3337,11 +3134,11 @@
                 },
                 "postCode" : {
                   "type" : "string",
-                  "description" : "Identifies the address postal code for the customer."
+                  "description" : "The postal code of the customer or prospect"
                 },
                 "country" : {
                   "type" : "string",
-                  "description" : "Identifies the country of the customer."
+                  "description" : "The country component of the base address of a customer"
                 },
                 "addressDetails" : {
                   "type" : "array",
@@ -3350,7 +3147,7 @@
                     "properties" : {
                       "addressDetail" : {
                         "type" : "string",
-                        "description" : "Additional address information, e.g. Contact Person. Building, Floor, Apartment, Street Number, Street Name, Town, Area, Code"
+                        "description" : "Holds unstructured address information, e.g. Contact Person. Building, Floor, Apartment, Street Number, Street Name, Town, Area, Code"
                       }
                     }
                   }
@@ -3370,8 +3167,7 @@
                     "type" : "object",
                     "properties" : {
                       "contactType" : {
-                        "type" : "string",
-                        "description" : "Types of contacts available to users to communicate"
+                        "type" : "string"
                       }
                     }
                   }
@@ -3406,8 +3202,7 @@
                     "type" : "object",
                     "properties" : {
                       "mobilePhoneNumber" : {
-                        "type" : "string",
-                        "description" : "Represents the phone number of a customer"
+                        "type" : "string"
                       }
                     }
                   }
@@ -3417,7 +3212,7 @@
           },
           "customerId" : {
             "type" : "string",
-            "description" : "Identifier of the customer"
+            "description" : "The identifier of the customer"
           },
           "customerMnemonic" : {
             "type" : "string",
@@ -3428,8 +3223,7 @@
             "description" : "Name of the customer"
           },
           "firstName" : {
-            "type" : "string",
-            "description" : "Specifies customer's first name"
+            "type" : "string"
           },
           "lastName" : {
             "type" : "string",
@@ -3441,8 +3235,7 @@
             "description" : "The date of birth of an individual customer"
           },
           "customerType" : {
-            "type" : "string",
-            "description" : "Illustrates the capacity in which a client is acting.Possible Values : Customer, Broker, Depository, Client, Counterparty, External Account Manager"
+            "type" : "string"
           },
           "customerStatus" : {
             "type" : "string",
@@ -3470,7 +3263,7 @@
           },
           "accountOfficerId" : {
             "type" : "string",
-            "description" : "The identifier of the department head or specific account officer responsible for the customer"
+            "description" : "The identifier of the�department head or specific account officer responsible for the customer"
           }
         }
       }

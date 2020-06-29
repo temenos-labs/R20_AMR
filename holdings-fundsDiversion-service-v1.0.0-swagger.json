@@ -39,15 +39,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,15 +97,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -167,7 +153,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -183,7 +169,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -210,14 +196,14 @@
             "properties" : {
               "transactionCode" : {
                 "type" : "number",
-                "description" : "Identifies the system internal transaction code applicable to the transaction"
+                "description" : "Identifies the system internal transaction code applicable to the transaction."
               }
             }
           }
         },
         "defaultFundsDiversion" : {
           "type" : "string",
-          "description" : "Specifies the behaviour of diversion of funds to be followed by the Accounting System. Allowed values are YES - to divert the funds to  the diversion account of the original account , NO - diversion of funds do not take place.",
+          "description" : "Specifies the behavior of diversion of funds to be followed by the Accounting System. Allowed values are YES - to divert the funds to  the diversion account of the original account , NO - diversion of funds do not take place.",
           "maxLength" : 35
         }
       }
@@ -230,11 +216,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "audit" : {
           "type" : "object",
@@ -246,7 +232,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -283,14 +269,14 @@
             "properties" : {
               "transactionCode" : {
                 "type" : "number",
-                "description" : "Identifies the system internal transaction code applicable to the transaction"
+                "description" : "Identifies the system internal transaction code applicable to the transaction."
               }
             }
           }
         },
         "defaultFundsDiversion" : {
           "type" : "string",
-          "description" : "Specifies the behaviour of diversion of funds to be followed by the Accounting System. Allowed values are YES - to divert the funds to  the diversion account of the original account , NO - diversion of funds do not take place.",
+          "description" : "Specifies the behavior of diversion of funds to be followed by the Accounting System. Allowed values are YES - to divert the funds to  the diversion account of the original account , NO - diversion of funds do not take place.",
           "maxLength" : 35
         }
       }

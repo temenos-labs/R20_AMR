@@ -36,7 +36,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -63,7 +63,7 @@
         "parameters" : [ {
           "name" : "moduleId",
           "in" : "query",
-          "description" : "The identifier of the module.",
+          "description" : "The identifier of the module",
           "required" : false,
           "type" : "string"
         }, {
@@ -83,7 +83,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -110,7 +110,6 @@
         "parameters" : [ {
           "name" : "tableId",
           "in" : "path",
-          "description" : "The unique application table identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -130,7 +129,7 @@
         }, {
           "name" : "page_token",
           "in" : "query",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "description" : "Random and unique string for each page. Used for security purpose",
           "required" : false,
           "type" : "string"
         } ],
@@ -185,8 +184,9 @@
           "description" : "The total number of records present"
         },
         "page_token" : {
-          "type" : "string",
-          "description" : "Unique id expected to get as part of response from t24 on every enquiry request."
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Random and unique string for each page. Used for security purpose"
         }
       }
     },
@@ -307,12 +307,12 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 32
           },
           "moduleId" : {
             "type" : "string",
-            "description" : "The identifier of the module.",
+            "description" : "The identifier of the module",
             "maxLength" : 6
           }
         }
@@ -364,12 +364,12 @@
         "properties" : {
           "screenId" : {
             "type" : "string",
-            "description" : "",
+            "description" : "The screen identifier",
             "maxLength" : 54
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes",
+            "description" : "The name used for display purposes",
             "maxLength" : 70
           }
         }

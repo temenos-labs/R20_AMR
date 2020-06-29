@@ -39,7 +39,7 @@
         }, {
           "name" : "consentSubType",
           "in" : "query",
-          "description" : "Indicates the consent sub type linked to corresponding consent type.",
+          "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent.",
           "required" : false,
           "type" : "string"
         }, {
@@ -63,15 +63,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -122,7 +115,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -190,7 +183,7 @@
           },
           "isConsentGiven" : {
             "type" : "string",
-            "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
+            "description" : "Indicates whether the customer consents to adding this account to the TPP (third party provider) service they are signing up for or otherwise.",
             "maxLength" : 35
           },
           "isConsentWithdrawn" : {
@@ -200,12 +193,12 @@
           },
           "consentSubType" : {
             "type" : "string",
-            "description" : "Indicates the consent sub type linked to corresponding consent type.",
+            "description" : "Indicates the consent type provided for a particular account. For example, If consent sub type for account 100100 is given as allPsd2, the account is given global consent.",
             "maxLength" : 35
           },
           "isSubTypeConsentGiven" : {
             "type" : "string",
-            "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
+            "description" : "In case, the customer's consent type (e.g. direct marketing) is further divided into subtypes (e.g. email, sms, etc.), this field indicates whether consent is given for each subtype. Allowed values:  - YES - NO",
             "maxLength" : 35
           },
           "isSubTypeWithdrawn" : {

@@ -1,820 +1,754 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "Order Confirmation",
-    "version" : "v1.0.0",
-    "title" : "Order Confirmation"
+  "swagger": "2.0",
+  "info": {
+    "description": "API to create trade order confirmation message",
+    "version": "v1.0.0",
+    "title": "Trade order confirmation"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http", "https" ],
-  "security" : [ {
-    "basicAuth" : [ ]
-  } ],
-  "paths" : {
-    "/order/messages/confirmationTrade" : {
-      "post" : {
-        "summary" : "Order Confirmation",
-        "description" : "Order Confirmation",
-        "operationId" : "orderConfirmation",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "payload",
-          "description" : "body Payload",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Confirmation"
+  "host": "api.server.com",
+  "basePath": "/api/v1.0.0/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "paths": {
+    "/order/messages/confirmationTrade": {
+      "post": {
+        "summary": "Order Confirmation",
+        "description": "Order Confirmation",
+        "operationId": "orderConfirmation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "body Payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Confirmation"
+            }
+          },
+          {
+            "name": "validate_only",
+            "in": "query",
+            "description": "The identifier to indicate if it is set to only validate or not.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "required": false,
+            "type": "string"
           }
-        }, {
-          "name" : "validate_only",
-          "in" : "query",
-          "description" : "The identifier to indicate if it is set to only validate or not.",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "companyId",
-          "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "ConfirmationResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ConfirmationResponse"
+        ],
+        "responses": {
+          "200": {
+            "description": "ConfirmationResponse",
+            "schema": {
+              "$ref": "#/definitions/ConfirmationResponse"
             }
           },
-          "400" : {
-            "description" : "BusinessScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+          "400": {
+            "description": "BusinessScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/BusinessScreenErrorResponse"
             }
           },
-          "500" : {
-            "description" : "SystemScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/SystemScreenErrorResponse"
+          "500": {
+            "description": "SystemScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/SystemScreenErrorResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
+          "default": {
+            "description": "ScreenErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ScreenErrorResponse"
             }
           }
         }
       }
     }
   },
-  "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
     }
   },
-  "definitions" : {
-    "PayloadHeader" : {
-      "properties" : {
-        "override" : {
-          "type" : "object",
-          "properties" : {
-            "overrideDetails" : {
-              "type" : "array",
-              "items" : {
-                "type" : "object",
-                "properties" : {
-                  "id" : {
-                    "type" : "string",
-                    "description" : "The identifier of the override"
+  "definitions": {
+    "PayloadHeader": {
+      "properties": {
+        "override": {
+          "type": "object",
+          "properties": {
+            "overrideDetails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The identifier of the override"
                   },
-                  "description" : {
-                    "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                  "description": {
+                    "type": "string",
+                    "description": "The actual override message"
                   },
-                  "responseCode" : {
-                    "type" : "string",
-                    "description" : "The user input to accept/reject the override."
+                  "responseCode": {
+                    "type": "string",
+                    "description": "The user input to accept/reject the override."
                   }
                 }
               }
             }
           }
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "Current number of the record"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             }
           }
         }
       }
     },
-    "Confirmation" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/PayloadHeader"
+    "Confirmation": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/PayloadHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ConfirmationBody"
+        "body": {
+          "$ref": "#/definitions/ConfirmationBody"
         }
       },
-      "description" : "Confirmation"
+      "description": "Confirmation"
     },
-    "ConfirmationBody" : {
-      "type" : "object",
-      "properties" : {
-        "msgId" : {
-          "type" : "string",
-          "description" : "Identification of the message.",
-          "minLength" : 0,
-          "maxLength" : 35
+    "ConfirmationBody": {
+      "type": "object",
+      "properties": {
+        "msgId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "creDtTm" : {
-          "type" : "string",
-          "description" : "Date of creation of the message.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "creDtTm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "invstmtAcctDtlsAcctId" : {
-          "type" : "string",
-          "description" : "Account impacted by the investment fund order.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "invstmtAcctDtlsAcctId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "ordrRef" : {
-          "type" : "string",
-          "description" : "Unique and unambiguous identifier for the order, as assigned by the instructing party.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "ordrRef": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealRef" : {
-          "type" : "string",
-          "description" : "Unique and unambiguous identifier for the order execution, as assigned by the confirming party.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealRef": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsISIN" : {
-          "type" : "string",
-          "description" : "International Securities Identification Number",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsISIN": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsSEPOL" : {
-          "type" : "string",
-          "description" : "Committee on Uniform Securities and Identification Procedures",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsSEPOL": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCUSIP" : {
-          "type" : "string",
-          "description" : "Committee on Uniform Securities and Identification Procedures",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCUSIP": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsRIC" : {
-          "type" : "string",
-          "description" : "Reuters Identification Code",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsRIC": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsTckrSymb" : {
-          "type" : "string",
-          "description" : "Letters that identify a stock traded on a stock exchange",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsTckrSymb": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsBlmbrg" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Bloomberg organisation.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsBlmbrg": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCTA" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Consolidated Tape Association.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCTA": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsQUICK" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsQUICK": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsWrtppr" : {
-          "type" : "string",
-          "description" : "Wertpapier Kenn-nummer",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsWrtppr": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsDtch" : {
-          "type" : "string",
-          "description" : "Identifier for Dutch securities.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsDtch": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsVlrn" : {
-          "type" : "string",
-          "description" : "Identifier for Swiss securities assigned",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsVlrn": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsSCVM" : {
-          "type" : "string",
-          "description" : "Identifier for French securities",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsSCVM": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsBelgn" : {
-          "type" : "string",
-          "description" : "Identifier for Belgian securities",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsBelgn": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCmon" : {
-          "type" : "string",
-          "description" : "Identifier of securities issued in Luxembourg",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCmon": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsId" : {
-          "type" : "string",
-          "description" : "Proprietary identification of the security assigned by an institution or organisation.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsDmst" : {
-          "type" : "string",
-          "description" : "Country of the proprietary identification scheme",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsDmst": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsPrty" : {
-          "type" : "string",
-          "description" : "Entity that issues the proprietary identification",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsPrty": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "unitsNb" : {
-          "type" : "string",
-          "description" : "Quantity of units.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "unitsNb": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "tradDt" : {
-          "type" : "string",
-          "description" : "Date and at which the price will be applied.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "tradDt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "tradDtTm" : {
-          "type" : "string",
-          "description" : "Date and, if required, the time, at which the price will be applied.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "tradDtTm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsCd" : {
-          "type" : "string",
-          "description" : "Type and information about a price expressed as code",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsCd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtyId" : {
-          "type" : "string",
-          "description" : "Type and information about a price expressed as proprietary information",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtyId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtyIssr" : {
-          "type" : "string",
-          "description" : "Entity that assigns the type and information about a price",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtyIssr": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtySchmeNm" : {
-          "type" : "string",
-          "description" : "Entity that assigns the type and information about a price",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtySchmeNm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsAmt" : {
-          "type" : "string",
-          "description" : "Value of the price as currencey and value",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsAmt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "sttlmAmt" : {
-          "type" : "string",
-          "description" : "Amount of money to be moved between the debtor and creditor",
-          "minLength" : 0,
-          "maxLength" : 35
+        "sttlmAmt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "prtlyExctdInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the order has been partially executed",
-          "minLength" : 0,
-          "maxLength" : 35
+        "prtlyExctdInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "cumDvddInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the dividend is included",
-          "minLength" : 0,
-          "maxLength" : 35
+        "cumDvddInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "physDlvryInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the financial instrument is to be physically delivered.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "physDlvryInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "receiver" : {
-          "type" : "string",
-          "description" : "Identifies the receiver of the message",
-          "minLength" : 0,
-          "maxLength" : 35
+        "receiver": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         }
       }
     },
-    "ScreenHeader" : {
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "description" : "The Identifier of the record created"
+    "ScreenHeader": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Identifier of the record created"
         },
-        "status" : {
-          "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+        "status": {
+          "type": "string",
+          "description": "The status of the record"
         },
-        "transactionStatus" : {
-          "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+        "transactionStatus": {
+          "type": "string",
+          "description": "The status of the transaction"
         },
-        "uniqueIdentifier" : {
-          "type" : "string",
-          "description" : "The unique identifier/Message Reference of the record created."
+        "uniqueIdentifier": {
+          "type": "string",
+          "description": "The unique identifier/Message Reference of the record created."
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "T24_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to response by T24"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "T24_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to response by T24"
             },
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "Current number of the record"
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             },
-            "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the request by IRIS"
+            "requestParse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the request by IRIS"
             },
-            "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the response by IRIS"
+            "responseParse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the response by IRIS"
             }
           }
         }
       }
     },
-    "ConfirmationResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ScreenHeader"
+    "ConfirmationResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ScreenHeader"
         },
-        "body" : {
-          "$ref" : "#/definitions/ConfirmationResponseBody"
+        "body": {
+          "$ref": "#/definitions/ConfirmationResponseBody"
         }
       },
-      "description" : "ConfirmationResponse"
+      "description": "ConfirmationResponse"
     },
-    "ConfirmationResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "msgId" : {
-          "type" : "string",
-          "description" : "Identification of the message.",
-          "minLength" : 0,
-          "maxLength" : 35
+    "ConfirmationResponseBody": {
+      "type": "object",
+      "properties": {
+        "msgId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "creDtTm" : {
-          "type" : "string",
-          "description" : "Date of creation of the message.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "creDtTm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "invstmtAcctDtlsAcctId" : {
-          "type" : "string",
-          "description" : "Account impacted by the investment fund order.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "invstmtAcctDtlsAcctId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "ordrRef" : {
-          "type" : "string",
-          "description" : "Unique and unambiguous identifier for the order, as assigned by the instructing party.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "ordrRef": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealRef" : {
-          "type" : "string",
-          "description" : "Unique and unambiguous identifier for the order execution, as assigned by the confirming party.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealRef": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsISIN" : {
-          "type" : "string",
-          "description" : "International Securities Identification Number",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsISIN": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsSEPOL" : {
-          "type" : "string",
-          "description" : "Committee on Uniform Securities and Identification Procedures",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsSEPOL": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCUSIP" : {
-          "type" : "string",
-          "description" : "Committee on Uniform Securities and Identification Procedures",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCUSIP": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsRIC" : {
-          "type" : "string",
-          "description" : "Reuters Identification Code",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsRIC": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsTckrSymb" : {
-          "type" : "string",
-          "description" : "Letters that identify a stock traded on a stock exchange",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsTckrSymb": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsBlmbrg" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Bloomberg organisation.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsBlmbrg": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCTA" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Consolidated Tape Association.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCTA": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsQUICK" : {
-          "type" : "string",
-          "description" : "Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsQUICK": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsWrtppr" : {
-          "type" : "string",
-          "description" : "Wertpapier Kenn-nummer",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsWrtppr": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsDtch" : {
-          "type" : "string",
-          "description" : "Identifier for Dutch securities.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsDtch": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsVlrn" : {
-          "type" : "string",
-          "description" : "Identifier for Swiss securities assigned",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsVlrn": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsSCVM" : {
-          "type" : "string",
-          "description" : "Identifier for French securities",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsSCVM": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsBelgn" : {
-          "type" : "string",
-          "description" : "Identifier for Belgian securities",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsBelgn": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsCmon" : {
-          "type" : "string",
-          "description" : "Identifier of securities issued in Luxembourg",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsCmon": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsId" : {
-          "type" : "string",
-          "description" : "Proprietary identification of the security assigned by an institution or organisation.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsDmst" : {
-          "type" : "string",
-          "description" : "Country of the proprietary identification scheme",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsDmst": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "finInstrmDtlsPrty" : {
-          "type" : "string",
-          "description" : "Entity that issues the proprietary identification",
-          "minLength" : 0,
-          "maxLength" : 35
+        "finInstrmDtlsPrty": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "unitsNb" : {
-          "type" : "string",
-          "description" : "Quantity of units.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "unitsNb": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "tradDt" : {
-          "type" : "string",
-          "description" : "Date and at which the price will be applied.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "tradDt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "tradDtTm" : {
-          "type" : "string",
-          "description" : "Date and, if required, the time, at which the price will be applied.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "tradDtTm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsCd" : {
-          "type" : "string",
-          "description" : "Type and information about a price expressed as code",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsCd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtyId" : {
-          "type" : "string",
-          "description" : "Type and information about a price expressed as proprietary information",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtyId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtyIssr" : {
-          "type" : "string",
-          "description" : "Entity that assigns the type and information about a price",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtyIssr": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsPtySchmeNm" : {
-          "type" : "string",
-          "description" : "Entity that assigns the type and information about a price",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsPtySchmeNm": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "dealgPricDtlsAmt" : {
-          "type" : "string",
-          "description" : "Value of the price as currencey and value",
-          "minLength" : 0,
-          "maxLength" : 35
+        "dealgPricDtlsAmt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "sttlmAmt" : {
-          "type" : "string",
-          "description" : "Amount of money to be moved between the debtor and creditor",
-          "minLength" : 0,
-          "maxLength" : 35
+        "sttlmAmt": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "prtlyExctdInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the order has been partially executed",
-          "minLength" : 0,
-          "maxLength" : 35
+        "prtlyExctdInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "cumDvddInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the dividend is included",
-          "minLength" : 0,
-          "maxLength" : 35
+        "cumDvddInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "physDlvryInd" : {
-          "type" : "string",
-          "description" : "Indicates whether the financial instrument is to be physically delivered.",
-          "minLength" : 0,
-          "maxLength" : 35
+        "physDlvryInd": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         },
-        "receiver" : {
-          "type" : "string",
-          "description" : "Identifies the receiver of the message",
-          "minLength" : 0,
-          "maxLength" : 35
+        "receiver": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
         }
       }
     },
-    "ErrorHeader" : {
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "description" : "The Identifier of the record created"
+    "ErrorHeader": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Identifier of the record created"
         },
-        "status" : {
-          "type" : "string",
-          "description" : "The status of the record"
+        "status": {
+          "type": "string",
+          "description": "The status of the record"
         },
-        "transactionStatus" : {
-          "type" : "string",
-          "description" : "The status of the transaction"
+        "transactionStatus": {
+          "type": "string",
+          "description": "The status of the transaction"
         },
-        "uniqueIdentifier" : {
-          "type" : "string",
-          "description" : "The unique identifier/Message Reference of the record created."
+        "uniqueIdentifier": {
+          "type": "string",
+          "description": "The unique identifier/Message Reference of the record created."
         },
-        "audit" : {
-          "type" : "object",
-          "properties" : {
-            "T24_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to response by T24"
+        "audit": {
+          "type": "object",
+          "properties": {
+            "T24_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to response by T24"
             },
-            "versionNumber" : {
-              "type" : "string",
-              "description" : "The CURR.NO. of the record"
+            "versionNumber": {
+              "type": "string",
+              "description": "The CURR.NO. of the record"
             },
-            "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the request by IRIS"
+            "requestParse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the request by IRIS"
             },
-            "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
-              "description" : "Time taken to parse the response by IRIS"
+            "responseParse_time": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Time taken to parse the response by IRIS"
             }
           }
         }
       }
     },
-    "overrideBody" : {
-      "properties" : {
-        "overrideDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "id" : {
-                "type" : "string",
-                "description" : "The identifier of the override"
+    "overrideBody": {
+      "properties": {
+        "overrideDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The identifier of the override"
               },
-              "description" : {
-                "type" : "string",
-                "description" : "The actual override message"
+              "description": {
+                "type": "string",
+                "description": "The actual override message"
               },
-              "options" : {
-                "type" : "array",
-                "description" : "The usable options for the override",
-                "items" : {
-                  "type" : "string"
+              "options": {
+                "type": "array",
+                "description": "The usable options for the override",
+                "items": {
+                  "type": "string"
                 }
               },
-              "type" : {
-                "type" : "string",
-                "description" : "The type of the override"
+              "type": {
+                "type": "string",
+                "description": "The type of the override"
               }
             }
           }
         }
       }
     },
-    "ScreenErrorResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ErrorHeader"
+    "ScreenErrorResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ErrorHeader"
         },
-        "error" : {
-          "$ref" : "#/definitions/ScreenErrorResponseBody"
+        "error": {
+          "$ref": "#/definitions/ScreenErrorResponseBody"
         },
-        "override" : {
-          "$ref" : "#/definitions/overrideBody"
+        "override": {
+          "$ref": "#/definitions/overrideBody"
         }
       },
-      "description" : "ScreenErrorResponse"
+      "description": "ScreenErrorResponse"
     },
-    "ScreenErrorResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "errorDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fieldName" : {
-                "type" : "string",
-                "description" : "The name of the field"
+    "ScreenErrorResponseBody": {
+      "type": "object",
+      "properties": {
+        "errorDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "description": "The name of the field"
               },
-              "code" : {
-                "type" : "string",
-                "description" : "The identifier of the error message"
+              "code": {
+                "type": "string",
+                "description": "The identifier of the error message"
               },
-              "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message "
+              "message": {
+                "type": "string",
+                "description": "The actual t24 error message "
               }
             }
           }
         },
-        "type" : {
-          "type" : "string",
-          "description" : "The identifier of error type: "
+        "type": {
+          "type": "string",
+          "description": "The identifier of error type: "
         }
       }
     },
-    "BusinessScreenErrorResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ErrorHeader"
+    "BusinessScreenErrorResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ErrorHeader"
         },
-        "error" : {
-          "$ref" : "#/definitions/BusinessScreenErrorResponseBody"
+        "error": {
+          "$ref": "#/definitions/BusinessScreenErrorResponseBody"
         },
-        "override" : {
-          "$ref" : "#/definitions/overrideBody"
+        "override": {
+          "$ref": "#/definitions/overrideBody"
         }
       },
-      "description" : "BusinessScreenErrorResponse"
+      "description": "BusinessScreenErrorResponse"
     },
-    "BusinessScreenErrorResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "errorDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fieldName" : {
-                "type" : "string",
-                "description" : "The name of the field"
+    "BusinessScreenErrorResponseBody": {
+      "type": "object",
+      "properties": {
+        "errorDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "description": "The name of the field"
               },
-              "code" : {
-                "type" : "string",
-                "description" : "The identifier of the error message"
+              "code": {
+                "type": "string",
+                "description": "The identifier of the error message"
               },
-              "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message for bad requests"
+              "message": {
+                "type": "string",
+                "description": "The actual t24 error message for bad requests"
               }
             }
           }
         },
-        "type" : {
-          "type" : "string",
-          "description" : "The identifier of error type: Business"
+        "type": {
+          "type": "string",
+          "description": "The identifier of error type: Business"
         }
       }
     },
-    "SystemScreenErrorResponse" : {
-      "properties" : {
-        "header" : {
-          "$ref" : "#/definitions/ErrorHeader"
+    "SystemScreenErrorResponse": {
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ErrorHeader"
         },
-        "error" : {
-          "$ref" : "#/definitions/SystemScreenErrorResponseBody"
+        "error": {
+          "$ref": "#/definitions/SystemScreenErrorResponseBody"
         },
-        "override" : {
-          "$ref" : "#/definitions/overrideBody"
+        "override": {
+          "$ref": "#/definitions/overrideBody"
         }
       },
-      "description" : "SystemScreenErrorResponse"
+      "description": "SystemScreenErrorResponse"
     },
-    "SystemScreenErrorResponseBody" : {
-      "type" : "object",
-      "properties" : {
-        "errorDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "fieldName" : {
-                "type" : "string",
-                "description" : "The name of the field"
+    "SystemScreenErrorResponseBody": {
+      "type": "object",
+      "properties": {
+        "errorDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "description": "The name of the field"
               },
-              "code" : {
-                "type" : "string",
-                "description" : "The identifier of the error message"
+              "code": {
+                "type": "string",
+                "description": "The identifier of the error message"
               },
-              "message" : {
-                "type" : "string",
-                "description" : "The actual t24 error message caused by server"
+              "message": {
+                "type": "string",
+                "description": "The actual t24 error message caused by server"
               }
             }
           }
         },
-        "type" : {
-          "type" : "string",
-          "description" : "The identifier of error type: System"
+        "type": {
+          "type": "string",
+          "description": "The identifier of error type: System"
         }
       }
     }

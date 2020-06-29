@@ -39,12 +39,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -103,12 +97,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -171,12 +159,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -238,12 +220,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -299,13 +275,11 @@
         }, {
           "name" : "currentState",
           "in" : "query",
-          "description" : "Contains the current state of the transaction",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "connectionStatus",
           "in" : "query",
-          "description" : "Contains the connection status of the transaction",
           "required" : false,
           "type" : "string"
         }, {
@@ -326,12 +300,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -392,7 +360,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -408,7 +376,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -435,7 +403,7 @@
             "properties" : {
               "otherBankConsentType" : {
                 "type" : "string",
-                "description" : "Contains the different consent types in other banks",
+                "description" : "Refers to the Other Banks Consent Types.",
                 "minLength" : 0,
                 "maxLength" : 20
               }
@@ -456,13 +424,13 @@
               },
               "consentStartAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent starts",
+                "description" : "Refers to the time at which the consent starts",
                 "minLength" : 0,
                 "maxLength" : 14
               },
               "consentExpiryAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent expires",
+                "description" : "Refers to the time at which the consent expires",
                 "minLength" : 0,
                 "maxLength" : 15
               }
@@ -477,7 +445,7 @@
         },
         "bankId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the bank with which the transaction is performed",
+          "description" : "Refers to the ID of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 6
         },
@@ -489,7 +457,7 @@
         },
         "bankCode" : {
           "type" : "string",
-          "description" : "Contains the code of the bank with which the transaction is performed",
+          "description" : "Refers to the Code of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 8
         },
@@ -501,85 +469,85 @@
         },
         "obcpId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period identifier of the other bank",
+          "description" : "Refers to the ID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "obcpConnectionId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period connection identifier of the other bank",
+          "description" : "Refers to the  ConnectionID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "latestToken" : {
           "type" : "string",
-          "description" : "Contains the latest token of the ongoing transaction",
+          "description" : "Refers to the Latest Token of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 11
         },
         "latestRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the latest redirected URL of the ongoing transaction",
+          "description" : "Refers to the Latest Redirected URL of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 17
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "obcpToken" : {
           "type" : "string",
-          "description" : "Contains the consent period token of the other banks",
+          "description" : "Refers to the Token of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "obcpRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the consent period redirected URL of the other banks",
+          "description" : "Refers to the  Redirected URL of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 15
         },
         "otherBankConsentPeriodDays" : {
           "type" : "string",
-          "description" : "Contains the number of days in the consent period of the other banks ",
+          "description" : "Refers to the number of days in the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 26
         },
         "otherBankConsentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period starts",
+          "description" : "Refers to when the Other Banks Consent Period Starts.",
           "minLength" : 0,
           "maxLength" : 23
         },
         "otherBankConsentExpiresAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period expires",
+          "description" : "Refers to when the Other Banks Consent Period Expires.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "consentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which at which the Consent was given",
+          "description" : "Refers to when the Consent was given at.",
           "minLength" : 0,
           "maxLength" : 14
         },
@@ -599,11 +567,11 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
         },
         "uniqueIdentifier" : {
           "type" : "string",
@@ -619,7 +587,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -654,7 +622,7 @@
             "properties" : {
               "otherBankConsentType" : {
                 "type" : "string",
-                "description" : "Contains the different consent types in other banks",
+                "description" : "Refers to the Other Banks Consent Types.",
                 "minLength" : 0,
                 "maxLength" : 20
               }
@@ -675,13 +643,13 @@
               },
               "consentStartAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent starts",
+                "description" : "Refers to the time at which the consent starts",
                 "minLength" : 0,
                 "maxLength" : 14
               },
               "consentExpiryAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent expires",
+                "description" : "Refers to the time at which the consent expires",
                 "minLength" : 0,
                 "maxLength" : 15
               }
@@ -696,7 +664,7 @@
         },
         "bankId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the bank with which the transaction is performed",
+          "description" : "Refers to the ID of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 6
         },
@@ -708,7 +676,7 @@
         },
         "bankCode" : {
           "type" : "string",
-          "description" : "Contains the code of the bank with which the transaction is performed",
+          "description" : "Refers to the Code of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 8
         },
@@ -720,85 +688,85 @@
         },
         "obcpId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period identifier of the other bank",
+          "description" : "Refers to the ID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "obcpConnectionId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period connection identifier of the other bank",
+          "description" : "Refers to the  ConnectionID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "latestToken" : {
           "type" : "string",
-          "description" : "Contains the latest token of the ongoing transaction",
+          "description" : "Refers to the Latest Token of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 11
         },
         "latestRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the latest redirected URL of the ongoing transaction",
+          "description" : "Refers to the Latest Redirected URL of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 17
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "obcpToken" : {
           "type" : "string",
-          "description" : "Contains the consent period token of the other banks",
+          "description" : "Refers to the Token of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "obcpRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the consent period redirected URL of the other banks",
+          "description" : "Refers to the  Redirected URL of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 15
         },
         "otherBankConsentPeriodDays" : {
           "type" : "string",
-          "description" : "Contains the number of days in the consent period of the other banks ",
+          "description" : "Refers to the number of days in the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 26
         },
         "otherBankConsentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period starts",
+          "description" : "Refers to when the Other Banks Consent Period Starts.",
           "minLength" : 0,
           "maxLength" : 23
         },
         "otherBankConsentExpiresAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period expires",
+          "description" : "Refers to when the Other Banks Consent Period Expires.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "consentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which at which the Consent was given",
+          "description" : "Refers to when the Consent was given at.",
           "minLength" : 0,
           "maxLength" : 14
         },
@@ -1033,7 +1001,7 @@
             "properties" : {
               "otherBankConsentType" : {
                 "type" : "string",
-                "description" : "Contains the different consent types in other banks",
+                "description" : "Refers to the Other Banks Consent Types.",
                 "minLength" : 0,
                 "maxLength" : 20
               }
@@ -1054,13 +1022,13 @@
               },
               "consentStartAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent starts",
+                "description" : "Refers to the time at which the consent starts",
                 "minLength" : 0,
                 "maxLength" : 14
               },
               "consentExpiryAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent expires",
+                "description" : "Refers to the time at which the consent expires",
                 "minLength" : 0,
                 "maxLength" : 15
               }
@@ -1080,25 +1048,25 @@
               },
               "obcpAccountId" : {
                 "type" : "string",
-                "description" : "Denotes the Account Id of Other Banks Consent Period.",
+                "description" : "Refers to the Account Id of the Other Banks Consent Period.",
                 "minLength" : 0,
                 "maxLength" : 13
               },
               "obcpStatus" : {
                 "type" : "string",
-                "description" : "Contains the status of the  consent period in other banks",
+                "description" : "Refers to the Status of the Other Banks Consent Period.",
                 "minLength" : 0,
                 "maxLength" : 10
               },
               "balancesLastUpdated" : {
                 "type" : "string",
-                "description" : "Contains the last updated balances details",
+                "description" : "Refers to when the Balances where last updated.",
                 "minLength" : 0,
                 "maxLength" : 21
               },
               "transactionsLastUpdated" : {
                 "type" : "string",
-                "description" : "Contains the list of last updated transactions",
+                "description" : "Refers to when the Transactions where last updated.",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -1113,13 +1081,13 @@
         },
         "bankId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the bank with which the transaction is performed",
+          "description" : "Refers to the ID of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "bankCode" : {
           "type" : "string",
-          "description" : "Contains the code of the bank with which the transaction is performed",
+          "description" : "Refers to the Code of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 8
         },
@@ -1137,115 +1105,115 @@
         },
         "obcpId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period identifier of the other bank",
+          "description" : "Refers to the ID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "obcpConnectionId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period connection identifier of the other bank",
+          "description" : "Refers to the  ConnectionID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "obcpBankId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the other bank",
+          "description" : "Refers to the ID of the Other Bank.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "obcpCustomerId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the customer in other bank",
+          "description" : "Refers to the ID of the customer of Other Bank.",
           "minLength" : 0,
           "maxLength" : 14
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "latestToken" : {
           "type" : "string",
-          "description" : "Contains the latest token of the ongoing transaction",
+          "description" : "Refers to the Latest Token of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 11
         },
         "latestRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the latest redirected URL of the ongoing transaction",
+          "description" : "Refers to the Latest Redirected URL of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 17
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "obcpToken" : {
           "type" : "string",
-          "description" : "Contains the consent period token of the other banks",
+          "description" : "Refers to the Token of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "obcpRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the consent period redirected URL of the other banks",
+          "description" : "Refers to the  Redirected URL of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 15
         },
         "createdAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was created",
+          "description" : "Refers to the time at which the arrangement was created.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "updatedAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was updated",
+          "description" : "Refers to the time at which the arrangement was updated.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "lastSuccessAt" : {
           "type" : "string",
-          "description" : "Contains the time of the latest success",
+          "description" : "Refers to the time of the latest success.",
           "minLength" : 0,
           "maxLength" : 13
         },
         "otherBankConsentPeriodDays" : {
           "type" : "string",
-          "description" : "Contains the number of days in the consent period of the other banks ",
+          "description" : "Refers to the number of days in the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 26
         },
         "otherBankConsentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period starts",
+          "description" : "Refers to when the Other Banks Consent Period Starts.",
           "minLength" : 0,
           "maxLength" : 23
         },
         "otherBankConsentExpiresAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period expires",
+          "description" : "Refers to when the Other Banks Consent Period Expires.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "consentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which at which the Consent was given",
+          "description" : "Refers to when the Consent was given at.",
           "minLength" : 0,
           "maxLength" : 14
         },
@@ -1284,7 +1252,7 @@
             "properties" : {
               "otherBankConsentType" : {
                 "type" : "string",
-                "description" : "Contains the different consent types in other banks",
+                "description" : "Refers to the Other Banks Consent Types.",
                 "minLength" : 0,
                 "maxLength" : 20
               }
@@ -1305,13 +1273,13 @@
               },
               "consentStartAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent starts",
+                "description" : "Refers to the time at which the consent starts",
                 "minLength" : 0,
                 "maxLength" : 14
               },
               "consentExpiryAt" : {
                 "type" : "string",
-                "description" : "Time at which the consent expires",
+                "description" : "Refers to the time at which the consent expires",
                 "minLength" : 0,
                 "maxLength" : 15
               }
@@ -1331,25 +1299,25 @@
               },
               "obcpAccountId" : {
                 "type" : "string",
-                "description" : "Denotes the Account Id of Other Banks Consent Period.",
+                "description" : "Refers to the Account Id of the Other Banks Consent Period.",
                 "minLength" : 0,
                 "maxLength" : 13
               },
               "obcpStatus" : {
                 "type" : "string",
-                "description" : "Contains the status of the  consent period in other banks",
+                "description" : "Refers to the Status of the Other Banks Consent Period.",
                 "minLength" : 0,
                 "maxLength" : 10
               },
               "balancesLastUpdated" : {
                 "type" : "string",
-                "description" : "Contains the last updated balances details",
+                "description" : "Refers to when the Balances where last updated.",
                 "minLength" : 0,
                 "maxLength" : 21
               },
               "transactionsLastUpdated" : {
                 "type" : "string",
-                "description" : "Contains the list of last updated transactions",
+                "description" : "Refers to when the Transactions where last updated.",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -1364,13 +1332,13 @@
         },
         "bankId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the bank with which the transaction is performed",
+          "description" : "Refers to the ID of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "bankCode" : {
           "type" : "string",
-          "description" : "Contains the code of the bank with which the transaction is performed",
+          "description" : "Refers to the Code of the bank with which the transaction is performed.",
           "minLength" : 0,
           "maxLength" : 8
         },
@@ -1388,115 +1356,115 @@
         },
         "obcpId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period identifier of the other bank",
+          "description" : "Refers to the ID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 6
         },
         "obcpConnectionId" : {
           "type" : "string",
-          "description" : "Denotes the  consent period connection identifier of the other bank",
+          "description" : "Refers to the  ConnectionID of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "obcpBankId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the other bank",
+          "description" : "Refers to the ID of the Other Bank.",
           "minLength" : 0,
           "maxLength" : 10
         },
         "obcpCustomerId" : {
           "type" : "string",
-          "description" : "Contains the identifier of the customer in other bank",
+          "description" : "Refers to the ID of the customer of Other Bank.",
           "minLength" : 0,
           "maxLength" : 14
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "latestToken" : {
           "type" : "string",
-          "description" : "Contains the latest token of the ongoing transaction",
+          "description" : "Refers to the Latest Token of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 11
         },
         "latestRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the latest redirected URL of the ongoing transaction",
+          "description" : "Refers to the Latest Redirected URL of the ongoing Transaction.",
           "minLength" : 0,
           "maxLength" : 17
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "obcpToken" : {
           "type" : "string",
-          "description" : "Contains the consent period token of the other banks",
+          "description" : "Refers to the Token of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "obcpRedirectUrl" : {
           "type" : "string",
-          "description" : "Contains the consent period redirected URL of the other banks",
+          "description" : "Refers to the  Redirected URL of the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 15
         },
         "createdAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was created",
+          "description" : "Refers to the time at which the arrangement was created.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "updatedAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was updated",
+          "description" : "Refers to the time at which the arrangement was updated.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "lastSuccessAt" : {
           "type" : "string",
-          "description" : "Contains the time of the latest success",
+          "description" : "Refers to the time of the latest success.",
           "minLength" : 0,
           "maxLength" : 13
         },
         "otherBankConsentPeriodDays" : {
           "type" : "string",
-          "description" : "Contains the number of days in the consent period of the other banks ",
+          "description" : "Refers to the number of days in the Other Banks Consent Period.",
           "minLength" : 0,
           "maxLength" : 26
         },
         "otherBankConsentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period starts",
+          "description" : "Refers to when the Other Banks Consent Period Starts.",
           "minLength" : 0,
           "maxLength" : 23
         },
         "otherBankConsentExpiresAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which the other banks consent period expires",
+          "description" : "Refers to when the Other Banks Consent Period Expires.",
           "minLength" : 0,
           "maxLength" : 25
         },
         "consentGivenAt" : {
           "type" : "string",
-          "description" : "Contains the date/time at which at which the Consent was given",
+          "description" : "Refers to when the Consent was given at.",
           "minLength" : 0,
           "maxLength" : 14
         },
@@ -1536,31 +1504,31 @@
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "updatedAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was updated",
+          "description" : "Refers to the time at which the arrangement was updated.",
           "minLength" : 0,
           "maxLength" : 9
         }
@@ -1588,31 +1556,31 @@
         },
         "defaultConsentArrangementId" : {
           "type" : "string",
-          "description" : "Denotes the identifier of the default consent arrangement",
+          "description" : "Refers to the ID of the Default Consent Arrangement.",
           "minLength" : 0,
           "maxLength" : 27
         },
         "connectionStatus" : {
           "type" : "string",
-          "description" : "Contains the connection status of the transaction",
+          "description" : "Updates the Connection Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 16
         },
         "subStatus" : {
           "type" : "string",
-          "description" : "Contains the sub status of the transaction",
+          "description" : "Updates the Sub Status of the Transaction.",
           "minLength" : 0,
           "maxLength" : 9
         },
         "currentState" : {
           "type" : "string",
-          "description" : "Contains the current state of the transaction",
+          "description" : "Refers to the Current State of the Transaction.",
           "minLength" : 0,
           "maxLength" : 12
         },
         "updatedAt" : {
           "type" : "string",
-          "description" : "Contains the time at which the arrangement was updated",
+          "description" : "Refers to the time at which the arrangement was updated.",
           "minLength" : 0,
           "maxLength" : 9
         }
@@ -1630,7 +1598,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -1687,7 +1655,7 @@
               "properties" : {
                 "otherBankConsentType" : {
                   "type" : "string",
-                  "description" : "Contains the different consent types in other banks",
+                  "description" : "Refers to the Other Banks Consent Types.",
                   "maxLength" : 65
                 }
               }
@@ -1706,7 +1674,7 @@
                 },
                 "consentGivenAt" : {
                   "type" : "string",
-                  "description" : "Contains the date/time at which at which the Consent was given",
+                  "description" : "Refers to when the Consent was given at.",
                   "maxLength" : 65
                 },
                 "consentStartsAt" : {
@@ -1716,7 +1684,7 @@
                 },
                 "consentExpiryAt" : {
                   "type" : "string",
-                  "description" : "Time at which the consent expires",
+                  "description" : "Refers to the time at which the consent expires",
                   "maxLength" : 65
                 }
               }
@@ -1734,22 +1702,22 @@
                 },
                 "obcpAccountId" : {
                   "type" : "string",
-                  "description" : "Denotes the Account Id of Other Banks Consent Period.",
+                  "description" : "Refers to the Account Id of the Other Banks Consent Period.",
                   "maxLength" : 65
                 },
                 "obcpStatus" : {
                   "type" : "string",
-                  "description" : "Contains the status of the  consent period in other banks",
+                  "description" : "Refers to the Status of the Other Banks Consent Period.",
                   "maxLength" : 35
                 },
                 "balancesLastUpdated" : {
                   "type" : "string",
-                  "description" : "Contains the last updated balances details",
+                  "description" : "Refers to when the Balances where last updated.",
                   "maxLength" : 65
                 },
                 "transactionsLastUpdated" : {
                   "type" : "string",
-                  "description" : "Contains the list of last updated transactions",
+                  "description" : "Refers to when the Transactions where last updated.",
                   "maxLength" : 65
                 },
                 "accountId" : {
@@ -1758,7 +1726,7 @@
                 },
                 "shortTitle" : {
                   "type" : "string",
-                  "description" : "Short title given to the name of the arrangement"
+                  "description" : "Short Title given to the name of the arrangement ."
                 },
                 "sortCode" : {
                   "type" : "string",
@@ -1775,7 +1743,7 @@
               "properties" : {
                 "transactionNextPageId" : {
                   "type" : "string",
-                  "description" : "Denotes the identifier of the next page in the transaction",
+                  "description" : "Refers to the ID of the Next Page of the Transaction.",
                   "maxLength" : 65
                 }
               }
@@ -1797,7 +1765,7 @@
           },
           "connectionId" : {
             "type" : "string",
-            "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
+            "description" : "Refers to the ID associated to the Connect Reference respective to a transaction of the Account.",
             "maxLength" : 35
           },
           "customerId" : {
@@ -1807,7 +1775,7 @@
           },
           "bankId" : {
             "type" : "string",
-            "description" : "Contains the identifier of the bank with which the transaction is performed",
+            "description" : "Refers to the ID of the bank with which the transaction is performed.",
             "maxLength" : 65
           },
           "bankName" : {
@@ -1822,82 +1790,82 @@
           },
           "obcpId" : {
             "type" : "string",
-            "description" : "Denotes the  consent period identifier of the other bank",
+            "description" : "Refers to the ID of the Other Banks Consent Period.",
             "maxLength" : 65
           },
           "obcpConnectionId" : {
             "type" : "string",
-            "description" : "Denotes the  consent period connection identifier of the other bank",
+            "description" : "Refers to the  ConnectionID of the Other Banks Consent Period.",
             "maxLength" : 65
           },
           "obcpBankId" : {
             "type" : "string",
-            "description" : "Denotes the identifier of the other bank",
+            "description" : "Refers to the ID of the Other Bank.",
             "maxLength" : 65
           },
           "obcpCustomerId" : {
             "type" : "string",
-            "description" : "Contains the identifier of the customer in other bank",
+            "description" : "Refers to the ID of the customer of Other Bank.",
             "maxLength" : 65
           },
           "connectionStatus" : {
             "type" : "string",
-            "description" : "Contains the connection status of the transaction",
+            "description" : "Updates the Connection Status of the Transaction.",
             "maxLength" : 35
           },
           "subStatus" : {
             "type" : "string",
-            "description" : "Contains the sub status of the transaction",
+            "description" : "Updates the Sub Status of the Transaction.",
             "maxLength" : 35
           },
           "currentState" : {
             "type" : "string",
-            "description" : "Contains the current state of the transaction",
+            "description" : "Refers to the Current State of the Transaction.",
             "maxLength" : 65
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Contains the time at which the arrangement was created",
+            "description" : "Refers to the time at which the arrangement was created.",
             "maxLength" : 65
           },
           "latestToken" : {
             "type" : "string",
-            "description" : "Contains the latest token of the ongoing transaction",
+            "description" : "Refers to the Latest Token of the ongoing Transaction.",
             "maxLength" : 65
           },
           "latestRedirectUrl" : {
             "type" : "string",
-            "description" : "Contains the latest redirected URL of the ongoing transaction",
+            "description" : "Refers to the Latest Redirected URL of the ongoing Transaction.",
             "maxLength" : 65
           },
           "defaultConsentArrangementId" : {
             "type" : "string",
-            "description" : "Denotes the identifier of the default consent arrangement",
+            "description" : "Refers to the ID of the Default Consent Arrangement.",
             "maxLength" : 65
           },
           "obcpToken" : {
             "type" : "string",
-            "description" : "Contains the consent period token of the other banks",
+            "description" : "Refers to the Token of the Other Banks Consent Period.",
             "maxLength" : 65
           },
           "obcpRedirectUrl" : {
             "type" : "string",
-            "description" : "Contains the consent period redirected URL of the other banks",
+            "description" : "Refers to the  Redirected URL of the Other Banks Consent Period.",
             "maxLength" : 65
           },
           "otherBankConsentPeriodDays" : {
             "type" : "string",
-            "description" : "Contains the number of days in the consent period of the other banks ",
+            "description" : "Refers to the number of days in the Other Banks Consent Period.",
             "maxLength" : 65
           },
           "otherBankConsentGivenAt" : {
             "type" : "string",
-            "description" : "Contains the date/time at which the other banks consent period starts",
+            "description" : "Refers to when the Other Banks Consent Period Starts.",
             "maxLength" : 65
           },
           "otherBankConsentExpiresAt" : {
             "type" : "string",
-            "description" : "Contains the date/time at which the other banks consent period expires",
+            "description" : "Refers to when the Other Banks Consent Period Expires.",
             "maxLength" : 65
           },
           "channelId" : {
@@ -1907,7 +1875,7 @@
           },
           "bankCode" : {
             "type" : "string",
-            "description" : "Contains the code of the bank with which the transaction is performed",
+            "description" : "Refers to the Code of the bank with which the transaction is performed.",
             "maxLength" : 65
           },
           "versionNumber" : {
@@ -1917,7 +1885,7 @@
           },
           "nextRefreshAvailableAt" : {
             "type" : "string",
-            "description" : "Denotes the next refresh time",
+            "description" : "Refers to when the next Refresh will be Available At.",
             "maxLength" : 65
           }
         }

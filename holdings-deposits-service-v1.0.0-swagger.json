@@ -7,13 +7,15 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
     "basicAuth" : [ ]
   } ],
   "paths" : {
     "/holdings/deposits/{depositId}" : {
       "get" : {
+        "summary" : "Retrieves the deposit account details",
+        "description" : "Retrieves deposit details",
         "operationId" : "getDepositDetails",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -50,14 +52,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -67,6 +63,18 @@
             "description" : "DepositDetailsResponse",
             "schema" : {
               "$ref" : "#/definitions/DepositDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -80,6 +88,8 @@
     },
     "/holdings/deposits/{depositId}/bills" : {
       "get" : {
+        "summary" : "Retrieves the simulation details for the full withdrawal of the funds in a deposit (redemption) based on the selection criteria",
+        "description" : "Retrieves deposit bill details",
         "operationId" : "getDepositBillDetails",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -116,14 +126,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -133,6 +137,18 @@
             "description" : "DepositBillDetailsResponse",
             "schema" : {
               "$ref" : "#/definitions/DepositBillDetailsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -146,6 +162,8 @@
     },
     "/holdings/deposits/{simulationCaptureReferenceId}/partialBills" : {
       "get" : {
+        "summary" : "Retrieves the charge and interest details of the partial bills, based on the selection criteria, the simulation capture reference Id. Not passing a simulation reference Id will return all the simulation reference records",
+        "description" : "Retrieves deposit partial bills details",
         "operationId" : "getDepositPartialBills",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -182,14 +200,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
+          "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
@@ -199,6 +211,18 @@
             "description" : "DepositPartialBillsResponse",
             "schema" : {
               "$ref" : "#/definitions/DepositPartialBillsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -229,11 +253,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -277,7 +304,7 @@
         "properties" : {
           "chargeTypes" : {
             "type" : "array",
-            "description" : "The type of charge",
+            "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -290,7 +317,7 @@
           },
           "taxRates" : {
             "type" : "array",
-            "description" : "The applicable rate of tax",
+            "description" : "Indicates tax charged to an account",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -303,6 +330,7 @@
           },
           "charges" : {
             "type" : "array",
+            "description" : "The charges or fees for this transaction",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -331,6 +359,7 @@
           },
           "settlements" : {
             "type" : "array",
+            "description" : "Indicates settlement conditions associated with the account",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -473,9 +502,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -502,11 +534,67 @@
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -528,6 +616,7 @@
         "properties" : {
           "properties" : {
             "type" : "array",
+            "description" : "Id of the product property",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -572,6 +661,7 @@
         "properties" : {
           "properties" : {
             "type" : "array",
+            "description" : "Id of the product property",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -590,6 +680,11 @@
             "type" : "string",
             "description" : "Indicates the Id generated during the simulation of an activity",
             "maxLength" : 40
+          },
+          "simulationCaptureReferenceId" : {
+            "type" : "string",
+            "description" : "Indicates the Reference Id for the simulation activity",
+            "maxLength" : 30
           }
         }
       }

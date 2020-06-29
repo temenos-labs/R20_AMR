@@ -27,7 +27,6 @@
         }, {
           "name" : "countryCode",
           "in" : "query",
-          "description" : "Specifies the country code of the beneficiary's address ",
           "required" : true,
           "type" : "string"
         }, {
@@ -74,12 +73,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -136,7 +129,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "number",
@@ -190,44 +183,35 @@
             "description" : "Process Workflow Participant ID"
           },
           "idType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "participantName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "countryCode" : {
-            "type" : "string",
-            "description" : "Specifies the country code of the beneficiary's address "
+            "type" : "string"
           },
           "currencyCode" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "cutOffTime" : {
             "type" : "string",
             "description" : "The Cut off time when all executions for the day are consolidated to create a trade"
           },
           "cutOffDay" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "localTimezone" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "actAsIntermediary" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "reachableThrough" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "channelType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "startDate" : {
             "type" : "string",
@@ -238,12 +222,10 @@
             "description" : "Indicates the date on which the Payment Stop is placed"
           },
           "ssiRecordKey" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "delegatedTo" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }

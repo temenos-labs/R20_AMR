@@ -14,6 +14,8 @@
   "paths" : {
     "/holdings/chequeIssues/{chequeIssueId}" : {
       "post" : {
+        "summary" : "Initiate a new cheque book request for an account",
+        "description" : "Issue a new cheque",
         "operationId" : "createChequeIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -38,15 +40,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -55,6 +50,18 @@
             "description" : "ChequeIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequeIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -66,6 +73,8 @@
         }
       },
       "put" : {
+        "summary" : "Update an existing cheque book for an account",
+        "description" : "Update issued cheque details",
         "operationId" : "updateChequeIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -90,15 +99,8 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -107,6 +109,18 @@
             "description" : "ChequeIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequeIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -118,6 +132,8 @@
         }
       },
       "delete" : {
+        "summary" : "Remove an existing cheque book for the selected account",
+        "description" : "Delete the issued cheque",
         "operationId" : "deleteChequeIssue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -128,15 +144,22 @@
           "type" : "string",
           "x-example" : "CURR.14664.0000006\n"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
           "required" : false,
-          "type" : "string"
+          "schema" : {
+            "$ref" : "#/definitions/ChequeIssueDelete"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
         }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -145,6 +168,18 @@
             "description" : "ChequeIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequeIssueResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
           },
           "default" : {
@@ -158,6 +193,8 @@
     },
     "/holdings/chequeIssues" : {
       "get" : {
+        "summary" : "Retrieves the Cheques Issued details for the selected account",
+        "description" : "Retrieves the issued cheques list",
         "operationId" : "getChequeIssues",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -193,15 +230,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -210,6 +240,18 @@
             "description" : "ChequeIssuesResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequeIssuesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -223,6 +265,8 @@
     },
     "/holdings/cheques" : {
       "get" : {
+        "summary" : "Retrieves the Cheques details for the selected account",
+        "description" : "Retrieves the Cheques details",
         "operationId" : "getCheques",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -258,15 +302,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-          "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
@@ -275,6 +312,18 @@
             "description" : "ChequesResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequesResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
           },
           "default" : {
@@ -309,7 +358,7 @@
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message"
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -325,7 +374,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -373,19 +422,24 @@
       "properties" : {
         "notes" : {
           "type" : "array",
+          "description" : "Notes to facilitate the use of the Function.",
           "items" : {
             "type" : "object",
             "properties" : {
               "note" : {
                 "type" : "string",
-                "description" : "Notes to facilitate the use of the function"
+                "description" : "Notes to facilitate the use of the Function.",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
         },
         "chequeStatus" : {
           "type" : "string",
-          "description" : "Specifies the status in which the cheque is in currently"
+          "description" : "Specifies the status in which the cheque is in currently",
+          "minLength" : 0,
+          "maxLength" : 13
         },
         "issueDate" : {
           "type" : "string",
@@ -394,23 +448,33 @@
         },
         "numberIssued" : {
           "type" : "string",
-          "description" : "Contains the cheque number with which it has been issued"
+          "description" : "Contains the cheque number with which it has been issued",
+          "minLength" : 0,
+          "maxLength" : 13
         },
         "stockRegister" : {
           "type" : "string",
-          "description" : "Contains the record of transactions of a publicly-traded company for transfers, issues of stock, buybacks and other actions related to the company's stock"
+          "description" : "Contains the record of transactions of a publicly-traded company for transfers, issues of stock, buybacks and other actions related to the company's stock",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "seriesId" : {
           "type" : "string",
-          "description" : "Contains the series id associated with the cheque"
+          "description" : "Contains the series id associated with the cheque",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "chequeNumberStart" : {
           "type" : "string",
-          "description" : "Contains the number the cheque starts with"
+          "description" : "Contains the number the cheque starts with",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "charges" : {
           "type" : "string",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "Specifies the charges which has incurred with processing of the cheque",
+          "minLength" : 0,
+          "maxLength" : 19
         }
       }
     },
@@ -422,11 +486,15 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "The status of the record"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
         },
         "audit" : {
           "type" : "object",
@@ -438,9 +506,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -465,19 +538,24 @@
       "properties" : {
         "notes" : {
           "type" : "array",
+          "description" : "Notes to facilitate the use of the Function.",
           "items" : {
             "type" : "object",
             "properties" : {
               "note" : {
                 "type" : "string",
-                "description" : "Notes to facilitate the use of the function"
+                "description" : "Notes to facilitate the use of the Function.",
+                "minLength" : 0,
+                "maxLength" : 35
               }
             }
           }
         },
         "chequeStatus" : {
           "type" : "string",
-          "description" : "Specifies the status in which the cheque is in currently"
+          "description" : "Specifies the status in which the cheque is in currently",
+          "minLength" : 0,
+          "maxLength" : 13
         },
         "issueDate" : {
           "type" : "string",
@@ -486,23 +564,33 @@
         },
         "numberIssued" : {
           "type" : "string",
-          "description" : "Contains the cheque number with which it has been issued"
+          "description" : "Contains the cheque number with which it has been issued",
+          "minLength" : 0,
+          "maxLength" : 13
         },
         "stockRegister" : {
           "type" : "string",
-          "description" : "Contains the record of transactions of a publicly-traded company for transfers, issues of stock, buybacks and other actions related to the company's stock"
+          "description" : "Contains the record of transactions of a publicly-traded company for transfers, issues of stock, buybacks and other actions related to the company's stock",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "seriesId" : {
           "type" : "string",
-          "description" : "Contains the series id associated with the cheque"
+          "description" : "Contains the series id associated with the cheque",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "chequeNumberStart" : {
           "type" : "string",
-          "description" : "Contains the number the cheque starts with"
+          "description" : "Contains the number the cheque starts with",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "charges" : {
           "type" : "string",
-          "description" : "Specifies the charges which has incurred with processing of the cheque"
+          "description" : "Specifies the charges which has incurred with processing of the cheque",
+          "minLength" : 0,
+          "maxLength" : 19
         }
       }
     },
@@ -520,6 +608,10 @@
           "type" : "string",
           "description" : "The status of the transaction"
         },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
+        },
         "audit" : {
           "type" : "object",
           "properties" : {
@@ -532,7 +624,12 @@
               "type" : "string",
               "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -555,6 +652,17 @@
               "description" : {
                 "type" : "string",
                 "description" : "The actual override message"
+              },
+              "options" : {
+                "type" : "array",
+                "description" : "The usable options for the override",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "The type of the override"
               }
             }
           }
@@ -593,16 +701,110 @@
               },
               "message" : {
                 "type" : "string",
-                "description" : "The actual t24 error message"
+                "description" : "The actual t24 error message "
               }
             }
           }
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
         }
       }
+    },
+    "BusinessScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "BusinessScreenErrorResponse"
+    },
+    "BusinessScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message for bad requests"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "SystemScreenErrorResponse"
+    },
+    "SystemScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message caused by server"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "ChequeIssueDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "ChequeIssueDelete"
     },
     "QueryHeader" : {
       "properties" : {
@@ -616,9 +818,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
-            "parse_time" : {
+            "requestParse_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
               "type" : "integer",
               "format" : "int32",
               "description" : "Time taken to parse the response by IRIS"
@@ -674,7 +881,7 @@
           },
           "chequeNumberStart" : {
             "type" : "string",
-            "description" : "Contains the number the cheque starts with",
+            "description" : "Refers to the numbers the cheque starts with.",
             "maxLength" : 35
           },
           "chequeStatus" : {
@@ -684,7 +891,7 @@
           },
           "displayName" : {
             "type" : "string",
-            "description" : "Contains the name used for display or enrichment purposes"
+            "description" : "Name used for display or enrichment purposes"
           },
           "requestDate" : {
             "type" : "string",
@@ -694,7 +901,7 @@
           "versionNumber" : {
             "type" : "string",
             "description" : "Current number of the record",
-            "maxLength" : 4
+            "maxLength" : 6
           }
         }
       }
@@ -715,15 +922,71 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message"
+          "description" : "The identifier of the error message "
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message"
+          "description" : "The actual t24 error message "
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type"
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message "
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
         }
       }
     },
@@ -750,18 +1013,56 @@
           },
           "chequeAmount" : {
             "type" : "number",
-            "description" : "Amount of the cheque"
+            "description" : "Amount of the cheque",
+            "maximum" : 19
           },
           "date" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Indicates the date on which activity was performed"
+            "description" : "Date in the format YYYYMMDD. E.g. 20191231"
           },
           "chequeStatus" : {
             "type" : "string",
             "description" : "Specifies the status in which the cheque is in currently",
             "maxLength" : 35
           }
+        }
+      }
+    },
+    "deleteChequeIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ChequeIssueBody"
+        }
+      },
+      "description" : "ChequeIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : ""
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "",
+              "id" : "",
+              "responseCode" : ""
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "",
+          "notes" : [ {
+            "note" : ""
+          } ],
+          "stockRegister" : "",
+          "chequeNumberStart" : "",
+          "chequeStatus" : "61",
+          "issueDate" : "",
+          "seriesId" : "",
+          "numberIssued" : ""
         }
       }
     },

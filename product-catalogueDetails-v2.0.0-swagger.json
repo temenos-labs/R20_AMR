@@ -21,13 +21,13 @@
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
-          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "description" : "Id of the product.",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "description" : "Identifies the currency. E.g. USD, GBP etc",
           "required" : false,
           "type" : "string"
         }, {
@@ -62,19 +62,16 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -97,7 +94,6 @@
         }, {
           "name" : "baseInterestRate",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -108,7 +104,6 @@
         }, {
           "name" : "interestMargin",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -135,7 +130,6 @@
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -164,15 +158,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -223,7 +210,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -308,47 +295,42 @@
           },
           "productId" : {
             "type" : "string",
-            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+            "description" : "Id of the product.",
             "maxLength" : 100
           },
           "currency" : {
             "type" : "string",
-            "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+            "description" : "Identifies the currency. E.g. USD, GBP etc",
             "maxLength" : 100
           },
           "variation" : {
             "type" : "string",
-            "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate. Drop down list to select appropriate variation or applied automatically",
+            "description" : "Additional product specification based on particular criteria for example the account was opened on-line and attracted a higher interest rate.� Drop down list to select appropriate variation or applied automatically?",
             "maxLength" : 100
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "Indicates the description of the Product",
+            "description" : "Description of the product",
             "maxLength" : 100
           },
           "availableCompany" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestApplicable" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -363,17 +345,14 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "standardRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "paymentFrequency" : {
@@ -383,27 +362,22 @@
           },
           "noticeDays" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "productRiskCategory" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "coolingPeriod" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rolloverType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }

@@ -3,7 +3,7 @@
   "info" : {
     "description" : "Allows the creation, viewing and management of customer documents and images.",
     "version" : "v1.0.0",
-    "title" : "Party Customers Documents APIs"
+    "title" : "Party Customers APIs"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
@@ -14,6 +14,8 @@
   "paths" : {
     "/party/customers/{customerId}/documents" : {
       "get" : {
+        "summary" : "Retrieves the list of documents for a customer",
+        "description" : "Retrieves the list of documents and images for a customer",
         "operationId" : "getCustomerDocuments",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -40,12 +42,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -85,12 +81,13 @@
     },
     "/party/customers/{customerId}/images/{imageId}" : {
       "get" : {
+        "summary" : "Retrieves the specific document",
+        "description" : "Retrieves the specific document for the given id",
         "operationId" : "getDocumentImage",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "customerId",
           "in" : "path",
-          "description" : "Identifier of the customer",
           "required" : true,
           "type" : "string"
         }, {
@@ -98,12 +95,6 @@
           "in" : "path",
           "description" : "A system generated unique identifier for the image record",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -140,6 +131,8 @@
         }
       },
       "put" : {
+        "summary" : "Updates the specific document",
+        "description" : "Updates the specific document for a customer",
         "operationId" : "updateDocumentImage",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -168,12 +161,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -211,6 +198,8 @@
     },
     "/party/customers/{customerId}/images" : {
       "get" : {
+        "summary" : "Retrieves the customer images ",
+        "description" : "Retrieves the customer images ",
         "operationId" : "getCustomerImages",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -237,12 +226,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -280,6 +263,8 @@
         }
       },
       "post" : {
+        "summary" : "Creates a document image",
+        "description" : "Creates a document for a customer",
         "operationId" : "createDocumentImage",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -302,12 +287,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -376,12 +355,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -440,12 +413,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -506,12 +473,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -571,12 +532,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -610,6 +565,449 @@
           }
         }
       }
+    },
+    "/party/customers/documents/{documentId}" : {
+      "put" : {
+        "summary" : "Update an existing document/image record for specific document id",
+        "description" : "Update document and image details",
+        "operationId" : "updateDocumentandImage",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "documentId",
+          "in" : "path",
+          "description" : "Based on documentCode, the field defaults the required document codes",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DocumentandImage"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DocumentandImageResponse",
+            "schema" : {
+              "$ref" : "#/definitions/DocumentandImageResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Remove document/image for specific document id",
+        "description" : "Remove document and image",
+        "operationId" : "deleteDocumentandImage",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "documentId",
+          "in" : "path",
+          "description" : "Based on documentCode, the field defaults the required document codes",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/DocumentandImageDelete"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DocumentandImageResponse",
+            "schema" : {
+              "$ref" : "#/definitions/DocumentandImageResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/party/customers/documents/fileUploads/{uploadId}" : {
+      "post" : {
+        "summary" : "Initiate a new profile picture upload request for a customer",
+        "description" : "Create profile picture upload",
+        "operationId" : "createProfilePictureUpload",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "uploadId",
+          "in" : "path",
+          "description" : "The unique identifier of the uploaded file",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "IM1907902062"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProfilePictureUpload"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ProfilePictureUploadResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ProfilePictureUploadResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Update an existing uploaded profile picture record for a customer",
+        "description" : "Update profile picture upload details",
+        "operationId" : "updateProfilePictureUpload",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "uploadId",
+          "in" : "path",
+          "description" : "The unique identifier of the uploaded file",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "IM1907902062"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProfilePictureUpload"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ProfilePictureUploadResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ProfilePictureUploadResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Remove an existing profile picture record for a customer",
+        "description" : "Remove profile picture upload",
+        "operationId" : "deleteProfilePictureUpload",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "uploadId",
+          "in" : "path",
+          "description" : "The unique identifier of the uploaded file",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "IM1907902062"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ProfilePictureUploadDelete"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ProfilePictureUploadResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ProfilePictureUploadResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/party/customers/documents" : {
+      "post" : {
+        "summary" : "Initiate a new request for document and image",
+        "description" : "Retrieves document and Images details",
+        "operationId" : "createDocumentandImage",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DocumentandImage"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DocumentandImageResponse",
+            "schema" : {
+              "$ref" : "#/definitions/DocumentandImageResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/party/customers/images/{imageReference}" : {
+      "get" : {
+        "summary" : "Retrieves the list of image records for specific id",
+        "description" : "Retrieves document and Images details",
+        "operationId" : "getDocumentandImages",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "imageReference",
+          "in" : "path",
+          "description" : "Indicates the reference no. E.g. contract no./customer no./payments no. to which the image/document is attached to",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "190198"
+        }, {
+          "name" : "imageApplication",
+          "in" : "query",
+          "description" : "Indicates the domain name (technical identifier) the image/document is attached to. E.g., Customer, Payments, Loans, Deposits, etc..,",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "imageType",
+          "in" : "query",
+          "description" : "Indicates the internal classification of images - such as Photographs, Documents, Passports, etc..,",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "imageReferenceId",
+          "in" : "query",
+          "description" : "Contains the identifier associated to the image reference",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "DocumentandImagesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/CustomerDocumentsResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
     }
   },
   "securityDefinitions" : {
@@ -630,19 +1028,21 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
         },
         "page_size" : {
           "type" : "integer",
@@ -744,16 +1144,18 @@
               "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
         }
       }
     },
@@ -773,7 +1175,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -801,7 +1203,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -829,7 +1231,7 @@
       "properties" : {
         "code" : {
           "type" : "string",
-          "description" : "The identifier of the error message "
+          "description" : "The identifier of the error message"
         },
         "message" : {
           "type" : "string",
@@ -853,11 +1255,15 @@
                 "properties" : {
                   "id" : {
                     "type" : "string",
-                    "description" : "The identifier of the override"
+                    "description" : "The identifier of the override."
                   },
                   "description" : {
                     "type" : "string",
-                    "description" : "Contains the description of purpose of the payment."
+                    "description" : "The actual override message."
+                  },
+                  "code" : {
+                    "type" : "string",
+                    "description" : "The code related to override message."
                   },
                   "responseCode" : {
                     "type" : "string",
@@ -873,7 +1279,7 @@
           "properties" : {
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             }
           }
         }
@@ -902,6 +1308,7 @@
               "displayName" : {
                 "type" : "string",
                 "description" : "Contains the name used for display or enrichment purposes",
+                "minLength" : 0,
                 "maxLength" : 11
               }
             }
@@ -910,26 +1317,31 @@
         "imageType" : {
           "type" : "string",
           "description" : "Indicates the internal classification of images - such as Photographs, Documents, Passports, etc..,",
+          "minLength" : 0,
           "maxLength" : 9
         },
         "imageApplication" : {
           "type" : "string",
           "description" : "Indicates the domain name (technical identifier) the image/document is attached to. E.g., Customer, Payments, Loans, Deposits, etc..,",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "companyMnemonic" : {
           "type" : "string",
           "description" : "Shortcut code for referring an Entity/Company/Branch related to the image record",
+          "minLength" : 0,
           "maxLength" : 15
         },
         "displayName" : {
           "type" : "string",
           "description" : "Contains the name used for display or enrichment purposes",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "mediaType" : {
           "type" : "string",
           "description" : "Indicates the social media type, as defined by the institution e.g. - FACEBOOK - LINKEDIN - MOBILE - TWITTER",
+          "minLength" : 0,
           "maxLength" : 14,
           "enum" : [ "IMAGE", "SOUND", "VIDEO", "DOCUMENT" ]
         }
@@ -943,11 +1355,15 @@
         },
         "status" : {
           "type" : "string",
-          "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts."
+          "description" : "Status of the API(success/failed)"
         },
         "transactionStatus" : {
           "type" : "string",
-          "description" : "Contains the current status of the transaction. For example: 'ACCC': 'AcceptedSettlementCompleted' - Settlement on the creditor's account has been completed.'ACCP': 'AcceptedCustomerProfile' - Preceding check of technical validation was successful. Customer profile check was also successful.'CANC': 'Cancelled' Payment initiation has been cancelled before execution Remark: This codeis accepted as new code by ISO20022.'RCVD': 'Received' - Payment initiation has been received by the receiving agent."
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
         },
         "audit" : {
           "type" : "object",
@@ -959,16 +1375,14 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the request by IRIS"
             },
             "responseParse_time" : {
-              "type" : "integer",
-              "format" : "int32",
+              "type" : "number",
               "description" : "Time taken to parse the response by IRIS"
             }
           }
@@ -998,6 +1412,7 @@
               "displayName" : {
                 "type" : "string",
                 "description" : "Contains the name used for display or enrichment purposes",
+                "minLength" : 0,
                 "maxLength" : 11
               }
             }
@@ -1006,31 +1421,37 @@
         "imageType" : {
           "type" : "string",
           "description" : "Indicates the internal classification of images - such as Photographs, Documents, Passports, etc..,",
+          "minLength" : 0,
           "maxLength" : 9
         },
         "imageApplication" : {
           "type" : "string",
           "description" : "Indicates the domain name (technical identifier) the image/document is attached to. E.g., Customer, Payments, Loans, Deposits, etc..,",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "companyMnemonic" : {
           "type" : "string",
           "description" : "Shortcut code for referring an Entity/Company/Branch related to the image record",
+          "minLength" : 0,
           "maxLength" : 15
         },
         "imageReference" : {
           "type" : "string",
           "description" : "Indicates the reference no. E.g. contract no./customer no./payments no. to which the image/document is attached to",
+          "minLength" : 0,
           "maxLength" : 14
         },
         "displayName" : {
           "type" : "string",
           "description" : "Contains the name used for display or enrichment purposes",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "mediaType" : {
           "type" : "string",
           "description" : "Indicates the social media type, as defined by the institution e.g. - FACEBOOK - LINKEDIN - MOBILE - TWITTER",
+          "minLength" : 0,
           "maxLength" : 14,
           "enum" : [ "IMAGE", "SOUND", "VIDEO", "DOCUMENT" ]
         }
@@ -1045,22 +1466,26 @@
             "properties" : {
               "id" : {
                 "type" : "string",
-                "description" : "The identifier of the override"
+                "description" : "The identifier of the override."
               },
               "description" : {
                 "type" : "string",
-                "description" : "The actual override message"
+                "description" : "The actual override message."
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The code related to override message."
               },
               "options" : {
                 "type" : "array",
-                "description" : "The usable options for the override",
+                "description" : "The usable options for the override.",
                 "items" : {
                   "type" : "string"
                 }
               },
               "type" : {
                 "type" : "string",
-                "description" : "The type of the override"
+                "description" : "The type of the override."
               }
             }
           }
@@ -1217,9 +1642,9 @@
             "description" : "Defines the unique identifier for the customer document",
             "maxLength" : 46
           },
-          "documentType" : {
+          "documentName" : {
             "type" : "string",
-            "description" : "Contains the type of the document.",
+            "description" : "The accepted forms of identification taken by the bank when enrolling a Customer",
             "maxLength" : 26
           },
           "referenceNumber" : {
@@ -1282,31 +1707,37 @@
         "referenceNumber" : {
           "type" : "string",
           "description" : "Specifies the reference for the document, if any.",
+          "minLength" : 0,
           "maxLength" : 15
         },
         "status" : {
           "type" : "string",
           "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+          "minLength" : 0,
           "maxLength" : 6
         },
         "statusDate" : {
           "type" : "string",
           "description" : "The date status was last updated",
+          "minLength" : 0,
           "maxLength" : 10
         },
         "endDate" : {
           "type" : "string",
           "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned",
+          "minLength" : 0,
           "maxLength" : 7
         },
         "documentSequence" : {
           "type" : "string",
           "description" : "Sequence number of revised document",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "documentNature" : {
           "type" : "string",
           "description" : "Specifies the nature of the document, which can possibly take values like DUPLICATE,ORIGINAL etc",
+          "minLength" : 0,
           "maxLength" : 14
         }
       }
@@ -1328,31 +1759,37 @@
         "referenceNumber" : {
           "type" : "string",
           "description" : "Specifies the reference for the document, if any.",
+          "minLength" : 0,
           "maxLength" : 15
         },
         "status" : {
           "type" : "string",
           "description" : "Status identifier of the account. The values are 'DELETED' if the account is closed, 'BLOCKED' is there are any posting restrictions & 'ENABLED' for active accounts.",
+          "minLength" : 0,
           "maxLength" : 6
         },
         "statusDate" : {
           "type" : "string",
           "description" : "The date status was last updated",
+          "minLength" : 0,
           "maxLength" : 10
         },
         "endDate" : {
           "type" : "string",
           "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned",
+          "minLength" : 0,
           "maxLength" : 7
         },
         "documentSequence" : {
           "type" : "string",
           "description" : "Sequence number of revised document",
+          "minLength" : 0,
           "maxLength" : 16
         },
         "documentNature" : {
           "type" : "string",
           "description" : "Specifies the nature of the document, which can possibly take values like DUPLICATE,ORIGINAL etc",
+          "minLength" : 0,
           "maxLength" : 14
         }
       }
@@ -1364,6 +1801,334 @@
         }
       },
       "description" : "CustomerDocumentDelete"
+    },
+    "DocumentandImage" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DocumentandImageBody"
+        }
+      },
+      "description" : "DocumentandImage",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "imageApplication" : "CUSTOMER",
+          "notes" : "NEW IMAGE",
+          "displayName" : "Petero",
+          "imageReference" : "190167",
+          "multiMediaType" : "IMAGE",
+          "descriptions" : [ {
+            "description" : "Petero"
+          } ],
+          "imageType" : "PHOTOS"
+        }
+      }
+    },
+    "DocumentandImageBody" : {
+      "type" : "object",
+      "properties" : {
+        "descriptions" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "description" : {
+                "type" : "string",
+                "description" : "Contains the description of purpose of the payment.",
+                "minLength" : 0,
+                "maxLength" : 35
+              }
+            }
+          }
+        },
+        "imageType" : {
+          "type" : "string",
+          "description" : "Indicates the internal classification of images - such as Photographs, Documents, Passports, etc..,",
+          "minLength" : 0,
+          "maxLength" : 25
+        },
+        "imageApplication" : {
+          "type" : "string",
+          "description" : "Indicates the domain name (technical identifier) the image/document is attached to. E.g., Customer, Payments, Loans, Deposits, etc..,",
+          "minLength" : 0,
+          "maxLength" : 40
+        },
+        "companyMnemonic" : {
+          "type" : "string",
+          "description" : "Shortcut code for referring an Entity/Company/Branch related to the image record",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "imageReference" : {
+          "type" : "string",
+          "description" : "Indicates the reference no. E.g. contract no./customer no./payments no. to which the image/document is attached to",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "displayName" : {
+          "type" : "string",
+          "description" : "Contains the name used for display or enrichment purposes",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "multiMediaType" : {
+          "type" : "string",
+          "description" : "Different types of multimedia that has been used in the advertisement",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "imagePath" : {
+          "type" : "string",
+          "description" : "Identifies the image stored on the file system, specifically based on the logo url mentioned in open banking directory.",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "notes" : {
+          "type" : "string",
+          "description" : "Notes to facilitate the use of the function",
+          "minLength" : 0,
+          "maxLength" : 100
+        }
+      }
+    },
+    "DocumentandImageResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DocumentandImageResponseBody"
+        }
+      },
+      "description" : "DocumentandImageResponse"
+    },
+    "DocumentandImageResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "descriptions" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "description" : {
+                "type" : "string",
+                "description" : "Contains the description of purpose of the payment.",
+                "minLength" : 0,
+                "maxLength" : 35
+              }
+            }
+          }
+        },
+        "imageType" : {
+          "type" : "string",
+          "description" : "Indicates the internal classification of images - such as Photographs, Documents, Passports, etc..,",
+          "minLength" : 0,
+          "maxLength" : 25
+        },
+        "imageApplication" : {
+          "type" : "string",
+          "description" : "Indicates the domain name (technical identifier) the image/document is attached to. E.g., Customer, Payments, Loans, Deposits, etc..,",
+          "minLength" : 0,
+          "maxLength" : 40
+        },
+        "companyMnemonic" : {
+          "type" : "string",
+          "description" : "Shortcut code for referring an Entity/Company/Branch related to the image record",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "imageReference" : {
+          "type" : "string",
+          "description" : "Indicates the reference no. E.g. contract no./customer no./payments no. to which the image/document is attached to",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "displayName" : {
+          "type" : "string",
+          "description" : "Contains the name used for display or enrichment purposes",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "multiMediaType" : {
+          "type" : "string",
+          "description" : "Different types of multimedia that has been used in the advertisement",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "imagePath" : {
+          "type" : "string",
+          "description" : "Identifies the image stored on the file system, specifically based on the logo url mentioned in open banking directory.",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "notes" : {
+          "type" : "string",
+          "description" : "Notes to facilitate the use of the function",
+          "minLength" : 0,
+          "maxLength" : 100
+        }
+      }
+    },
+    "ProfilePictureUpload" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProfilePictureUploadBody"
+        }
+      },
+      "description" : "ProfilePictureUpload",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
+    },
+    "ProfilePictureUploadBody" : {
+      "type" : "object",
+      "properties" : {
+        "uploadId" : {
+          "type" : "string",
+          "description" : "The unique identifier of the uploaded file",
+          "minLength" : 0,
+          "maxLength" : 25
+        },
+        "fileUpload" : {
+          "type" : "string",
+          "description" : "Uses a file browser to locate and display the file. ",
+          "minLength" : 0,
+          "maxLength" : 50
+        }
+      }
+    },
+    "ProfilePictureUploadResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProfilePictureUploadResponseBody"
+        }
+      },
+      "description" : "ProfilePictureUploadResponse"
+    },
+    "ProfilePictureUploadResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "uploadId" : {
+          "type" : "string",
+          "description" : "The unique identifier of the uploaded file",
+          "minLength" : 0,
+          "maxLength" : 25
+        },
+        "fileUpload" : {
+          "type" : "string",
+          "description" : "Uses a file browser to locate and display the file. ",
+          "minLength" : 0,
+          "maxLength" : 50
+        }
+      }
+    },
+    "ProfilePictureUploadDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "ProfilePictureUploadDelete"
+    },
+    "DocumentandImageDelete" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        }
+      },
+      "description" : "DocumentandImageDelete"
+    },
+    "updateProfilePictureUpload" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProfilePictureUploadBody"
+        }
+      },
+      "description" : "ProfilePictureUpload",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
+    },
+    "createDocumentandImage" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DocumentandImageBody"
+        }
+      },
+      "description" : "DocumentandImage",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "imageApplication" : "CUSTOMER",
+          "notes" : "NEW IMAGE",
+          "displayName" : "Petero",
+          "imageReference" : "190167",
+          "multiMediaType" : "IMAGE",
+          "descriptions" : [ {
+            "description" : "Petero"
+          } ],
+          "imageType" : "PHOTOS"
+        }
+      }
+    },
+    "createProfilePictureUpload" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProfilePictureUploadBody"
+        }
+      },
+      "description" : "ProfilePictureUpload",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
+    },
+    "deleteProfilePictureUpload" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProfilePictureUploadBody"
+        }
+      },
+      "description" : "ProfilePictureUpload",
+      "example" : {
+        "header" : { },
+        "body" : {
+          "uploadId" : "IM1907902062",
+          "fileUpload" : "UploadCheck"
+        }
+      }
     }
   }
 }

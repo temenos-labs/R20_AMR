@@ -37,15 +37,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -90,15 +83,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -143,15 +129,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -196,15 +175,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -249,15 +221,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -302,15 +267,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -355,15 +313,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "query",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "query",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -402,7 +353,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "parse_time" : {
               "type" : "integer",
@@ -450,7 +401,7 @@
         "properties" : {
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "Application Name",
             "maxLength" : 70
           },
           "recordId" : {
@@ -460,7 +411,7 @@
           },
           "newOrExisting" : {
             "type" : "string",
-            "description" : "new or existing record for name for NOFILE  (an enquiry does not exist in a single file) enquiry for online upgrade",
+            "description" : "new or exisitng record for name for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           }
         }
@@ -535,7 +486,7 @@
         "properties" : {
           "applicationName" : {
             "type" : "string",
-            "description" : "The name of the application.",
+            "description" : "Application Name",
             "maxLength" : 70
           },
           "recordId" : {
@@ -545,7 +496,7 @@
           },
           "newOrExisting" : {
             "type" : "string",
-            "description" : "new or existing record for name for NOFILE  (an enquiry does not exist in a single file) enquiry for online upgrade",
+            "description" : "new or exisitng record for name for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           }
         }
@@ -569,17 +520,17 @@
         "properties" : {
           "restructureRecordsRel" : {
             "type" : "string",
-            "description" : "restructure information for NOFILE (an enquiry does not exist in a single file) enquiry for online upgrade",
+            "description" : "restructure information for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           },
           "release" : {
             "type" : "string",
-            "description" : "Release information",
+            "description" : "Release information for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           },
           "typeOfRestructure" : {
             "type" : "string",
-            "description" : "Type of restructure information for NOFILE (an enquiry does not exist in a single file) enquiry for online upgrade"
+            "description" : "Type of restructure information for NOFILE enquiry for online upgrade"
           }
         }
       }
@@ -602,12 +553,11 @@
         "properties" : {
           "table" : {
             "type" : "string",
-            "description" : "Application in the feeder queue for which the restructuring done.",
             "maxLength" : 70
           },
           "countOfRecords" : {
             "type" : "number",
-            "description" : "Total count of records information for NOFILE (an enquiry does not exist in a single file) enquiry for online upgrade"
+            "description" : "Total count of records information for NOFILE enquiry for online upgrade"
           }
         }
       }
@@ -630,17 +580,16 @@
         "properties" : {
           "channel" : {
             "type" : "string",
-            "description" : "The ID of the Channel",
             "maxLength" : 70
           },
           "channelDescription" : {
             "type" : "string",
-            "description" : "Information on the channel",
+            "description" : "Channel information for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           },
           "countOfRecords" : {
             "type" : "string",
-            "description" : "Total count of records information for NOFILE (an enquiry does not exist in a single file) enquiry for online upgrade",
+            "description" : "Total count of records information for NOFILE enquiry for online upgrade",
             "maxLength" : 70
           }
         }
@@ -665,12 +614,12 @@
           "startTimeValue" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Start time for primary and secondary upgrade service"
+            "description" : "start time for primary and secondary upgrade service"
           },
           "endTimeValue" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "End time for primary and secondary upgrade service"
+            "description" : "end time for primary and secondary upgrade service"
           }
         }
       }
@@ -694,12 +643,12 @@
           "startTimeValue" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "Start time for primary and secondary upgrade service"
+            "description" : "start time for primary and secondary upgrade service"
           },
           "endTimeValue" : {
             "type" : "string",
             "format" : "date-time",
-            "description" : "End time for primary and secondary upgrade service"
+            "description" : "end time for primary and secondary upgrade service"
           }
         }
       }

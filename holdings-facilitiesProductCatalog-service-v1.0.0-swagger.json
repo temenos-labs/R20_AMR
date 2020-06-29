@@ -46,15 +46,8 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -105,7 +98,7 @@
             },
             "versionNumber" : {
               "type" : "string",
-              "description" : "Current number of the record"
+              "description" : "The CURR.NO. of the record"
             },
             "requestParse_time" : {
               "type" : "integer",
@@ -158,17 +151,17 @@
         "properties" : {
           "productGroup" : {
             "type" : "string",
-            "description" : "Indicates a group under which the products exists",
+            "description" : "The group, as defined by the institution, that the product belongs to.",
             "maxLength" : 65
           },
           "product" : {
             "type" : "string",
-            "description" : "Indicates an id or name of a product",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
             "maxLength" : 65
           },
           "productLine" : {
             "type" : "string",
-            "description" : "Indicates a Financial Line, Eg: Loans,Deposits,Accounts etc."
+            "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
           }
         }
       }
