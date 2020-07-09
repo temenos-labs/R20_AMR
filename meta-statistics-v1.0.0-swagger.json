@@ -4,7 +4,7 @@
     "version" : "v1.0.0",
     "title" : "Statistics Provider APIs"
   },
-  "host" : "api.server.com",
+  "host" : "api.temenos.com",
   "basePath" : "/v1.0.0",
   "schemes" : [ "https", "http" ],
   "paths" : {

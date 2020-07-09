@@ -5,7 +5,7 @@
     "version": "v2.0.0",
     "title": "Retrieves the balances of an arrangement account"
   },
-  "host": "api.server.com",
+  "host": "api.temenos.com",
   "basePath": "/api/v2.0.0/",
   "schemes": [
     "http",
